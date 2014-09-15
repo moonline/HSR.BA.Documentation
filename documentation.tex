@@ -1,0 +1,210 @@
+%Pakete;
+%A4, Report, 12pt
+\documentclass[ngerman,a4paper,12pt]{scrreprt}
+\usepackage[a4paper, right=20mm, left=20mm,top=30mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+
+%Papierausrichtungen
+\usepackage{pdflscape}
+\usepackage{lscape}
+
+%pdf include
+\usepackage{pdfpages}
+
+%Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
+%quellcode, csv
+\usepackage{listings}
+\usepackage{styles/csvsimple}
+
+%tabellen
+\usepackage{tabularx}
+
+%listen und aufzählungen
+\usepackage{paralist}
+
+%farben
+%\usepackage[svgnames,table,hyperref]{xcolor}
+
+%font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%Abkürzungsverzeichnisse
+\usepackage[printonlyused]{acronym}
+
+%Bilder
+\usepackage{graphicx} %Bilder
+\usepackage{float}	  %"Floating" Objects, Bilder, Tabellen...
+
+%Kopf- /Fusszeile
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\fancyhead[L]{Studienarbeit} %Kopfzeile links
+	\fancyhead[C]{} %Kopfzeile mitte
+	\fancyhead[R]{\project} %Kopfzeile rechts
+	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile links
+	\fancyfoot[C]{} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+%Kopf-/ Fusszeile auf chapter page
+\fancypagestyle{plain} {
+	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+	\fancyhead[L]{Studienarbeit} %Kopfzeile links
+	\fancyhead[C]{} %Kopfzeile mitte
+	\fancyhead[R]{\project} %Kopfzeile rechts
+	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+	\fancyfoot[L]{Seite \thepage/\pageref{LastPage}} %Fusszeile links
+	\fancyfoot[C]{} %Fusszeile mitte
+	\fancyfoot[R]{\today{}} %Fusszeile rechts
+}
+
+\usepackage{changepage}
+
+%links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
+\usepackage[bookmarks=true,
+bookmarksopen=true,
+bookmarksnumbered=true,
+breaklinks=true,
+colorlinks=true,
+linkcolor=black,
+anchorcolor=black,
+citecolor=black,
+filecolor=black,
+menucolor=black,
+pagecolor=black,
+urlcolor=black
+]{hyperref} % Paket muss unbedingt als letzes eingebunden werden!
+
+%Dokumenteigenschaften
+\providecommand{\project}{Entwurfsentscheidungen als Projektplanungsinstrument}
+\author{Laurin Murer, Tobias Blaser}
+\providecommand{\room}{1.X}
+\providecommand{\teacher}{Prof. Dr. Olaf Zimmermann}
+\title{\documentType \project}
+\date{\today{}, Rapperswil}
+
+\newcommand{\license}[1]{\textit{\textbf{Bildlizenz(en)}: #1}}
+
+%Dokumenteigenschaften
+\providecommand{\documentType}{Projektdokumentation}
+\providecommand{\versionnumber}{0.1}
+
+\begin{document}
+
+
+%Titel und Inhaltsverzeichnis
+\thispagestyle{empty}
+\begin{titlepage}
+	\begin{figure}[htp]
+		\includegraphics[height=2.5cm]{media/img/logoHSR.png}
+	\end{figure}	
+	
+	\begin{center}
+
+		\vspace*{0.5cm}
+		{\fontsize{32}{40} \selectfont \textbf{\project} \\[10mm]}
+	
+		%\begin{figure}[htp]
+		%	\centering
+			%\includegraphics[scale=0.60]{media/img/logo.png}
+		%\end{figure}		
+		\vspace*{1cm}	
+	
+		{\fontsize{32}{40} \selectfont \textbf{Bachelorarbeit} \\[10mm]}
+	
+		{\fontsize{18}{20} \selectfont 
+			Abteilung Informatik\\
+			Hochschule für Technik Rapperswil \\
+				
+			\vspace*{1cm}
+			Herbstsemester 2014\\
+		}
+		
+		\vspace*{2cm}
+		Laurin Murer, Tobias Blaser \\
+		Betreuer: \teacher
+
+	\end{center}
+\end{titlepage}
+\clearpage
+
+% don't forget to print page numbers on the external pdf's
+%\includepdf[pages=-]{media/documents/Aufgabenstelleung.pdf}
+%\includepdf[pages=-]{media/documents/UsageLicense.pdf}
+%\includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
+
+\chapter*{Änderungsnachweis}
+\begin{tabularx}{\textwidth}{|cXlr|} % Versionstabelle, Rahmen links und rechts
+		\hline
+		\textbf{Version} & \textbf{Änderung} & \textbf{Autor} & \textbf{Datum}\\
+		\hline
+		\versionnumber & Dokumentenentwurf & Tobias Blaser & 15.09.14.\\
+		\hline
+\end{tabularx}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+
+% abstract, management summary, vision
+%\input{introduction/abstract}
+%\input{introduction/managementSummary}
+%\input{introduction/vision}
+
+% projektorganisation
+\input{projectPlan/projectOrganisation}
+
+% requirements ?
+
+% architektur analyse
+\input{architecture/technology}
+%\input{architecture/bigPicture}
+%\input{architecture/domain}
+%\input{architecture/thirdPartyCode}
+
+% performance analyse
+
+% Erkenntnisse, Schlussfolgerungen
+%\input{conclusion/knowledge}
+%\input{conclusion/conclusion}
+%\input{conclusion/reviewTblaser}
+
+%\begin{thebibliography}{literatur}
+%	\bibitem{Author-Publication-Identifier} Author: 
+%		"`Documenttitle"', RFC (Stand am 01.10.14),
+%		\hyperlink{http://www.google.com}{http://www.google.com}, 
+%		[Abruf am 01.10.14]
+%\end{thebibliography}
+
+
+
+%\appendix
+
+% projektplan
+\input{projectPlan/projectPlan}
+%\input{projectPlan/riskManagement}
+\input{projectPlan/infrastructure}
+
+% Performanceanalyse
+
+% Qualitätsmanagement
+%\input{qualityManagement/qualityManagement}
+
+% interfaces & protocols
+%\input{interfacesAndProtocols/interfacesAndProtocols}
+
+% poster
+%\begin{landscape}
+%	\includepdf[pages=-]{media/documents/poster.pdf}
+%\end{landscape}
+
+
+\end{document}
