@@ -29,6 +29,11 @@ Protokoll
 * Reviews bis Freitag 13:00 -> Feedback bis am Montag im Meeting
 
 
+## Feedback
+
+* ZIO gibt gerne Feedback, wir müssen es aber einfordern!
+
+
 ### Rechte
 
 * **Todo:** Vereinbarung durchsehen, vorbereiten und abschliessen am nächsten Meeting
@@ -42,20 +47,22 @@ Protokoll
 
 ### Todo bis 22.09.14
 
-* Folien EnComp "getroffene Architekturentscheidungen" als Beispieldaten anschauen/aufbereiten
+* Folien EnCom "getroffene Architekturentscheidungen" als Beispieldaten anschauen/aufbereiten (IBM-Template, Y-Dokumentation)
+* BA von Tinner/Zigerlig anschauen
 * Bestehendes Tool anschauen
 * Projektplanung/Meilensteine machen
 * Abläufe und Regelungen BA nochmals durchschauen
+* Dokumentverwaltung klären (HSR ownCloud, Laurins ownCloud, Dropbox,...?)
 
 
 ### Bewertungskriterien
 
-* Gleich wie SA + Abschlusspräsentation -> jeder Teil zählt 1/6
+* Gleich [wie SA](https://www.hsr.ch/fileadmin/user_upload/hsr.ch/abt_I_crm/downloads/Beurteilung_SA_empty.doc) + Abschlusspräsentation -> jeder Teil zählt 1/6
 
 
 ## Aufgabenstellung
 
-* Template mit Platzhaltern für uns zum Ausfüllen
+* ZIO erstellt Template mit Platzhaltern für uns zum Ausfüllen
 
 
 ### Liefergegenstände
@@ -72,17 +79,30 @@ Protokoll
 * Reife der Konzepte: Konfigurierbarkeit, Flexibilität, Eleganz der Mapping Konzepte (Metamapping)
 
 
-### Beispiel User Story
+### Skizzierung des Projekts
+
+#### Bereits vorhanden
 
 *User*: Anwendungs- und Integrationsarchitekt bei Bombardier
 *Zielgruppe*: Kollegen, die Cloud Projekte machen Inhouse, Projektleiter, die Angebote schreiben und Projekt organisieren
 *Vorwissen*: Architekturentscheidungen, Patterns, z.B: Session State
 *Entscheidung*: Session State ausmodelliert: DB Stored Session
 *Tasks*: Review über bestehende Architektur, Modernisierungsbedarf modellieren auf Basis Review Resultat, Eingesetztes Pattern ersetzen durch besser geeignetes basierend auf bisher genutzten Patterns
-*Beispielattribute*: Rolle (wer ist Zuständig), Technisches Risiko (z.B: % oder abgestuftes mapping), Folgetasks
+
+#### Neuer Teil
+
+*Tasks*: Von Entscheidungen abgeleitete Tasks erfassen (die dann durch die Zielgruppe in ein Issue-Tracking-Tool exportiert werden können und damit ein Projektplan erstellt werden kann). Die Tasks können beispielsweise Attribute wie Rolle (wer ist Zuständig), Technisches Risiko (z.B: % oder abgestuftes Mapping) oder Folgetasks aufweisen.
 *Einschränkung*: One-Way Prozedere -> Dokumentieren warum!
 
 
+Nächstes Meeting
+----------------
+*Datum*: Mo 22.09.14.
+*Zeit*: 13:00 - 14:00
+*Ort*: Rapperswil, HSR, tbd
 
+## Traktanden
+
+* Weitere Meetings planen
 
 
