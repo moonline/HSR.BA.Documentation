@@ -1,4 +1,4 @@
-\section{Technology}
+\section{Technologie}
 	\subsection{Client}
 		\subsubsection{Sprache}
 			\begin{tabularx}{\textwidth}{|lXX|}
@@ -26,16 +26,17 @@
 			\end{tabularx}
 			
 			
-		\subsubsection{Framework}
+		\subsubsection{Architektur-Framework}
 			\begin{tabularx}{\textwidth}{|lXX|}
 				\hline
 					\textbf{} & \textbf{Vorteile} & \textbf{Nachteile}\\
 				\hline
 					\textbf{Angular JS} &
 					\begin{itemize}
-						\item Angular ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit
-						\item Angular ist den Studenten bekannt
-						\item Angular wurde auch schon für die bestehende Applikation eingesetzt
+						\item bekanntes MVW- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung
+						\item bindet ViewModel Properties und Functions ans Template, wodurch sich Observerkonstrukte sparen lassen
+						\item ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit
+						\item wurde auch schon für die bestehende Applikation eingesetzt
 					\end{itemize} &
 					\begin{itemize}
 						\item Attribute Binding besitzt gewissen Overhead
@@ -54,12 +55,33 @@
 						\item Vollständig freie Architekturgestaltung
 					\end{itemize} &
 					\begin{itemize}
-						\item Hoher Implementationsaufwand ohen Gewinn
+						\item Hoher Implementationsaufwand ohne Gewinn
 					\end{itemize} \\
 				\hline
 			\end{tabularx}
 			
+			\subsubsection{Require.js}
+				Require.js eignet sich gut zur Strukturierung und zum Autolading der Klassen und komponenten, 
+				insbesondere während der Entwicklung.
 
+		\subsection{UI Frameworks}
+			\subsubsection{LESS}
+				Less soll als CSS Generator eingesetzt werden, da es den CSS Code stark verschlankt und Vorteile wie Variablen und Mixins bietet. LESS kann bei einem Node.js Server serverseitig compiled werden um den Client zu entlasten.
+				
+		\subsection{Testing}
+			Testing Framework Anforderungen:
+			\begin{itemize}
+				\item Einfach einzubinden
+				\item Einfach zu erweitern
+				\item Bekannte Benutzung mit Tests und Asserts
+				\item Möglichkeit zur Anbindung eines Build Tools
+			\end{itemize}
+
+			\subsubsection{JsUnit / QUnit}
+				JsUnit wie QUnit arbeiten mit einem realen Browser (keine Browsersimulation), 
+				sind einfach handzuhaben und bieten typische Assert-Syntax.
+				
+				
 	\subsection{Server}
 
 		\subsubsection{Sprache}
@@ -72,7 +94,7 @@
 						\item Gleiche Technologie wie Client
 					\end{itemize} &
 					\begin{itemize}
-						\item
+						\item Vergrössert den Technologiepark da andere Technologie als bestehende Applikation
 					\end{itemize} \\
 				\hline
 				\textbf{Java} &
