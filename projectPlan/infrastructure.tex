@@ -46,12 +46,6 @@
 			\subsubsection{Git Flow}
 				Git Flow automatisiert häufige Git Operationen für einen Entwicklungsorkflow mit Master-, Develop-, und Featurebranches.
 
-			\subsubsection{Backup}
-				\begin{description}
-					\item[Repository] Ein zusätzliches Backup des Projektrepositories ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).				
-					\item[Entwicklungsserver] Projekt- und Entwicklungsserverbackups werden regelmässig von Hand durchgeführt.
-				\end{description}
-
 		\subsection{Dokumentation}
 			\subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
 				\LaTeX\ ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente,
@@ -123,3 +117,26 @@
 			Virtuellem Linux Server (Ubuntu Server 14.04) von der Schule zur Verfügung gestellt.
 			
 			Für die Entwicklung werden mit Vagrant virtuelle Wegwerfumgebungen aufgebaut.
+
+
+	\section{Backup}
+		\subsection{Persönliche Entwicklungsgeräte}
+			\subsubsection{MacBook von Laurin Murer}\label{backupLaurin}
+				Die Daten auf dem Rechner von Laurin Murer werden mehrstufig archiviert.
+				Einerseits mit TimeMachine\footnote{Backuplösung von Apple: \link{https://www.apple.com/chde/support/timemachine/}} auf eine externe Festplatte und zusätzlich noch mit Wuala\footnote{Schweizer Cloud Speicher Dienst: \link{https://www.wuala.com/}} in die Cloud.
+
+			\subsubsection{Linux Laptop von Tobias Blaser}
+				Die Daten auf dem Rechner von Tobias Blaser werden mit BackInTime\footnote{Rsync basierte Backuplösung für Linux: \link{http://backintime.le-web.org/}} auf eine externe Festplatte archiviert.
+				
+		\subsection{Arbeitsplätze im Zimmer 1.206}
+			Auf diesen Rechnern werden keine Daten abgelegt, dadurch müssen sie auch nicht in einem Backup eingeschlossen werden.
+
+		\subsection{Virtual Server}
+			Vom virtuellen Server werden lediglich einige Daten archiviert, und zwar jene, welche von uns erstellt wurden.
+			Diese Daten werden alle unter /root/to\_backup referenziert.
+			Dieser Ordner wird dann regelmässig auf das MacBook von Laurin Murer kopiert, wo es dann in seinem Backup eingeschlossen wird (siehe \ref{backupLaurin}).
+		
+		\subsection{Repository und Entwicklungsserver}
+			Ein zusätzliches Backup des Projektrepositories ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist.
+			Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub) sowie auch in den entsprechenden Backups integriert.
+
