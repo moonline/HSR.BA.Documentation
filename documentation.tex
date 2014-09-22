@@ -103,6 +103,7 @@ urlcolor=black
 \providecommand{\documentType}{Projektdokumentation}
 \providecommand{\versionnumber}{0.2}
 
+
 \begin{document}
 
 
@@ -169,11 +170,14 @@ urlcolor=black
 % projektorganisation
 \input{projectPlan/projectOrganisation}
 
-% requirements ?
+% requirements
+\input{requirements/projectDescription}
+\input{requirements/userStories}
+\input{requirements/nfRequirements}
 
 % architektur analyse
+\input{architecture/bigPicture}
 \input{architecture/technology}
-%\input{architecture/bigPicture}
 %\input{architecture/domain}
 %\input{architecture/thirdPartyCode}
 
@@ -184,13 +188,14 @@ urlcolor=black
 %\input{conclusion/conclusion}
 %\input{conclusion/reviewTblaser}
 
+\input{glossary}
 \input{literature}
 
 %\appendix
 
 % projektplan
 \input{projectPlan/projectPlan}
-%\input{projectPlan/riskManagement}
+\input{projectPlan/riskManagement}
 \input{projectPlan/infrastructure}
 
 % Performanceanalyse
