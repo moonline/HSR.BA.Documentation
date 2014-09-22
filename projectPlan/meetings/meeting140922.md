@@ -19,7 +19,7 @@
 
 
 ### Meetings
-Wöchtentlich am Monatg, 13:00.
+Wöchentlich am Montag, 13:00.
 
 ### Nutzungsvereinbarung
 Wurde angepasst, wird von den Studenten gedruckt, unterschrieben und ZIO zum Unterschreiben ins Fach gelegt.
@@ -48,35 +48,38 @@ Links jeweils nicht als Text, sondern direkt als URL (z.B. bei Aufforderung für
 
 ## Input vom Betreuer
 ### Domain
-statischer Baum: Inhaltsverzeichnis über den Inhalt
-dynamsicher Baum: Auflistung, was von was abhängt (Entscheidungsflow)
+statischer Baum: Inhaltsverzeichnis über den Inhalt.
+dynamischer Baum: Auflistung, was von was abhängt (Entscheidungsflow)
 
-Eine Option kann sein, dass wir das GUI der CDAR "ignorieren" und lediglich das API verwenden. Und evtl. gar eine eigene API schreiben oder die bestehende erweitern.
+Eine Option kann sein, dass wir das GUI der CDAR "ignorieren" und lediglich das API verwenden. Und evtl. gar ein eigenes API schreiben oder das bestehende erweitern.
 
 Starke Präferenz für Java von ZIO
 
-ZIO Empfiehlt uns "Developing in the Cloud" aus dem IEEE Software March/April 2014 Seite 41. Darin hat es eine Reihe von Issue-Tracking Software. Idee: einige davon anschauen und schauen, ob es mit unserem zu entwickelnden Tool funktioniert.
+ZIO Empfiehlt uns [Developing in the Cloud](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6774357&queryText%3Ddeveloping+in+the+cloud) aus dem IEEE Software March/April 2014 Seite 41. Darin hat es eine Reihe von Issue-Tracking Software. Idee: einige davon anschauen und schauen, ob es mit unserem zu entwickelnden Tool funktioniert.
 
 ### Requirements:
 * Desto weniger Abhängigkeiten, desto besser (Software Base)
 * Lizenzen: für jede einzelne Komponenten nachweisen
-* Technologiepark: Für user möglichst Benutzer klein halten -> weniger ist mehr, möglichst auf bestehende und weit verbreitete Technologien setzen
+* Technologiepark: Für Benutzer möglichst Benutzer klein halten -> weniger ist mehr, möglichst auf bestehende und weit verbreitete Technologien setzen
 
 ### CDAR-BA
 * Sie hatten ein Code-Review erhalten von ZIO.
 
 
 ## TODOs
+
 Studenten:
+
 * Aufgabenstellung an ZIO schicken zum Review
 * Nutzungsvereinbarung ausdrucken, unterschreiben, ins Fach legen
 
 ZIO:
+
 * GitHub Benutzernamen an Studenten schicken -> Studenten laden zum Repo ein.
 * Aufgabenstellung reviewen
 
 
 ## Beschlüsse
 * Protokoll kommt spätestens 48h nach Sitzung an ZIO
-* Das EEPPI ermöglicht das Einpflegen der wiederkehrenden Ereignisse (Todos) *ausschliesslich* über die API des CDAR
+* Das EEPPI ermöglicht das Einpflegen der wiederkehrenden Ereignisse (Todos) **ausschliesslich** über die API des CDAR
 
