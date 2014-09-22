@@ -13,8 +13,9 @@
 			Jira und Redmine bieten identische Funktionalität und es wurden sowohl mit Jira wie mit Redmine gute Erfahrungen gemacht. 
 			Redmine ist in der Basiskonfiguration eher auf RUP ausgerichtet, für Agile Entwicklung werden Plugins benötigt. 
 			Jira ist in der Basiskonfiguration auf Agile Entwicklung ausgerichtet. 
-			Die Bentzeroberfläche von Jira ist etwas moderner und benutzerfreundlicher gestaltet, ansosten sind sich beide Oberflächen jedoch ähnlich. 
+			Die Bentzeroberfläche von Jira ist etwas moderner und benutzerfreundlicher gestaltet, ansosten sind sich beide Oberflächen ähnlich. 
 			Jira ist kostenpflichitg, kostet allerdings sehr wenig und wird für nicht kommerzielle Projekte sogar gratis angeboten.
+			Redmine ist OpenSource.
 		
 			\begin{description}
 				\item[Evaluierte Produkte] Jira, Redmine
@@ -25,22 +26,31 @@
 
 		\subsection{Versionsverwaltung}
 			\subsubsection{Git}
-				Git ist ein bewährtes Versionsverwaltungstool, bietet den Vorteil von lokalen Repositories, ist sehr schlank und bringt eine gute Merge-Automatik mit.
+				\begin{description}
+					\item[Ausgewähltes Produkt] Git
+					\item[Mögliche Alternativen] SVN
+					\item[Begründung] Git ist ein bewährtes Versionsverwaltungstool, bietet den Vorteil von lokalen Repositories, ist sehr schlank und bringt eine gute Merge-Automatik mit.
+				\end{description}
 
 			\subsubsection{GitHub}
-				Mit GitHub besitzen die Studenten durch andere Projekte bereits Erfahrung. Als
-				Studenten haben sie Zugriff auf kostenlose "`Private-Repositories"'. Zudem
-				bietet GitHub noch zusätzliche Funktionen wie Wiki, RST- und MD-Viewer sowie
-				Repository-Zugriff und Dateibearbeitung über ein Webinterface.
+				\begin{description}
+					\item[Evaluierte Produkte] HSR Git, GitHub
+					\item[Ausgewähltes Produkt] GitHub
+					\item[Mögliche Alternativen] GitLab (Self hosted)
+					\item[Begründung] Mit GitHub besitzen die Studenten durch andere Projekte bereits Erfahrung. 
+						Als Studenten haben sie Zugriff auf kostenlose "`Private-Repositories"'. 
+						Zudem bietet GitHub noch zusätzliche Funktionen wie Wiki, RST- und MD-Viewer sowie
+						Repository-Zugriff und Dateibearbeitung über ein Webinterface.
+				\end{description}
 				
 			\subsubsection{Git Flow}
 				Git Flow automatisiert häufige Git Operationen für einen Entwicklungsorkflow mit Master-, Develop-, und Featurebranches.
 
 			\subsubsection{Backup}
-				Ein zusätzliches Backup ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).
-				
-				Projekt- und Entwicklungsserverbackups werden regelmässig von Hand durchgeführt.
-
+				\begin{description}
+					\item[Repository] Ein zusätzliches Backup des Projektrepositories ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist. Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub).				
+					\item[Entwicklungsserver] Projekt- und Entwicklungsserverbackups werden regelmässig von Hand durchgeführt.
+				\end{description}
 
 		\subsection{Dokumentation}
 			\subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
@@ -52,26 +62,40 @@
 				nicht verändert, im Unterschied zu einer Office-Applikation.
 				
 			\subsubsection{Für Literatur und temporäre Dokumente: Dropbox}
-				PDF Dokumente sowie Word Dokumente können nur schlecht versioniert werden mit git, da sie das Repository mit jeder Version aufblähen.
-				Daher werden solche Dokumente über Dropbox ausgetauscht und erst eingecheckt, wenn sie keinen oder kaum mehr Änderungen unterliegen.
+			PDF Dokumente sowie Office Dokumente können nur schlecht versioniert werden mit git, 
+			da sie das für Git ein Blob darstellen, und das Repository mit jeder Version unnötig aufblähen.
+			Daher werden solche Dokumente über einen Cloudshare ausgetauscht und erst eingecheckt, 
+			wenn sie keinen oder kaum mehr Änderungen unterliegen.
+				
+				\begin{description}
+					\item[Evaluierte Produkte] Owncloud HSR, Owncloud L.M., Dropbox
+					\item[Ausgewähltes Produkt] Dropbox
+					\item[Begründung] OwnCloud bietet zwar den Vorteil, dass die Hoheit über die Daten bei den Studenten selbst liegen würde.
+						Der Owncloud Client bietet allerdings keine Möglichkeit, 
+						zwischen mehreren Clouds umzuschalten. 
+						Daher müsste für die Verwendung einer BA Cloud der persönliche CloudSync abgeängt werden, 
+						was sehr unpraktisch ist.
+						Aus diesem Grund wurde Dropbox ausgewählt.
+				\end{description}
 
 			\subsubsection{Für Notizen \& Meetingprotokolle: Restructured Text (rst), txt, Markdown (md)}
 				Für Notizen und kleine Dokumente reichen RST, TXT oder MD vollständig aus. 
 				Sie sind schlank, bieten nur das notwendigste, können versioniert und gemergt werden,
-				weil es nur Textfiles sind, und werden von "`GitHub Document aPreview"'	unterstützt.
+				weil es nur Textfiles sind, und werden von "`GitHub Document Preview"'	unterstützt.
 
-			\subsubsection{Für Diagramme, Skizzen: LibreOffice Draw (OpenDocument)}
+			\subsubsection{Für Diagramme, Skizzen: OpenDocument}
 				Wo es nicht anders geht, wird OpenDocument eingesetzt. Dabei wird
 				berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht
 				gemerged werden kann.
 
 
 		\subsection{Modeling}
-			Als Modeling-Tool wird Astah gewählt, weil es ein gutes den den Studenten
-			bekanntes Tool ist.
-			Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image- sowie
-			PDF-Export.
-
+			\begin{description}
+				\item[Ausgewähltes Produkt] Astah
+				\item[Mögliche Alternativen] Umlet
+				\item[Begründung] Astah ein gutes den Studenten bekanntes Tool.
+					Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image- sowie PDF-Export.
+			\end{description}
 			
 		%\subsection{UI Drafting}
 
@@ -81,8 +105,12 @@
 			Ein Build-Server soll zum Automatisierten Ausführen der Tests eingesetzt werden.
 			Einige JS Testing Frameworks wie JsUnit bietet eine Anbindungsmöglichkeit an Build Server.
 			
-			Jenkins ist ein etabliertes und weit verbreitetes Produkt, 
-			das sich gut konfigurieren lässt und aus diesem Grund eingesetzt wird.
+			\begin{description}
+				\item[Ausgewähltes Produkt] Jenkins
+				\item[Begründung]  Jenkins ist ein etabliertes und weit verbreitetes Produkt, 
+					das sich gut konfigurieren lässt und aus diesem Grund eingesetzt wird.
+					Zudem gibt es für viele Frameworks Plugins, so auch für JSUnit.
+			\end{description}
 
 
 		\subsection{Entwicklungsumgebung}
@@ -91,5 +119,7 @@
 			Lizenzen für Webstorm werden von der Schule zur Verfügung gestellt.
 
 
-		\subsection{RunTime Environment}
+		\subsection{Development/Testing Environment}
 			Virtuellem Linux Server (Ubuntu Server 14.04) von der Schule zur Verfügung gestellt.
+			
+			Für die Entwicklung werden mit Vagrant virtuelle Wegwerfumgebungen aufgebaut.

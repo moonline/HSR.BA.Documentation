@@ -11,6 +11,6 @@
 1. Weitere Meetings planen
 2. Nutzungsvereinbarung
 3. Aufgabenstellung
-4. ZIO GitHub einladen
-5. Meilensteine
+4. GitHub Repo / Zugriff
+5. Meilensteine / Planung / Status
 6. Zitieren/Literaturhinweise
