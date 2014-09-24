@@ -81,5 +81,5 @@ ZIO:
 
 ## Beschlüsse
 * Protokoll kommt spätestens 48h nach Sitzung an ZIO
-* Das EEPPI ermöglicht das Einpflegen der wiederkehrenden Ereignisse (Todos) **ausschliesslich** über die API des CDAR
+* Das EEPPI ermöglicht das Einpflegen der zu treffenden Entscheidungen und Optionen (also der EE-Teil in EEPPI) **ausschliesslich** über (die API) des CDAR
 
