@@ -1,24 +1,37 @@
 \chapter{Risikomanagement}
 	\label{risiken} 
 	\section{Risiken}
+		\newcounter{riskidcounter}
+		
+		\newcommand{\riskTable}[7]{
+			%Die Spalten werden aufgeteilt auf 0.3 resp. 0.7-fache Textbreite
+			\noindent
+			\refstepcounter{riskidcounter}
+			\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
+				\hline	
+				Risiko-ID 		& \theriskidcounter \\
+				\hline
+				Titel 			& #1 \\
+				Beschreibung 		& #2 \\
+				max. Schaden		& #3  \\
+				Eintrittswahrscheinlichkeit & #4  \\
+				Gewichteter Schaden	& #5  \\
+				Vorbeugung		& #6 \\
+				Massnahmen		& #7 \\
+				\hline
+			\end{tabular}
+			\hspace{0.5cm}
+			\newline	
+		}
+		
+		\riskTable{Qualität der CDAR Schnittstelle}{Reicht die CDAR Schnittstelle nicht, bzw. stellt sie nicht genügend Informationen bereit, so muss die CDAR Server Applikation angepasst werden.}{50h}{0.5}{25h}{-}{Eignung der Schnittstelle durch den Prototyp abklären.}
+		
+		\riskTable{Einarbeitung Play Framework}{Die Einarbeitung des Teammitglieds, das das Playframework noch nicht kennt, dauert länder als angenommen.}{16h}{0.25}{4h}{Rechtzeitiges Einarbeiten ins Framework}{Funktionen zurückstellen zugunsten Einarbeitung ins Framework.}
+		
+		\riskTable{Mapping Complexity}{Die Abbildung des Metamappings ist wesentlich komplexer als angenommen.}{16h}{0.25}{4h}{Minimales Mapping bereits im Prototyp umsetzen um Komplexität abschätzen zu können.}{Mapping Features priorisieren, die Kernfunktionalität abdecken, Nebenfunktionalität weglassen}
 
-		%Die Spalten werden aufgeteilt auf 0.3 resp. 0.7-fache Textbreite
-		\noindent
-		\begin{tabular}{|p{0.3\textwidth} | p{0.7\textwidth} |}
-			\hline	
-			Risiko-ID & 1  \\
-			\hline
-			Titel &  \\
-			Beschreibung &  \\
-			max. Schaden	& Xh  \\
-			Eintrittswahrscheinlichkeit & y  \\
-			Gewichteter Schaden	& Zh  \\
-			Vorbeugung	&  \\
-			Massnahmen	&  \\
-			\hline
-		\end{tabular}
-		\hspace{0.5cm}
-		\newline
+		\riskTable{Schnittstelleneinheitlichkeit}{Die Schnittstellen der gängigen Projektmanagementsysteme sind zu unterschiedlich, als das sie über einen Adapter mit einer Konfiguration abgedeckt werden können.}{16h}{0.25}{4h}{Bereits während der Prototypenphase verschiedene Schnittstellen berücksichtigen.}{Mehrere Adapter für verschiedene Schnittstellentypen erstellen.}
 
-
+		
 	\section{Umgang mit Risiken}
+		Um die Risiken möglichst bald verringen zu können, sollen durch einen Prototyp die grössten Risikopunkte geklärt werden.
