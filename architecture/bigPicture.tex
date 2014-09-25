@@ -1,2 +1,69 @@
 \chapter{Architektur}
 	\section{Architekturübersicht}
+	
+	
+	\section{Tier-Architektur}
+		Aufgrund der Einschränkung von Technologie und den existierenden Komponenten des CDAR's stehen drei mögliche Tier-Architekturen zur Auswahl.
+		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{zio-AppArch-LayersMiddleware}.
+	
+		Die Entscheidung ist für "`Distributed Application"', also eine Single Page Application gefallen, 
+		weil diese Architektur es ermöglicht, die bestehende Serverlogik des CDAR zu nutzen, 
+		eine Serverseitige (zentralisierte) Persistenz anzubieten sowie dem Benutzer eine schnelle und unabhängige Applikation zur Verfügung zu stellen, die die Rechenleistung des Clients beansprucht, sodass der Server und dessen Kosten schlank gehalten werden können.
+		Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.
+		
+		\subsection{1-Tier Structure: Centralized Computing (Client-only Application)}
+			% TODO: Replace by image
+			\begin{verbatim}
+			        ------------------
+			           Presentation
+			Client        Logic
+			             Resources
+			        ------------------
+			                |
+			        ------------------
+			           Webserver/
+			Server       Hoster	
+			        ------------------		
+			\end{verbatim}
+
+			Die Serverkomponente übernimmt lediglich das Ausliefern einer WebApp. 
+			Die WebApp bezieht die Daten direkt aus externen Schnittstellen. 
+			Persistenz findet dezentral auf dem Client statt in Form von File Persistence oder 
+			Persistence durch das Framework (z.B. HTML5 Storage).
+	
+		\subsection{2-Tier Structure: Distributed Application (Single Page App)}
+			% TODO: Replace by image
+			\begin{verbatim}
+			        ------------------
+			           Presentation
+			Client        Logic
+			               API
+			        ------------------
+			                |
+			        ------------------
+			               API
+			           Small Logic
+			Server      Resources
+			        ------------------		
+			\end{verbatim}
+			Die Serverkomponente übernimmt Persistenz sowie minimale Logik (z.B. Login).
+			Presentation und Logik werden von der Client Komponente übernommen.
+			
+		\subsection{2-Tier Structure: Distributed Presentation}
+			\begin{verbatim}
+			        ------------------
+			Client  ------------------   
+			                ^
+			                |
+			        ------------------
+			           Presentation
+			Server        Logic
+			            Resources
+			        ------------------		
+			\end{verbatim}
+			Persistenz, Logik und Presentation werden vom Server übernommen.
+			Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
+			Es gibt keine aktiven Komponenten auf dem Client ausser asyncron nachladenden Skripten.
+			
+			
+		

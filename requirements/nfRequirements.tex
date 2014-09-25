@@ -2,24 +2,28 @@
 
 	\subsection{Qualitätsmerkmale}
 
+		% ISO/IEC 9126 / http://de.wikipedia.org/wiki/ISO/IEC_9126
 
 		\subsubsection{Functionality}
 		\begin{description}
-			\item[Interoperabilität] 
-			\item[Sicherheit] 
+			\item[Interoperabilität] Die Schnittstelle der Datenquelle der Entscheidungen sowie die Schnittstellen für das Projektplanungstool sollen konfigurierbar gestaltet sein, sodass sie für andere Systeme als CDAR und Jira/Redmine umkonfiguriert werden können. 
+			Software eigene Schnittstellen sollen ausreichend Dokumentiert werden, sodass zukünftige Projekte mit \eeppi\ interagieren können.
+			\item[Sicherheit] Im System gespeicherte sowie übertragene Daten sollen vor Zugriff Dritter geschützt werden.
+			Es soll nicht möglich sein, Informationen über Entscheidungen, Tasks oder Beutzer auszulesen oder zu verändern, 
+			ohne authentisiert zu sein.
 		\end{description}
 
 		\subsubsection{Usability}
 		\begin{description}
-			\item[Verständlichkeit] 
-			\item[Robustheit] 
+			\item[Verständlichkeit] Ein Benutzer soll anhand der Dokumentation selbstständig die Mapping Konzepte erlernen und erstellen können, um damit tasks generieren zu können. Das selbstständige Einarbeiten soll nicht länger als einen halben Arbeitstag dauern.
+			\item[Robustheit] Das System soll auch im Fehlerfall einen konsistenten Zustand annehmen und den Benutzer in Form einer lesbaren Fehlermeldung über das Problem informieren sowie Anleitung zum Beheben des Fehler geben.
 		\end{description}
 
 		\subsubsection{Portability}
 		\begin{description}
 			\item[Anpassbarkeit] 
-			\item[Installierbarkeit]
-			\item[Austauschbarkeit] 
+			\item[Installierbarkeit] Die Installation von \eeppi\ soll gut dokumentiert sein, sodass die Installation und Konfiguration nicht mehr als einen halben Arbeitstag dauert.
+			\item[Austauschbarkeit]
 		\end{description}
 
 	\subsection{Schnittstellen}
