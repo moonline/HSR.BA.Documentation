@@ -1,29 +1,35 @@
 \section{Weitere Anforderungen}
 
 	\subsection{Qualitätsmerkmale}
-
-		% ISO/IEC 9126 / http://de.wikipedia.org/wiki/ISO/IEC_9126
+		Die folgenden Qualitätsmerkmale orientieren sich an ISO/IEC 9126\ref{iso9126Wikipedia}.
 
 		\subsubsection{Functionality}
 		\begin{description}
-			\item[Interoperabilität] Die Schnittstelle der Datenquelle der Entscheidungen sowie die Schnittstellen für das Projektplanungstool sollen konfigurierbar gestaltet sein, sodass sie für andere Systeme als CDAR und Jira/Redmine umkonfiguriert werden können. 
-			Software eigene Schnittstellen sollen ausreichend Dokumentiert werden, sodass zukünftige Projekte mit \eeppi\ interagieren können.
-			\item[Sicherheit] Im System gespeicherte sowie übertragene Daten sollen vor Zugriff Dritter geschützt werden.
+			\item[Interoperabilität] Die \textit{Schnittstelle der Datenquelle} der Entscheidungen sowie die \textit{Schnittstellen für das Projektplanungstool} sollen konfigurierbar gestaltet sein, sodass sie für andere Systeme als CDAR und Jira/Redmine umkonfiguriert werden können. 
+			Für \textit{Software eigene Schnittstellen} sollen Aufrufparameter, Rückgabewerte und jeweils mindestens zwei Beispielaufrufe und Beispielantwortdatensätze dokumentiert werden, sodass zukünftige Projekte mit \eeppi\ interagieren können.
+			\item[Sicherheit] Im System gespeicherte Daten sollen vor Zugriff Dritter geschützt werden.
 			Es soll nicht möglich sein, Informationen über Entscheidungen, Tasks oder Beutzer auszulesen oder zu verändern, 
 			ohne authentisiert zu sein.
+			\item[Konformität] Zur Umsetzung der Schnittstellen und des Mapping Konzeptes sollen existierende Formate und Protokolle eingesetzt werden.
 		\end{description}
+		
+		
+		\subsubsection{Zuverlässigkeit}
+		\begin{description}
+			\item[Robustheit] Das System soll auch im Fehlerfall einen konsistenten Zustand annehmen und den Benutzer in Form einer lesbaren Fehlermeldung über das Problem informieren sowie Anleitung zum Beheben des Fehlers geben.
+		\end{description}
+		
 
 		\subsubsection{Usability}
 		\begin{description}
-			\item[Verständlichkeit] Ein Benutzer soll anhand der Dokumentation selbstständig die Mapping Konzepte erlernen und erstellen können, um damit tasks generieren zu können. Das selbstständige Einarbeiten soll nicht länger als einen halben Arbeitstag dauern.
-			\item[Robustheit] Das System soll auch im Fehlerfall einen konsistenten Zustand annehmen und den Benutzer in Form einer lesbaren Fehlermeldung über das Problem informieren sowie Anleitung zum Beheben des Fehler geben.
+			\item[Verständlichkeit] Ein Benutzer soll anhand der Dokumentation selbstständig die Mapping Konzepte erlernen und erstellen können, um damit Tasks generieren zu können. Das selbstständige Einarbeiten soll nicht länger als einen halben Arbeitstag dauern.
 		\end{description}
 
+		
 		\subsubsection{Portability}
 		\begin{description}
-			\item[Anpassbarkeit] 
+			\item[Anpassbarkeit] Die Software soll keine besondere Konfiguration/Modifikation am System erfordern und soll somit bei üblichen grossen Webhostern installiert werden, wenn diese die benötigten Softwarepakete anbieten.
 			\item[Installierbarkeit] Die Installation von \eeppi\ soll gut dokumentiert sein, sodass die Installation und Konfiguration nicht mehr als einen halben Arbeitstag dauert.
-			\item[Austauschbarkeit]
 		\end{description}
 
 	\subsection{Schnittstellen}
