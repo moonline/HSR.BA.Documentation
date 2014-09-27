@@ -41,16 +41,27 @@
 		Folgende Wörter werden in den User Stories verwendet und sind dafür zum genauen Verständnis hier definiert.
 		\begin{description}
 			\item[Wissensproduzent] Person, die aktiv neue Entscheidungen und formelle Tasks erfasst (als Beispiel kann hier \hyperref[olivia]{Olivia} dienen).
+			\item[Wissensbaum] Ein Projekt im CDAR, in welchem ein Wissensproduzent Wissen ablegt.
 			\item[Wissenskonsument] Person, die bestehende Entscheidungen benutzt um damit Entscheide zu fällen (als Beispiel kann hier \hyperref[thomas]{Thomas} dienen).
+			\item[Entscheidungsprojekt] Ein Projekt im CDAR, aus welchem ein Wissenskonsument Wissen konsumiert.
+				Es ist jeweils eine Kopie eines Wissensbaums.
 			\item[Administrator] Person, die für die Konfiguration und den Betrieb von \eeppi\ verantwortlich ist.
 			\item[Abbildung] Mit einer Abbildung lässt sich ein Datensatz in einen anderen Datensatz umwandeln.
+			\item[erstellen aus] Als Grundlage wird ein Datensatz genommen, aus welchem ein neuer Datensatz erstellt wird.
+				Anschliessend sind die beiden Datensätze voneinander unabhängig und Änderungen an einem Datensatz beeinflussen den anderen Datensatz nicht.
 			\item[Task] Datensatz, welcher eine Aufgabe beschreibt.
-			\item[Formeller Task] Task in allgemein gültiger Form (in von Projektplanungstools unabhängiger Form).
-			\item[Task Vorlage] Datensatz, um später daraus formelle Tasks zu erstellen.
-			\item[Entscheidungstask] Task, welcher die Aufgabe des Entscheidens für eine Entscheidung beschreibt.
+			\item[Task-Vorlage] Datensatz, um später daraus Tasks in einem Projektplanungstool zu erstellen.
+			\item[Entscheidungs-Task] Task, welcher zum Treffen einer Entscheidung erledigt werden muss.
+				Er ist einer Entscheidung angehängt.
+			\item[Operativer Task] Task, welcher durch das Treffen einer Option entsteht.
+				Er ist dementsprechend einer Option angehängt.
+			\item[Entscheidungs-Vorlage] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
+				Der Datensatz ist jedoch nur eine Vorlage, die Entscheidung kann nicht getroffen werden
 			\item[Entscheidung] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
-			\item[Entscheid] Entscheidung mit gewählter Option.
-			\item[offener Entscheid] Entscheidung mit noch nicht gewählter Option, aber eine Option soll demnächst gewählt werden.
+				Er wird aus einer Entscheidungs-Vorlage erstellt.
+				Die Entscheidung kann jetzt getroffen werden.
+			\item[Entscheid] Getroffene (entschiedene) Entscheidung.
+			\item[Option] Möglichkeit, wie eine Entscheidung entschieden wird.
 			\item[entscheiden] Tätigkeit, in welcher für Entscheidungen der Entscheid gefällt wird.
 			\item[importieren] Anwenden einer Abbildung zur Aufnahme von Datensätzen in das \eeppi.
 			\item[exportieren] Anwenden einer Abbildung zur Ausgabe von Datensätzen aus dem \eeppi.
@@ -80,24 +91,73 @@
 		\end{quote}
 		
 	\subsubsection{neue Abbildung erfassen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-20}
+			\item[Scope:] \eeppi
+			\item[Beschreibung:]\ \newline
+				Als Administrator\newline
+				will ich verschiedene Abbildungen von Task-Vorlagen auf Projektplanungstool-APIs erstellen\newline
+				um damit Benutzern den Export von Tasks in ein Projektplanungstool ermöglichen zu können.
+		\end{description}
 
 	\subsubsection{neuen Wissensbaum erstellen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-24}
+			\item[Scope:] CDAR (nicht \eeppi)
+			\item[Beschreibung:]\ \newline
+				Als Wissensproduzent\newline
+				will ich Entscheidungs-Vorlagen erfassen und untereinander verknüpfen\newline
+				um mein Wissen an Wissenskonsumenten weiter zu geben.
+		\end{description}
 
 	\subsubsection{neue Task-Vorlagen erfassen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-19}
+			\item[Scope:] \eeppi
+			\item[Beschreibung:]\ \newline
+				Als Wissensproduzent,\newline
+				will ich Abbildungen von Entscheidungen auf formelle Tasks erstellen\newline
+				um damit aus getroffenen Entscheiden Tasks generieren zu können.
+		\end{description}
 
 	\subsubsection{Task-Vorlage zu Entscheidungs-Vorlage hinzufügen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-32}
+			\item[Scope:] \eeppi
+			\item[Beschreibung:]\ \newline
+				Als Wissensproduzent\newline
+				will ich eine Entscheidungs-Vorlage auswählen und dieser Task-Vorlagen zuordnen können\newline
+				um die Abbildung von Entscheidungs-Vorlagen auf Task-Vorlagen zu realisieren.
+		\end{description}
 
 	\subsubsection{neues Entscheidungsprojekt erstellen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-38}
+			\item[Scope:] CDAR (nicht \eeppi)
+			\item[Beschreibung:]\ \newline
+				Als Wissenskonsument\newline
+				will ich aus einem Wissensbaum ein neues Entscheidungsprojekt erstellen\newline
+				um damit für ein konkretes Projekt Entscheidungen zu treffen.
+		\end{description}
 
 	\subsubsection{Entscheid treffen}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-23}
+			\item[Scope:] CDAR (nicht \eeppi)
+			\item[Beschreibung:]\ \newline
+				Als Wissenskonsument\newline
+				will ich Entscheide für Entscheidungen treffen\newline
+				um damit weitere Entscheidungen zu sehen und in meinem Projekt weiter zu kommen.
+		\end{description}
 
 	\subsubsection{Tasks exportieren}
-		TODO Story hier auflisten (\url{http://bajira.democ.ch/issues/?jql=issuetype\%20\%3D\%20Story\%20ORDER\%20BY\%20id})
+		\begin{description}
+			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-25}
+			\item[Scope:] \eeppi
+			\item[Beschreibung:]\ \newline
+				Als Wissenskonsument\newline
+				will ich Task-Vorlagen (Operative Tasks und/oder Entscheidungstasks) in ein Projektplanungstool exportieren\newline
+				um sie darin verwalten zu können.
+		\end{description}
 
 	
