@@ -4,6 +4,7 @@
 .directory
 ./idea/*
 .DS_Store
+*.*.bak
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
