@@ -1,4 +1,98 @@
 \chapter{Architektur}
+	% @var #1 id
+	% @var #2 name
+	% @var #3 thema
+	% @var #4 subject area
+	% @var #5 decision made
+	% @var #6 issue/problem
+	% @var #7 assumptions
+	% @var #8 motivation
+	% @var #9 justification
+	% @var #10 implications
+	% @var #11 derived requirements
+	% @var #12 related decisions
+	\newcommand{\decisionHeader}[4]{
+			\textbf{Themengebiet}	& #4	& \textbf{Thema}	& #3 \\
+			\hline
+			\textbf{Name}		& #2	& \textbf{ID}		& #1 \\
+	}
+	
+	\newcommand{\decisionContent}[8]{
+			\textbf{Getroffene Entscheidung} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#1\end{minipage}} \\
+			\hline
+			\textbf{Problemstellung}	& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#2\end{minipage}} \\
+			\hline
+			\textbf{Voraussetzung}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#3\end{minipage}} \\
+			\hline
+			\textbf{Motivation}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#4\end{minipage}} \\
+			\hline
+			\textbf{Begründung}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#5\end{minipage}} \\
+			\hline
+			\textbf{Annahmen}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#6\end{minipage}} \\
+			\hline
+			\textbf{Abgeleitete Entscheidungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#7\end{minipage}} \\
+			\hline
+			\textbf{Verknüpfte Entscheidungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#8\end{minipage}} \\
+	}
+	
+	\newcommand{\decision}[2]{
+		\vspace{0.5cm}
+		\noindent
+		\begin{tabularx}{\textwidth}{|p{0.2\textwidth}|X|l|l|}
+			\hline
+			#1
+			\hline
+			#2
+			\hline
+		\end{tabularx}
+		\vspace{0.5cm}
+		\newline	
+	}
+
+	\section{Erweiterung CDAR}
+		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das CDAR angebunden werden soll.
+		
+		\decision{
+			\decisionHeader
+			{1}
+			{Erweiterung CDAR}
+			{Architektur}
+			{Architektur design}
+		}{
+			\decisionContent
+			{}
+			{In welcher Art soll \eeppi\ mit dem CDAR integriert werden}
+			{}
+			{Möglichst grosse Unabhängigkeit vom CDAR, möglichst einfaches Handling für den Benutzer}{
+				Varianten:\newline
+				\textbf{Lose Kopplung, keine Integration} \eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
+			Ansonsten ist \eeppi\ unabhängig und könnte auch mit einer andern Applikation als das CDAR gekoppelt werden. 
+			Die Schnittstelle zum CDAR muss entsprechend konfigurierbar ausgelegt sein. \newline
+				\textbf{Lose Kopplung, keine Integration} \eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
+			CDAR Persistence sowie API werden komplett ersetzt.
+			Nur die Clientapplikation wird weiterverwendet.\newline
+				\textbf{CDAR UI erweitern} a
+			}
+			{}
+			{}
+			{}
+		}
+		
+		\subsection{Lose Kopplung, keine Integration}
+			\eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
+			Ansonsten ist \eeppi\ unabhängig und könnte auch mit einer andern Applikation als das CDAR gekoppelt werden. 
+			Die Schnittstelle zum CDAR muss entsprechend konfigurierbar ausgelegt sein.
+			
+		\subsection{Ersetzen der Serverkomponente, Verwendung des CDAR Clients}
+			\eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
+			CDAR Persistence sowie API werden komplett ersetzt.
+			Nur die Clientapplikation wird weiterverwendet.
+			
+			
+		\subsection{CDAR UI erweitern}
+		
+		
+
 	\section{Architekturübersicht}
 	
 	
