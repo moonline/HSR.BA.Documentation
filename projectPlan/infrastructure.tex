@@ -1,21 +1,26 @@
 \chapter{Infrastruktur}
-	\section{Hardware}
+	\section{Arbeitsplätze, Geräte und Server}
+		Um Entwickeln, Builden und Testen zu können, benötigt das Team die folgende Infrastruktur:
 		\begin{itemize}
 			\setlength{\itemsep}{-\parsep}
-			\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop (eigene Geräte)
 			\item Zugewiesene Arbeitsplätze im Zimmer 1.206
-			\item Virtual Server für Projektmanagement und als Entwicklungsserver
+			\item Persönliche Entwicklungsgeräte für jedes Teammitglied, bevorzugt Laptop (eigene Geräte)
+			\item Virtuelle Server für Projektmanagement und als Entwicklungsserver
 		\end{itemize}
 
 		
 	\section{Tools}
 		\subsection{Projektmanagement}	
-			Jira und Redmine bieten identische Funktionalität und es wurden sowohl mit Jira wie mit Redmine gute Erfahrungen gemacht. 
+			Jira und Redmine bieten ähnliche Funktionalität und Teammitglieder haben mit Jira wie mit Redmine gute Erfahrungen gemacht. 
 			Redmine ist in der Basiskonfiguration eher auf RUP ausgerichtet, für Agile Entwicklung werden Plugins benötigt. 
 			Jira ist in der Basiskonfiguration auf Agile Entwicklung ausgerichtet. 
 			Die Bentzeroberfläche von Jira ist etwas moderner und benutzerfreundlicher gestaltet, ansosten sind sich beide Oberflächen ähnlich. 
-			Jira ist kostenpflichitg, kostet allerdings sehr wenig und wird für nicht kommerzielle Projekte sogar gratis angeboten.
-			Redmine ist OpenSource.
+			
+			Jira ist kostenpflichitg, kostet allerdings nur 10\$\cite{atlassan_jira_2014} und wird für nicht kommerzielle Projekte sogar gratis angeboten.
+			Vom Hersteller selbst angebotene Jira Plugins kosten häufig auch nur 10\$, 
+			sodass das Erweitern von Jira mit Plugins auch für kleine Projekte finanziell tragbar ist.
+			
+			Redmine ist OpenSource und es existieren auch viele kostenlose Plugins.
 		
 			\begin{description}
 				\item[Evaluierte Produkte] Jira, Redmine
@@ -29,7 +34,7 @@
 				\begin{description}
 					\item[Ausgewähltes Produkt] Git
 					\item[Mögliche Alternativen] SVN
-					\item[Begründung] Git ist ein bewährtes Versionsverwaltungstool, bietet den Vorteil von lokalen Repositories, ist sehr schlank und bringt eine gute Merge-Automatik mit.
+					\item[Begründung] Git ist ein weit verbreitetes Versionsverwaltungstool, das sich bei den Teammitgliedern bei privaten, schulischen und geschäftlichen Projekten bewährt hat. Git bietet den Vorteil von lokalen Repositories, ist wesentlich schneller als SVN, benötigt für vergleichbare Repositories spürbar weniger Platz und bringt eine gute Mergeautomatik mit.
 				\end{description}
 
 			\subsubsection{GitHub}
@@ -44,11 +49,20 @@
 				\end{description}
 				
 			\subsubsection{Git Flow}
-				Git Flow automatisiert häufige Git Operationen für einen Entwicklungsorkflow mit Master-, Develop-, und Featurebranches.
+				Git Flow\cite{driessen_git_2014} automatisiert häufige genutzte Git Operationen für einen Entwicklungsorkflow\cite{driessen_successful_2010} mit Master-, Develop-, und Featurebranches.
+				Beispiel: Das Releasen einer neuen Version inklusive Branching, Merging und Tagging.
+				
+				
+		\subsection{Literaturverwaltung}
+			Zur Verwaltung von Literatur hat sich das Team für "`Zotero"'\cite{roy_rosenzweig_center_for_history_and_new_media_zotero_2014} entschieden.
+			Zotero ist den Studenten dem Team seit der Einführung in Literaturrecherchen Anfang Studium bekannt und
+			bietet viele prakitsche Funktionen, wie das Erzeugen von Literaturnachweisen aus aufgerufenen Webseiten.
+			Es ist als Browser Plugin verfügbar, erlaubt das Teilen der Literaturliste unter den Teammitgliedern und bietet einen Export nach BibTex.
+			
 
 		\subsection{Dokumentation}
 			\subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
-				\LaTeX\ ist perfekt geeignet für grosse, gemeinsam zu erarbeitende Dokumente,
+				\LaTeX\ ist sehr gut geeignet für grosse, gemeinsam zu erarbeitende Dokumente,
 				weil die Source-Dateien über Git versioniert und gemergt werden können und wenig
 				Platz verbrauchen. 
 				Zudem besteht ein sehr kleines Risiko auf Dokumentenverlust
@@ -57,29 +71,37 @@
 				
 			\subsubsection{Für Literatur und temporäre Dokumente: Dropbox}
 			PDF Dokumente sowie Office Dokumente können nur schlecht versioniert werden mit git, 
-			da sie das für Git ein Blob darstellen, und das Repository mit jeder Version unnötig aufblähen.
+			da sie für Git ein Blob darstellen, und das Repository mit jeder Version unnötig aufblähen.
 			Daher werden solche Dokumente über einen Cloudshare ausgetauscht und erst eingecheckt, 
 			wenn sie keinen oder kaum mehr Änderungen unterliegen.
 				
 				\begin{description}
 					\item[Evaluierte Produkte] Owncloud HSR, Owncloud L.M., Dropbox
 					\item[Ausgewähltes Produkt] Dropbox
-					\item[Begründung] OwnCloud bietet zwar den Vorteil, dass die Hoheit über die Daten bei den Studenten selbst liegen würde.
-						Der Owncloud Client bietet allerdings keine Möglichkeit, 
+					\item[Begründung] OwnCloud wäre die Präferenz des Dozenten wie der Studenten. 
+						OwnCloud bietet den Vorteil, dass die Hoheit über die Daten bei den Studenten selbst liegt, bzw. beim Hoster (Die HSR im Falle der HSR Cloud).
+						
+						Dropbox legt die Daten in der Amazon Cloud ab. 
+						Die Datenschutzbestimmungen erlauben den Betreibern nicht nur die Analyse und Verwendung der Daten, 
+						sondern auch die Weitergabe an Drittanbieter.
+						
+						Der Owncloud Client bietet leider keine Möglichkeit, 
 						zwischen mehreren Clouds umzuschalten. 
-						Daher müsste für die Verwendung einer BA Cloud der persönliche CloudSync abgeängt werden, 
-						was sehr unpraktisch ist.
-						Aus diesem Grund wurde Dropbox ausgewählt.
+						Daher müsste für die Verwendung einer BA Cloud der persönliche CloudSync deaktiviert werden, 
+						was sehr unpraktisch ist.						
+						Aus diesem Grund hat sich das Team trotz der Bedenken seitens Datenschutzes für Dropbox anstelle von OwnCloud entschieden.
 				\end{description}
 
-			\subsubsection{Für Notizen \& Meetingprotokolle: Restructured Text (rst), txt, Markdown (md)}
-				Für Notizen und kleine Dokumente reichen RST, TXT oder MD vollständig aus. 
-				Sie sind schlank, bieten nur das notwendigste, können versioniert und gemergt werden,
-				weil es nur Textfiles sind, und werden von "`GitHub Document Preview"'	unterstützt.
+			\subsubsection{Für Notizen \& Meetingprotokolle: Restructured Text (rst), Markdown (md)}
+				Für Notizen und kleine Dokumente haben sich die Studenten für RST und MD entschieden, 
+				da deren Funktionalität für den Zweck vollständig ausreicht und im Zusammenhang mit den eingesetzen Tools einige Vorteile bieten. 
+				Sie sind schlank, bieten nur das notwendigste an Markup, können versioniert und gemergt werden,
+				weil es nur Textfiles sind, und werden von "`GitHub Document Preview"' unterstützt.
 
 			\subsubsection{Für Diagramme, Skizzen: OpenDocument}
-				Wo es nicht anders geht, wird OpenDocument eingesetzt. Dabei wird
-				berücksichtigt, dass es über Git nicht inkrementell versioniert und nicht
+				Für Anwendungsfälle, in denen die bereits genannten Dokumentformate nicht ausreichen, 
+				wird OpenDocument eingesetzt. Dabei wird berücksichtigt, 
+				dass es über Git nicht inkrementell versioniert und nicht
 				gemerged werden kann.
 
 
@@ -87,7 +109,7 @@
 			\begin{description}
 				\item[Ausgewähltes Produkt] Astah
 				\item[Mögliche Alternativen] Umlet
-				\item[Begründung] Astah ein gutes den Studenten bekanntes Tool.
+				\item[Begründung] Astah ist ein gutes, den Studenten bekanntes Tool.
 					Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image- sowie PDF-Export.
 			\end{description}
 			
@@ -95,8 +117,8 @@
 
 
 
-		\subsection{Building}
-			Ein Build-Server soll zum Automatisierten Ausführen der Tests eingesetzt werden.
+		\subsection{Building \& Testing}
+			Ein Build-Server soll zum automatisierten Ausführen der Tests eingesetzt werden.
 			Einige JS Testing Frameworks wie JsUnit bietet eine Anbindungsmöglichkeit an Build Server.
 			
 			\begin{description}
@@ -113,10 +135,9 @@
 			Lizenzen für Webstorm werden von der Schule zur Verfügung gestellt.
 
 
-		\subsection{Development/Testing Environment}
-			Virtuellem Linux Server (Ubuntu Server 14.04) von der Schule zur Verfügung gestellt.
-			
-			Für die Entwicklung werden mit Vagrant virtuelle Wegwerfumgebungen aufgebaut.
+		\subsection{Development Environment}
+			Auf dem von der Schule zur Verfügung gestellten virtuellen Server werden 
+			für die Entwicklung mit Vagrant\cite{hashicorp_vagrant_2013} virtuelle Wegwerfumgebungen aufgebaut.
 
 
 	\section{Backup}
