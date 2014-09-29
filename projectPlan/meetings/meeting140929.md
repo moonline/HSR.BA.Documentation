@@ -92,9 +92,11 @@ Siehe Mappingtypen und Beispiele
 
 ## TODOs
 Studenten:
+
 * Nutzungsvereinbarung scannen und an ZIO zurückgeben -> Wurde gleich anschliessend erledigt
 
 ZIO:
+
 * Sendet definitive Aufgabenstellung an die Studenten
 * Nuzungsvereinbarung an Studenten abgeben -> Wurde gleich anschliessend erledigt
 
