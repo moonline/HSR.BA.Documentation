@@ -2,15 +2,19 @@
 		\subsection{Domainmodel}
 	
 		\subsection{Verknüpfungen von Task-Vorlagen und Entscheidungs-Vorlagen}
-			Wissensproduzenten können Task-Vorlagen an Entscheidungs-Vorlagen zuordnen.
-			Dabei kann und soll auch eine Task-Vorlage an verschiedene Entscheidungs-Vorlagen zugeordnet werden.
+			Wissensproduzenten können Task-Vorlagen zu Entscheidungs-Vorlagen zuordnen.
+			Dabei kann und soll auch eine Task-Vorlage an verschiedene Entscheidungs-Vorlagen zugeordnet werden können.
 			Ebenso können Entscheidungs-Vorlagen natürlich mehrere Task-Vorlagen zugeordnet erhalten.
 			
 			\subsubsection{Arten der Zuordnung}
-				Task-Vorlagen können mit Entscheidungs-Vorlagen auf zwei Arten verknüpft werden.
-				Sie können entweder dann fällig werden, wenn eine Entscheidung getroffen wurde (operativer Task).
-				Oder eine Task-Vorlage ist da um eine Entscheidung zu treffen (Entscheidungstask).
-				Auf die Task-Vorlagen selbst hat dies jedoch keinen Einfluss, sie sind unabhängig davon.
+				Task-Vorlagen können mit Entscheidungs-Vorlagen auf zwei Arten verknüpft werden:
+				\begin{enumerate}
+					\item Sie können dann fällig werden, wenn eine Entscheidung getroffen wurde (operativer Task).
+					\item Eine Task-Vorlage dient dazu, Entscheidungen zu treffen (Entscheidungstask).
+				\end{enumerate}
+				Auf die Task-Vorlagen selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
+				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt hängt nur davon ab,
+				ob die Task-Vorlage mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
 
 			\subsubsection{Übertragung in \ppt}
 				Aus diesen Task-Vorlagen werden beim Übertag in ein \ppt\ Tasks generiert.
@@ -20,15 +24,15 @@
 				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{architecture/media/img/DecisionTaskRelation.jpg}
 					\centering
-					\caption{Exportieren von Entscheidungen}
+					\caption{Übertragen von Entscheidungen und Task-Vorlagen}
 					\label{fig:DecisionTaskRelation}
 				\end{figure}
 				
-				Beim Exporten werden aus Task-Vorlagen (konkrete) Tasks.
-				Auch Entscheidungen werden zu Tasks.
-				Mit Entscheidungen verknüpfte Tasks werden dann zu Sub-Tasks.
+				Beim Übertragen werden aus Task-Vorlagen (konkrete) Tasks.
+				Auch Entscheidungen werden zu Tasks übertragen, da \ppt's keine Entscheidungen kennen.
+				Mit Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
 				
-				Benutzer wollen beim Export die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
+				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der Task-Vorlagen in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
 				Gleiches gilt für Entscheidungen. Würde jemand im CDAR diese verändern oder Löschen, so würde dies die History zerstören.
 			
