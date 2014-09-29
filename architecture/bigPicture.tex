@@ -30,7 +30,7 @@
 			\hline
 			\textbf{Annahmen}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#6\end{minipage}} \\
 			\hline
-			\textbf{Abgeleitete Entscheidungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#7\end{minipage}} \\
+			\textbf{Abgeleitete Anforderungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#7\end{minipage}} \\
 			\hline
 			\textbf{Verknüpfte Entscheidungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#8\end{minipage}} \\
 	}
@@ -65,32 +65,23 @@
 			{}
 			{Möglichst grosse Unabhängigkeit vom CDAR, möglichst einfaches Handling für den Benutzer}{
 				Varianten:\newline
-				\textbf{Lose Kopplung, keine Integration} \eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
+				\textbf{Lose Kopplung, keine Integration}\newline
+				\eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
 			Ansonsten ist \eeppi\ unabhängig und könnte auch mit einer andern Applikation als das CDAR gekoppelt werden. 
 			Die Schnittstelle zum CDAR muss entsprechend konfigurierbar ausgelegt sein. \newline
-				\textbf{Lose Kopplung, keine Integration} \eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
+				\newline
+				\textbf{Lose Kopplung, keine Integration}\newline
+				\eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
 			CDAR Persistence sowie API werden komplett ersetzt.
 			Nur die Clientapplikation wird weiterverwendet.\newline
-				\textbf{CDAR UI erweitern} a
+				\newline
+				\textbf{CDAR UI erweitern}\newline
+				\eeppi\ benutzt die API des CDAR, besitzt eine eigene Serverkomponente und erweitert die clientseitige Applikation des CDAR.
 			}
 			{}
 			{}
-			{}
-		}
-		
-		\subsection{Lose Kopplung, keine Integration}
-			\eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
-			Ansonsten ist \eeppi\ unabhängig und könnte auch mit einer andern Applikation als das CDAR gekoppelt werden. 
-			Die Schnittstelle zum CDAR muss entsprechend konfigurierbar ausgelegt sein.
-			
-		\subsection{Ersetzen der Serverkomponente, Verwendung des CDAR Clients}
-			\eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
-			CDAR Persistence sowie API werden komplett ersetzt.
-			Nur die Clientapplikation wird weiterverwendet.
-			
-			
-		\subsection{CDAR UI erweitern}
-		
+			{"`Server Technologie"'}
+		}		
 		
 
 	\section{Architekturübersicht}
