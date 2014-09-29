@@ -50,7 +50,7 @@
 			\item[erstellen aus] Als Grundlage wird ein Datensatz genommen, aus welchem ein neuer Datensatz erstellt wird.
 				Anschliessend sind die beiden Datensätze voneinander unabhängig und Änderungen an einem Datensatz beeinflussen den anderen Datensatz nicht.
 			\item[Task] Datensatz, welcher eine Aufgabe beschreibt.
-			\item[Task-Vorlage] Datensatz, um später daraus Tasks in einem Projektplanungstool zu erstellen.
+			\item[Task-Vorlage] Datensatz, um später daraus Tasks in einem \ppt\ zu erstellen.
 			\item[Entscheidungs-Task] Task, welcher zum Treffen einer Entscheidung erledigt werden muss.
 				Er ist einer Entscheidung angehängt.
 			\item[Operativer Task] Task, welcher durch das Treffen einer Option entsteht.
@@ -65,7 +65,7 @@
 			\item[entscheiden] Tätigkeit, in welcher für Entscheidungen der Entscheid gefällt wird.
 			\item[importieren] Anwenden einer Abbildung zur Aufnahme von Datensätzen in das \eeppi.
 			\item[exportieren] Anwenden einer Abbildung zur Ausgabe von Datensätzen aus dem \eeppi.
-			\item[Projektplanungstool] Externes Programm, welches Tasks verwaltet und für diese Tasks eine eigene Form erwartet.
+			\item[\ppt] Externes Programm, welches Tasks verwaltet und für diese Tasks eine eigene Form erwartet.
 			\item[API] Schnittstelle eines Programms (sowohl bei externen, als auch CDAR und \eeppi)
 		\end{description}
 
@@ -83,7 +83,7 @@
 		\end{figure}
 		
 		Dabei repräsentieren die drei Aktore (Wissensproduzent, -konsument und Administrator) Personen wie in Abschnitt~\ref{userstoryDefinitions} beschrieben,
-		der Business-Aktor (ganz rechts) repräsentiert ein beliebiges Projektplanungstool und die roten Kästchen referenzieren den dazugehörenden Issue im \eeppi-Projektplanungstool.
+		der Business-Aktor (ganz rechts) repräsentiert ein beliebiges \ppt\ und die roten Kästchen referenzieren den dazugehörenden Issue im \eeppi-\ppt.
 		Nachfolgend sind die Erklärungen für die sieben aufgezeigten User Stories.
 		Die User Stories sind jeweils im Format nach Mike Cohn\cite{jonathan_rasmusson_agile_2012} geschrieben:
 		\begin{quote}
@@ -98,8 +98,8 @@
 			\item[Scope:] \eeppi
 			\item[Beschreibung:]\ \newline
 				Als Administrator\newline
-				will ich verschiedene Abbildungen von Task-Vorlagen auf Projektplanungstool-APIs erstellen\newline
-				um damit Benutzern den Export von Tasks in ein Projektplanungstool ermöglichen zu können.
+				will ich verschiedene Abbildungen von Task-Vorlagen auf \ppt-APIs erstellen\newline
+				um damit Benutzern den Export von Tasks in ein \ppt\ ermöglichen zu können.
 		\end{description}
 
 	\subsubsection{neuen Wissensbaum erstellen}
@@ -158,7 +158,7 @@
 			\item[Scope:] \eeppi
 			\item[Beschreibung:]\ \newline
 				Als Wissenskonsument\newline
-				will ich Task-Vorlagen (Operative Tasks und/oder Entscheidungstasks) in ein Projektplanungstool exportieren\newline
+				will ich Task-Vorlagen (Operative Tasks und/oder Entscheidungstasks) in ein \ppt\ exportieren\newline
 				um sie darin verwalten zu können.
 		\end{description}
 
