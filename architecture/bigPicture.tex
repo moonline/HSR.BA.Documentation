@@ -3,10 +3,10 @@
 	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "`IBM UMF Template for Decision Log"'\cite{hand_ibm_2008}.
 	
 	\section{Erweiterung CDAR}
-		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das \cdar\ angebunden werden soll.
+		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das \cdar\ angebunden werden kann.
 		
 		\decision{
-			\decisionHeader{1}{Erweiterung \cdar / Integration}{Integration}{Architektur design}
+			\decisionHeader{1}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
 		}{
 			\decisionContent{Eigene Serverkomponente, keine UI Integration, eigene Persistenz}
 			{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
@@ -38,14 +38,14 @@
 				\end{description}
 			}
 			{
-				\eeppi\ soll die \cdar\ API benutzen und den Login-Mechanismus. \eeppi besitzt allerdings eine eigene Server- sowie UI-Komponente und eine eigene Persistenz. 
+				\eeppi\ soll die \cdar-API und den Login-Mechanismus benutzen. \eeppi\ besitzt allerdings eine eigene Server- sowie UI-Komponente und eine eigene Persistenz. 
 				\begin{description}
 					\item[Vorteile] \
 						\begin{itemize}
 							\item Die Persistenz kann im gleichen System wie \cdar\ untergebracht sein, kann aber auch auf einem komplett andern Host laufen.
-							\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistence, der Serverkomponente noch am UI.
-							\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden
-							\item Trotz der Unabhängigkeit ist SSO für Benutzer möglich
+							\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistenz, der Serverkomponente noch am UI.
+							\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden.
+							\item Trotz der Unabhängigkeit ist SSO für Benutzer möglich.
 						\end{itemize}
 					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
 				\end{description}}
