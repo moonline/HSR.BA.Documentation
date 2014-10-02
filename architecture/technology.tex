@@ -64,25 +64,39 @@
 			\end{figure}
 			
 			Schlussendlich haben wir für jede Technologie das Total der Punkte berechnet (Punkte jedes Kriteriums multipliziert mit seiner Priorität). in Abbildung~\ref{fig:ErgebnisServertechnologieVergleich} zeigt man das finale Ergebnis. Aufgrund diesem haben wir uns für das Play Framework entschieden. Eine Alternative wäre noch Node.js mit TypeScript gewesen, doch dies hat bereits 10\%-Punkte weniger erreicht.
+			
+			
+		\decision{
+			\decisionHeader{T-S-1}{Servertechnologie}{Technologie}{Server}
+		}{
+			\decisionContent{Play Framework}
+			{Welche Servertechnologie soll eingesetzt werden?}
+			{}
+			{}
+			{CDAR erweitern, eigener Tomcat, Node.js+JS, Node.js+TS, Ruby, PHP}
+			{			
+				\begin{itemize}
+					\item Das Play Framework basiert auch auf Java, wie das bestehende CDAR.
+					\item Ein Teammitglied hat bereits Erfahrungen mit dem Framework gemacht.
+					\item Das andere Teammitglied kennt die zugrundeliegende Sprache (Java).
+					\item Der betreuende Dozent hat eine Präferenz für Java.
+					\item Das Play Framework benötigt wenig Boilerplate-Code.
+					\item Es sprechen keine zwingenden Gründe dagegen (wie beispielsweise zu stark einschränkende Lizenzen).
+					\item Das Play Framework ist angenehm zum Entwickeln für die Entwickler: gegebener Spass-Faktor, Vermeidung von Fehlern, Unterstützung im Erreichen von guter Code Qualität.
+				\end{itemize}
+			}
+			{}
+			{}
+			{}
+		}
 
 		\subsubsection{Play Framework}
 			Kapitel~\ref{serverEvaluation} erläutert den Hintergrund der Entscheidung für das Play Framework. 
+			
 			Wikipedia beschreibt das Play Framework wie folgt:
 			\begin{quote}
 				"`Play is an open source web application framework, written in Scala and Java, which follows the model–view–controller (MVC) architectural pattern. It aims to optimize developer productivity by using convention over configuration, hot code reloading and display of errors in the browser."'\cite{builtwith_pty_ltd_framework_2014}
 			\end{quote}
-			
-			
-			Zusammenfassend führten die folgenden Gründe zur Entscheidung für das Play Framework:
-			\begin{itemize}
-				\item Das Play Framework basiert auch auf Java, wie das bestehende CDAR.
-				\item Ein Teammitglied hat bereits Erfahrungen mit dem Framework gemacht.
-				\item Das andere Teammitglied kennt die zugrundeliegende Sprache (Java).
-				\item Der betreuende Dozent hat eine Präferenz für Java.
-				\item Das Play Framework benötigt wenig Boilerplate-Code.
-				\item Es sprechen keine zwingenden Gründe dagegen (wie beispielsweise zu stark einschränkende Lizenzen).
-				\item Das Play Framework ist angenehm zum Entwickeln für die Entwickler: gegebener Spass-Faktor, Vermeidung von Fehlern, Unterstützung im Erreichen von guter Code Qualität.
-			\end{itemize}
 
 			
 
