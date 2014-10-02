@@ -1,5 +1,58 @@
 	\section{Domain} 
 		\subsection{Domainmodel}
+		
+		
+		\subsection{Task-Vorlagen strukturierung}		
+		\decision{
+			\decisionHeader{D-S-1}{Task-Vorlagen Strukturierung}{Architecture}{Domain}
+		}{
+			\decisionContent{}
+			{Welches Konzept soll zur Strukturierung von Task-Vorlagen eingesetzt werden?}
+			{}{}
+			{
+				\begin{description}
+					\item[Labels/Hierarchische Labels] \
+					Versehen der Elemente mit einem oder mehreren Labels. Benutzer können nach Labels suchen oder Filtern, um Vorlagen anzuzeigen.
+					
+					\item[Kategorien/Hierarchische Kategorien] \
+					Elemente werden einer Kategorie zugeordnet. Benutzer können diese Browser oder filtern, um Vorlagen anzuzeigen.
+					
+					\item[Direkte Hierarchisierung der Task-Vorlagen] \
+					Elemente werden direkt mit Elternelementen verknüpft und bilden einen hierarchischen Baum.
+					
+					\item[Prototyping statt Strukturierung] \
+					Elemente erben Funktionalität von einander, statt strukturiert zu werden.
+					
+				\end{description}
+			}
+			{}{}{}{}
+		}
+		
+		
+		\subsection{Mapping method}
+		\decision{
+			\decisionHeader{D-S-2}{Mapping method}{Architecture}{Domain}
+		}{
+			\decisionContent{}
+			{Wie sollen Mappingkonfigurationen erstellt werden?}
+			{}
+			{}
+			{
+				\begin{description}
+					\item[Textuelle Konfiguration/block] \
+					Das Mapping wird in Form einer textuellen Konfiguration abgelegt, ausgelesen und geparst.
+					
+					\item[Hierarchische/Element basierte Konfiguration] \
+					Das Mapping wird durch das Anlegen von verknüpften Elementen erzeugt.
+					
+				\end{description}
+			}
+			{}
+			{}
+			{}
+			{}
+		}
+		
 	
 		\subsection{Verknüpfungen von Task-Vorlagen und Entscheidungs-Vorlagen}
 			Wissensproduzenten können Task-Vorlagen zu Entscheidungs-Vorlagen zuordnen.
