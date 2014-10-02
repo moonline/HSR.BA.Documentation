@@ -88,66 +88,66 @@
 
 	\subsection{Client}
 		\subsubsection{Sprache}
-			\begin{tabularx}{\textwidth}{|lXX|}
-				\hline
-					\textbf{} & \textbf{Vorteile} & \textbf{Nachteile}\\
-				\hline
-					\textbf{JavaScript} & 
-					\begin{itemize}
-						\item UI der bestehenden Applikation ist auch in JavaSscript geschrieben
-					\end{itemize} & 
-					\begin{itemize}
-						\item Fehler tauchen erst zur Runtime auf
-						\item Sprachspezifische Besonderheiten, die Fehler begünstigen
-					\end{itemize} \\
-				\hline
-					\textbf{TypeScript} &
-					\begin{itemize}
-						\item Wird kompiliert (zu Javascript), weniger Fehler zur Runtime
-						\item Optisch besser lesbar als JavaScript
-					\end{itemize} &
-					\begin{itemize}
-						\item Erfordert TSC-Compiler
-						\item Code Overhead bei Inheritance
-					\end{itemize} \\
-				\hline
-			\end{tabularx}
+		\decision{
+			\decisionHeader{T-C-1}{Clientseitige Programmiersprache}{Technologie}{Sprache}
+		}{
+			\decisionContent{TypeScript}
+			{Welche Sprache soll clientseitig verwendet werden?}
+			{}
+			{Sprache soll guten Coden unterstützen, wenig Fehleranfällig sein, Fehler sollen frühzeitig erkannt werden}
+			{
+				\begin{description}
+					\item[JavaScript] \
+						\begin{description}
+							\item[Vorteile] UI der bestehenden Applikation ist auch in JavaSscript geschrieben
+							\item[Nachteile] Fehler tauchen erst zur Runtime auf, Sprachspezifische Besonderheiten, die Fehler begünstigen
+						\end{description}
+					\item[Dart] \
+						\begin{description}
+							\item[Vorteile] Moderne, optional typisierte, kompilierte Programmiersprache (wird zu JS kompiliert)
+							\item[Nachteile] Benötigt Dart VM oder Dart-to-JS Transkompiler, wenig verbreitet
+						\end{description}
+				\end{description}
+			}{TypeScript wird zu JavaScript kompiliert, sodass die Vorteile beide Sprachen kombiniert werden. TypeScript versucht, möglichst den Standard zukünftiger ECMA-Script Versionen einzuhalten, sodass die Kompatibilität immer gewährleistet und die Syntax möglichst ähnlich bleiben soll.
+			\begin{description}
+				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie z.B. das ungewohnte verhalten von "`this"', verbessert die Code Qualität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
+				\item[Nachteile] Erfordert TSC-Compiler, Code Overhead bei Inheritance
+			\end{description}
+			}{}
+			{Das Entwicklungsenvironment benötigt Node.js für den TypeScript Compiler.}
+			{}
+		}
 			
 			
 		\subsubsection{Architektur-Framework}
-			\begin{tabularx}{\textwidth}{|lXX|}
-				\hline
-					\textbf{} & \textbf{Vorteile} & \textbf{Nachteile}\\
-				\hline
-					\textbf{Angular JS} &
-					\begin{itemize}
-						\item bekanntes MVW- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung
-						\item bindet ViewModel Properties und Functions ans Template, wodurch sich Observerkonstrukte sparen lassen
-						\item ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit
-						\item wurde auch schon für die bestehende Applikation eingesetzt
-					\end{itemize} &
-					\begin{itemize}
-						\item Attribute Binding besitzt gewissen Overhead
-					\end{itemize} \\
-				\hline
-					\textbf{Ember JS} &				
-					\begin{itemize}
-						\item Sehr Modular und anpassbar
-						\item Weniger Overhead als AngularJS
-					\end{itemize} &
-					\begin{itemize}
-						\item Bringt wesentlich weniger mit als Angular JS, mehr Eigenaufwand notwendig
-					\end{itemize} \\
-				\hline
-					\textbf{Kein Framework} &
-					\begin{itemize}
-						\item Vollständig freie Architekturgestaltung
-					\end{itemize} &
-					\begin{itemize}
-						\item Hoher Implementationsaufwand ohne Gewinn
-					\end{itemize} \\
-				\hline
-			\end{tabularx}
+			\decision{
+				\decisionHeader{T-C-2}{Clientseitiges Applikationsframework}{Technologie}{Framework}
+			}{
+				\decisionContent{AngularJS}
+				{Welches Applikationsframework soll clientseitig eingesetzt werden?}
+				{}
+				{Das Framework soll Templating unterstützen und Zwo-Way-Binding mit UI Komponenten unterstützen}
+				{
+					\begin{description}
+						\item[EmberJS] \
+							\begin{description}
+								\item[Vorteile] Sehr Modular und anpassbar, weniger Overhead als AngularJS
+								\item[Nachteile] Bringt wesentlich weniger mit als Angular JS, mehr Eigenaufwand notwendig
+							\end{description}
+						\item[Kein Framework] \
+							\begin{description}
+								\item[Vorteile] Vollständig freie Architekturgestaltung
+								\item[Nachteile] Hoher Implementationsaufwand ohne Gewinn
+							\end{description}
+					\end{description}
+				}
+				{Angular JS ist ein bekanntes MVW- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung und bindet ViewModel Properties und Functions ans Template. Dadurch lassen sich Observerkonstrukte sparen.
+				AgularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation eingesetzt.}
+				{}
+				{Die Serverkomponente muss eine Schnittstelle bieten, über die die Clientapplikation Daten austauschen kann.}
+				{}
+			}
+		
 			
 			\subsubsection{Require.js}
 				Require.js eignet sich gut zur Strukturierung und zum Autolading der Klassen und komponenten, 
