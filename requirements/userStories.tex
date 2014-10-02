@@ -41,9 +41,9 @@
 		Folgende Wörter werden in den User Stories verwendet und sind dafür zum genauen Verständnis hier definiert.
 		\begin{description}
 			\item[Wissensproduzent] Person, die aktiv neue Entscheidungen und formelle Tasks erfasst (als Beispiel kann hier \hyperref[olivia]{Olivia} dienen).
-			\item[Wissensbaum] Ein Projekt im CDAR, in welchem ein Wissensproduzent Wissen ablegt.
+			\item[Problem space (Wissensbaum)] Ein Projekt im CDAR, in welchem ein Wissensproduzent Wissen ablegt.
 			\item[Wissenskonsument] Person, die bestehende Entscheidungen benutzt um damit Entscheide zu fällen (als Beispiel kann hier \hyperref[thomas]{Thomas} dienen).
-			\item[Entscheidungsprojekt] Ein Projekt im CDAR, aus welchem ein Wissenskonsument Wissen konsumiert.
+			\item[Solution space (Entscheidungsprojekt)] Ein Projekt im CDAR, aus welchem ein Wissenskonsument Wissen konsumiert.
 				Es ist jeweils eine Kopie eines Wissensbaums.
 			\item[Administrator] Person, die für die Konfiguration und den Betrieb von \eeppi\ verantwortlich ist.
 			\item[Abbildung] Mit einer Abbildung lässt sich ein Datensatz in einen anderen Datensatz umwandeln.
@@ -56,9 +56,9 @@
 				Er ist einer Entscheidung angehängt.
 			\item[Operativer Task] Task, welcher durch das Treffen einer Option entsteht.
 				Er ist dementsprechend einer Option angehängt.
-			\item[Entscheidungs-Vorlage] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
+			\item[Problem space item (Entscheidungs-Vorlage)] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
 				Der Datensatz ist jedoch nur eine Vorlage, die Entscheidung kann nicht getroffen werden
-			\item[Entscheidung] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
+			\item[Solution space item (Entscheidung)] Datensatz, der eine Wahl mit mehreren Optionen darstellt.
 				Er wird aus einer Entscheidungs-Vorlage erstellt.
 				Die Entscheidung kann jetzt getroffen werden.
 			\item[Entscheid] Getroffene (entschiedene) Entscheidung.
@@ -70,97 +70,28 @@
 			\item[API] Schnittstelle eines Programms (sowohl bei externen, als auch CDAR und \eeppi)
 		\end{description}
 
+		
+	\begin{landscape}
 	\subsection{Übersicht über die User Stories}
 	
 		\eeppi\ hat eine enge Verbindung zu CDAR und deshalb werden in Abbildung~\ref{fig:UserStoryDiagram} auch in einem ersten Schritt gemeinsam die übergeordneten User Stories beschrieben.
 	
 		\begin{figure}[H]
-			\begin{minipage}[b]{\linewidth}
-				\includegraphics[width=\textwidth]{media/diagrams/UserStoryDiagram.png}
+				\includegraphics[width=0.95\linewidth]{media/diagrams/UserStoryDiagram.png}
 				\centering
 				\caption{Übergeordnete User Stories (inklusive CDAR)}
 				\label{fig:UserStoryDiagram}
-			\end{minipage}
 		\end{figure}
 		
 		Dabei repräsentieren die drei Aktore (Wissensproduzent, -konsument und Administrator) Personen wie in Abschnitt~\ref{userstoryDefinitions} beschrieben,
 		der Business-Aktor (ganz rechts) repräsentiert ein beliebiges \ppt\ und die roten Kästchen referenzieren den dazugehörenden Issue im \eeppi-\ppt.
 		Nachfolgend sind die Erklärungen für die sieben aufgezeigten User Stories.
-		Die User Stories sind jeweils im Format nach Mike Cohn\cite{jonathan_rasmusson_agile_2012} geschrieben:
+		Die User Stories sind jeweils im Format nach Mike Cohn\cite{rasmusson_agile_2012} geschrieben:
 		\begin{quote}
 			\textbf{As a} <type of user>,\newline
 			\textbf{I want} <to perform some task>\newline
 			\textbf{so that I can} <achieve some goal/benefit/value>.
 		\end{quote}
-		
-	\subsubsection{neue Abbildung erfassen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-20}
-			\item[Scope:] \eeppi
-			\item[Beschreibung:]\ \newline
-				Als Administrator\newline
-				will ich verschiedene Abbildungen von Task-Vorlagen auf \ppt-APIs erstellen\newline
-				um damit Benutzern den Export von Tasks in ein \ppt\ ermöglichen zu können.
-		\end{description}
+	\end{landscape}
 
-	\subsubsection{neuen Wissensbaum erstellen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-24}
-			\item[Scope:] CDAR (nicht \eeppi)
-			\item[Beschreibung:]\ \newline
-				Als Wissensproduzent\newline
-				will ich Entscheidungs-Vorlagen erfassen und untereinander verknüpfen\newline
-				um mein Wissen an Wissenskonsumenten weiter zu geben.
-		\end{description}
-
-	\subsubsection{neue Task-Vorlagen erfassen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-19}
-			\item[Scope:] \eeppi
-			\item[Beschreibung:]\ \newline
-				Als Wissensproduzent,\newline
-				will ich Abbildungen von Entscheidungen auf formelle Tasks erstellen\newline
-				um damit aus getroffenen Entscheiden Tasks generieren zu können.
-		\end{description}
-
-	\subsubsection{Task-Vorlage zu Entscheidungs-Vorlage hinzufügen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-32}
-			\item[Scope:] \eeppi
-			\item[Beschreibung:]\ \newline
-				Als Wissensproduzent\newline
-				will ich eine Entscheidungs-Vorlage auswählen und dieser Task-Vorlagen zuordnen können\newline
-				um die Abbildung von Entscheidungs-Vorlagen auf Task-Vorlagen zu realisieren.
-		\end{description}
-
-	\subsubsection{neues Entscheidungsprojekt erstellen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-38}
-			\item[Scope:] CDAR (nicht \eeppi)
-			\item[Beschreibung:]\ \newline
-				Als Wissenskonsument\newline
-				will ich aus einem Wissensbaum ein neues Entscheidungsprojekt erstellen\newline
-				um damit für ein konkretes Projekt Entscheidungen zu treffen.
-		\end{description}
-
-	\subsubsection{Entscheid treffen}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-23}
-			\item[Scope:] CDAR (nicht \eeppi)
-			\item[Beschreibung:]\ \newline
-				Als Wissenskonsument\newline
-				will ich Entscheide für Entscheidungen treffen\newline
-				um damit weitere Entscheidungen zu sehen und in meinem Projekt weiter zu kommen.
-		\end{description}
-
-	\subsubsection{Tasks exportieren}
-		\begin{description}
-			\item[Jira-Issue:] \url{http://bajira.democ.ch/browse/BA-25}
-			\item[Scope:] \eeppi
-			\item[Beschreibung:]\ \newline
-				Als Wissenskonsument\newline
-				will ich Task-Vorlagen (Operative Tasks und/oder Entscheidungstasks) in ein \ppt\ exportieren\newline
-				um sie darin verwalten zu können.
-		\end{description}
-
-	
+		\includepdf[pages=-, pagecommand={}, scale=0.975, landscape=true]{requirements/media/documents/stories.pdf}

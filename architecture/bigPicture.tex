@@ -1,154 +1,104 @@
 \chapter{Architektur}
-	% @var #1 id
-	% @var #2 name
-	% @var #3 thema
-	% @var #4 subject area
-	% @var #5 decision made
-	% @var #6 issue/problem
-	% @var #7 assumptions
-	% @var #8 motivation
-	% @var #9 justification
-	% @var #10 implications
-	% @var #11 derived requirements
-	% @var #12 related decisions
-	\newcommand{\decisionHeader}[4]{
-			\textbf{Themengebiet}	& #4	& \textbf{Thema}	& #3 \\
-			\hline
-			\textbf{Name}		& #2	& \textbf{ID}		& #1 \\
-	}
-	
-	\newcommand{\decisionContent}[8]{
-			\textbf{Getroffene Entscheidung} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#1\end{minipage}} \\
-			\hline
-			\textbf{Problemstellung}	& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#2\end{minipage}} \\
-			\hline
-			\textbf{Voraussetzung}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#3\end{minipage}} \\
-			\hline
-			\textbf{Motivation}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#4\end{minipage}} \\
-			\hline
-			\textbf{Begründung}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#5\end{minipage}} \\
-			\hline
-			\textbf{Annahmen}		& \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#6\end{minipage}} \\
-			\hline
-			\textbf{Abgeleitete Anforderungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#7\end{minipage}} \\
-			\hline
-			\textbf{Verknüpfte Entscheidungen} & \multicolumn{3}{l}{\begin{minipage}[b]{0.75\linewidth}#8\end{minipage}} \\
-	}
-	
-	\newcommand{\decision}[2]{
-		\vspace{0.5cm}
-		\noindent
-		\begin{tabularx}{\textwidth}{|p{0.2\textwidth}|X|l|l|}
-			\hline
-			#1
-			\hline
-			#2
-			\hline
-		\end{tabularx}
-		\vspace{0.5cm}
-		\newline	
-	}
 
+	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "`IBM UMF Template for Decision Log"'\cite{hand_ibm_2008}.
+	
 	\section{Erweiterung CDAR}
-		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das CDAR angebunden werden soll.
+		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das \cdar\ angebunden werden soll.
 		
 		\decision{
-			\decisionHeader
-			{1}
-			{Erweiterung CDAR}
-			{Architektur}
-			{Architektur design}
+			\decisionHeader{1}{Erweiterung \cdar / Integration}{Integration}{Architektur design}
 		}{
-			\decisionContent
-			{}
-			{In welcher Art soll \eeppi\ mit dem CDAR integriert werden}
-			{}
-			{Möglichst grosse Unabhängigkeit vom CDAR, möglichst einfaches Handling für den Benutzer}{
-				Varianten:\newline
-				\textbf{Lose Kopplung, keine Integration}\newline
-				\eeppi\ bezieht seine Daten über die Schnittstelle des CDAR und benutzt den Login-Mechanismus. 
-			Ansonsten ist \eeppi\ unabhängig und könnte auch mit einer andern Applikation als das CDAR gekoppelt werden. 
-			Die Schnittstelle zum CDAR muss entsprechend konfigurierbar ausgelegt sein. \newline
-				\newline
-				\textbf{Lose Kopplung, keine Integration}\newline
-				\eeppi\ bildet eine neue serverseitige Komponente sowohl für sich selbst wie für das CDAR.
-			CDAR Persistence sowie API werden komplett ersetzt.
-			Nur die Clientapplikation wird weiterverwendet.\newline
-				\newline
-				\textbf{CDAR UI erweitern}\newline
-				\eeppi\ benutzt die API des CDAR, besitzt eine eigene Serverkomponente und erweitert die clientseitige Applikation des CDAR.
+			\decisionContent{Eigene Serverkomponente, keine UI Integration, eigene Persistenz}
+			{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
+			{Die \cdar\ Authentisierungs-API erlaubt das Bauen eines SSO über mehrere Applikationen hinweg.}
+			{Möglichst grosse Unabhängigkeit von \cdar, einfaches Handling für den Benutzer, grosse Installationsflexibilität}
+			{
+				Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
+				\begin{description}					
+					\item[\cdar\ UI erweitern]
+					Integration der \eeppi-Funktionalität ins UI des \cdar.			
+					\begin{description}
+						\item[Vorteile] Nur eine Applikation für Benutzer
+						\item[Nachteile] \cdar\ UI muss angepasst werden, \eeppi\ ist vom \cdar\ abhängig
+					\end{description}
+					
+					\item[Serverkomponente ersetzen]
+					\eeppi\ bildet eine gemeinsame neue Serverkomponente, die diejenige des \cdar\ ersetzt.
+					\begin{description}
+						\item[Vorteile] Einheitlichen Unterbau für \cdar\ und \eeppi, nur eine Schnittstelle, nur eine Serverkomponente, einfachere Installation
+						\item[Nachteile] Sehr aufwändig, da die \cdar\ Server Komponente viel zu ersetzende Logik beinhaltet, \eeppi\ ist mit \cdar\ gekoppelt.
+					\end{description}
+					
+					\item[\cdar\ Persistenz erweitern]
+					\eeppi\ nutzt die Persistenz des \cdar\ und erweitert diese.
+					\begin{description}
+						\item[Vorteile] Einfachere Wartung, nur eine Persistenz für Backup
+						\item[Nachteile] Kopplung von \eeppi\ an \cdar
+					\end{description}
+				\end{description}
 			}
+			{
+				\eeppi\ soll die \cdar\ API benutzen und den Login-Mechanismus. \eeppi besitzt allerdings eine eigene Server- sowie UI-Komponente und eine eigene Persistenz. 
+				\begin{description}
+					\item[Vorteile] \
+						\begin{itemize}
+							\item Die Persistenz kann im gleichen System wie \cdar\ untergebracht sein, kann aber auch auf einem komplett andern Host laufen.
+							\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistence, der Serverkomponente noch am UI.
+							\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden
+							\item Trotz der Unabhängigkeit ist SSO für Benutzer möglich
+						\end{itemize}
+					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
+				\end{description}}
 			{}
-			{}
-			{"`Server Technologie"'}
-		}		
+			{Die Schnittstelle für den Authentisierungsservice und die Datenquelle (Anbindung CDAR) muss generisch und konfigurierbar gestaltet sein.}
+			{"`Server Technologie"', "`Tier Architektur"'}
+		}
 		
 
 	\section{Architekturübersicht}
 	
 	
 	\section{Tier-Architektur}
-		Aufgrund der Einschränkung von Technologie und den existierenden Komponenten des CDAR's stehen drei mögliche Tier-Architekturen zur Auswahl.
-		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{_layers_2014}.
-	
-		Die Entscheidung ist für "`Distributed Application"', also eine Single Page Application gefallen, 
-		weil diese Architektur es ermöglicht, die bestehende Serverlogik des CDAR zu nutzen, 
-		eine Serverseitige (zentralisierte) Persistenz anzubieten sowie dem Benutzer eine schnelle und unabhängige Applikation zur Verfügung zu stellen, die die Rechenleistung des Clients beansprucht, sodass der Server und dessen Kosten schlank gehalten werden können.
-		Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.
+		Aufgrund der Einschränkung von Technologie und den existierenden Komponenten des \cdar's stehen drei mögliche Tier-Architekturen zur Auswahl.
+		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{prof._dr._zimmerman_layers_20144}.		
 		
-		\subsection{1-Tier Structure: Centralized Computing (Client-only Application)}
-			% TODO: Replace by image
-			\begin{verbatim}
-			        ------------------
-			           Presentation
-			Client        Logic
-			             Resources
-			        ------------------
-			                |
-			        ------------------
-			           Webserver/
-			Server       Hoster	
-			        ------------------		
-			\end{verbatim}
-
-			Die Serverkomponente übernimmt lediglich das Ausliefern einer WebApp. 
-			Die WebApp bezieht die Daten direkt aus externen Schnittstellen. 
-			Persistenz findet dezentral auf dem Client statt in Form von File Persistence oder 
-			Persistence durch das Framework (z.B. HTML5 Storage).
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{architecture/media/img/tierArchitecture.png}
+			\centering
+			\caption{Architektur Varianten}
+			\label{fig:tierArchitecture}
+		\end{figure}
+		\begin{description}
+			\item[1-Tier Structure: Centralized Computing (Client-only Application)]
+				Die Serverkomponente übernimmt lediglich das Ausliefern einer WebApp. 
+				Die WebApp bezieht die Daten direkt aus externen Schnittstellen. 
+				Persistenz findet dezentral auf dem Client statt in Form von File Persistence oder 
+				Persistence durch das Framework (z.B. HTML5 Storage).
+				
+			\item[2-Tier Structure: Distributed Application (Single Page App)]
+				Die Serverkomponente übernimmt Persistenz sowie minimale Logik (z.B. Login).
+				Presentation und Logik werden von der Client Komponente übernommen.
+				
+			\item[2-Tier Structure: Distributed Presentation]
+				Persistenz, Logik und Presentation werden vom Server übernommen.
+				Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
+				Es gibt keine aktiven Komponenten auf dem Client ausser asyncron nachladenden Skripten.
+				
+		\end{description}
 	
-		\subsection{2-Tier Structure: Distributed Application (Single Page App)}
-			% TODO: Replace by image
-			\begin{verbatim}
-			        ------------------
-			           Presentation
-			Client        Logic
-			               API
-			        ------------------
-			                |
-			        ------------------
-			               API
-			           Small Logic
-			Server      Resources
-			        ------------------		
-			\end{verbatim}
-			Die Serverkomponente übernimmt Persistenz sowie minimale Logik (z.B. Login).
-			Presentation und Logik werden von der Client Komponente übernommen.
-			
-		\subsection{2-Tier Structure: Distributed Presentation}
-			\begin{verbatim}
-			        ------------------
-			Client  ------------------   
-			                ^
-			                |
-			        ------------------
-			           Presentation
-			Server        Logic
-			            Resources
-			        ------------------		
-			\end{verbatim}
-			Persistenz, Logik und Presentation werden vom Server übernommen.
-			Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
-			Es gibt keine aktiven Komponenten auf dem Client ausser asyncron nachladenden Skripten.
-			
-			
-		
+		\decision{
+			\decisionHeader{1}{Tier Architektur}{Architektur}{Architektur design}
+		}{
+			\decisionContent{Distributed Application (Single Page Application)}
+			{Welche Tier Architektur soll für \eeppi\ gewählt werden?}
+			{}
+			{Möglichst lose Kopplung \& hohe Flexibilität auch für zukunftüge, auf \eeppi\ und \cdar\ aufbauende Applikationen}
+			{"`Centralized Computing"', "`Distributed Presentation"'}
+			{"`Distributed Application"' ermöglicht, die bestehende Serverlogik des \cdar\ zu nutzen, 
+				eine Serverseitige (zentralisierte) Persistenz anzubieten sowie dem Benutzer eine schnelle und unabhängige Applikation zur Verfügung zu stellen, 
+				die die Rechenleistung des Clients beansprucht, sodass der Server und dessen Kosten schlank gehalten werden können.
+				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
+			{}
+			{}
+			{}
+		}
