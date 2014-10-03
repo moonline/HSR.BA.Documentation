@@ -83,9 +83,9 @@
 				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt hängt nur davon ab,
 				ob die Task-Vorlage mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
 
-			\subsubsection{Übertragung in \ppt}
-				Aus diesen Task-Vorlagen werden beim Übertag in ein \ppt\ Tasks generiert.
-				Task-Vorlagen sind generisch, da Änderungen auch alle verknüpften Entscheidungs-Vorlagen betreffen sollen.
+			\subsection{Übertragung von Task-Vorlagen in \ppt}
+				Aus Task-Vorlagen werden beim Übertag in ein \ppt\ Tasks generiert.
+				Task-Vorlagen sind generisch, da Änderungen auch alle verknüpften Problem spaces betreffen sollen.
 				Aus diesem Grund werden Task-Vorlagen bei der Zuordnung verknüpft und nicht kopiert.
 				
 				\begin{figure}[H]
@@ -107,7 +107,7 @@
 		\subsection{Tasktransmission Workflow}
 			Aus Task-Vorlagen erzeugte Tasks müssen zur Übertragung in ein Projektmanagementtool
 			Tool spezifisch umgewandelt werden. Dazu werden "`Processors"' eingesetzt.
-			"`Processors"' stellen kleine Funktionalitäten dar, die Daten umwandeln, wie z.B. "`Date processors"', die Daten umwandeln, "`Issue type processors"', die Issuetypes konvertieren, "`User processors"', die Relationen zu Benutzern so umwandeln, das das Projektplanungstool den User korrekt verknüpfen kann oder "`Conditional processors"' und "`Option processors"', die Bedingungen verarbeiten.
+			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln, wie z.B. "`Date processors"', die Kalenderdaten umwandeln, "`Issue type processors"', die Issuetypes konvertieren, "`User processors"', die Relationen zu Benutzern so umwandeln, das das Projektplanungstool den User korrekt verknüpfen kann oder "`Conditional processors"' und "`Option processors"', die Bedingungen verarbeiten.
 			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit z.B. nicht gemappte Felder in die Beschreibung überführen kann.
 			
 			\begin{figure}[H]
@@ -119,13 +119,13 @@
 			
 			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. Grund dafür sind einerseits die Problematik, 
 			das sich der \eeppi\ Server in einer Zone befinden kann, 
-			die ihm keinen direkten Zugriff auf den Projektmanagementtool-Server erlaubt,
+			die ihm keinen direkten Zugriff auf den \ppt-Server erlaubt,
 			andererseits schränkt die Wahl der Servertechnologie die Möglichkeiten für dynamische Processors ein, während die Client Technologie dies ermöglicht.
 			
 			Im Laufe der Erarbeitung dieses Workflows wurde auch darüber nachgedacht, 
 			was mit noch nicht gemappten Eigenschaften passieren soll. 
 			Die ursprüngliche Entscheidung, diese in Listenform in die Beschreibung des Tasks
-			überzuführen wurde durch das flexible Mapping obsolete, 
+			überzuführen ist durch das flexible Mapping nicht mehr nötig, 
 			weil einerseits dazu in jedem Fall bekannt sein muss, welches Feld das Beschreibungsfeld ist 
 			und andererseits der Administrator dazu selbst einen Processor definieren kann.
 			Womit die Entscheidung darüber bei ihm bleibt und nicht von uns vorgegeben wird.
