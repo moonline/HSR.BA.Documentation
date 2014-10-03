@@ -3,7 +3,7 @@
 		
 		
 		
-		\subsection{Task-Vorlagen strukturierung}
+		\subsection{Task-Vorlagen Strukturierung}
 			Es gibt verschiedene Möglichkeiten, 
 			Benutzer eine Strukturierung von Task-Vorlagen anzubieten.
 			Task-Templates können selbst in eine Struktur gebracht werden, 
@@ -19,7 +19,7 @@
 		\decision{
 			\decisionHeader{D-S-1}{Task-Vorlagen Strukturierung}{Architecture}{Domain}
 		}{
-			\decisionContent{Nicht hierarchische Kategorien, Smart Filters}
+			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Kundens nicht hierarchische Kategorien, Smart Filters}
 			{Welches Konzept soll zur Strukturierung von Task-Vorlagen eingesetzt werden?}
 			{}{Benutzer sollen einfach und schnell erstellte Task-Vorlagen wieder finden.}
 			{
@@ -53,14 +53,14 @@
 				\end{description}
 			}
 			{
+				Keine Strukturierung hat für die Entwicklung sowie für den Kunden Vorteile.
+				So ist gibt es zu diesem Punkt kaum Entwicklungsaufwand und der Benutzer findet trotzdem dank Suchfunktionen die gesuchten Task-Vorlagen.
+				Ausserdem muss er keine Zeit aufwenden um die Task-Vorlagen zu strukturieren.
+
+				Falls der Kunde jedoch eine weitergehende Strukturierung wünscht, empfehlen wir nichthierarchische Kategorien sowie Smart Filters.
 				Kategorien erlauben eine Strukturierung auf einfache Weise. 
-				Für diesen Anwendungsfall reichen nicht hierarchische aus, 
-				da Task-Vorlagen wiederverwendet werden und daher die Anzahl Task-Vorlagen nicht Grössen erreichen, 
-				die hierarchische Kategorien erfordern würden. 
-				Zudem sind hierarchische Strukturen komplizierter um Vorlagen zu finden und aufwändiger umzusetzen.
-				
-				Smart Filter ergänzen Kategorien optimal und ermöglichen das schnelle Finden anhand von Eigenschaften,
-				die über Kategorien hinausgehen.
+
+				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften ohne dass diese der Benutzer erfassen muss.
 			}
 			{}
 			{}
@@ -101,7 +101,7 @@
 				
 				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der Task-Vorlagen in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
-				Gleiches gilt für Entscheidungen. Würde jemand im CDAR diese verändern oder Löschen, so würde dies die History zerstören.
+				Gleiches gilt für Entscheidungen. Würde jemand im \cdar\ diese verändern oder Löschen, so würde dies die History zerstören.
 			
 		
 		\subsection{Tasktransmission Workflow}

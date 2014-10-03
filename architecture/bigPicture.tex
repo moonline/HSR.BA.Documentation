@@ -3,7 +3,9 @@
 	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "`IBM UMF Template for Decision Log"'\cite{hand_ibm_2008}.
 	
 	\section{Erweiterung CDAR}
-		Im folgenden werden die Möglichkeiten beschrieben, wie \eeppi\ an das \cdar\ angebunden werden kann.
+		Für das Anbinden ans \cdar\ gibt es verschiedene Möglichkeiten.
+		Wir haben uns für eine eigene Serverkomponente, ein eigenes Userinterface und eine eigene Persistenz entschieden.
+		Die Alternativen und die Details zu diesem Entscheid sind nachfolgend aufgeführt.
 		
 		\decision{
 			\decisionHeader{1}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
@@ -50,7 +52,7 @@
 					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
 				\end{description}}
 			{}
-			{Die Schnittstelle für den Authentisierungsservice und die Datenquelle (Anbindung CDAR) muss generisch und konfigurierbar gestaltet sein.}
+			{Die Schnittstelle für den Authentisierungsservice und die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
 			{"`Server Technologie"', "`Tier Architektur"'}
 		}
 		
