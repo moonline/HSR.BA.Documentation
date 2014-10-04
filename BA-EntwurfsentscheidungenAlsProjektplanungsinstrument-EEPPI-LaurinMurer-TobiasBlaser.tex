@@ -9,6 +9,8 @@
 
 %pdf include
 \usepackage{pdfpages}
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+\addbibresource{EEPPI.bib}
 
 %Deutsche Umlaute, Schriftart, Deutsche Bezeichnungen
 \usepackage[utf8]{inputenc}
@@ -203,8 +205,7 @@ urlcolor=black
 
 \input{glossary}
 \nocite{*}
-\bibliography{EEPPI}{}
-\bibliographystyle{plain}
+\printbibliography
 \listoffigures
 
 %\appendix
