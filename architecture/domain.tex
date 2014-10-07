@@ -1,7 +1,23 @@
-	\section{Domain} 
+	\section{Domain}
 		\subsection{Domainmodel}
+			Die \eeppi\ Domain setzt sich aus drei Typen von Domänen Objekten zusammen: 
+			\begin{itemize}
+				\item Einer Abstraktion der Objekte hinter der Schnittstelle der angebundenen Entscheidungswissensverwaltung
+				\item Einer Abstraktion der Objekte hinter der Schnittstelle eines oder mehreren angebundenen Projektplanungstools
+				\item Den eigenen Objekten und Schnittstellen
+			\end{itemize}
+			
+			Innerhalb von \eeppi\ werden nur die eigenen Objekte persistiert.
+			Die Objekte der andern System werden On-Demand über die Schnittstellen geladen.
 		
-		
+			\begin{landscape}
+				\begin{figure}[H]
+					\includegraphics[width=\linewidth]{architecture/media/img/domain.png}
+					\centering
+					\caption{\eeppi Domain}
+					\label{fig:domain}
+				\end{figure}
+			\end{landscape}
 		
 		\subsection{Task-Vorlagen Strukturierung}
 			Es gibt verschiedene Möglichkeiten, 
