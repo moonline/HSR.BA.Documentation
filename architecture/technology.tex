@@ -16,7 +16,7 @@
 				\begin{minipage}[b]{\linewidth}
 					\includegraphics[width=\textwidth]{media/spreadsheets/ServertechnologieVergleichPrioritaetsfinding.pdf}
 					\centering
-					\caption{Servertechnologie-Vergleich: Prioritätsfinding}
+					\caption{Servertechnologie-Vergleich: Prioritätsfindung}
 					\label{fig:ServertechnologieVergleichPrioritaetsfinding}
 				\end{minipage}
 			\end{figure}
@@ -49,10 +49,11 @@
 					\label{fig:EntwicklungVonWebserverTechnologien}
 			\end{figure}
 			
-			Schlussendlich haben wir uns da nach Recherchen auf eine "`1"' geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch von den grösseren Seiten) kaum verändert hat.
-			Als Beispiel für eine Technologie die am aussterben ist haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
+			Schlussendlich haben wir uns da nach Recherchen auf eine "`1"' geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat.
+			Als Beispiel für eine Technologie, die immer weniger eingesetzt wird und in den nächsten jahren verschwinden wird, haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
 			Im Vergleich dazu ist PHP sehr gut im Markt vertreten und hat auch eine äusserst konstante Verbreitung.
-			Deshalb und unter dem Gesichtspunkt von jungen modernen PHP Frameworks wie Doctrine und Flow sehen wir da auch die Zukunftsaussichten gegeben.
+			Deshalb und unter dem Gesichtspunkt der soliden Konzepte, 
+			die den in den letzten Jahren entstandenen modernen PHP Frameworks wie Doctrine und Flow zugrunde liegen, sehen wir da auch das Fortbestehen für diese Technologien gegeben.
 			
 			\begin{figure}[H]
 				\begin{minipage}[b]{\linewidth}
@@ -72,7 +73,7 @@
 			\decisionContent{Play Framework}
 			{Welche Servertechnologie soll eingesetzt werden?}
 			{}
-			{}
+			{Von der Servertechnologie hängen unter Anderem die Entscheidungen für Server und Persistenz Framework ab.}
 			{\cdar\ erweitern, eigener Tomcat, Node.js+JS, Node.js+TS, Ruby, PHP}
 			{			
 				\begin{itemize}
@@ -83,6 +84,7 @@
 					\item Das Play Framework benötigt wenig Boilerplate-Code.
 					\item Es sprechen keine zwingenden Gründe dagegen (wie beispielsweise zu stark einschränkende Lizenzen).
 					\item Das Play Framework ist angenehm zum Entwickeln für die Entwickler: gegebener Spass-Faktor, Vermeidung von Fehlern, Unterstützung im Erreichen von guter Code Qualität.
+					\item Im IFS der HSR ist Know How zum Play Framework vorhanden (M. Stocker).
 				\end{itemize}
 			}
 			{}
@@ -108,7 +110,7 @@
 			\decisionContent{TypeScript}
 			{Welche Sprache soll clientseitig verwendet werden?}
 			{}
-			{Sprache soll guten Coden unterstützen, wenig Fehleranfällig sein, Fehler sollen frühzeitig erkannt werden}
+			{Dise Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig Fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
 			{
 				\begin{description}
 					\item[JavaScript] \
@@ -140,7 +142,7 @@
 				\decisionContent{AngularJS}
 				{Welches Applikationsframework soll clientseitig eingesetzt werden?}
 				{}
-				{Das Framework soll Templating unterstützen und Zwo-Way-Binding mit UI Komponenten unterstützen}
+				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der Clientseitigen Applikation und soll ein Framework evaluieren, das Templating und Zwo-Way-Binding mit UI Komponenten unterstützen, um dies nicht selbst implementieren zu müssen.}
 				{
 					\begin{description}
 						\item[EmberJS] \
@@ -155,7 +157,7 @@
 							\end{description}
 					\end{description}
 				}
-				{Angular JS ist ein bekanntes MVW- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung und bindet ViewModel-Eigenschaften und -Funktionen ans Template. Dadurch lassen sich Observerkonstrukte sparen.
+				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever: Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch MV* genannt.}- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung und bindet ViewModel-Eigenschaften und -Funktionen ans Template. Dadurch lassen sich Observerkonstrukte sparen.
 				AgularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
 				{}
 				{Die Serverkomponente muss eine Schnittstelle bieten, über die die Clientapplikation Daten austauschen kann.}
@@ -163,9 +165,15 @@
 			}
 		
 			
-			\subsubsection{Require.js}
-				Require.js eignet sich gut zur Strukturierung und zum Autolading der Klassen und Komponenten, 
-				insbesondere während der Entwicklung.
+			\subsubsection{Javscript Autoloading}
+				Ursprünglich wurde angedacht, Require.js als Autoloader zu benutzen.
+				Require.js bietet nebst Vorteilen wie Namespaceing und Autoloading leider den grossen Nachteil,
+				das jedes Skript einzeln asynchron vom Client angefordert wird, 
+				was insbesondere bei grösseren Rount-Trip-zeiten die Applikation spürbar verlangsamt.
+				Aus diesem Grund wurde entschieden, 
+				auf die Bordmittel von TypeScript zur Strukturierung zu setzen (Module/Packages) 
+				und die verschiedenen Skripte bereits beim Kompilieren zusammenzuführen.
+				
 
 		\subsection{UI Frameworks}
 			\subsubsection{LESS}

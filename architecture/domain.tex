@@ -35,7 +35,7 @@
 		\decision{
 			\decisionHeader{D-S-1}{Task-Vorlagen Strukturierung}{Architecture}{Domain}
 		}{
-			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Kundens nicht hierarchische Kategorien, Smart Filters}
+			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Vertreters der Anforderungsgruppe nicht hierarchische Kategorien, Smart Filters}
 			{Welches Konzept soll zur Strukturierung von Task-Vorlagen eingesetzt werden?}
 			{}{Benutzer sollen einfach und schnell erstellte Task-Vorlagen wieder finden.}
 			{
@@ -50,30 +50,35 @@
 						Versehen der Elemente mit einem oder mehreren Labels. Benutzer können nach Labels suchen oder Filtern, um Vorlagen anzuzeigen.	
 						\begin{description}
 							\item[Vorteile] Einfach verständlich für den Benutzer
-							\item[Nachteile] Benutzer könnten zu Faul sein, Labels anzulegen und zuzuordnen da es aufwändiger ist als Kategorisieren
+							\item[Nachteile] Benutzer könnten zu Faul sein, 
+								Labels anzulegen und zuzuordnen da es aufwändiger ist als Kategorisieren
 						\end{description}
 					
 					\item[Direkte Hierarchisierung der Task-Vorlagen] \
 						Elemente werden direkt mit Elternelementen verknüpft und bilden einen hierarchischen Baum.	
 						\begin{description}
 							\item[Vorteile] Einfach zu implementieren
-							\item[Nachteile] Schwer verständlich für den Benutzer da die Hierarchisierung unter Umständen nicht mit dem Workflow zusammenpasst
+							\item[Nachteile] Schwer verständlich für den Benutzer,
+								 da die Hierarchisierung unter Umständen nicht mit dem Workflow zusammenpasst
 						\end{description}
 					
 					\item[Prototyping statt Strukturierung] \
 						Elemente erben Funktionalität von einander, statt strukturiert zu werden.
 						\begin{description}
-							\item[Vorteile] Verringert die Anzahl Task-Vorlagen massiv, da Eigenschaften vererbt werden können
+							\item[Vorteile] Verringert die Anzahl Task-Vorlagen massiv, 
+								da Eigenschaften vererbt werden können
 							\item[Nachteile] Schwieriger umzusetzen, schwieriger zu verstehen für Benutzer
 						\end{description}					
 				\end{description}
 			}
 			{
-				Keine Strukturierung hat für die Entwicklung sowie für den Kunden Vorteile.
-				So ist gibt es zu diesem Punkt kaum Entwicklungsaufwand und der Benutzer findet trotzdem dank Suchfunktionen die gesuchten Task-Vorlagen.
+				Keine Strukturierung hat für die Entwicklung sowie für den Benutzer Vorteile.
+				So gibt es zu diesem Punkt kaum Entwicklungsaufwand 
+				und der Benutzer findet trotzdem dank Suchfunktionen die gesuchten Task-Vorlagen.
 				Ausserdem muss er keine Zeit aufwenden um die Task-Vorlagen zu strukturieren.
 
-				Falls der Kunde jedoch eine weitergehende Strukturierung wünscht, empfehlen wir nichthierarchische Kategorien sowie Smart Filters.
+				Falls der Kunde jedoch eine weitergehende Strukturierung wünscht, 
+				empfehlen wir nicht-hierarchische Kategorien sowie Smart Filters.
 				Kategorien erlauben eine Strukturierung auf einfache Weise. 
 
 				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften ohne dass diese der Benutzer erfassen muss.
@@ -132,6 +137,8 @@
 				\caption{Übertragen von Tasks}
 				\label{fig:transmissionWorkflow}
 			\end{figure}
+			Dem Transmissionworkflow liegt das "`Pipes and filters"' Pattern zugrunde
+			 \cite{hope_enterprise_2003}, welches eine Verarbeitungs- und Filterkette definiert.
 			
 			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. Grund dafür sind einerseits die Problematik, 
 			das sich der \eeppi\ Server in einer Zone befinden kann, 
@@ -139,22 +146,26 @@
 			andererseits schränkt die Wahl der Servertechnologie die Möglichkeiten für dynamische Processors ein, während die Client Technologie dies ermöglicht.
 			
 			Im Laufe der Erarbeitung dieses Workflows wurde auch darüber nachgedacht, 
-			was mit noch nicht gemappten Eigenschaften passieren soll. 
-			Die ursprüngliche Entscheidung, diese in Listenform in die Beschreibung des Tasks
-			überzuführen ist durch das flexible Mapping nicht mehr nötig, 
-			weil einerseits dazu in jedem Fall bekannt sein muss, welches Feld das Beschreibungsfeld ist 
-			und andererseits der Administrator dazu selbst einen Processor definieren kann.
+			wie Eigenschaften verarbeitet werden sollen, die nicht gemappt wurden. 
+			Ursprünglich wurde entschieden, diese in Listenform in die Beschreibung des Tasks
+			überzuführen. 
+			Die Entscheidung für ein sehr flexibles Mapping führte dazu, 
+			das dieser Anwendungsfall überflüssig wurde, 
+			weil der Administrator dazu selbst einen Processor definieren kann.
 			Womit die Entscheidung darüber bei ihm bleibt und nicht von uns vorgegeben wird.
+			Zudem müsste in jedem Fall bekannt sein, 
+			bei welchem Feld es sich um das Beschreibungsfeld handelt, 
+			was nicht gegeben ist, wenn der Administrator vergisst, dies zu konfigurieren.
 		
 		
-		\subsection{Mapping method}
+		\subsection{Mapping Method}
 		\decision{
 			\decisionHeader{D-S-2}{Mapping method}{Architecture}{Domain}
 		}{
-			\decisionContent{Konfiguration/Block}
+			\decisionContent{Konfiguration/Block in Form von Templates mit Plathaltern}
 			{Wie sollen Mappingkonfigurationen erstellt werden?}
 			{}
-			{}
+			{Von der Mapping Method hängt die Architektur des Mappings und die Schnittstellen der Processors und Filters ab.}
 			{
 				\begin{description}					
 					\item[Hierarchische/Element basierte Konfiguration] \
@@ -165,10 +176,11 @@
 					\end{description}
 				\end{description}
 			}
-			{Eine Textblock-basierte Konfiguration erhöht zwar die Fehlermöglichkeiten für den Administrator,
+			{Eine Textblock/Template-basierte Konfiguration erhöht zwar die Fehlermöglichkeiten für den Administrator,
 			ermöglicht diesem jedoch grössere Flexibilität und damit ein Abdecken einer grösseren Bandbreite an Projektplanungstools.}
-			{}
-			{}
+			{Der Administrator kann mit Templates und Platzhaltern umgehen oder es Lernen}
+			{Das Mapping benötigt kein eigenes Datenmodell in Form von verknüpften Objekten. 
+			Es kann als einfache Text-Elemente an ein Projekt angeknüpft werden.}
 			{}
 		}
 		

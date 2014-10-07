@@ -13,7 +13,7 @@
 			\decisionContent{Eigene Serverkomponente, keine UI Integration, eigene Persistenz}
 			{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
 			{Die \cdar\ Authentisierungs-API erlaubt das Bauen eines SSO über mehrere Applikationen hinweg.}
-			{Möglichst grosse Unabhängigkeit von \cdar, einfaches Handling für den Benutzer, grosse Installationsflexibilität}
+			{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl, der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
 			{
 				Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
 				\begin{description}					
@@ -94,7 +94,7 @@
 			\decisionContent{Distributed Application (Single Page Application)}
 			{Welche Tier Architektur soll für \eeppi\ gewählt werden?}
 			{}
-			{Möglichst lose Kopplung \& hohe Flexibilität auch für zukunftüge, auf \eeppi\ und \cdar\ aufbauende Applikationen}
+			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ und \cdar\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
 			{"`Centralized Computing"', "`Distributed Presentation"'}
 			{"`Distributed Application"' ermöglicht, die bestehende Serverlogik des \cdar\ zu nutzen, 
 				eine Serverseitige (zentralisierte) Persistenz anzubieten sowie dem Benutzer eine schnelle und unabhängige Applikation zur Verfügung zu stellen, 
