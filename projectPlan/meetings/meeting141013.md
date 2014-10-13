@@ -42,14 +42,14 @@ Montag 3.11. 13:00
 ### Fragen:
 
 - Was ist bei BA-38 nicht gut?
-	Mehr Vorteile als da bisher beschrieben (anderer/grösserer “damit-Satz”): Reuse, Zeit sparen, Fokusiert arbeiten können
+	Mehr Vorteile als da bisher beschrieben (anderer/grösserer “damit-Satz”): Reuse, Zeit sparen, Fokussiert arbeiten können
 - Erweiterung CDAR Entscheidung (D) Issue?
 	Ergebnisse Meeting Dokumentieren -> Doku
 
 	
 ### API CDAR/Enterprise Architect
 
-- Objekte besitzen Tag-Attribute, die im Temlate zugreifbar sein müssen (Mapping) -> z.B. Rolle
+- Objekte besitzen Tag-Attribute, die im Template zugreifbar sein müssen (Mapping) -> z.B. Rolle
 
 
 #### List
@@ -87,15 +87,16 @@ example: GET url/api/rest/v1/decision/1
 Status Codes
 ------------
 
-- 200 Object als json
-- 403 Json mit (login) url
-- 5XX Internal error
+- 200 Object als JSON
+- 403 JSON mit (login) URL
 - 404 If Element not found
+- 5XX Internal error
 
 
 ## TODOs
 
 Studenten:
+
 - JiraIssue anlegen: Jira im Zusammenspiel/Workflow dann auch mit Relationaler DB testen
 - Protokoll auch an LW senden
 
@@ -104,12 +105,13 @@ LW (l1wegman@hsr.ch):
 - Domain Model + erste Version der API an Studenten senden (diese Woche)
 
 ZIO:
+
 - Slides an Studenten schicken
 
 
 ## Beschlüsse
 - Schnittstellen sollen eine Version enthalten (z.B. in URL)
-- Zwischenpräsentation findet am Montag 3.11.2014 um 13:00.
+- Zwischenpräsentation findet am Montag 3.11.2014 um 13:00 statt.
 - Als API-Inspiration mit DKS wird die JIRA-API verwendet.
 
 
