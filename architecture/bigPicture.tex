@@ -50,7 +50,13 @@
 							\item Trotz der Unabhängigkeit ist SSO für Benutzer möglich.
 						\end{itemize}
 					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
-				\end{description}}
+				\end{description}
+				Im Laufe der Prototypenphase wurde dem Team mitgeteilt, 
+				das das \cdar\ durch eine schlanke Schnittstellenapplikation ersetzt wird, 
+				die ihre Daten von der Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
+				Diese Veränderung bestätigte die Entscheidung für die gewählte Variante, 
+				bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung besitzen muss.
+			}
 			{}
 			{Die Schnittstelle für den Authentisierungsservice und die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
 			{"`Server Technologie"', "`Tier Architektur"'}
@@ -102,5 +108,25 @@
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
 			{}
 			{}
+			{}
+		}
+		
+	\section{Session State}
+		Eine Session (Session State Pattern\footnote{\url{http://www.bettersoftwaredesign.org/Design-Patterns/Enterprise-Application-Architecture-Patterns/Session-State-Patterns}}) kann auf dem Client abgelegt werden, auf dem Server oder persistiert werden.
+		
+		\decision{
+			\decisionHeader{2}{Session State}{Architektur}{Architektur design}
+		}{
+			\decisionContent{Client Session State}
+			{Auf welchem Tier sollen User Sessions gespeichert werden?}
+			{}
+			{Diese Entscheidung beeinflusst Client wie Server und bestimmt, ob der der Server zustandsbehaftet oder nicht ausgelegt wird.}
+			{"`Server Session State"', "`Database Session State"'}
+			{"`Client Session State"' ermöglicht es, 
+				den Server zustandslos zu implementieren. 
+				Dadurch wird eine reine Resourcen-basierte Serverschnittstelle möglich.			
+			}
+			{}
+			{Der Client muss eine Möglichkeit bieten, eine Session zu speichern. Bevorzugt soll dafür ein Session Cookie zum Einsatz kommen.}
 			{}
 		}
