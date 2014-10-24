@@ -12,12 +12,31 @@
 		
 			\begin{landscape}
 				\begin{figure}[H]
-					\includegraphics[width=\linewidth]{architecture/media/img/domain.png}
+					\includegraphics[width=0.9\linewidth]{architecture/media/img/domain.png}
 					\centering
 					\caption{\eeppi Domain}
 					\label{fig:domain}
-				\end{figure}
+				\end{figure}				
 			\end{landscape}
+			
+			\eeppi\ arbeitet mit den Objekten des DKS. Das DKS ist wie folgt aufgebaut:
+			\begin{figure}[H]
+				\includegraphics[width=\linewidth]{architecture/media/img/dksDomain.png}
+				\centering
+				\caption[DKS Domain\newline 
+					\license{??? License \url{https://???.org} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
+				]{DKS Domain}
+				\label{fig:dksDomain}
+			\end{figure}
+			
+			Dabei werden die DKS Objekte wie folgt gemappt:
+			\begin{description}
+				\item[Element] Node
+				\item[ProblemTemplate] Problem
+				\item[ProblemOccurance] Decision			
+			\end{description}						
+			
+			
 		
 		\subsection{Task-Vorlagen Strukturierung}
 			Es gibt verschiedene Möglichkeiten, 
