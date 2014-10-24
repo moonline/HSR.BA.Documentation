@@ -37,7 +37,7 @@
 
 * Name: ADRepo
 * OptionTemplate/ProblemTemplate/ProblemOccurrence/OptionOccurrence sind jeweils über einen separaten API-Call abrufbar: WEL erarbeitet Query-Schnittstelle und macht Vorschlag dazu
-* ID Erforder ein zusätzliches Feld, da sie unique und unveränderlich sein muss über die gesammte Lebenszeit (Pfad kann sich ändern, darum ist es problematisch, wenn er als ID gebraucht wird).
+* ID erfordert ein zusätzliches Feld, da sie unique und unveränderlich sein muss über die gesamte Lebenszeit (Pfad kann sich ändern, darum ist es problematisch, wenn er als ID gebraucht wird).
 
 
 ## TODOs
@@ -45,6 +45,7 @@
 Studenten:
 
 LW:
+
 - schickt den Studenten noch Liste aller States vom ProblemState und OptionState
 
 ZIO:
