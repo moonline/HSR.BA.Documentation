@@ -8,10 +8,17 @@
 
 
 ## Traktanden
-1. DKS API Data Structure
+
+1. Milestone
+2. DKS API Resultdata Structure
+3. DKS API Query Interface
 
 
-### 1. DKS API Data Structure
+### 1. Milestone
+
+
+
+### 2. DKS API Resultdata Structure
 
 JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
 {
@@ -22,3 +29,6 @@ JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
     "elements": [ // besser items
     ]
 }
+
+
+### 3. DKS API Query Interface
