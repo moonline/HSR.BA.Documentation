@@ -2,7 +2,7 @@
 
 **Datum, Zeit**     | Mo 27.10.14., 13:00 - 14:00
 ---                 | ---
-**Ort**             | Rapperswil, HSR, 6.111
+**Ort**             | Rapperswil, HSR, 5.207
 **Teilnehmende**    | Olaf Zimmermann, Tobias Blaser, Laurin Murer, Lukas Wegmann
 **Protokoll**       | Tobias Blaser, Laurin Murer
 
@@ -21,14 +21,15 @@
 http://jira.eeppi.ch/issues/?jql=resolution%20%3D%20Unresolved%20AND%20type%20not%20in%20%28%22Time%20Tracking%22%2C%20Story%2C%20Epic%29%20AND%20parent%20!%3D%20BA-8%20order%20by%20fixVersion
 
 - Aufwand für TaskTemplates an Options hängen abklären.
-- UI: Es sollte ersichtlich sein, woher die Mappings kommen (UI Icon, klare Trennung oder sonst eine Unterteilung). Der Benutzer sollte klar unterscheiden können, das es sich bei den Mappings nicht um Properties des Problems handelt, sondern um referenzierte Elemente.
-- Activity Loging wäre noch eine praktische Funktion (Übersicht wer was gemacht hat).
-- 10. November: ZIO macht “Usertest” mit dem aktuellen Stand von EEPPI
+- UI: Es sollte ersichtlich sein, woher die Mappings kommen (UI Icon, klare Trennung oder sonst eine Unterteilung). Der Benutzer sollte klar unterscheiden können, dass es sich bei den Mappings nicht um Properties des Problems handelt, sondern um referenzierte Elemente.
+- Activity Logging wäre noch eine praktische Funktion (Übersicht wer was gemacht hat).
+- Am 10. November: ZIO macht “Usertest” mit dem aktuellen Stand von EEPPI
 
 
 ### 2. DKS API Resultdata Structure
 
-JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
+JSON Objekt Liste: besser wenn Name 'items' statt name der Objekte:
+
 {
     "startAt": 0,
     "maxResults": 2147483647,
@@ -56,7 +57,7 @@ JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
 - Sollen als Properties oder Teil der Description im PPT Task landen.
 - Beinhalten z.T. Text Values, z.T. Listen, z.T. Verknüpfungen (z.B. Autoren, Stakeholder)
 
-- Tags, die weiter vewendet werden sollen:
+- Tags, die weiter verwendet werden sollen:
 	- Intellectual Property Rights
 	- Organisational Reach (Label/Tag)
 	- Owner Role (Person als String, die gemappt werden muss auf PPT-User)
@@ -88,11 +89,11 @@ JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
 			- Fachlicher Kontext erklären
 		- Problem (Aufgabenstellung)
 		- Ziel / Lösung (Konzeptionell, dann technisch, (CDAR, ADRepo Schnittstelle)
-		- Aktueller STand (erreicht bis jetzt, was kommt noch)
+		- Aktueller Stand (erreicht bis jetzt, was kommt noch)
 		- Ende: Diskussion
 		- Allgemein:
 			- konkrete Beispiele
-			- Ziel: Beide sagen “habens grundlegend verstanden”, “folgende Tipps haben wir noch…”
+			- Ziel: Beide sagen “haben's grundlegend verstanden”, “folgende Tipps haben wir noch…”
 			- Gerald Reif (Berater: Entwickler/Architekt im Bereich SOA)
 			- Idee: beide als Rollen einspannen
 			- Frage: Skype/analog am Freitag Mittag Präsentation reviewen
@@ -101,11 +102,13 @@ JSON Objekt liste: besser wenn Name 'items' statt name der Objekte:
 ## TODO
 
 Studenten:
+
 - Aufwand für "TaskTemplates zu Options mappen" abklären.
 
 
 ## Beschlüsse
 
 Tagged Values:
-	- Autor/Assignee kann immer nur einer sein (nicht mehrere)
+
+- Autor/Assignee kann immer nur einer sein (nicht mehrere)
 
