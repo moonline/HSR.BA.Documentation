@@ -103,6 +103,22 @@
 				wird OpenDocument eingesetzt. Dabei wird berücksichtigt, 
 				dass es über Git nicht inkrementell versioniert und nicht
 				gemerged werden kann.
+				
+			\subsubsection{Dokumentation des API}
+				Das API ist ein zentraler Teil der Bachelorarbeit und wir haben dafür eine ausgefeilte Methode zur Dokumentation erarbeitet.
+				Und zwar generiert der Server eine Webseite, unter welcher die vollständige Dokumentation verfügbar ist. %TODO: API-Dokumentation in dieser Dokumentation integrieren und dann hier referenzieren.
+				Er erstellt die Seite auf der Basis von verschiedenen Informationsquellen:
+				\begin{enumerate}
+					\item "'routes"'-Datei vom Play Framework zur Konfiguration des HTTP-Verbs und der URL.
+					\item Annotation der Controllermethode ob für diesen Aufruf eine Authentifizierung nötig ist.
+					\item Dokumentations-Annotationen der Controllermethode mit Informationen zu den Parametern, zum Aufruf allgemein, zu den möglichen Antworten sowie Informationen für Beispielaufrufe.
+					\item Ergebnisse von simulierten Aufrufen.
+						Bei der Auslieferung der Dokumentation ruft der Server wenn immer möglich selbst die dokumentierten Methoden mit Beispieldaten auf.
+						Die Ergebnisse des Aufrufs integriert er dann in die Dokumentation.
+				\end{enumerate}
+				Da hierbei wenn immer möglich direkt die effektive Konfiguration verwendet wird, ist garantiert, dass die Dokumentation stets auf dem neusten Stand ist.
+				
+				Ausserdem haben wir wo immer sinnvoll jeweils mindestens zwei Beispielaufrufe in die API-Dokumentation integriert.
 
 
 		\subsection{Modeling}
@@ -129,13 +145,13 @@
 			\end{description}
 
 
-		\subsection{Entwicklungsumgebung}
+		\subsection{Individuelle Entwicklungsumgebungen}
 			Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung. 
 			
 			Lizenzen für Webstorm werden von der Schule zur Verfügung gestellt.
 
 
-		\subsection{Development Environment}
+		\subsection{Allgemeine Entwicklungsumgebungen}
 			Auf dem von der Schule zur Verfügung gestellten virtuellen Server werden 
 			für die Entwicklung mit Vagrant\footnote{Virtualisierungsautomatisierungslösung von HashiCorp für verschiedene Virtualisierungsumgebungen: \url{http://www.vagrantup.com/}} virtuelle Wegwerfumgebungen aufgebaut.
 
