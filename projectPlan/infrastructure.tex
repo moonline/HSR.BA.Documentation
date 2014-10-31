@@ -105,18 +105,19 @@
 				gemerged werden kann.
 				
 			\subsubsection{Dokumentation des API}
-				Das API ist ein zentraler Teil der Bachelorarbeit und wir haben dafür eine ausgefeilte Methode zur Dokumentation erarbeitet.
-				Und zwar generiert der Server eine Webseite, unter welcher die vollständige Dokumentation verfügbar ist. %TODO: API-Dokumentation in dieser Dokumentation integrieren und dann hier referenzieren.
-				Er erstellt die Seite auf der Basis von verschiedenen Informationsquellen:
+				Das \eeppi\ API ist zentraler Teil der Bachelorarbeit und aus diesem Grund ist deren Dokumentation sehr wichtig. Insbesondere die Korrektheit und Aktualität der Schnittstellendokumentation sind entscheidend die Benutzung der Schnittstelle.
+				
+				Die Dokumentation wird durch den Server generiert und in Form eines HTML Dokuments zur Verfügung gestellt. %TODO: API-Dokumentation in dieser Dokumentation integrieren und dann hier und im Abschnitt Schnittstellen referenzieren.
+				Der Server sammelt die dazu notwendigen Informationen aus verschiednenen Quellen:
 				\begin{enumerate}
-					\item "'routes"'-Datei vom Play Framework zur Konfiguration des HTTP-Verbs und der URL.
-					\item Annotation der Controllermethode ob für diesen Aufruf eine Authentifizierung nötig ist.
-					\item Dokumentations-Annotationen der Controllermethode mit Informationen zu den Parametern, zum Aufruf allgemein, zu den möglichen Antworten sowie Informationen für Beispielaufrufe.
+					\item "'routes"'-Konfiguration des Play Framework (Konfiguration des HTTP-Verbs und der URL).
+					\item Annotation der Kontrollermethoden (Informationen über notwendige Authentisierung).
+					\item Dokumentations-Annotationen der Controllermethoden (Informationen zu Parameter, Aufruf, Responses sowie Beispielaufrufe).
 					\item Ergebnisse von simulierten Aufrufen.
-						Bei der Auslieferung der Dokumentation ruft der Server wenn immer möglich selbst die dokumentierten Methoden mit Beispieldaten auf.
-						Die Ergebnisse des Aufrufs integriert er dann in die Dokumentation.
+						Bei der Auslieferung der Dokumentation ruft der Server wenn möglich selbst die dokumentierten Methoden mit Beispieldaten auf und integriert die Resultate in die Dokumentation.
 				\end{enumerate}
-				Da hierbei wenn immer möglich direkt die effektive Konfiguration verwendet wird, ist garantiert, dass die Dokumentation stets auf dem neusten Stand ist.
+				
+				Soweit möglich wird hierzu direkt die effektive Konfiguration verwendet. Dies garantiert, dass die Dokumentation stets auf dem neusten Stand ist.
 				
 				Ausserdem haben wir wo immer sinnvoll jeweils mindestens zwei Beispielaufrufe in die API-Dokumentation integriert.
 

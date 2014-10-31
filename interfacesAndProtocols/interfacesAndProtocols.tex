@@ -1,2 +1,17 @@
 \chapter{Schnittstellen und Protokolle}
 	
+\section{RESTfull Schnittstelle}
+
+	\subsection{Server}
+		\eeppi\ besitzt eine RESTfull Schnittstelle, die andere Applikationen benutzen können, um \eeppi\ direkt anzusprechen, andererseits wird die Schnittstelle auch von der eigenen Clientapplikation benutzt.
+		
+		Für die Kommunikation mit Remote-Hosts stellt \eeppi\ Proxies zur Verfügung.
+	
+	
+	\subsection{Client}
+		Die \eeppi\ Clientapplikation nutzt die RESTfull Schnittstelle zum Datenaustausch mit dem Server sowie zur Kommunikation mit Remote-Hosts über die Proxies (Cross-Original Aufruf).
+		
+		Um auf dem Client einfach und flexibel Prototypen aus übertragenen JSON-Objekten instanziieren zu können, gibt es eine Object Factory.
+		Diese baut anhand einer Factorykonfiguration, die jedes übertragbare Objekt deklarieren muss, Objekte zusammen und füllt sie mit Daten.
+		Diese zusätzliche Konfiguration ist notwendig, da JavaScript nicht genügend Typeninformationen besitzt, aus denen sich die erforderlichen Informationen ermitteln liessen und TypeScript diese nicht automatisch generieren kann.
+		Alternativ liesse sich die Prototypeninstanziierung  durch Factoryfunktionen pro Objekt umsetzen, dies hat sich jedoch während der Entwicklung als wartungsintensiv und Duplicated-Code-lastig erwiesen.
