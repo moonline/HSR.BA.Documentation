@@ -144,7 +144,28 @@
 					das sich gut konfigurieren lässt und aus diesem Grund eingesetzt wird.
 					Zudem gibt es für viele Frameworks Plugins, so auch für JSUnit.
 			\end{description}
-
+			
+			\subsubsection{Testkonzept}
+			
+				Um zuverlässig alle notwenigen Bereiche mit Tests abzudecken, 
+				werden folgende Tests durchgeführt:
+				
+				\begin{description}
+					\item[Logiktests] Unittests, die eine einzelne Klasse, 
+						Service oder Komponente testen. 
+						Andere Klassen sind nur soweit Teil des Tests, 
+						wie dies aufgrund der Abhängigkeiten notwendig ist.
+					\item[Integrationtests] Tests, die das Zusammenspiel zwischen Klassen, 
+						Komponenten und Services testen. 
+						Diese Tests können über mehrere Layers bis mehrere Tiers laufen.
+					\item[Seleniumtests] Gross-Integrationstests, 
+						die über alle Tiers und Layers laufen. 
+						Diese Tests testen Workflows von der Persistenz 
+						bis zur grafischen Ausgabe im Userinterface. 
+						Dazu wird ein Browser gestartet und dessen Ausgabe analysiert.
+				\end{description}
+				
+				
 
 		\subsection{Individuelle Entwicklungsumgebungen}
 			Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung. 
