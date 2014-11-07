@@ -15,3 +15,18 @@
 		Diese baut anhand einer Factorykonfiguration, die jedes übertragbare Objekt deklarieren muss, Objekte zusammen und füllt sie mit Daten.
 		Diese zusätzliche Konfiguration ist notwendig, da JavaScript nicht genügend Typeninformationen besitzt, aus denen sich die erforderlichen Informationen ermitteln liessen und TypeScript diese nicht automatisch generieren kann.
 		Alternativ liesse sich die Prototypeninstanziierung  durch Factoryfunktionen pro Objekt umsetzen, dies hat sich jedoch während der Entwicklung als wartungsintensiv und Duplicated-Code-lastig erwiesen.
+		
+	\subsection{HTTP Verben}
+		RESTfull impliziert die Verwendung der richtigen Verwendung der HTTP Verben: 
+		\begin{description}
+			\item[GET] für Abfragen
+			\item[POST] für Create-Operationen
+			\item[DELETE] für Lösch-Operationen
+			\item[PUT oder POST] für Update-Operationen.
+		
+		Viele Netzwerkadministratoren erlauben PUT und DELETE nicht und blockieren entsprechenden Verkehr. Aus diesem Grund setzen Entwickler häufig nur GET und POST ein.
+		
+		Wir haben uns entschieden, serverseitig beides zu ermöglichen:
+		Um Objekte zu löschen kann entweder 'DELETE /<entity>' oder 'POST /<entity>/delete' aufgerufen werden.
+		
+		Die Client Applikation verwendet nur POST/GET, dies kann allerdings umkonfiguriert werden.
