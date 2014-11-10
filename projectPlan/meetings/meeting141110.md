@@ -14,20 +14,20 @@
 3. Geplantes Review API/Dokumentation
 4. Usability Test
 5. Meeting vom 24. November
-6. Neue Version Admentor API
+6. Neue Version ADRepo API
 
 
 ### 1. Milestone
 
-* Feeddback ZIO: Gute Begründung für nicht erledigte Issues.
+* Feedback ZIO: Gute Begründung für nicht erledigte Issues.
 
 
 ### 2. Features / Planung Dev3
 
 * FAQ erstellen:
-	* Dokumentation, wie man DB exportieren kann zu anderer EEPPI Instanz -> keine Abhängigkeiten/State auf dem Server, DB Dump und import
-* Tags/Mapping Sets können mit TaskTemlate Properties emmuliert werden.
-* ADMentor Link einbinden (Self -> Link).
+	* Dokumentation, wie man DB exportieren kann zu anderer EEPPI Instanz -> keine Abhängigkeiten/State auf dem Server, DB Dump und Import
+* Tags/Mapping Sets können mit TaskTemplate Properties emmuliert werden.
+* ADRepo Link einbinden (Self -> Link).
 * UI: Listen sollen einheitlich sein (gleiche (Wort-)Längen, gleiche Detaillierungsgrade, Gross/Kleinschreibung...)
 
 
@@ -41,9 +41,9 @@
 * Im Rahmen des Meetings am 17. November
 
 
-### 5. Meeting 24.
+### 5. Meeting 24. November
 
-* November, 09:05
+* Findet bereits um 09:05 statt
 
 
 ### 6. ADRepo API
@@ -64,11 +64,11 @@ ZIO:
 ## Beschlüsse
 
 * Issues: 
-	* BA 111 und 108 sind nicht teil des Feature Scopes, dafür BA 139 und 131.
-	* Statt BA 111 und 108 auf dem Client ein Promt ausgeben, wenn Timeout beim Laden der ADRepo Elemente -> "DKS Momentan nicht verfügbar. Es konnte keine Verbindung aufgebaut werden".
-	* BA 127 Smart Filtering: Keine Filter implementieren, aber Problems sortieren: ADRepo liefert Elemente bereits sortiert.
+	* BA-111 und BA-108 sind nicht Teil des Feature Scopes, dafür BA-139 und BA-131.
+	* Statt BA-111 und BA-108 auf dem Client ein Promt ausgeben, wenn Timeout beim Laden der ADRepo Elemente -> "DKS Momentan nicht verfügbar. Es konnte keine Verbindung aufgebaut werden".
+	* BA-127 Smart Filtering: Keine Filter implementieren, aber Problems sortieren: ADRepo liefert Elemente bereits sortiert.
 	* TaskTemplates: Nach Name sortieren.
-	* BA 143 Activity logging: Kein komplexes Logging. Auf dem Server lediglich Events in ein Log schreiben, auf dem Client falls kaum Aufwand mit Prcessors Zugriff auf eingeloggten User ermöglichen -> zum mitexportieren ins PPT.
+	* BA-143 Activity logging: Kein komplexes Logging. Auf dem Server lediglich Events in ein Log schreiben, auf dem Client falls kaum Aufwand mit Prcessors Zugriff auf eingeloggten User ermöglichen -> zum mitexportieren ins PPT.
 * Anforderungen:
 	* NFR TaskTemplates: Typische Mengen, mit denen das UI klarkommen muss: 10-30, es muss aber auch noch mit 100 funktionieren.
 
