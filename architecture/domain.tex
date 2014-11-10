@@ -24,7 +24,7 @@
 				\includegraphics[width=\linewidth]{architecture/media/img/dksDomain.png}
 				\centering
 				\caption[DKS Domain\newline 
-					\license{??? License \url{https://???.org} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
+					\license{Eclipse Public License \url{https://www.eclipse.org/legal/epl-v10.html} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
 				]{DKS Domain}
 				\label{fig:dksDomain}
 			\end{figure}
@@ -36,6 +36,18 @@
 				\item[ProblemOccurance] Decision			
 			\end{description}						
 			
+			
+		\subsection{Umbenennen und Löschen von Domänenobjekten}
+			Um Probleme mit referenzierten Domänenobjekten zu vermeiden,
+			darf es Benutzern nur möglich sein, Task Vorlagen umzubenennen,
+			nicht jedoch zu löschen.
+			Dies ermöglich Benutzern, 
+			falsch angelegte Task Vorlagen weiterzuverwenden, vermeidet jedoch, 
+			das bereits referenzierte Vorlagen entfernt werden.
+			
+			Das Gleiche gilt auch für Task Properties.
+			Dies dürfen auf keinen Fall vom Benutzer entfernt werden 
+			und dürfen entsprechend nur umbenannt werden.
 			
 		
 		\subsection{Task-Vorlagen Strukturierung}
