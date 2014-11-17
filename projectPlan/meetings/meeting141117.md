@@ -83,8 +83,9 @@ Worteinführung: "konsistieren" = Konsistenz verbessern.
 ## TODO
 
 Studenten:
+
 - Von Lukas Wegmann Beispieldaten einfordern, die zu jedem ProblemTemplate mehrere ProblemOccurences beinhalten und Attributes / Tag/Values.
-- ZIO einen aktuelle Screenshots vom EEPPI senden
+- ZIO einen aktuelle Screenshot vom EEPPI senden
 
 ZIO:
 
