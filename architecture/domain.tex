@@ -1,4 +1,38 @@
 	\section{Domain}
+		Nachfolgend werden die wichtigsten Bezeichnungen von Domänenobjekten eingeführt:
+		
+		\begin{description}
+			\item[Problem] Beschreibt eine Vorlage für ein Designproblem eines Software Projektes, 
+				z.B. ``Session State''. 
+				Im Decision Knowledge System werden Problems als ``Problem Template'' bezeichnet.
+			\item[Alternative] Beschreibt eine Vorlage für eine Wahlmöglichkeit eines Problems.
+				Für das Problem ``Session State'' wären dies z.B. ``Server Session State'' und
+				``Database Session State''. 
+				Im Decision Knowledge System werden Alternatives als ``Option Template'' bezeichnet.
+			\item[Decision] Beschreibt eine konkrete Problem Instanz.
+				Decisions entstehen, wenn Problems auf konkrete Projekte angewendet werden.
+				Decisions sind sowohl geschlossene wie noch zu treffende Entscheidungen.
+				Im Decision Knowledge System werden Decisions als ``Problem Occurences'' bezeichnet.
+			\item[Option] Beschreibt eine Wahlmöglichkeit einer Decisions, 
+				und somit eine konkrete Instanz einer Alternative.
+				Im Decision Knowledge System werden Options als ``Option Occurences'' bezeichnet.
+			\item[Tasktemplate] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
+				Task Templates enthalten generische Werte, wie z.B. ``Project Manager'' als
+				Attributwert für die Eigenschaft ``Assignee''.
+			\item[Task] Beschreibt einen aus einem Tasktemplate erzeugten konkreten Task.
+				Task entstehen während dem Übertragen der Informationen eines Tasktemplates an ein Projektplanungstool.
+			\item[Mapping oder DKS Mapping] Bezeichnet die Verknüpfung von Problems oder 
+				Alternatives mit einem Tasktemplate. 
+				Anhand dieser Verknüpfung werden aus den verknüpften Tasktemplates und den Decisions oder Options des verknüpften Problem oder
+				der verknüpften Alternative die Informationen generiert, 
+				die für die Übertragung eines Tasks an ein Projektplanungstool benötigt werden.
+			\item[Requesttemplate] Bezeichnet eine Vorlage für einen HTTP-Request um 
+				in einem spezifischen Projektplanungstool Tasks anzulegen.
+				Requesttemplates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
+				die mit Daten der Tasktemplates und Decisions oder Options ersetzt werden. 
+		\end{description}	
+	
+	
 		\subsection{Domainmodel}
 			Die \eeppi\ Domain setzt sich aus drei Typen von Domänen Objekten zusammen: 
 			\begin{itemize}
