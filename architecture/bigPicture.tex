@@ -144,21 +144,25 @@
 		}
 		
 	\section{Datenfluss}
-		\eeppi\ bezieht Wissens-Daten dem Entscheidungs-Wissens-System 
+		\eeppi\ bezieht Wissens-Daten aus dem Entscheidungs-Wissens-System 
 		und liefert Tasks an das Projekt-Planungs-Tool.
 		
-		Die Übertragung dieser Daten läuft jeweils über den Server (CORS Proxy), 
-		da Clients nicht ohne zusätzliche Erlaubnis eines Remoteservers
+		Die Übertragung dieser Daten läuft jeweils über den \eeppi-Server, welcher dafür die Rolle eines CORS\footnote{Cross-Origin Resource Sharing: \url{http://de.wikipedia.org/wiki/Cross-Origin_Resource_Sharing}} Proxy einnimmt. 
+		
+		Dies ist nötig, da Clients nicht ohne zusätzliche Erlaubnis eines Remoteservers
 		auf diesen zugreifen dürfen (Cross Origin Restriction).
+		Dies ist ein allgemeines Problem und tritt bei vielen Webanwendungen auf.
 		
-		CORS Proxy\footnote{\url{http://www.corsproxy.com/}} wird als Webservice angeboten.
-		Dazu akzeptiert der CORS-Proxy-Server Remote Requests und leitet diesen dann
-		an Server weiter, die keine Client-CORS-Requests erlauben.
+		Anstatt einen eigenen CORS Proxy zu verwenden hätte man auch einen von Drittparteien verwenden können.
+		Als Beispiels sei hier \hyperlink{http://www.corsproxy.com/}{corsproxy.com} genannt.
+		Dies ist ein CORS Proxy in Form eines Webservices.
+
+		Ein CORS Proxy akzeptiert Remote Requests von irgendwelchen Ursprungsadressen und leitet diesen dann
+		an die entsprechenden Server weiter, die keine Cross-Origin-Requests erlauben.
 		
-		Wir haben uns jedoch dafür entschieden, selbst einen kleinen CORS Proxy
-		in unsern Server zu integrieren, damit die Daten nicht über 
-		fremde Services fliessen und \eeppi\ auch in einem lokalen Netzwerk
-		mit beschränktem Internetzugriff betrieben werden kann.
+		Wir haben uns entschieden selbst einen kleinen CORS Proxy in unsern Server zu integrieren,
+		damit die Daten nicht über fremde Services fliessen und
+		\eeppi\ auch in einem lokalen Netzwerk mit beschränktem Internetzugriff betrieben werden kann.
 		
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{architecture/media/img/eeppiDataflow.jpg}
