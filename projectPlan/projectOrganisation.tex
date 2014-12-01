@@ -26,3 +26,93 @@
 		\end{minipage}
 	\end{figure}
 	\teacher\ betreut die Semesterarbeit und begleitet das Team durch regelmässige Meetings.
+
+
+	\section{Projektmanagement}
+		Zur Verwaltung des Projektes hat das Projektteam ein Jira eingesetzt.
+		Zur Grobplanung und zur Planung der Milestones wurden Jira-Versions eingesetzt.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{projectPlan/media/img/jiraVersions.jpg}
+			\centering
+			\caption{Jira Versions/Milestones}
+			\label{fig:jiraVersions}
+		\end{figure}
+		
+		Issues wurden entsprechend von uns diesen Versionen zugeordnet.
+		Zusätzlich haben wir labels zur Strukturierung eingesetzt.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{projectPlan/media/img/jiraIssuesOpenOrTodo.jpg}
+			\centering
+			\caption{Jira Issues, sortiert nach Version}
+			\label{fig:jiraIssuesOpenOrTodo}
+		\end{figure}
+		
+		Mit der Dauer einer Version sowie den geschätzten Aufwänden
+		pro Issue haben wir jeweils eine Milestoneplanung durchgeführt.
+		Dies wird von Jira jedoch nicht von Haus aus unterstützt,
+		sodas wir dafür die Issue Daten in eine Tabellenkalkulation exportiert haben.
+		
+		Wir haben jeweils maximal 2/3 der zur Verfügung stehenden Zeit für
+		Issues eingeplant und den Rest für Unvorhergesehenes, 
+		Meetings und Planung vorgesehen.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{projectPlan/media/img/jiraDashBoard.jpg}
+			\centering
+			\caption{Jira Dashboard}
+			\label{fig:jiraDashBoard}
+		\end{figure}
+		
+		Jira bietet anpassbare Dashboards, 
+		die einen Überblick über das laufende Projekt bieten.
+		
+		Der ActivityStream ermöglicht es uns, zusammen mit der Git History,
+		auf einfache Weise nachzuvollziehen, an was der Teampartner in
+		den letzten Stunden gearbeitet hat. 
+		Dies senkt den Kommunikationsaufwand und die Notwendigkeit,
+		jederzeit gemeinsam zu arbeiten.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{projectPlan/media/img/gitHistory.jpg}
+			\centering
+			\caption{Git History}
+			\label{fig:gitHistory}
+		\end{figure}
+		
+		Für grössere Features haben wir Git Flow Featurebranches eingesetzt.
+		Für Releases entsprechend Releasebranches.
+		Zusätzliche haben wir die Funktion ``Releases'' von Github
+		zum Hinzufügen von fertigen Builds zu Releases genutzt.
+		
+		\begin{figure}[H]
+			\includegraphics[width=0.5\textwidth]{projectPlan/media/img/githubReleases.jpg}
+			\centering
+			\caption{Github Releases mit Build-Archives}
+			\label{fig:githubReleases}
+		\end{figure}
+
+		
+	\section{Qualitätssicherung}
+		Um sicherzustellen, das kein Teammitglied Issues schliesst,
+		ohne das die Arbeit einem Review unterzogen wurde,
+		haben wir den Issue Workflow im Jira entsprechend angepasst.		
+		
+		\begin{figure}[H]
+			\includegraphics[width=0.5\textwidth]{projectPlan/media/img/jiraIssueWorkflow.jpg}
+			\centering
+			\caption{Jira Issue Workflow}
+			\label{fig:jiraIssueWorkflow}
+		\end{figure}
+		
+		Fertig gestellte Issues müssen immer dem andern Teammitglied
+		zum Review gesandt werden und tauchen entsprechend auf dessen
+		Dashboard als "Ready to review" auf.
+		
+		Es geht dabei nicht darum, 
+		für jeden erledigten Issue den kompletten Code des Andern anzusehen, 
+		sondern das Resultat grob anzuschauen, ev. 
+		Edge-Cases\footnote{Spezialfälle, bezogen auf Input Daten oder 
+		Workflows der grafischen Oberfläche} zu überprüfen. 
+		Ein komplettes Code Review jedes Issues wäre zeitlich nicht machbar.

@@ -2,7 +2,7 @@
 
 **Datum, Zeit**     | Mo 24.11.14., 09:00 - 10:20
 ---                 | ---
-**Ort**             | Rapperswil, HSR, tbd
+**Ort**             | Rapperswil, HSR, 1.223
 **Teilnehmende**    | Olaf Zimmermann, Tobias Blaser, Laurin Murer, Christian Bisig (cbisig@hsr.ch)
 **Protokoll**       | Tobias Blaser, Laurin Murer
 

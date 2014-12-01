@@ -1,6 +1,18 @@
 \chapter{Architektur}
-
+	
 	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "`IBM UMF Template for Decision Log"' \cite{hand_ibm_2008}.
+	
+	\section{Übersicht}
+		\eeppi\ soll Entscheidungs-Wissens-Systeme (DKS) mit 
+		Projekt-Planungs-Tools (PPT) verbinden.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{architecture/media/img/eeppiSchema.jpg}
+			\centering
+			\caption{Architektur Übersicht}
+			\label{fig:architectureSchema}
+		\end{figure}		
+	
 	
 	\section{Erweiterung CDAR}
 		Für das Anbinden ans \cdar\ gibt es verschiedene Möglichkeiten.
@@ -130,3 +142,27 @@
 			{Der Client muss eine Möglichkeit bieten, eine Session zu speichern. Bevorzugt soll dafür ein Session Cookie zum Einsatz kommen.}
 			{}
 		}
+		
+	\section{Datenfluss}
+		\eeppi\ bezieht Wissens-Daten dem Entscheidungs-Wissens-System 
+		und liefert Tasks an das Projekt-Planungs-Tool.
+		
+		Die Übertragung dieser Daten läuft jeweils über den Server (CORS Proxy), 
+		da Clients nicht ohne zusätzliche Erlaubnis eines Remoteservers
+		auf diesen zugreifen dürfen (Cross Origin Restriction).
+		
+		CORS Proxy\footnote{\url{http://www.corsproxy.com/}} wird als Webservice angeboten.
+		Dazu akzeptiert der CORS-Proxy-Server Remote Requests und leitet diesen dann
+		an Server weiter, die keine Client-CORS-Requests erlauben.
+		
+		Wir haben uns jedoch dafür entschieden, selbst einen kleinen CORS Proxy
+		in unsern Server zu integrieren, damit die Daten nicht über 
+		fremde Services fliessen und \eeppi\ auch in einem lokalen Netzwerk
+		mit beschränktem Internetzugriff betrieben werden kann.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\textwidth]{architecture/media/img/eeppiDataflow.jpg}
+			\centering
+			\caption{Applikationsdatenfluss mit Beispieldatenquelle ADMentor}
+			\label{fig:applicationDataFlow}
+		\end{figure}		

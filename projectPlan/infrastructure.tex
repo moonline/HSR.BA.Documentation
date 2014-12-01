@@ -120,9 +120,14 @@
 				Soweit möglich wird hierzu direkt die effektive Konfiguration verwendet. Dies garantiert, dass die Dokumentation stets auf dem neusten Stand ist.
 				
 				Ausserdem haben wir wo immer sinnvoll jeweils mindestens zwei Beispielaufrufe in die API-Dokumentation integriert.
+				
+				\subsection{Code Dokumentation}
+					\subsubsection{Client}
+						Für zentrale und komplexe Klassen wie z.B. das Repository wird Typedoc\url{http://typedoc.io}
+						zur Erzeugung einer Dokumentation aus dem TypeScript Code verwendet.
 
 
-		\subsection{Modeling}
+		\subsection{Modelling}
 			\begin{description}
 				\item[Ausgewähltes Produkt] Astah
 				\item[Mögliche Alternativen] Umlet
@@ -140,30 +145,31 @@
 			
 			\begin{description}
 				\item[Ausgewähltes Produkt] Jenkins
-				\item[Begründung]  Jenkins ist ein etabliertes und weit verbreitetes Produkt, 
+				\item[Begründung] Jenkins ist ein etabliertes und weit verbreitetes Produkt, 
 					das sich gut konfigurieren lässt und aus diesem Grund eingesetzt wird.
 					Zudem gibt es für viele Frameworks Plugins, so auch für JSUnit.
 			\end{description}
 			
+			% TODO: Move somewhere other and explain only tools here
 			\subsubsection{Testkonzept}
 			
 				Um zuverlässig alle notwenigen Bereiche mit Tests abzudecken, 
 				werden folgende Tests durchgeführt:
 				
 				\begin{description}
-					\item[Logiktests] Unittests, die eine einzelne Klasse, 
+					\item[Unit (Unit- /Logiktests)] Tests, die eine einzelne Klasse, 
 						Service oder Komponente testen. 
 						Andere Klassen sind nur soweit Teil des Tests, 
 						wie dies aufgrund der Abhängigkeiten notwendig ist.
-					\item[Integrationtests] Tests, die das Zusammenspiel zwischen Klassen, 
+					\item[Integration (Integrationstests)] Tests, die das Zusammenspiel zwischen Klassen, 
 						Komponenten und Services testen. 
 						Diese Tests können über mehrere Layers bis mehrere Tiers laufen.
 						Alle API-Aufrufe werden mit solchen Tests getestet.
-					\item[Seleniumtests] Gross-Integrationstests, 
+					\item[Behaviour (Verhaltenstests)] Gross-Integrationstests, 
 						die über alle Tiers und Layers laufen. 
 						Diese Tests testen Workflows von der Persistenz 
 						bis zur grafischen Ausgabe im Userinterface. 
-						Dazu wird ein Browser gestartet und dessen Ausgabe analysiert.
+						Dazu wird mit Selenium ein Browser gestartet und dessen Ausgabe analysiert.
 						%TODO: evtl. User-Stories testen
 				\end{description}
 				
