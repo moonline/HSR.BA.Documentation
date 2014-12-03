@@ -1,38 +1,43 @@
 \chapter{Abstract}
 	%Projektbeschrieb, Erreichtes (Fakten), Details, Fazit (Wertend)
 
+	\section{Ausgangslage}
+
 	Die Bachelorarbeit ``Entwurfsentscheidungen als Projektplanungsinstrument'' - kurz \eeppi\ befasst sich mit der Frage,
-	ob und wie sich teilautomatisiert Aufgaben erzeugen lassen aus Architekturentscheidungen eines Softwareprojektes.
+	ob und wie sich Aufgaben basierend auf Architekturentscheidungen eines Softwareprojektes teilautomatisiert erzeugen lassen.
+	%Die Arbeit baut auf die vorgehende Bachelorarbeit "'Collaborative Decision management and Architectural refactoring (CDAR) Tool"' von Marcel Tinner und Daniel Zigerlig aus dem Frühjahrssemester 2014 auf,
+	%ist aber in sich unabhängig.
 
 	Jedes Softwareprojekt erfordert das Treffen von Architekturentscheidungen.
 	Sowohl aus noch offenen wie bereits getroffenen Entscheidungen lassen sich Aufgaben ableiten.
-	So führt die die offene Entscheidung ``Welche Art von Session State soll verwendet werden?'' zum Beispiel zu den Aufgaben
+	So führt die offene Entscheidung ``Welche Art von Session State soll verwendet werden?'' zum Beispiel zu den Aufgaben
 	``Session State evaluieren'' und ``Prototyp umsetzen''.
-	Wurde die Entscheidung getroffen wobei die Option ``Database Session State'' ausgewählt wurde,
-	so resultieren aus dieser Entscheidung zum Beispiel die Aufgaben ``Datenbank installieren'' und
+	Wird bei dieser Entscheidung die Option ``Database Session State'' ausgewählt,
+	so resultieren aus diesem Entscheid zum Beispiel die Aufgaben ``Datenbank installieren'' und
 	``Session Persistenz implementieren''.
 
 	Sowohl auf Seite der Entscheidungsverwaltung wie auf Seiten der Projektplanungstools existieren bereits verschiedene Tools.
 	Ziel von \eeppi\ ist es, diese Lücke zu schliessen und eine Brücke zwischen Entscheidungsmanagement und Projektplanung zu schlagen.
 
-	% was wurde erreicht?
-	Entstanden ist eine moderne Webapplikation, die Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht,
-	dem Benutzer ermöglicht Vorlagen für Aufgaben zu erfassen und diese mit Entscheidngen zu verknüpfen.
+	\section{Vorgehen}
+
+	Um diese beiden Seiten verbinden zu können, wurde eine moderne Webapplikation entwickelt.
+	Diese bezieht Entscheidungen aus einem angebundenen Wissensverwaltungssystem,
+	ermöglicht dem Benutzer Vorlagen für Aufgaben zu erfassen und diese mit den Entscheidungen zu verknüpfen.
 	Anhand dieser Verknüpfungen kann der Benutzer Aufgaben erzeugen und in ein Projektplanungstool übertragen lassen.
-	Ein Administrationsbereich ermöglicht dem Anwender die Konfiguration der angebundenen Systeme,
-	der zur Verfügung stehende Eigenschaften für Vorlagen, der Schnittstellenaufrufe sowie der Verarbeitungsmechanismen der Vorlagen für Aufgaben.
+	Ein Administrationsbereich ermöglicht dem Anwender die Konfiguration der angebundenen Systeme und deren Schnittstelle sowie
+	die zur Verfügung stehenden Eigenschaften für Vorlagen und deren Verarbeitungsmechanismen zu konkreten Aufgaben.
 
-	% Details
-	\eeppi\ setzt sich aus einer Server- und einer Clientkomponente zusammen, die auf modernen MVC Frameworks basieren.
-	Sowohl die Server und die Clientkomponente wie der Server und die umliegenden Systeme kommunizieren lediglich über Schnittstellen miteinander,
-	was die Komponenten unabhängig von Einander und austauschbar macht.
-	Technologisch kommen auf Server- wie Client typisierte Sprachen zum Einsatz, was sich positiv auf die Codequalität auswirkt.
+	\eeppi\ setzt sich aus einer Server- und einer Client-Komponente zusammen, die auf modernen MVC Frameworks basieren.
+	Sowohl der Server mit dem Client als auch der Server mit den umliegenden Systemen kommunizieren lediglich über Schnittstellen miteinander.
+	Dies verringert die Kopplung untereinander und die Komponenten sind einzel austauschbar.
+	Technologisch kommen auf dem Server wie dem Client typisierte Sprachen zum Einsatz, was sich positiv auf die Codequalität auswirkt.
 
-	% Fazit
-	Mit \eeppi\ ist es möglich, teilautomatisiert Aufgaben aus Projektentscheidungen zu erzeugen.
-	\eeppi\ zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten, wenn sie denn existeren würden.
+	\section{Ergebnis}
+	Mit \eeppi\ ist es möglich, Aufgaben aus Projektentscheidungen teilautomatisiert zu erzeugen.
+	\eeppi\ zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten, wenn sie denn existieren würden.
 	Allerdings zeigt \eeppi\ auch die Knackpunkte einer solchen Software:
 	Sowohl die Verknüpfung von Entscheidungen und Aufgaben wie auch die Anbindung an die umliegenden Systeme müssen sehr flexibel gestaltet sein.
 	Mit \eeppi\ ist dies gelungen, doch es gibt noch viele Erweiterungsmöglichkeiten.
-	\eeppi\ legt somit einen wichtigen Meilenstein im Forschungsbereich des interdisziplinären Entscheidungs- und Projektmanagement und
+	\eeppi\ legt somit einen wichtigen Meilenstein im Forschungsbereich des interdisziplinären Entscheidungs- und Projektmanagements und
 	zeigt auf, wohin die Reise zukünftiger Tools führen könnte.
