@@ -1,4 +1,4 @@
-EEPPI Totorial
+EEPPI Tutorial
 ==============
 
 
@@ -6,11 +6,11 @@ Installation
 ------------
 
 * Environment: Ubuntu Server 14.04 32 Bit
-* Lates Build of EEPPI: Snapshot-0.5.zip
+* Lates Build of EEPPI: EEPPI-1.0.zip
 
 
 1. Install unzip
-        sudo apt-get install default-jre unzip
+        apt-get -y install unzip
 
 2. Install java 8
         sudo add-apt-repository -y ppa:webupd8team/java
@@ -19,27 +19,38 @@ Installation
         sudo apt-get -y install oracle-java8-installer`
 
 3. Install EEPPI
-    1. Unpack SNAPSHOT-0.5.zip
-            unzip SNAPSHOT-0.5.zip -d /home/{yourUserName}/eeppi_zip/
+    1. Unpack EEPPI-1.0.zip
+            sudo unzip EEPPI-1.0.zip -d /usr/local/bin/eeppi_zip/
+            sudo mv /usr/local/bin/eeppi_zip/`ls -1 /usr/local/bin/eeppi_zip/ | tail -n 1` /usr/local/bin/eeppi/
+            sudo rmdir /usr/local/bin/eeppi_zip
 
     2. Start EEPPI
-            sudo /home/vagrant/eeppi/bin/eeppi -Dhttp.port=9990 -DapplyDownEvolutions.default=true -DapplyEvolutions.default=true &
+            sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.default=false -DapplyEvolutions.default=true &
 
     3. Create crontab to start EEPPI after reboot
-            ( crontab -l 2>/dev/null | grep -Fv ntpdate ; printf -- "@reboot sudo /home/vagrant/eeppi/bin/eeppi -Dhttp.port=9990 -DapplyDownEvolutions.default=true -DapplyEvolutions.default=true &\n" ) | crontab
-    4. EEPPI ist available at host:9000
+            ( crontab -l 2>/dev/null | grep -Fv ntpdate ; printf -- "@reboot sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.default=true -DapplyEvolutions.default=true &\n" ) | crontab
+    4. EEPPI ist available at HOST:80
 
 
 Configure Play
 --------------
 
-* Change Port:
+See [Play documentation: Productive configuration](https://www.playframework.com/documentation/2.3.x/ProductionConfiguration) for advanced configuration.
+
+* Change Database to postgresql database 'eeppi' running on localhost:
+    1. create an application.conf
+            db.default.driver=org.postgresql.Driver
+            db.default.url="postgres://localhost/eeppi"
+            db.default.user="eeppiUser"
+            db.default.password="***************"
+    2. Run eeppi, specify alternative configuration file:
+            sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.default=false -DapplyEvolutions.default=true -Dconfig.resource=/path/to/alternative/application.conf &
 
 
 Configure EEPPI
 ---------------
 
-1. Start EEPPI using host:port
+1. Start EEPPI using HOST:80
     ![EEPPI home screen](img/eeppiHomeScreen.jpg "EEPPI home screen")
 
 2. Create a new user
@@ -48,9 +59,9 @@ Configure EEPPI
         ![Register new user](img/registration.jpg "Regiter new user")
     3. Login with the new created user
         ![Login](img/loginMask.jpg "Login")
-2. Define your Decision Knowledge System
-    1. Navigate to "Administration" > "DKS"
-    2. Enter the address of your DKS, changes will be safed on clicking outside field
+2. Define your Decision Knowledge System (e.g. your ADRepo)
+    1. Navigate to "Administration" > "Decision Knowledge Systems"
+    2. Enter the address of your DKS, changes will be applied on clicking outside field
         ![Configure DKS](img/administrationDKS.jpg "Configure decision knowledge system")
 3. Create an account for your Project Planning tool
     1. Navigate to "Account" > "Project Planning Tool Accounts"
@@ -59,7 +70,7 @@ Configure EEPPI
 4. Create a template to transmit tasks to your project planning tool
     1. Navigate to "Administration" > "Request Templates"
     2. Create a new template entering api path & request body
-        1. Take a look inside the documentation of the api of your project planning tool
+        1. Take a look inside the documentation of the api of your project planning tool. E.g. [Redmine API: Creating an issue](http://www.redmine.org/projects/redmine/wiki/Rest_Issues#Creating-an-issue).
         2. Create a request to create an issue in your project planning tool. E.g. for Redmine:
                 {
                     "issue"; {
@@ -131,5 +142,5 @@ Configure EEPPI
                             $mapExistingAssignees:(taskTemplate.attributes.Assignee, "Project Planner:1\,Customer:1\,Architect:1",""assigned_to_id": ${taskTemplate.attributes.Assignee}\,")$
                         }
                     }
-                    
+
                 ![Request templtate with variables and processors user](img/administrationRequestTemplatePlaceholder.jpg "Request template with variables and processors")
