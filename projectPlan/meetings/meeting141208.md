@@ -2,7 +2,7 @@
 
 **Datum, Zeit**     | Mo 08.12.14., 13:00-14:00
 ---                 | ---
-**Ort**             | Rapperswil, HSR, tbd
+**Ort**             | Rapperswil, HSR, 5.207
 **Teilnehmende**    | Olaf Zimmermann, Tobias Blaser, Laurin Murer
 **Protokoll**       | Tobias Blaser, Laurin Murer
 

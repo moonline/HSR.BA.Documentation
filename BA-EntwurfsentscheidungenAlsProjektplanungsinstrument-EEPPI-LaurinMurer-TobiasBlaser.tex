@@ -119,6 +119,7 @@ urlcolor=black
 
 
 %Titel und Inhaltsverzeichnis
+% TODO: Extract to external document and move after management summary. Insert here a title page like the hsr title page.
 \thispagestyle{empty}
 \begin{titlepage}
 	\begin{figure}[htp]
@@ -155,28 +156,27 @@ urlcolor=black
 \end{titlepage}
 \clearpage
 
-% don't forget to print page numbers on the external pdf's
+
 \includepdf[pages=-]{media/documents/Aufgabenstellung.pdf}
-\includepdf[pages=-, pagecommand={}]{media/documents/UsageLicense.pdf}
-%\includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
-
-
-% Inhaltsverzeichnis
-\tableofcontents
 
 
 % abstract, management summary, vision
 \input{introduction/abstract}
-%\input{introduction/managementSummary}
+\input{introduction/managementSummary}
+
+
+% TODO: Insert own titel page here
+
+
+% Inhaltsverzeichnis
+\tableofcontents
 %\input{introduction/vision}
+
+% TODO: introduction
 
 % projektorganisation
 \input{projectPlan/projectOrganisation}
 
-% requirements
-\input{requirements/projectDescription}
-\input{requirements/userStories}
-\input{requirements/nfRequirements}
 
 % architektur analyse
 \input{architecture/bigPicture}
@@ -200,17 +200,29 @@ urlcolor=black
 \printbibliography
 \listoffigures
 
-%\appendix
+\appendix
+
+% personal feedback stories
+%\input{conclusion/reviewTblaser}
+%\input{conclusion/reviewLmurer}
+
+% self reliance declaration & uage lisence
+\includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
+\includepdf[pages=-, pagecommand={}]{media/documents/UsageLicense.pdf}
+
+
+% requirements
+\input{requirements/projectDescription}
+\input{requirements/userStories}
+\input{requirements/nfRequirements}
 
 % projektplan
 \input{projectPlan/projectPlan}
 \input{projectPlan/riskManagement}
 \input{projectPlan/infrastructure}
 
-% Performanceanalyse
+% TODO: Meeting reports: Convert md to pdf and include
 
-% Qualitätsmanagement
-%\input{qualityManagement/qualityManagement}
 
 % poster
 %\begin{landscape}

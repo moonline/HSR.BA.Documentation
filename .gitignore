@@ -7,6 +7,9 @@
 *.*.bak
 *.~lock.*
 
+# graphic raw files
+*.xcf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
