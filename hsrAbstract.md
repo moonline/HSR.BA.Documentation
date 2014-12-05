@@ -6,7 +6,7 @@ Ausgangslage
 ------------
 
 Die vorliegende Arbeit befasst sich mit der Frage,
-ob und wie sich teilautomatisiert Aufgaben aus Architekturentscheidungen eines Softwareprojektes erzeugen lassen.
+ob und wie sich Aufgaben aus Architekturentscheidungen eines Softwareprojektes teilautomatisiert erzeugen lassen.
 
 Jedes Projekt erfordert das Treffen von Entscheidungen.
 So führt die Entscheidung «Welche Art Session State soll verwendet werden?» zum Beispiel zu den Aufgaben
@@ -22,24 +22,23 @@ Ziel von «EEPPI» ist es, diese Lücke zu schliessen und eine Brücke zwischen 
 Vorgehen
 --------
 
-Aufbauend auf den Schnittstellen von Wissensverwaltungssystemen und Projektmanagementtools wurde vom Entwicklungsteam eine Applikation entworfen,
-die eine flexible Konfiguration der Schnittstellen ermöglicht
-und dem Benutzer ein Werkzeug für das Verknüpfen von Entscheidungen mit Aufgabenvorlagen zur Verfügung stellen soll.
+Aufbauend auf den Schnittstellen von Wissensverwaltungssystemen und Projektplanungstools wurde eine Applikation entworfen,
+die eine flexible Konfiguration der Schnittstellen ermöglicht.
+Benutzer können mit ihr Aufgabenvorlagen erstellen, diese an Entscheidungen zuordnen und schliesslich auch an ein Projektplanungstool übertragen.
 
-Mit einem Prototypen wurde die Machbarkeit dessen überprüft
-und anschliessend im Rahmen mehrer Iterationen eine auf Webtechnologie basierende Applikation entwickelt.
-
-Zusammen mit dem Ansprechspartner der Kundengruppe wurden Usability- und Workflowtests durchgeführt, um Benutzeroberfläche
+Mit einem Prototyp wurde die Machbarkeit dessen überprüft
+und anschliessend im Rahmen mehrerer Iterationen eine Webapplikation entwickelt.
+Zusammen mit dem Ansprechpartner der Kundengruppe wurden Usability- und Workflowtests durchgeführt, um Benutzeroberfläche
 und Datenfluss vom Entscheidungsverwaltungssystem bis ins Projektplanungstool zu validieren.
-
 Abschliessend folgte zur Stabilisierung eine Überarbeitungsphase.
 
 
 Ergebnis
 --------
 
-Entstanden ist eine Webapplikation, die Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
-und dem Benutzer ein Metamapping ermöglicht - das Verknüpfen von Entscheidungen und Aufgabenvorlagen.
+Entstanden ist eine Webapplikation, die mögliche Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
+und dem Benutzer mit einem Metamapping ermöglicht,
+die daraus für konkrete Projekte entstehenden Entscheidungen mit eigenen Aufgaben zu Verknüpfen.
 
 Über einen  Administrationsbereich konfiguriert der Benutzer die Applikation nach seinen Bedürfnissen.
 Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. Dazu wurde ein Templatingmechanismus entwickelt,
