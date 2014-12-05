@@ -6,7 +6,7 @@
 	Die vorliegende Arbeit befasst sich mit der Frage,
 	ob und wie sich teilautomatisiert Aufgaben aus Architekturentscheidungen eines Softwareprojektes erzeugen lassen.
 
-	Jedes Softwareprojekt erfordert das Treffen von Entscheidungen.
+	Jedes Projekt erfordert das Treffen von Entscheidungen.
 	So führt die Entscheidung \flqq Welche Art von Session State soll verwendet werden?\frqq\ zum Beispiel zu den Aufgaben
 	\flqq Session State evaluieren\frqq\ und \flqq Prototyp umsetzen\frqq.
 	Wird bei dieser Entscheidung die Option \flqq Database Session State\frqq\ ausgewählt,
@@ -20,25 +20,25 @@
 	\section{Vorgehen}
 
 	Aufbauend auf den Schnittstellen von Wissensverwaltungssystemen und Projektmanagementtools wurde vom Entwicklungsteam eine Applikation entworfen,
-	die einerseits eine flexible Konfiguration der Schnittstellen ermöglicht
-	und andererseits dem Benutzer ein Werkzeug für das Verknüpfen von Entscheidungen mit Aufgabenvorlagen zur Verfügung stellen soll.
+	die eine flexible Konfiguration der Schnittstellen ermöglicht
+	und dem Benutzer ein Werkzeug für das Verknüpfen von Entscheidungen mit Aufgabenvorlagen zur Verfügung stellen soll.
 
 	Mit einem Prototypen wurde die Machbarkeit dessen überprüft
-	und anschliessend im Rahmen mehrer Iterationen eine auf Webtechnologie basierende Applikation gebaut.
+	und anschliessend im Rahmen mehrer Iterationen eine auf Webtechnologie basierende Applikation entwickelt.
 
-	Zusammen mit dem Ansprechspartner der Kundengruppe wurden Usability- und Workflowtests durchgeführt, um die Benutzeroberfläche zu testen
-	und den Datenfluss vom Entscheidungsverwaltungssystem bis ins Projektplanungstool zu validieren.
+	Zusammen mit dem Ansprechspartner der Kundengruppe wurden Usability- und Workflowtests durchgeführt, um Benutzeroberfläche
+	und Datenfluss vom Entscheidungsverwaltungssystem bis ins Projektplanungstool zu validieren.
 
-	Abschliessend folgte zur Stabilisierung eine Überarbeitungsphase zur Steigerung der Code Qualität.
+	Abschliessend folgte zur Stabilisierung eine Überarbeitungsphase.
 
 
 	\section{Ergebnis}
 
-	Mit \eeppi\ ist ein Tool entstanden, das Aufgaben aus Projektentscheidungen teilautomatisiert erzeugen kann.
-	Das Metamapping - Verknüpfung von Entscheidungen und Aufgabenvorlagen - ermöglicht dem Benutzer das anpassen zu erzeugender Aufgaben.
-	Dazu wird dem Benutzer eine breite Palette an Konfigurationsmöglichkeiten geboten.
-	Beispielsweise kann der Benutzer selbst steuern,
-	wie die zu generierenden Aufgaben aufgebaut werden. Dazu wurde ein Templatingmechanismus entwickelt,
+	Entstanden ist eine Webapplikation, die Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
+	und dem Benutzer ein Metamapping ermöglicht - das Verknüpfen von Entscheidungen und Aufgabenvorlagen.
+
+	Über einen  Administrationsbereich konfiguriert der Benutzer die Applikation nach seinen Bedürfnissen.
+	Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. Dazu wurde ein Templatingmechanismus entwickelt,
 	der dem Benutzer das Verwenden von eigenen Verarbeitungsfunktionen, sogenannten Processors, ermöglicht.
 
 	\eeppi\ zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten.
