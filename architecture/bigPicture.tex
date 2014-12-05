@@ -14,17 +14,17 @@
 		\end{figure}		
 	
 	
-	\section{Erweiterung CDAR}
+	\section{Anbindung des bestehenden DKS CDAR}
 		Für das Anbinden ans \cdar\ gibt es verschiedene Möglichkeiten.
 		Wir haben uns für eine eigene Serverkomponente, ein eigenes Userinterface und eine eigene Persistenz entschieden.
 		Die Alternativen und die Details zu diesem Entscheid sind nachfolgend aufgeführt.
 		
 		\decision{
-			\decisionHeader{1}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
+			\decisionHeader{I1}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
 		}{
 			\decisionContent{Eigene Serverkomponente, keine UI Integration, eigene Persistenz}
 			{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
-			{Die \cdar\ Authentisierungs-API erlaubt das Bauen eines SSO über mehrere Applikationen hinweg.}
+			{Die \cdar\ API Stellt alle benötigten Daten zur Verfügung.}
 			{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl, der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
 			{
 				Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
@@ -52,34 +52,36 @@
 				\end{description}
 			}
 			{
-				\eeppi\ soll die \cdar-API und den Login-Mechanismus benutzen. \eeppi\ besitzt allerdings eine eigene Server- sowie UI-Komponente und eine eigene Persistenz. 
+				\eeppi\ soll die \cdar-API zum Laden der Daten benutzen, jedoch eine eigene Server- sowie UI-Komponente und eine eigene Persistenz besitzen. 
 				\begin{description}
 					\item[Vorteile] \
 						\begin{itemize}
 							\item Die Persistenz kann im gleichen System wie \cdar\ untergebracht sein, kann aber auch auf einem komplett andern Host laufen.
 							\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistenz, der Serverkomponente noch am UI.
 							\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden.
-							\item Trotz der Unabhängigkeit ist SSO für Benutzer möglich.
 						\end{itemize}
 					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
 				\end{description}
-				Im Laufe der Prototypenphase wurde dem Team mitgeteilt, 
-				das das \cdar\ durch eine schlanke Schnittstellenapplikation ersetzt wird, 
-				die ihre Daten von der Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
-				Diese Veränderung bestätigte die Entscheidung für die gewählte Variante, 
-				bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung besitzen muss.
 			}
 			{}
-			{Die Schnittstelle für den Authentisierungsservice und die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
+			{Die Schnittstelle für die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
 			{"`Server Technologie"', "`Tier Architektur"'}
 		}
+		
+		
+		Im Laufe der Prototypenphase wurde seitens der Vertretung der Kundengruppe entschieden, 
+		\cdar\ durch eine schlanke Schnittstellenapplikation namens "`ADRepo"' zu ersetzen, 
+		die ihre Daten von über die Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
+		Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
+		Vom Team war angedacht worden die Authentisierungsschnittstelle des \cdar zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
+		Die Ablösung des \cdar bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
 		
 
 	\section{Architekturübersicht}
 	
 	
 	\section{Tier-Architektur}
-		Aufgrund der Einschränkung von Technologie und den existierenden Komponenten des \cdar's stehen drei mögliche Tier-Architekturen zur Auswahl.
+		Aufgrund der Technologischen Möglichkeiten und den anzubindenden Schnittstellen stehen drei mögliche Tier-Architekturen zur Auswahl.
 		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{prof._dr._zimmerman_layers_2014}.		
 		
 		\begin{figure}[H]
@@ -102,8 +104,7 @@
 			\item[2-Tier Structure: Distributed Presentation]
 				Persistenz, Logik und Presentation werden vom Server übernommen.
 				Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
-				Es gibt keine aktiven Komponenten auf dem Client ausser asyncron nachladenden Skripten.
-				
+				Es gibt keine aktiven Komponenten auf dem Client ausgenommen asyncron nachladende Skripte.				
 		\end{description}
 	
 		\decision{
@@ -119,8 +120,8 @@
 				die die Rechenleistung des Clients beansprucht, sodass der Server und dessen Kosten schlank gehalten werden können.
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
 			{}
-			{}
-			{}
+			{Die Serverkomponente muss Persistenz sowie eine Datenschnittstelle für den Client bereitstellen.}
+			{Server Technologie, Client Technologie}
 		}
 		
 	\section{Session State}

@@ -119,41 +119,9 @@ urlcolor=black
 
 
 %Titel und Inhaltsverzeichnis
-% TODO: Extract to external document and move after management summary. Insert here a title page like the hsr title page.
+% TODO: Replace by a title page like the hsr title page template.
 \thispagestyle{empty}
-\begin{titlepage}
-	\begin{figure}[htp]
-		\includegraphics[height=2cm]{media/img/logoHSR.png}
-	\end{figure}	
-	
-	\begin{center}
-
-		\vspace*{0.5cm}
-		{\fontsize{50}{40} \selectfont \textbf{EEPPI} \\[10mm]}
-	
-		\begin{figure}[htp]
-			\centering
-			\includegraphics[scale=0.40]{media/img/eeppiLogo.png}
-		\end{figure}		
-		\vspace*{1cm}	
-	
-		{\fontsize{28}{40} \selectfont \textbf{\project} \\[10mm]}
-		{\fontsize{22}{40} \selectfont \textbf{Bachelorarbeit} \\[10mm]}
-	
-		{\fontsize{18}{20} \selectfont 
-			Abteilung Informatik\\
-			Hochschule für Technik Rapperswil \\
-				
-			\vspace*{1cm}
-			Herbstsemester 2014\\
-		}
-		
-		\vspace*{2cm}
-		Laurin Murer, Tobias Blaser \\
-		Betreuer: \teacher
-
-	\end{center}
-\end{titlepage}
+\input{titlePage}
 \clearpage
 
 
@@ -165,18 +133,17 @@ urlcolor=black
 \input{introduction/managementSummary}
 
 
-% TODO: Insert own titel page here
-
+% Title page
+\thispagestyle{empty}
+\input{titlePage}
+\clearpage
 
 % Inhaltsverzeichnis
 \tableofcontents
-%\input{introduction/vision}
 
-% TODO: introduction
-
-% projektorganisation
+% Einleitung & projektorganisation
+\input{introduction/introduction}
 \input{projectPlan/projectOrganisation}
-
 
 % architektur analyse
 \input{architecture/bigPicture}
