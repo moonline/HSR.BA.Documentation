@@ -24,9 +24,9 @@ Vorgehen
 
 Aufbauend auf den Schnittstellen von Wissensverwaltungssystemen und Projektplanungstools wurde eine Applikation entworfen,
 die eine flexible Konfiguration der Schnittstellen ermöglicht.
-Benutzer können mit ihr Aufgabenvorlagen erstellen, diese an Entscheidungen zuordnen und schliesslich auch an ein Projektplanungstool übertragen.
+Benutzer sollen Aufgabenvorlagen erstellen, diese mit Entscheidungen verknüpfen und in ein Projektplanungstool übertragen können.
 
-Mit einem Prototyp wurde die Machbarkeit dessen überprüft
+Mittels Prototyp wurde die Machbarkeit dessen überprüft
 und anschliessend im Rahmen mehrerer Iterationen eine Webapplikation entwickelt.
 Zusammen mit dem Ansprechpartner der Kundengruppe wurden Usability- und Workflowtests durchgeführt, um Benutzeroberfläche
 und Datenfluss vom Entscheidungsverwaltungssystem bis ins Projektplanungstool zu validieren.
@@ -37,8 +37,7 @@ Ergebnis
 --------
 
 Entstanden ist eine Webapplikation, die mögliche Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
-und dem Benutzer mit einem Metamapping ermöglicht,
-die daraus für konkrete Projekte entstehenden Entscheidungen mit eigenen Aufgaben zu Verknüpfen.
+und dem Benutzer durch ein Metamapping ermöglicht, für konkrete Projekte entstehenden Entscheidungen mit eigenen Aufgaben zu Verknüpfen.
 
 Über einen  Administrationsbereich konfiguriert der Benutzer die Applikation nach seinen Bedürfnissen.
 Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. Dazu wurde ein Templatingmechanismus entwickelt,
