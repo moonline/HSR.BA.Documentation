@@ -11,7 +11,10 @@
 
 1. Status / Planung
 2. Demo
-3. ADMentor Zeitangaben
+3. Review Abstract
+4. ADMentor Zeitangaben
+5. Termin BA Meeting Januar
+6. Review Dokumentation
 
 
 ### Status / Planung
