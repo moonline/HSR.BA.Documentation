@@ -11,76 +11,100 @@
 			\centering
 			\caption{Architektur Übersicht}
 			\label{fig:architectureSchema}
-		\end{figure}		
+		\end{figure}	
+		
+		Dabei sollen Entscheidungen sowie deren verknüpfte Wahlmöglichkeiten (Optionen) mit Taskvorlagen (Tasktemplates) verknüpft werden.
+		Diese Verknüpfung wird in folgenden Kapiteln als "'Mapping"' bezeichnet. 
+		Anhand diesen Verknüpfungen sollen aus den Aufgabenvorlagen konkrete Aufgaben generiert und in ein Projektplanungstool übertragen werden.
 	
 	
-	\section{Anbindung des bestehenden DKS CDAR}
-		Für das Anbinden ans \cdar\ gibt es verschiedene Möglichkeiten.
-		Wir haben uns für eine eigene Serverkomponente, ein eigenes Userinterface und eine eigene Persistenz entschieden.
-		Die Alternativen und die Details zu diesem Entscheid sind nachfolgend aufgeführt.
+	\section{Anbindung der externen Systeme}
+		Damit \eeppi\ Daten aus Wissensverwaltungssystemen laden und in Projektplanungstools übertragen kann, muss \eeppi\ an diese angebunden werden können.
 		
-		\decision{
-			\decisionHeader{I1}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
-		}{
-			\decisionContent{Eigene Serverkomponente, keine UI Integration, eigene Persistenz}
-			{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
-			{Die \cdar\ API Stellt alle benötigten Daten zur Verfügung.}
-			{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl, der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
-			{
-				Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
-				\begin{description}					
-					\item[\cdar\ UI erweitern]
-					Integration der \eeppi-Funktionalität ins UI des \cdar.			
-					\begin{description}
-						\item[Vorteile] Nur eine Applikation für Benutzer
-						\item[Nachteile] \cdar\ UI muss angepasst werden, \eeppi\ ist vom \cdar\ abhängig
+	
+		\subsection{ von Wissensverwaltungssystemen}
+			Beim \cdar\ handelt es sich um ein Wissensverwaltungssystem, 
+			das im Rahmen einer Bachelorarbeit an der HSR entwickelt wurde. Mit dem \cdar\ kann ein Benutzer Entscheidungen und und Optionen modellieren und verknüpfen. Das \cdar\ wurde in der Anfangsphase des Projektes als Wissensverwaltungs-Referenzsystem verwendet.
+			
+		
+			Für die Anbindung von \eeppi\ ans \cdar\ gibt es verschiedene Möglichkeiten.
+			Wir haben uns für eine eigene Serverkomponente, ein eigenes Userinterface und eine eigene Persistenz entschieden.
+			Die Alternativen sowie die Grundlagen dieser Entscheidung sind nachfolgend aufgeführt.
+			
+			\decision{
+				\decisionHeader{INT-CDAR}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
+			}{
+				\decisionContent{Eigene Serverkomponente, eigenes UI (keine UI Integration mit \cdar), eigene Persistenz}
+				{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
+				{Die \cdar\ API Stellt alle benötigten Daten zur Verfügung.}
+				{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl, der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
+				{
+					Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
+					\begin{description}					
+						\item[\cdar\ UI erweitern]
+						Integration der \eeppi-Funktionalität ins UI des \cdar.			
+						\begin{description}
+							\item[Vorteile] Nur eine Applikation für Benutzer
+							\item[Nachteile] \cdar\ UI muss angepasst werden, \eeppi\ ist vom \cdar\ abhängig
+						\end{description}
+						
+						\item[Serverkomponente ersetzen]
+						\eeppi\ bildet eine gemeinsame neue Serverkomponente, die diejenige des \cdar\ ersetzt.
+						\begin{description}
+							\item[Vorteile] Einheitlichen Unterbau für \cdar\ und \eeppi, nur eine Schnittstelle, nur eine Serverkomponente, einfachere Installation
+							\item[Nachteile] Sehr aufwändig, da die \cdar\ Server Komponente viel zu ersetzende Logik beinhaltet, \eeppi\ ist mit \cdar\ gekoppelt.
+						\end{description}
+						
+						\item[\cdar\ Persistenz erweitern]
+						\eeppi\ nutzt die Persistenz des \cdar\ und erweitert diese.
+						\begin{description}
+							\item[Vorteile] Einfachere Wartung, nur eine Persistenz für Backup
+							\item[Nachteile] Kopplung von \eeppi\ an \cdar
+						\end{description}
 					\end{description}
-					
-					\item[Serverkomponente ersetzen]
-					\eeppi\ bildet eine gemeinsame neue Serverkomponente, die diejenige des \cdar\ ersetzt.
+				}
+				{
+					\eeppi\ soll die \cdar-API zum Laden der Daten benutzen, jedoch eine eigene Server- sowie UI-Komponente und eine eigene Persistenz besitzen. 
 					\begin{description}
-						\item[Vorteile] Einheitlichen Unterbau für \cdar\ und \eeppi, nur eine Schnittstelle, nur eine Serverkomponente, einfachere Installation
-						\item[Nachteile] Sehr aufwändig, da die \cdar\ Server Komponente viel zu ersetzende Logik beinhaltet, \eeppi\ ist mit \cdar\ gekoppelt.
+						\item[Vorteile] \
+							\begin{itemize}
+								\item Die Persistenz kann im gleichen System wie \cdar\ untergebracht sein, kann aber auch auf einem komplett andern Host laufen.
+								\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistenz, der Serverkomponente noch am UI.
+								\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden.
+							\end{itemize}
+						\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
 					\end{description}
-					
-					\item[\cdar\ Persistenz erweitern]
-					\eeppi\ nutzt die Persistenz des \cdar\ und erweitert diese.
-					\begin{description}
-						\item[Vorteile] Einfachere Wartung, nur eine Persistenz für Backup
-						\item[Nachteile] Kopplung von \eeppi\ an \cdar
-					\end{description}
-				\end{description}
+				}
+				{\cdar\ soll als Referenz-DKS angebunden werden.}
+				{Die Schnittstelle für die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
+				{
+					\decisionRef{Tier Architektur}{ARC-TIERS}, 
+					\decisionRef{Server Technologie}{TEC-SERVER}
+				}
 			}
-			{
-				\eeppi\ soll die \cdar-API zum Laden der Daten benutzen, jedoch eine eigene Server- sowie UI-Komponente und eine eigene Persistenz besitzen. 
-				\begin{description}
-					\item[Vorteile] \
-						\begin{itemize}
-							\item Die Persistenz kann im gleichen System wie \cdar\ untergebracht sein, kann aber auch auf einem komplett andern Host laufen.
-							\item Es sind keine Anpassungen an \cdar\ notwendig, weder an der Persistenz, der Serverkomponente noch am UI.
-							\item \eeppi\ ist Unabhängig vom \cdar\ und könnte auch mit einer andern Applikation als das \cdar\ gekoppelt werden.
-						\end{itemize}
-					\item[Nachteile] Benutzer müssen zwei Applikationen nutzen (andere URL als \cdar), die Installation ist komplizierter
-				\end{description}
-			}
-			{}
-			{Die Schnittstelle für die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
-			{"`Server Technologie"', "`Tier Architektur"'}
-		}
+			
+			
+			Im Laufe der Prototypenphase wurde seitens der Vertretung der Kundengruppe entschieden, 
+			\cdar\ durch eine schlanke Schnittstellenapplikation namens "`ADRepo"' zu ersetzen, 
+			die ihre Daten über die Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
+			Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
+			Vom Team war angedacht worden die Authentisierungsschnittstelle des \cdar zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
+			Die Ablösung des \cdar bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
 		
 		
-		Im Laufe der Prototypenphase wurde seitens der Vertretung der Kundengruppe entschieden, 
-		\cdar\ durch eine schlanke Schnittstellenapplikation namens "`ADRepo"' zu ersetzen, 
-		die ihre Daten von über die Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
-		Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
-		Vom Team war angedacht worden die Authentisierungsschnittstelle des \cdar zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
-		Die Ablösung des \cdar bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
+		\subsection{Anbinden von Projektplanungstools}
+			Entscheidend für die Anbindung eines Projektplanungstool ist deren Schnittstelle zum Erzeugen von Tasks. 
+			Als Refrenz-Projektplanungstools haben wir uns hier für Jira und Redmine entschieden.
+			Beide Systeme besitzen solide Schnittstellen,
+			die das Verwalten von Tasks erlauben 
+			und besitzen einen Verbreitungsgrad über die Softwarebranche hinaus.
 		
 
-	\section{Architekturübersicht}
-	
-	
 	\section{Tier-Architektur}
+		Die Tier-Architektur wurde zusammen mit der Wahl der Technologie durgeführt aufgrund der gegenseitigen Einflüsse und Enschränkungen.
+		Technologische Entscheidungen werden im Abschnitt \ref{architektur.technologie} auf 
+Seite \pageref{architektur.technologie} besprochen.
+		
 		Aufgrund der Technologischen Möglichkeiten und den anzubindenden Schnittstellen stehen drei mögliche Tier-Architekturen zur Auswahl.
 		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{prof._dr._zimmerman_layers_2014}.		
 		
@@ -104,44 +128,47 @@
 			\item[2-Tier Structure: Distributed Presentation]
 				Persistenz, Logik und Presentation werden vom Server übernommen.
 				Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
-				Es gibt keine aktiven Komponenten auf dem Client ausgenommen asyncron nachladende Skripte.				
+				Es gibt keine aktiven Komponenten auf dem Client, ausgenommen asyncron nachladende Skripte.				
 		\end{description}
 	
 		\decision{
-			\decisionHeader{1}{Tier Architektur}{Architektur}{Architektur design}
+			\decisionHeader{ARC-TIERS}{Tier Architektur}{Architektur}{Architektur design}
 		}{
 			\decisionContent{Distributed Application (Single Page Application)}
 			{Welche Tier Architektur soll für \eeppi\ gewählt werden?}
-			{}
-			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ und \cdar\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
+			{Die einzusetzende Technologie unterstützt "`Centralized Computing"', "`Distributed Presentation"' und "'Distributed Application"'}
+			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
 			{"`Centralized Computing"', "`Distributed Presentation"'}
-			{"`Distributed Application"' ermöglicht, die bestehende Serverlogik des \cdar\ zu nutzen, 
-				eine Serverseitige (zentralisierte) Persistenz anzubieten sowie dem Benutzer eine schnelle und unabhängige Applikation zur Verfügung zu stellen, 
-				die die Rechenleistung des Clients beansprucht, sodass der Server und dessen Kosten schlank gehalten werden können.
+			{"`Distributed Application"' ermöglicht eine Serverseitige (zentralisierte) Persistenz sowie den Aufbau einer schnellen und unabhängigen Applikation durch Nutzung der Rechenleistung auf dem Client, sodass der Server und dessen Kosten schlank gehalten werden können.
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
 			{}
 			{Die Serverkomponente muss Persistenz sowie eine Datenschnittstelle für den Client bereitstellen.}
-			{Server Technologie, Client Technologie}
+			{
+				\decisionRef{Server Technologie}{TEC-SERVER}, 
+				\decisionRef{Client Framework}{TEC-CLIENT-FW}
+			}
 		}
 		
 	\section{Session State}
 		Eine Session (Session State Pattern\footnote{\url{http://www.bettersoftwaredesign.org/Design-Patterns/Enterprise-Application-Architecture-Patterns/Session-State-Patterns}}) kann auf dem Client abgelegt werden, auf dem Server oder persistiert werden.
 		
 		\decision{
-			\decisionHeader{2}{Session State}{Architektur}{Architektur design}
+			\decisionHeader{ARC-SESSION}{Session State}{Architektur}{Architektur design}
 		}{
 			\decisionContent{Client Session State}
 			{Auf welchem Tier sollen User Sessions gespeichert werden?}
-			{}
+			{Sowohl das Server- wie das Clientframework beherrschen Session State Management}
 			{Diese Entscheidung beeinflusst Client wie Server und bestimmt, ob der der Server zustandsbehaftet oder nicht ausgelegt wird.}
 			{"`Server Session State"', "`Database Session State"'}
-			{"`Client Session State"' ermöglicht es, 
-				den Server zustandslos zu implementieren. 
+			{"`Client Session State"' ermöglicht die Umsetzung eines zustandslosen Servers. 
 				Dadurch wird eine reine Resourcen-basierte Serverschnittstelle möglich.			
 			}
 			{}
 			{Der Client muss eine Möglichkeit bieten, eine Session zu speichern. Bevorzugt soll dafür ein Session Cookie zum Einsatz kommen.}
-			{}
+			{
+				\decisionRef{Server Technologie}{TEC-SERVER},				
+				\decisionRef{Client Framework}{TEC-CLIENT-FW}
+			}
 		}
 		
 	\section{Datenfluss}
