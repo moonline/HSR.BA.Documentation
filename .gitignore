@@ -19,6 +19,7 @@
 *.out
 *.toc
 /*.pdf
+*.tmp
 
 ## Intermediate documents:
 *.dvi

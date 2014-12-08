@@ -23,6 +23,7 @@
 
 %tabellen
 \usepackage{tabularx}
+\usepackage{longtable,tabu}
 \usepackage{array}
 \usepackage{booktabs}
 
@@ -80,6 +81,19 @@
 
 \usepackage{changepage}
 
+% zusätzliches Verzeichnis
+\usepackage{tocloft}
+%\newcommand{\contentOverviewList}{Inhaltsüberblick}
+%\newlistof{contentOverview}{contentOverviewCounter}{\contentOverviewList}
+\newcommand{\listdocumentPartsName}{Inhaltsübersicht}
+\newlistof{documentPart}{parts.tmp}{\listdocumentPartsName}
+
+\newcommand{\documentPartEntry}[1]{
+	\refstepcounter{documentPart}
+	\addcontentsline{parts.tmp}{documentPart}
+	{\protect\numberline{}#1}\par
+}
+
 %links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
 \usepackage[bookmarks=true,
 bookmarksopen=true,
@@ -124,6 +138,9 @@ urlcolor=black
 \input{titlePage}
 \clearpage
 
+\listofdocumentPart
+\clearpage
+
 
 \includepdf[pages=-]{media/documents/Aufgabenstellung.pdf}
 
@@ -136,6 +153,7 @@ urlcolor=black
 % Title page
 \thispagestyle{empty}
 \input{titlePage}
+\documentPartEntry{Technischer Bericht}
 \clearpage
 
 % Inhaltsverzeichnis
@@ -168,7 +186,16 @@ urlcolor=black
 \listoffigures
 
 \appendix
+\documentPartEntry{Anhang Technischer Bericht}
 
+
+% requirements
+\input{requirements/projectDescription}
+\input{requirements/userStories}
+\input{requirements/nfRequirements}
+
+
+\documentPartEntry{Anhang Dokumentation}
 % personal feedback stories
 %\input{conclusion/reviewTblaser}
 %\input{conclusion/reviewLmurer}
@@ -177,11 +204,6 @@ urlcolor=black
 \includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
 \includepdf[pages=-, pagecommand={}]{media/documents/UsageLicense.pdf}
 
-
-% requirements
-\input{requirements/projectDescription}
-\input{requirements/userStories}
-\input{requirements/nfRequirements}
 
 % projektplan
 \input{projectPlan/projectPlan}
