@@ -1,11 +1,15 @@
 \chapter*{Management Summary}
 	\documentPartEntry{Management Summary}
+	\captionsetup[figure]{labelformat=empty} % disable figure numbering
+
 	
 	
 	\section*{Ausgangslage}
 	
-	Die vorliegende Arbeit befasst sich mit der Frage,
-	ob und wie sich Aufgaben aus Architekturentscheidungen eines Softwareprojektes teilautomatisiert erzeugen lassen.
+	"'Entwurfsentscheidungen als Projektplanungsinstrument"', kurz EEPPI. 
+	Diesem Thema widmet sich die vorliegende Arbeit und befasst sich mit der Frage, 
+	ob sich aus Projektentscheidungen Aufgaben ableiten lassen.
+	Dabei wird untersucht, ob sich dieser Prozess automatisieren lässt.
 	
 	Jedes Projekt erfordert das Treffen von Entscheidungen.
 	So führt die Entscheidung "<Welche Art Session State soll verwendet werden?"> zum Beispiel zu den Aufgaben
@@ -14,13 +18,13 @@
 	so resultieren aus diesem Entscheid beispielsweise die Aufgaben "<Datenbank installieren"> und
 		"<Session Persistenz implementieren">.
 	
-	Sowohl auf Seite der Entscheidungsverwaltung wie auf Seiten der Projektplanungstools existieren bereits verschiedene Tools.
-	Ziel von EEPPI ist es, diese Lücke zu schliessen und eine Brücke zwischen Entscheidungsmanagement und Projektplanung zu bilden.
+	Sowohl auf Seite der Entscheidungsverwaltung wie auf Seiten der Projektplanung existieren bereits verschiedene Werkzeuge.
+	Ziel von \eeppi\ ist es, eine Brücke zwischen Entscheidungsmanagement und Projektplanung zu bilden.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{introduction/img/eeppiVision.png}
 		\centering
-		\caption{EEPPI bildet eine Brücke zwischen Entscheidungs- und Projektmanagement}
+		\caption{EEPPI bildet eine Brücke zwischen Entscheidungsmanagement- und Projektplanung}
 		\label{fig:eeppiBridgeBetweenDecisionsAndTasks}
 	\end{figure}
 	
@@ -40,24 +44,34 @@
 	
 	\section*{Ergebnis}
 		
-	Entstanden ist eine Webapplikation, die mögliche Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
-	und dem Benutzer durch ein Metamapping ermöglicht, für konkrete Projekte entstehenden Entscheidungen mit eigenen Aufgaben zu Verknüpfen.	
+	Im Rahmen der Arbeit wurde eine Webapplikation entwickelt, 
+	die mögliche Entscheidungen aus einem angebundenen Wissensverwaltungssystem bezieht
+	und dem Benutzer mit einem Metamapping ermöglicht,
+	Projektentscheidungen mit eigenen Aufgaben zu verknüpfen.	
 	
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{introduction/img/eeppiDecisionsAndTaskTemplates.jpg}
+		\includegraphics[width=\textwidth]{introduction/img/eeppiDecisionsAndTaskTemplates.png}
 		\centering
 		\caption{Metamapping: Verknüpfung von Entscheidungen und Aufgabenvorlagen}
 		\label{fig:metamapping}
-	\end{figure}
+	\end{figure}	
 	
 	Über einen  Administrationsbereich konfiguriert der Benutzer die Applikation nach seinen Bedürfnissen.
-	Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. Dazu wurde ein Templatingmechanismus entwickelt,
-	der dem Benutzer das Verwenden von eigenen Verarbeitungsfunktionen, sogenannten Processors, ermöglicht.
+	Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. 
+	Ein dazu entwickelter Templatingmechanismus ermöglicht ihm eigene Verarbeitungsfunktionen, sogenannten Processors, zu verwenden.
 	
-	EEPPI zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten.
-	Allerdings zeigt EEPPI auch die Design-Herausforderungen einer solchen Software:
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{introduction/img/simpleProcessWorkflow.jpg}
+		\centering
+		\caption{Übertragung: Ausführen von Processors und Übertragen der Aufgaben}
+		\label{fig:metamapping}
+	\end{figure}
+	
+	\eeppi\ zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten,
+	aber auch die Design-Herausforderungen einer solchen Software: 
 	Sowohl die Verknüpfung von Entscheidungen und Aufgaben wie auch die Anbindung an die umliegenden Systeme müssen sehr flexibel gestaltet sein.
 	Mit EEPPI ist dies gelungen, doch es gibt noch viele Erweiterungsmöglichkeiten.
-	EEPPI legt somit einen wichtigen Meilenstein im Forschungsbereich des interdisziplinären Entscheidungs- und Projektmanagements und
-	zeigt auf, wohin die Reise zukünftiger Tools führen könnte.
+	\eeppi\ legt somit einen wichtigen Meilenstein im Forschungsbereich des interdisziplinären Entscheidungs- und Projektmanagements und
+	zeigt den möglichen Weg zukünftiger Tools auf.
 	
+	\captionsetup[figure]{labelformat=default} % reenable figure numbering

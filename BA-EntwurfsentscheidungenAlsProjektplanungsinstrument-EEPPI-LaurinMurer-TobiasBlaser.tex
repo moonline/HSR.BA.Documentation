@@ -41,6 +41,7 @@
 \usepackage[printonlyused]{acronym}
 
 %Bilder
+\usepackage{caption}
 \usepackage{graphicx} %Bilder
 \usepackage{float}	  %"Floating" Objects, Bilder, Tabellen...
 \usepackage{wrapfig}
@@ -167,7 +168,7 @@ urlcolor=black
 \input{architecture/technology}
 \input{architecture/architecture}
 \input{architecture/domain}
-%\input{architecture/thirdPartyCode}
+\input{architecture/thirdPartyCode}
 
 % interfaces & protocols
 \input{interfacesAndProtocols/interfacesAndProtocols}
@@ -175,9 +176,8 @@ urlcolor=black
 % performance analyse
 
 % Erkenntnisse, Schlussfolgerungen
-%\input{conclusion/knowledge}
+\input{conclusion/knowledge}
 \input{conclusion/conclusion}
-%\input{conclusion/reviewTblaser}
 
 
 \input{glossary}
@@ -193,11 +193,19 @@ urlcolor=black
 \input{requirements/userStories}
 \input{requirements/nfRequirements}
 
+\input{projectPlan/projectManagement}
+
+\chapter{EEPPI-Usermanual}
+\chapter{Code-Documentation}
+	\section{API}
+	\section{Client Code}
 
 
 % personal feedback stories
-%\input{conclusion/reviewTblaser}
-%\input{conclusion/reviewLmurer}
+\chapter*{Persönliche Berichte}
+\documentPartEntry{Persönliche Berichte}
+\input{conclusion/reviewTblaser}
+\input{conclusion/reviewLmurer}
 
 % self reliance declaration & uage lisence
 \documentPartEntry{Eigenständigkeits-Erklärung}
@@ -205,15 +213,16 @@ urlcolor=black
 \documentPartEntry{Nutzungsvereinbarung}
 \includepdf[pages=-, pagecommand={}]{media/documents/UsageLicense.pdf}
 
-
 % projektplan
 \input{projectPlan/projectPlan}
 \input{projectPlan/riskManagement}
 \input{projectPlan/infrastructure}
 
 % TODO: Meeting reports: Convert md to pdf and include
+\chapter*{Sitzungsprotokolle}
+\documentPartEntry{Sitzungsprotokolle}
 
-
+\documentPartEntry{Poster}
 % poster
 %\begin{landscape}
 %	\includepdf[pages=-]{media/documents/poster.pdf}

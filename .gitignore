@@ -9,6 +9,7 @@
 
 # graphic raw files
 *.xcf
+introduction/media/*.odg
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
