@@ -83,15 +83,13 @@
 
 % zusätzliches Verzeichnis
 \usepackage{tocloft}
-%\newcommand{\contentOverviewList}{Inhaltsüberblick}
-%\newlistof{contentOverview}{contentOverviewCounter}{\contentOverviewList}
 \newcommand{\listdocumentPartsName}{Inhaltsübersicht}
 \newlistof{documentPart}{parts.tmp}{\listdocumentPartsName}
 
 \newcommand{\documentPartEntry}[1]{
 	\refstepcounter{documentPart}
 	\addcontentsline{parts.tmp}{documentPart}
-	{\protect\numberline{}#1}\par
+	{\hspace*{-0.6cm}\protect\numberline{}#1}\par
 }
 
 %links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
