@@ -141,7 +141,7 @@ urlcolor=black
 \listofdocumentPart
 \clearpage
 
-
+\documentPartEntry{Aufgabenstellung}
 \includepdf[pages=-]{media/documents/Aufgabenstellung.pdf}
 
 
@@ -152,11 +152,12 @@ urlcolor=black
 
 % Title page
 \thispagestyle{empty}
-\input{titlePage}
 \documentPartEntry{Technischer Bericht}
+\input{titlePage}
 \clearpage
 
 % Inhaltsverzeichnis
+\setcounter{tocdepth}{2}
 \tableofcontents
 
 % Einleitung & projektorganisation
@@ -166,6 +167,7 @@ urlcolor=black
 % architektur analyse
 \input{architecture/bigPicture}
 \input{architecture/technology}
+\input{architecture/architecture}
 \input{architecture/domain}
 %\input{architecture/thirdPartyCode}
 
@@ -185,9 +187,8 @@ urlcolor=black
 \printbibliography
 \listoffigures
 
-\appendix
-\documentPartEntry{Anhang Technischer Bericht}
 
+\appendix
 
 % requirements
 \input{requirements/projectDescription}
@@ -195,13 +196,15 @@ urlcolor=black
 \input{requirements/nfRequirements}
 
 
-\documentPartEntry{Anhang Dokumentation}
+
 % personal feedback stories
 %\input{conclusion/reviewTblaser}
 %\input{conclusion/reviewLmurer}
 
 % self reliance declaration & uage lisence
+\documentPartEntry{Eigenständigkeits-Erklärung}
 \includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
+\documentPartEntry{Nutzungsvereinbarung}
 \includepdf[pages=-, pagecommand={}]{media/documents/UsageLicense.pdf}
 
 

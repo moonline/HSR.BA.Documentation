@@ -1,5 +1,7 @@
-\chapter{Infrastruktur}
-	\section{Arbeitsplätze, Geräte und Server}
+\chapter*{Infrastruktur}	
+	\documentPartEntry{Infrastruktur}
+
+	\section*{Arbeitsplätze, Geräte und Server}
 		Um Entwickeln, Builden und Testen zu können, benötigt das Team die folgende Infrastruktur:
 		\begin{itemize}
 			\setlength{\itemsep}{-\parsep}
@@ -9,8 +11,8 @@
 		\end{itemize}
 
 		
-	\section{Tools}
-		\subsection{Projektmanagement}	
+	\section*{Tools}
+		\subsection*{Projektmanagement}	
 			Jira und Redmine bieten ähnliche Funktionalität und Teammitglieder haben mit Jira wie mit Redmine gute Erfahrungen gemacht. 
 			Redmine ist in der Basiskonfiguration eher auf RUP ausgerichtet, für Agile Entwicklung werden Plugins benötigt. 
 			Jira ist in der Basiskonfiguration auf Agile Entwicklung ausgerichtet. 
@@ -29,15 +31,15 @@
 			\end{description}
 
 
-		\subsection{Versionsverwaltung}
-			\subsubsection{Git}
+		\subsection*{Versionsverwaltung}
+			\subsubsection*{Git}
 				\begin{description}
 					\item[Ausgewähltes Produkt] Git
 					\item[Mögliche Alternativen] SVN
 					\item[Begründung] Git ist ein weit verbreitetes Versionsverwaltungstool, das sich bei den Teammitgliedern bei privaten, schulischen und geschäftlichen Projekten bewährt hat. Git bietet den Vorteil von lokalen Repositories, ist wesentlich schneller als SVN, benötigt für vergleichbare Repositories spürbar weniger Platz und bringt eine gute Mergeautomatik mit.
 				\end{description}
 
-			\subsubsection{GitHub}
+			\subsubsection*{GitHub}
 				\begin{description}
 					\item[Evaluierte Produkte] HSR Git, GitHub
 					\item[Ausgewähltes Produkt] GitHub
@@ -48,20 +50,20 @@
 						Repository-Zugriff und Dateibearbeitung über ein Webinterface.
 				\end{description}
 				
-			\subsubsection{Git Flow}
+			\subsubsection*{Git Flow}
 				Git Flow\footnote{"`Git Extensions zur Automatisierung von Repository Workflows"': \url{https://github.com/nvie/gitflow}} automatisiert häufige genutzte Git Operationen für einen Entwicklungsorkflow \cite{driessen_successful_2010} mit Master-, Develop-, und Featurebranches.
 				Beispiel: Das Releasen einer neuen Version inklusive Branching, Merging und Tagging.
 				
 				
-		\subsection{Literaturverwaltung}
+		\subsection*{Literaturverwaltung}
 			Zur Verwaltung von Literatur hat sich das Team für "`Zotero"' \footnote{Freie Quellenverwaltungssoftware vom "`Roy Rosenzweig Center for History and New Media"': \url{https://www.zotero.org/}} entschieden.
 			Zotero ist den Studenten seit der Einführung in Literaturrecherchen Anfang Studium bekannt und
 			bietet viele prakitsche Funktionen, wie das Erzeugen von Literaturnachweisen aus aufgerufenen Webseiten.
 			Es ist als Browser Plugin verfügbar, erlaubt das Teilen der Literaturliste unter den Teammitgliedern und bietet einen Export nach BibTex.
 			
 
-		\subsection{Dokumentation}
-			\subsubsection{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
+		\subsection*{Dokumentation}
+			\subsubsection*{Für grosse Dokumentationen und Abgabedokumente: \LaTeX}
 				\LaTeX\ ist sehr gut geeignet für grosse, gemeinsam zu erarbeitende Dokumente,
 				weil die Source-Dateien über Git versioniert und gemergt werden können und wenig
 				Platz verbrauchen. 
@@ -69,7 +71,7 @@
 				bzw. Dokumentenfehler durch die Software, weil \LaTeX\ die Source-Dateien gar
 				nicht verändert, im Unterschied zu einer Office-Applikation.
 				
-			\subsubsection{Für Literatur und temporäre Dokumente: Dropbox}
+			\subsubsection*{Für Literatur und temporäre Dokumente: Dropbox}
 			PDF Dokumente sowie Office Dokumente können nur schlecht versioniert werden mit git, 
 			da sie für Git ein Blob darstellen, und das Repository mit jeder Version unnötig aufblähen.
 			Daher werden solche Dokumente über einen Cloudshare ausgetauscht und erst eingecheckt, 
@@ -92,19 +94,19 @@
 						Aus diesem Grund hat sich das Team trotz der Bedenken seitens Datenschutzes für Dropbox anstelle von OwnCloud entschieden.
 				\end{description}
 
-			\subsubsection{Für Notizen \& Meetingprotokolle: Restructured Text (rst), Markdown (md)}
+			\subsubsection*{Für Notizen \& Meetingprotokolle: Restructured Text (rst), Markdown (md)}
 				Für Notizen und kleine Dokumente haben sich die Studenten für RST und MD entschieden, 
 				da deren Funktionalität für den Zweck vollständig ausreicht und im Zusammenhang mit den eingesetzen Tools einige Vorteile bieten. 
 				Sie sind schlank, bieten nur das notwendigste an Markup, können versioniert und gemergt werden,
 				weil es nur Textfiles sind, und werden von "`GitHub Document Preview"' unterstützt.
 
-			\subsubsection{Für Diagramme, Skizzen: OpenDocument}
+			\subsubsection*{Für Diagramme, Skizzen: OpenDocument}
 				Für Anwendungsfälle, in denen die bereits genannten Dokumentformate nicht ausreichen, 
 				wird OpenDocument eingesetzt. Dabei wird berücksichtigt, 
 				dass es über Git nicht inkrementell versioniert und nicht
 				gemerged werden kann.
 				
-			\subsubsection{Dokumentation des API}
+			\subsubsection*{Dokumentation des API}
 				Das \eeppi\ API ist zentraler Teil der Bachelorarbeit und aus diesem Grund ist deren Dokumentation sehr wichtig. Insbesondere die Korrektheit und Aktualität der Schnittstellendokumentation sind entscheidend die Benutzung der Schnittstelle.
 				
 				Die Dokumentation wird durch den Server generiert und in Form eines HTML Dokuments zur Verfügung gestellt. %TODO: API-Dokumentation in dieser Dokumentation integrieren und dann hier und im Abschnitt Schnittstellen referenzieren.
@@ -121,13 +123,13 @@
 				
 				Ausserdem haben wir wo immer sinnvoll jeweils mindestens zwei Beispielaufrufe in die API-Dokumentation integriert.
 				
-				\subsection{Code Dokumentation}
-					\subsubsection{Client}
+				\subsection*{Code Dokumentation}
+					\subsubsection*{Client}
 						Für zentrale und komplexe Klassen wie z.B. das Repository wird Typedoc\url{http://typedoc.io}
 						zur Erzeugung einer Dokumentation aus dem TypeScript Code verwendet.
 
 
-		\subsection{Modelling}
+		\subsection*{Modelling}
 			\begin{description}
 				\item[Ausgewähltes Produkt] Astah
 				\item[Mögliche Alternativen] Umlet
@@ -139,7 +141,7 @@
 
 
 
-		\subsection{Building \& Testing}
+		\subsection*{Building \& Testing}
 			Ein Build-Server soll zum automatisierten Ausführen der Tests eingesetzt werden.
 			Einige JS Testing Frameworks wie JsUnit bietet eine Anbindungsmöglichkeit an Build Server.
 			
@@ -151,7 +153,7 @@
 			\end{description}
 			
 			% TODO: Move somewhere other and explain only tools here
-			\subsubsection{Testkonzept}
+			\subsubsection*{Testkonzept}
 			
 				Um zuverlässig alle notwenigen Bereiche mit Tests abzudecken, 
 				werden folgende Tests durchgeführt:
@@ -175,35 +177,35 @@
 				
 				
 
-		\subsection{Individuelle Entwicklungsumgebungen}
+		\subsection*{Individuelle Entwicklungsumgebungen}
 			Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung. 
 			
 			Lizenzen für Webstorm werden von der Schule zur Verfügung gestellt.
 
 
-		\subsection{Allgemeine Entwicklungsumgebungen}
+		\subsection*{Allgemeine Entwicklungsumgebungen}
 			Auf dem von der Schule zur Verfügung gestellten virtuellen Server werden 
 			für die Entwicklung mit Vagrant\footnote{Virtualisierungsautomatisierungslösung von HashiCorp für verschiedene Virtualisierungsumgebungen: \url{http://www.vagrantup.com/}} virtuelle Wegwerfumgebungen aufgebaut.
 
 
-	\section{Backup}
-		\subsection{Persönliche Entwicklungsgeräte}
-			\subsubsection{MacBook von Laurin Murer}\label{backupLaurin}
+	\section*{Backup}
+		\subsection*{Persönliche Entwicklungsgeräte}
+			\subsubsection*{MacBook von Laurin Murer}\label{backupLaurin}
 				Die Daten auf dem Rechner von Laurin Murer werden mehrstufig archiviert.
 				Einerseits mit TimeMachine\footnote{Backuplösung von Apple: \url{https://www.apple.com/chde/support/timemachine/}} auf eine externe Festplatte und zusätzlich noch mit Wuala\footnote{Schweizer Cloud Speicher Dienst: \url{https://www.wuala.com/}} in die Cloud.
 
-			\subsubsection{Linux Laptop von Tobias Blaser}
+			\subsubsection*{Linux Laptop von Tobias Blaser}
 				Die Daten auf dem Rechner von Tobias Blaser werden mit BackInTime\footnote{Rsync basierte Backuplösung für Linux: \url{http://backintime.le-web.org/}} auf eine externe Festplatte archiviert.
 				
-		\subsection{Arbeitsplätze im Zimmer 1.206}
+		\subsection*{Arbeitsplätze im Zimmer 1.206}
 			Auf diesen Rechnern werden keine Daten abgelegt, dadurch müssen sie auch nicht in einem Backup eingeschlossen werden.
 
-		\subsection{Virtual Server}
+		\subsection*{Virtual Server}
 			Vom virtuellen Server werden lediglich einige Daten archiviert, und zwar jene, welche von uns erstellt wurden.
 			Diese Daten werden alle unter /root/to\_backup referenziert.
 			Dieser Ordner wird dann regelmässig auf das MacBook von Laurin Murer kopiert, wo es dann in seinem Backup eingeschlossen wird (siehe \ref{backupLaurin}).
 		
-		\subsection{Repository und Entwicklungsserver}
+		\subsection*{Repository und Entwicklungsserver}
 			Ein zusätzliches Backup des Projektrepositories ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist.
 			Somit ist das gesamte Projekt dreifach abgelegt (bei den Entwicklern sowie bei GitHub) sowie auch in den entsprechenden Backups integriert.
 

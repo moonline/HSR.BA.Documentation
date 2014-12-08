@@ -22,7 +22,7 @@
 		Damit \eeppi\ Daten aus Wissensverwaltungssystemen laden und in Projektplanungstools übertragen kann, muss \eeppi\ an diese angebunden werden können.
 		
 	
-		\subsection{ von Wissensverwaltungssystemen}
+		\subsection{Anbindung von Wissensverwaltungssystemen}
 			Beim \cdar\ handelt es sich um ein Wissensverwaltungssystem, 
 			das im Rahmen einer Bachelorarbeit an der HSR entwickelt wurde. Mit dem \cdar\ kann ein Benutzer Entscheidungen und und Optionen modellieren und verknüpfen. Das \cdar\ wurde in der Anfangsphase des Projektes als Wissensverwaltungs-Referenzsystem verwendet.
 			
@@ -149,52 +149,3 @@ Seite \pageref{architektur.technologie} besprochen.
 			}
 		}
 		
-	\section{Session State}
-		Eine Session (Session State Pattern\footnote{\url{http://www.bettersoftwaredesign.org/Design-Patterns/Enterprise-Application-Architecture-Patterns/Session-State-Patterns}}) kann auf dem Client abgelegt werden, auf dem Server oder persistiert werden.
-		
-		\decision{
-			\decisionHeader{ARC-SESSION}{Session State}{Architektur}{Architektur design}
-		}{
-			\decisionContent{Client Session State}
-			{Auf welchem Tier sollen User Sessions gespeichert werden?}
-			{Sowohl das Server- wie das Clientframework beherrschen Session State Management}
-			{Diese Entscheidung beeinflusst Client wie Server und bestimmt, ob der der Server zustandsbehaftet oder nicht ausgelegt wird.}
-			{"`Server Session State"', "`Database Session State"'}
-			{"`Client Session State"' ermöglicht die Umsetzung eines zustandslosen Servers. 
-				Dadurch wird eine reine Resourcen-basierte Serverschnittstelle möglich.			
-			}
-			{}
-			{Der Client muss eine Möglichkeit bieten, eine Session zu speichern. Bevorzugt soll dafür ein Session Cookie zum Einsatz kommen.}
-			{
-				\decisionRef{Server Technologie}{TEC-SERVER},				
-				\decisionRef{Client Framework}{TEC-CLIENT-FW}
-			}
-		}
-		
-	\section{Datenfluss}
-		\eeppi\ bezieht Wissens-Daten aus dem Entscheidungs-Wissens-System 
-		und liefert Tasks an das Projekt-Planungs-Tool.
-		
-		Die Übertragung dieser Daten läuft jeweils über den \eeppi-Server, welcher dafür die Rolle eines CORS\footnote{Cross-Origin Resource Sharing: \url{http://de.wikipedia.org/wiki/Cross-Origin_Resource_Sharing}} Proxy einnimmt. 
-		
-		Dies ist nötig, da Clients nicht ohne zusätzliche Erlaubnis eines Remoteservers
-		auf diesen zugreifen dürfen (Cross Origin Restriction).
-		Dies ist ein allgemeines Problem und tritt bei vielen Webanwendungen auf.
-		
-		Anstatt einen eigenen CORS Proxy zu verwenden hätte man auch einen von Drittparteien verwenden können.
-		Als Beispiels sei hier \hyperlink{http://www.corsproxy.com/}{corsproxy.com} genannt.
-		Dies ist ein CORS Proxy in Form eines Webservices.
-
-		Ein CORS Proxy akzeptiert Remote Requests von irgendwelchen Ursprungsadressen und leitet diesen dann
-		an die entsprechenden Server weiter, die keine Cross-Origin-Requests erlauben.
-		
-		Wir haben uns entschieden selbst einen kleinen CORS Proxy in unsern Server zu integrieren,
-		damit die Daten nicht über fremde Services fliessen und
-		\eeppi\ auch in einem lokalen Netzwerk mit beschränktem Internetzugriff betrieben werden kann.
-		
-		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{architecture/media/img/eeppiDataflow.jpg}
-			\centering
-			\caption{Applikationsdatenfluss mit Beispieldatenquelle ADMentor}
-			\label{fig:applicationDataFlow}
-		\end{figure}		
