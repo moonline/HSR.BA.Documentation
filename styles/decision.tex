@@ -10,36 +10,44 @@
 %		\decisionContent{Small server}{What server architecture is best for us?}{}{}{}{}{}{}{}
 %	}
 \newcommand{\decision}[2]{
-	{\footnotesize
-	\vspace{0.5cm}
-	\noindent
-	\begin{tabularx}{\linewidth}{|p{0.15\textwidth}|X|l|l|}
-		\hline
-		#1
-		\hline
-		#2
-		\hline
-	\end{tabularx}
-	\vspace{0.5cm}
-	\newline
-	}
+	\gdef\decisionId{Test}%
+	\begin{figure}[H]%
+		{\footnotesize%
+		\vspace{0.5cm}%
+		\noindent%
+		\begin{tabularx}{\linewidth}{|p{0.15\textwidth}|X|l|l|}%
+			\hline%
+			#1%
+			\hline%
+			#2%
+			\hline%
+		\end{tabularx}%
+		\newline%
+		}%
+		\caption{\decisionName}%
+		\label{\decisionId}%
+		\vspace{0.5cm}%
+	\end{figure}%
 }
 
 % @var #1 id
 % @var #2 name
 % @var #3 thema
 % @var #4 subject area
-\newcommand{\decisionHeader}[4]{
-	\textbf{Themengebiet}	& #4	& \textbf{Thema}	& #3 \\
-	\hline
-	\textbf{Name}		& #2	& \textbf{ID}		& #1 \\
+\newcommand{\decisionHeader}[4]{%
+	% Define global variable with id to use outside for figure label
+	\gdef\decisionId{#1} %
+	\gdef\decisionName{#2} %
+	\textbf{Themengebiet}	& #4	& \textbf{Thema}	& #3 \\%
+	\hline%
+	\textbf{Name}		& #2	& \textbf{ID}		& #1 \\%
 }
 
-\newcommand{\tableCellPage}[1]{
-	\begin{minipage}[b]{0.80\linewidth}
-		\vspace{0.1cm}
-		#1
-	\end{minipage}
+\newcommand{\tableCellPage}[1]{%
+	\begin{minipage}[b]{0.80\linewidth}%
+		\vspace{0.1cm}%
+		#1%
+	\end{minipage}%
 }
 
 % @var #1 decision made
@@ -51,31 +59,37 @@
 % @var #6 implications
 % @var #7 derived requirements
 % @var #8 related decisions
-\newcommand{\decisionContent}[9]{
-	\textbf{Getroffene Entscheidung} 
-		& \multicolumn{3}{l|}{\tableCellPage{#1}} \\
-	\hline
-	\textbf{Problemstellung}
-		& \multicolumn{3}{l|}{\tableCellPage{#2}} \\
-	\hline
-	\textbf{Voraussetzung}
-		& \multicolumn{3}{l|}{\tableCellPage{#3}} \\
-	\hline
-	\textbf{Motivation}
-		& \multicolumn{3}{l|}{\tableCellPage{#4}} \\
-	\hline
-	\textbf{Alternativen}
-		& \multicolumn{3}{l|}{\tableCellPage{#5}} \\
-	\hline
-	\textbf{Begründung}
-		& \multicolumn{3}{l|}{\tableCellPage{#6}} \\
-	\hline
-	\textbf{Annahmen}
-		& \multicolumn{3}{l|}{\tableCellPage{#7}} \\
-	\hline
-	\textbf{Abgeleitete Anforderungen}
-		& \multicolumn{3}{l|}{\tableCellPage{#8}} \\
-	\hline
-	\textbf{Verknüpfte Entscheidungen}
-		& \multicolumn{3}{l|}{\tableCellPage{#9}} \\
+\newcommand{\decisionContent}[9]{%
+	\textbf{Getroffene Entscheidung} %
+		& \multicolumn{3}{l|}{\tableCellPage{#1}} \\%
+	\hline%
+	\textbf{Problemstellung}%
+		& \multicolumn{3}{l|}{\tableCellPage{#2}} \\%
+	\hline%
+	\textbf{Voraussetzung}%
+		& \multicolumn{3}{l|}{\tableCellPage{#3}} \\%
+	\hline%
+	\textbf{Motivation}%
+		& \multicolumn{3}{l|}{\tableCellPage{#4}} \\%
+	\hline%
+	\textbf{Alternativen}%
+		& \multicolumn{3}{l|}{\tableCellPage{#5}} \\%
+	\hline%
+	\textbf{Begründung}%
+		& \multicolumn{3}{l|}{\tableCellPage{#6}} \\%
+	\hline%
+	\textbf{Annahmen}%
+		& \multicolumn{3}{l|}{\tableCellPage{#7}} \\%
+	\hline%
+	\textbf{Abgeleitete Anforderungen}%
+		& \multicolumn{3}{l|}{\tableCellPage{#8}} \\%
+	\hline%
+	\textbf{Verknüpfte Entscheidungen}%
+		& \multicolumn{3}{l|}{\tableCellPage{#9}} \\%
+}
+
+% @var #1 decision name
+% @var #2 decision id
+\newcommand{\decisionRef}[2]{%
+	"`#1"' Abb. \ref{#2} S. \pageref{#2}%
 }
