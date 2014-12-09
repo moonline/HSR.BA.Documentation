@@ -33,7 +33,7 @@
 
 Abstract:
 
-- 1. Satz
+- Zum 1. Satz
 	- "Aufgabe ableiten" kein" teilautomatisiert", Satz aufteilen + neuer Satz: “Untersuchen, ob es sich automatisieren lässt” und falls ja, ob es teilautomatisiert möglich ist
 - Ende 1. Abschnitt
 	- Werkzeug statt Tool
@@ -51,9 +51,9 @@ Abstract:
 - Leute abholen + anknüpfen an letztes Mal
 - Alle 3 Besucher sind gleichberechtigt (als Zielgruppe)
 - Mündliche Prüfung (1h)
-- 20-25 Minuten davon Präsentation (Zeitplan davon ansagen und ob Fragen gestellt werden können während Präsentation oder ob bis zum Ende gewartet werden kann.
+- 20-25 Minuten davon Präsentation (Zeitplan davon ansagen und ob Fragen gestellt werden können während Präsentation oder ob bis zum Ende gewartet werden soll).
 - Vermutlich Hochdeutsch
-- 2. Teil: Verständnis-/Zusammenhang-Herstell-fragen / Querbeziehungen
+- Im 2. Teil: Verständnis-/Zusammenhang-Herstell-fragen / Querbeziehungen
 - Umgehen mit schwierigen Fragen / Störern
 - Highlights der Arbeit aufzählen
 - Struktur wie bei Zwischenpräsentation, jetzt mehr auf Ergebnisse fokusiert, kürzere Einleitung. Konkretes Beispiel machen! 
