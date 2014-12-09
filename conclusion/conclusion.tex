@@ -1,53 +1,153 @@
 \chapter{Schlussfolgerungen}
-	% Zielerreichung, offene Punkte, Bugs/technische Probleme, Zusätzliche Features, Ausblick/Erweiterbarkeit
+	
+	\section{Zielerreichung}
+	%TODO: write this! :-)
+	
+	\section{offene Punkte, Bugs/technische Probleme}
+	%TODO: maybe write this! :-)
+	
+	
+	\section{Zusätzliche Features}
+	%TODO: write this! :-)
+	hier z.B. API-Doku
 	
 	
 	
+	\section{Erweiterungs-Möglichkeiten}
+		Eine Software ist nie perfekt und kann noch immer erweitert werden.
+		Entsteht das Bedürfnis, \eeppi\ zu erweitern, bieten sich verschiedene Möglichkeiten, die nachfolgend kurz angerissen werden.
+		Welche Möglichkeit empfohlen wird, kann nicht generell gesagt werden.
+		Denn es unterscheidet sich je nachdem, welche Funktion erweitert werden soll.
+
+		\subsection{Erweiterung der bestehenden Applikation}
+			Die naheliegendste Erweiterungsmöglichkeit ist, direkt die bestehende Implementierung von \eeppi\ anzupassen.
 	
-	\section{Ausblick}
-		\eeppi\ deckt die notwendige Kernfunktionalität ab damit Benutzer angenehm arbeiten können.
+		\subsection{Ersatz des Servers}
+			Der Server verwaltet primär die Persistenz.
+			Soll diese grundlegend verändert werden oder werden die verwendeten Technologien veraltet,
+			kann man den ganzen Server ersetzen, ohne den Client anpassen zu müssen.
+	
+		\subsection{Ersatz des Clients}
+			Der Client besitzt den grössten Teil der Logik, so auch die Processors,
+			und ist verantwortlich für die Darstellung auf dem Bildschirm.
+			Soll dies grundlegend verändert werden oder werden die verwendeten Technologien veraltet,
+			kann man den ganzen Client ersetzen oder parallel zum bestehenden Client einen neuen erstellen.
+
+		\subsection{Erstellung eines Proxies}
+			Da \eeppi\ eine geringe Kopplung zu den externen Systemen aufweist,
+			 ist es mit ziemlich wenig Aufwand möglich,
+			gewisse Funktionen als Proxy\footnote{Proxy-Pattern: \url{http://c2.com/cgi/wiki?ProxyPattern}} zu implementieren.
+			Dabei würde der bestehende Teil von \eeppi\ nicht verändert werden,
+			sonder lediglich neue Referenzen zu den externen Systemen konfiguriert.
+			Dieser Ansatz würde sich beispielsweise gut für die Implementierung von weiteren \ppt-Schnittstellen eignen (siehe \ref{subsec:morePPTInterfaces}).
+			
+		\subsection{Verwendung der API}
+			Gewisse mögliche neuen Funktionen basieren auf der Kernfunktionen von \eeppi,
+			bieten aber einen weitergehenden Nutzen für den Benutzer
+			(wie beispielsweise der Rückfluss von Informationen des Tasks zurück in das Task-Template, siehe \ref{subsec:informationFlowbackFeature}).
+			Solche Funktionen könnten durch eine eigenständige Applikation implementiert werden,
+			welche das API von \eeppi\ verwendet.
+
+
+	\section{Mögliche Erweiterungen}
+		\eeppi\ deckt die notwendige Kernfunktionalität ab, damit Benutzer angenehm arbeiten können.
 		Im Rahmen einer Weiterentwicklung sind viele Möglichkeiten denkbar. 
-		Einige wie ein Recht-Rollen System sind eher praktischer Natur, 
-		andere wie beispielsweise Vererbungsmöglichkeiten für Tasktemplates würden die Wiederverwendbarkeit verbessern und dem Benutzer einen echten Mehrwert bieten.
+		Einige wie ein Rechte-System sind eher praktischer Natur, 
+		andere wie beispielsweise Vererbungsmöglichkeiten für Task-Templates würden die Wiederverwendbarkeit verbessern und dem Benutzer einen echten Mehrwert bieten.
 		Nachfolgend sind einige denkbare Erweiterungen von \eeppi\ erklärt:
 		
 		\subsection{Rechte und Rollen}
+			Mit einem Rechte- und Rollen-Konzept könnten der Zugriff auf die Daten in \eeppi\ eingeschränkt werden,
+			sodass sich nicht mehr jedermann registrieren könnte und damit Zugriff auf alles hätte.
 			
-			Ein Recht-Rollen Konzept bietet die Möglichkeit der Mandantenfähigkeit.
-			\eeppi\ könnte als Cloud-Service angeboten werden und eine einzige Instanz für mehrere Kunden verwendet werden.
-		
+			Zudem würde ein Rechte- und Rollen-Konzept die Möglichkeit der Mandantenfähigkeit bieten.
+			\eeppi\ könnte als Cloud-Service angeboten werden und eine einzige Instanz könnte für mehrere Kunden verwendet werden.
+			
 		
 		\subsection{Vererbende Tasktemplate}
-		
-			Tasktemplates, die Eigenschaften von andern Templates erben können, 
+			Task-Templates, die Eigenschaften von andern Templates erben können, 
 			minimieren die Anzahl notwendiger Templates und erhöhen die Wiederverwendbarkeit.
+			
+			Es könnte beispielsweise ein Task-Template für Sitzungen erstellt werden
+			und davon abgeleitet dann für verschiedene Sitzungsarten wiederum Task-Templates.
+			Und dem ersten Task-Template könnten dann Subtasks angehängt werden
+			(wie "'Zur Sitzung einladen"' oder "'Sitzungs-Protokoll versenden"'),
+			welche dann bei den Task-Templates der verschiedenen Sitzungsarten auch dabei wären.
 			
 		
 		\subsection{Reporting}
-		
-			Die Möglichkeit, übertragene Tasks in \eeppi\ einzusehen erspart dem Benutzer den Umweg über das Projektplanungstool.
-		
-		
-		\subsection{Undo von übertragenenen Tasks}
-		
-			Unter Umständen möchte ein Benutzer erstellte Tasks wieder zurückziehen.
-			Sofern Projektplanungstools dies unterstützen, würde dies dem Benutzer eine Undo-Möglichkeit für fehlerhafte erstellte Tasks anbieten.
+			Eine anderer Erweiterungsmöglichkeit für \eeppi\ wäre dem Benutzer eine Anzeige zu bieten,
+			in welcher eine Liste der in das \ppt\ exportierten Tasks angezeigt würde.
+			Dies würde ihm den Umweg über das \ppt\ ersparen.
 		
 		
-		\subsection{Bearbeitungsmöglichkeiten für zu übertragenede Tasks}
-
-			
+		\subsection{Undo von übertragenen Tasks}
+			Unter Umständen möchte ein Benutzer erstellte Tasks wieder zurückziehen,
+			beziehungsweise wieder aus dem \ppt\ löschen.
+			Sofern \ppt s dies unterstützen, würde dies dem Benutzer eine Undo-Möglichkeit für fehlerhafte erstellte Tasks anbieten.
+		
+		
+		\subsection{Bearbeitungsmöglichkeiten für zu übertragende Tasks}
+			Unter Umständen möchte der Benutzer die Tasks nicht direkt so in das \ppt\ exportieren,
+			wie es im Task-Template entworfen ist.
+			Eine weitere Möglichkeit wäre es darum dem Benutzer vor dem definitiven Export eine Möglichkeit zu bieten,
+			die zu exportierenden Tasks noch zu bearbeiten.
+			Aktuell muss er sie zuerst exportieren und dann direkt im \ppt\ anpassen.
 			
 			
 		\subsection{Kaskadierende Processors}
-		
 			Die aktuelle Ausgabe von \eeppi\ unterstützt keine Processors innerhalb von Processors.
 			Dem Benutzer würde das verwenden von Processorwerten innerhalb eines Processors die Möglichkeit bieten, Processors wiederzuverwenden und generischer zu gestalten.
 			
 			
 		\subsection{System Status Notification}
+			Ein weiteres kleineres Feature wäre eine Anzeige über den Status der angebundenen Systeme,
+			eventuell in der Form eines einfachen Icons.
+			Ob die Systeme (korrekt) konfiguriert sind, ob sie erreichbar sind
+			und je nach System unter Umständen auch noch ob sie korrekt arbeiten.
 		
 		
 		
 	
-		\subsubsection{Verwendung multipler Datenquellen (mehrere DKS)}
+		\subsection{Verwendung mehrerer DKS}
+			Aktuell unterstützt \eeppi\ nur ein DKS, welches aber konfiguriert werden kann.
+			Eine mögliche Erweiterung wäre, dass der Benutzer mehrere DKS konfigurieren könnte
+			und dann auch zum Benutzen auswählen könnte.
+		
+		
+		\subsection{Verwendung mehrerer Projekte}
+			Wie beim vorherigen Punkt, \eeppi\ unterstützt auch nur ein einziges Projekt.
+			Die Idee ist auch hier, dieses für den Benutzer konfigurierbar zu machen,
+			damit er insbesondere Task-Templates auch nur innerhalb eines Projekts verwenden kann
+			und dadurch auch dieses geistige Eigentum schützen kann.
+
+
+		\subsection{Unterscheidung von verschiedenen \ppt s}
+			Benutzer können aktuell in \eeppi\ Request-Templates sowie \ppt-Accounts einem \ppt-Typ zuordnen.
+			Allerdings unterstützt \eeppi\ aktuell nur einen einzigen \ppt-Typ(-Identifikator)
+			und dem werden deshalb auch alle Request-Templates und Accounts zugeordnet.
+			
+			Eine Unterstützung für mehreren \ppt-Typ(-Identifikatoren) würde Benutzern Verwirrung ersparen,
+			welchen Account sie jetzt für welches Request-Template verwenden können.
+			
+		\subsection{Rückfluss von Informationen des Tasks zurück in Task-Template}
+		\label{subsec:informationFlowbackFeature}
+			Wenn Benutzer ein Task aus einem Task-Template erstellen landet dieser im \ppt.
+			Der Benutzer bearbeitet ihn dort und aktualisiert ihn aufgrund des Projektverlaufs.
+			Die Erfahrungen, die dabei gemacht werden, bleiben im Task im \ppt
+			und bringen weiteren Projekten keinen Gewinn.
+			
+			Eine Erweiterungsmöglichkeit wäre es,
+			Erkenntnisse aus Projekten wieder in die Task-Templates zurück zu bringen.
+			Unter Umständen gäbe es gar die Möglichkeit, dies teilautomatisiert zu tun.
+
+		\subsection{Weitere \ppt-Schnittstellen}
+		\label{subsec:morePPTInterfaces}
+			Aktuell unterstützt \eeppi\ \ppt s, die über eine Json-Schnittstelle verfügen
+			und eine Authentifizierung über Http-Basic-Authentication ermöglichen.
+			Für diese Art der Authentifizierung muss Benutzername und Passwort in Klartext vorliegen.
+			
+			Für eine erhöhte Sicherheit und Kompatibilität wäre eine weitere Erweiterungsmöglichkeit von \eeppi,
+			dass \ppt s auch über weitere Schnittstellen (beispielsweise XML)
+			und weitere Authentifizierungs-Methoden (beispielsweise OAuth\footnote{Ein offenes Authentifizierungs-Protokoll, welches Authentifizierung auch ohne das effektive Passwort ermöglicht: \url{http://oauth.net/2/}}) angesprochen werden können.
+			
