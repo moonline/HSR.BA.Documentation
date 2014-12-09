@@ -1,7 +1,105 @@
 \chapter{Schlussfolgerungen}
+%TODO: evtl. in "Ergebnisse" umtaufen
 	
 	\section{Zielerreichung}
-	%TODO: write this! :-)
+		Das Ziel von \eeppi\ gemäss Aufgabenstellung war:
+		\begin{quote}
+			Ziel für den Kunden ist es, aus noch offenen und aus bereits getroffenen Architekturentscheidungen  Aufgaben (Tasks) abzuleiten und in eine Taskmanagementsoftware zu überführen, um diese anschliessend in dieser Software verwalten zu können. In dieser Arbeit sollen das Mapping-Konzept und die Tool-Architektur entworfen sowie eine Implementierung in Form eines Tools erstellt werden.
+			
+			Das Mapping-Konzept beinhaltet die Art der Abbildung von Entscheidungen aus dem CDAR-Tool auf Tasks eines Projektmanagementtools. Die zu entwerfende Toolarchitektur zeigt den konkreten Aufbau einer solchen Applikation.
+		\end{quote}
+	Und daraus waren die folgenden drei Fragen abgeleitet:
+	\begin{enumerate}
+		\item{Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?}
+		\item{Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?}
+		\item{Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?}
+	\end{enumerate}
+	
+	\subsection{Hauptziele}
+		Das Hauptziel der Arbeit war es, für das Ableiten von Tasks basierend auf Architekturentscheidungen:
+		\begin{enumerate}
+			\item{ein Mapping-Konzept zu erstellen}
+			\item{eine Tool-Architektur zu entwerfen}
+			\item{eine Implementierung in Form eines Tools zu erstellen}
+		\end{enumerate}
+		Alle diese Ziele wurden erfüllt,
+		die ersten beiden Ziele waren eine Vorbedingung für das dritte Ziel
+		und da die Webapplikation \eeppi\ existiert, ist auch das dritte Ziel erreicht.
+	
+	\subsection{Beantwortung der Fragen}
+		\subsubsection{Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?}
+			Mit \eeppi\ lassen sich sowohl getroffene als auch noch offene Entscheidungen verwalten,
+			und der Benutzer kann beiden ein Task-Template zuordnen.
+			
+			Im Allgemeinen kann gesagt werden,
+			dass auch das Treffen einer Entscheidung eine Aufgabe ist
+			und deshalb durch einen Task in einem \ppt\ repräsentiert werden kann.
+			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie "'Entscheid treffen"') oder auch mehrere grosse Tasks erstellen (wie "'Entscheidungssitzung abhalten"' oder "'Alternativen evaluieren"').
+
+		\subsubsection{Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?}
+			Dies kommt sehr stark auf die entsprechende Entscheidung an.
+			Je nach Projekt kann es durchaus generische Tasks wie "'Entscheid dokumentieren"' oder "'Entscheid kommunizieren"' geben,
+			doch die meisten Umsetzungstasks sind sehr spezifisch für einzelne Entscheidungen.
+		
+		\subsubsection{Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?}
+		%TODO Tobi: Bin mir nicht sicher, ob ich die Frage richtig verstanden und beantwortet habe: bitte nochmals genau durchschauen
+			\eeppi\ bindet sowohl Architekturentscheidungstools als auch \ppt s als externe Systeme an
+			und ermöglicht dem Benutzer \eeppi\ sehr flexibel an die beiden Domänen anzupassen.
+			
+			Modellmässig stellt \eeppi\ sehr wenige Anforderungen an die beiden Domänen,
+			diese Anforderungen sind jedoch nötig um eine gemeinsame Basis finden zu können.
+			Konkret muss ein Architekturentscheidungstool folgende Eigenschaften aufweisen:
+			\begin{itemize}
+				\item{Unterscheidung zwischen Vorlagen und konkreten Elementen}
+				\item{Unterscheidung zwischen Eltern- (z.B. Problemen) und Kinder-Elementen (z.B. Optionen)}
+				\item{Möglichkeit zur Auflistung aller Elemente}
+			\end{itemize}
+			
+			Und ein \ppt\ muss im Prinzip lediglich einzelne Elemente (z.B. Tasks) erstellen können.
+			
+			Konkrete Anforderungen an die Elemente der beiden Domänen gibt es nicht,
+			es ist aber für eine effiziente Verwendung förderlich,
+			wenn sie eine Vielzahl von gleichen oder zumindest ähnlichen Attribute aufweisen.
+			Diese können dann mit \eeppi\ vom Architekturentscheidungstool ins \ppt\ übernommen werden.
+
+	\subsection{Erfolgsfaktoren}
+		In der Aufgabenstellung wurden auch drei kritische Erfolgsfaktoren festgelegt,
+		die jetzt hier nochmals genau analysiert werden.
+		
+		\subsubsection{Niedrige Einstiegshürden für User}
+			Dieser Erfolgsfaktor wird in drei Teile zerlegt.
+			Der erste Punkt ist der geringe Installationsaufwand.
+			Die Installation von \eeppi\ ist so einfach wie möglich gehalten und im Abschnitt\ \ref{sec:installation} genau beschrieben.
+			Ein weiterer Punkt sind Lizenzfragen,
+			eine zu einschränkende Lizenz würde viele Firmenbenutzer abschrecken.
+			Deshalb ist \eeppi, wie in Abschnitt\ \ref{sec:licensing} beschrieben, unter einer offenen Lizenz.
+			Und der letzte Punkt ist die Robustheit im Betrieb.
+			\eeppi\ war als Forschungsprojekt nicht längere Zeit im Produktivbetrieb
+			und konnte sich deshalb damit nicht beweisen.
+			Zur Verbesserung der Robustheit hat das Projektteam jedoch entschieden,
+			als letzte Iteration während der Entwicklung keine Funktionen mehr einzubauen,
+			sondern \eeppi\ zu stabilisieren und Fehler auszumerzen.
+		
+		\subsubsection{Modularität und Erweiterbarkeit}
+			Bei diesem Punkt geht es darum, dass \eeppi\ gute Schnittstellen und eine gute Dokumentation aufweisen.
+			Schnittstellen bietet wie in der Architektur beschrieben lediglich der Server
+			und auch nur der Server verwendet externe Schnittstellen.
+			Der Client verwendet nur die Schnittstelle des Servers
+			und damit zeigt sich auch, dass die Schnittstelle des Servers funktioniert - zumindest in einem Fall.
+			Und wie in Abschnitt \ref{sec:apiDocumentation} erläutert, gibt es auch eine ausführliche Dokumentation dazu.
+			Der grundlegende Aufbau von \eeppi\ ist mit diesem Dokument hier dokumentiert
+			und kann als Einstieg für Folgearbeiten verwendet werden.
+			
+		\subsubsection{Reife der Konzepte}
+			Bei diesem Erfolgsfaktor geht es um die Konfigurierbarkeit, die Flexibilität und die Eleganz der Mapping Konzepte von \eeppi.
+			Bei der Entwicklung von \eeppi\ hat das Projektteam äusserst Wert auf genau diese Punkte gelegt.
+			Man kann sehr viele Einstellungen konfigurieren und auch die grundlegende Funktion,
+			das Übertragen von Tasks an ein \ppt\ ist sogar durch den Benutzer im Frontend konfigurierbar.
+			Das Mapping wurde so ausgelegt, dass der Benutzer nicht direkt Tasks erstellen muss,
+			sondern dass er in Form eines Metamappings Task-Vorlagen erstellt,
+			aus denen bei einer Übertragung in ein \ppt\ dann Tasks erstellt werden.
+
+
 	
 	\section{offene Punkte, Bugs/technische Probleme}
 	%TODO: maybe write this! :-)
