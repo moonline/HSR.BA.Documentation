@@ -194,11 +194,13 @@ urlcolor=black
 \input{requirements/nfRequirements}
 
 % quality management
-\input{qualityManagement/qualityManagement}
-
 \input{projectPlan/projectManagement}
+\input{qualityManagement/qualityManagement}
+\input{projectPlan/infrastructure}
 
 \chapter{EEPPI-Usermanual}
+\includepdf[pages=-, pagecommand={}]{tutorial/media/requestTemplateVariablesExample.pdf}
+
 \chapter{Code-Documentation}
 	\section{API}
 	\section{Client Code}
@@ -214,7 +216,6 @@ urlcolor=black
 \input{projectPlan/projectPlan}
 \input{projectPlan/timeManagement}
 \input{projectPlan/riskManagement}
-\input{projectPlan/infrastructure}
 
 % self reliance declaration & uage lisence
 \documentPartEntry{Eigenständigkeits-Erklärung}
