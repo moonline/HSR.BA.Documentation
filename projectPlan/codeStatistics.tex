@@ -1,18 +1,3 @@
-\chapter{Qualitätsmanagement}
-
-\section{Tests}
-	\subsection{Automatisierte Tests}
-		%TODO write this! :-)
-	
-	
-	\subsection{Systematische Tests}
-		%TODO write this! :-)
-	
-	
-	\subsection{Manuelle Tests}
-		%TODO write this! :-)
-
-
 \section{Codestatistik}
 	Für \eeppi\ haben wir drei verschiedene Arten von Codestatistiken.
 	Die erste Statistik zeigt den Umfang des Projekts,
@@ -27,7 +12,7 @@
 	also auch Leerzeilen, Kommentare, Konfigurationsdaten und gar Code von anderen Entwicklern.
 	Die Aufteilung in die verschiedenen Kategorien ist in Abbildung\ \ref{fig:TotalSLOC} zu sehen.
 	\begin{figure}[H]
-		\includegraphics[width=\largeThird\textwidth]{qualityManagement/media/img/totalSLOC.pdf}
+		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/totalSLOC.pdf}
 		\centering
 		\caption{Total SLOC (Source Lines of Code)}
 		\label{fig:TotalSLOC}
@@ -49,7 +34,7 @@
 	dies ist auf "'zeilenhungrige"' Initialisierungsdaten darin zurückzuführen.
 	Die genaue Aufteilung und die genaue Anzahl der SLOC (Source Lines of Code) des Hauptteils ist in Abbildung\ \ref{fig:serverClientSLOC} zu sehen.
 	\begin{figure}[H]
-		\includegraphics[width=\largeThird\textwidth]{qualityManagement/media/img/serverClientSLOC.pdf}
+		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/serverClientSLOC.pdf}
 		\centering
 		\caption{Vergleich SLOC (Source Lines of Code) auf Server und Client mit den Tests}
 		\label{fig:serverClientSLOC}
@@ -60,7 +45,7 @@
 	dementsprechend haben wir auch eine gute Testabdeckung.
 	Das Ziel war nicht 100\% Testabdeckung zu erreichen, sondern die wichtigsten Funktionen zu testen.
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{qualityManagement/media/img/coverage.pdf}
+		\includegraphics[width=\textwidth]{projectPlan/media/img/coverage.pdf}
 		\centering
 		\caption{Testabdeckung auf dem Server und dem Client}
 		\label{fig:coverage}
@@ -74,7 +59,7 @@
 	Für \eeppi\ haben wir jedoch einige Kennzahlen evaluiert,
 	nämlich die Anzahl der Logical LOC, die Anzahl der Parameter und die Cyclomatic Complexity.
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{qualityManagement/media/img/methodComplexityOverview.pdf}
+		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityOverview.pdf}
 		\centering
 		\caption{Überblick Komplexitätskennwerte pro Methode (Durchschnitt)}
 		\label{fig:methodComplexityOverview}
@@ -84,7 +69,7 @@
 	Spannend ist die grosse Spitze beim Client am Ende.
 	Sie kommt daher, da beim Client oft Methoden andere Methoden enthalten und daher lang werden können.
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{qualityManagement/media/img/methodComplexityLLOC.pdf}
+		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityLLOC.pdf}
 		\centering
 		\caption{Anzahl Logical LOC pro Methode}
 		\label{fig:methodComplexityLLOC}
@@ -93,7 +78,7 @@
 	Es ist schön zu erkennen, dass sowohl auf dem Server, wie auch auf dem Client,
 	die meisten Methoden keinen oder einen einzigen Parameter besitzen.
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{qualityManagement/media/img/methodComplexityParameterCount.pdf}
+		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityParameterCount.pdf}
 		\centering
 		\caption{Anzahl Parameter pro Methode}
 		\label{fig:methodComplexityParameterCount}
@@ -104,7 +89,7 @@
 	diese sind beim Client so nicht zu sehen,
 	da in JavaScript das Konzept von privaten Feldern nicht ausgeprägt eingesetzt wird.
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{qualityManagement/media/img/methodComplexityCyclomaticComplexity.pdf}
+		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityCyclomaticComplexity.pdf}
 		\centering
 		\caption{Cyclomatic Complexity pro Methode}
 		\label{fig:methodComplexityCyclomaticComplexity}
@@ -122,7 +107,7 @@
 		Das heisst aber nicht, dass die Software so viele Fehler enthält,
 		sondern die Abstraktion mit Bugs ist nur für das bessere Verständnis der Grössenordnung gedacht.
 		\begin{figure}[H]
-			\includegraphics[width=\textwidth]{qualityManagement/media/img/halsteadBugsPerMethod.pdf}
+			\includegraphics[width=\textwidth]{projectPlan/media/img/halsteadBugsPerMethod.pdf}
 			\centering
 			\caption{Halstead Bugs pro Methode}
 			\label{fig:halsteadBugsPerMethod}
