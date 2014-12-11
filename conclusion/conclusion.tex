@@ -38,7 +38,7 @@
 			
 			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie "'Entscheid treffen"') oder auch mehrere grosse Tasks erstellen (wie "'Entscheidungssitzung abhalten"' oder "'Alternativen evaluieren"') und diese gegebenfalls hierarchisieren (Subtasks).			
 			
-			Zusammengefasst stellt der Benutzer Entscheidungsbedarf in Form von agilen Planungsitems dar, indem er diese in \eeppi\ modelliert und übertragen lässt in ein Projektplnaungstool, wo sie verwaltet und weiterverarbeitet werden können.
+			Zusammengefasst stellt der Benutzer Entscheidungsbedarf in Form von agilen Planungsitems dar, indem er diese in \eeppi\ modelliert und in ein \ppt\ übertragen lässt, wo sie verwaltet und weiterverarbeitet werden können.
 
 
 		\subsubsection{Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?}
@@ -55,7 +55,6 @@
 			Der kleinste gemeinsame Nenner der drei Domänen - Entscheidungswissensverwaltung, Projektplanung und die \eeppi\-Domäne - stellen die Schnittstellen dar.
 			Sie bilden auf jeder Seite einen Teil der Domäne ab und ermöglichen das integrieren eines kleinen Teils einer anderen Domäne. 
 			Über diesen Korridor werden Daten ausgetauscht und für die Werkzeuge bereitgestellt.
-			%TODO Tobi: Bin mir nicht sicher, ob ich die Frage richtig verstanden und beantwortet habe: bitte nochmals genau durchschauen
 		
 			Konkret bindet \eeppi\ sowohl Entscheidungswissenssysteme als auch \ppt s als externe Systeme an
 			und ermöglicht dem Benutzer \eeppi\ sehr flexibel an die beiden Domänen anzupassen.
@@ -84,7 +83,7 @@
 		\subsubsection{Niedrige Einstiegshürden für User}
 			Dieser Erfolgsfaktor setzt sich aus drei Teilaspekten zusammen.
 			
-			Erster Aspekt ist ein geringer Installationsaufwand.
+			Der erste Aspekt ist ein geringer Installationsaufwand.
 			Die Installation von \eeppi\ ist so einfach wie  die Installation eines Jira und in wenigen Minuten erledigt. 
 			Für Benutzer wird das empfohlene Vorgehen im Abschnitt\ \ref{sec:installation} genau beschrieben.
 			
@@ -113,7 +112,7 @@
 			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping Konzepte von \eeppi.
 			Bei der Entwicklung von \eeppi\ hat das Projektteam äusserst Wert auf genau diese Punkte gelegt.
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
-			das Übertragen von Tasks an ein \ppt\ ist sogar durch den Benutzer im Frontend auf hohem Level anpassbar.
+			das Übertragen von Tasks an ein \ppt, ist direkt durch den Benutzer im Frontend auf hohem Level anpassbar.
 			Das Mapping wurde so ausgelegt, dass der Benutzer nicht direkt Tasks erstellen muss,
 			sondern dass er in Form eines Metamappings Task-Vorlagen erstellt,
 			aus denen bei einer Übertragung in ein \ppt\ dann Tasks erstellt werden.
@@ -131,16 +130,17 @@
 	
 	
 	\section{Erweiterungs-Möglichkeiten}
-		\eeppi\ zeigt Möglichkeiten und Wege, wie Entscheidungsmanagement und Projektplanung zusammengebracht werden kann. Diesen neuen Möglichkeiten wecken wiederum Begehrlichkeiten und Ideen.
+		\eeppi\ zeigt Möglichkeiten und Wege, wie Entscheidungsmanagement und Projektplanung zusammengebracht werden kann.
+		Diese neuen Möglichkeiten wecken wiederum Begehrlichkeiten und Ideen.
 		Entsteht das Bedürfnis, \eeppi\ zu erweitern, bieten sich verschiedene Möglichkeiten, die nachfolgend kurz angerissen werden.
 		
 
 		\subsection{Erweiterung der bestehenden Applikation}
 			Die naheliegendste Erweiterungsmöglichkeit ist die direkt Anpassung der Implementierung von \eeppi\.
-			Beschränken sich die Anpassungen nur auf de Funktionalität und nicht auf die menge der persistieren Daten, so muss lediglich die Clientapplikation angepasst werden.
+			Beschränken sich die Anpassungen nur auf de Funktionalität und nicht auf die Menge der persistierten Daten, so muss lediglich die Clientapplikation angepasst werden.
 	
 		\subsection{Ersatz der Serverapplikation}
-			Die Serverapplikation verwaltet primär die Persistenz und stellt diese Funktionalität in Form der API zuer Verfügung.
+			Die Serverapplikation verwaltet primär die Persistenz und stellt diese Funktionalität in Form der API zur Verfügung.
 			Soll diese grundlegend verändert werden oder durch eine neue Technologie ersetzt werden,
 			kann die Serverapplikation wie ein Modul ausgetauscht werden, ohne den Client anpassen zu müssen.
 			
@@ -153,8 +153,7 @@
 			Die Benutzeroberläche selbst kann einerseits durch Custom Styles sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
 			
 			Soll die Clientapplikation jedoch komplett ersetzt werden, beispielsweise durch Ablösung einer neuen Technologie, so ist dies problemlos möglich.
-			Die neue Applikation muss lediglich die Serverschnittstelle implementieren.
-			Auch ein Erweitern der Funktionalität durch eine parallele Clientapplikation ist denkbar.
+			Die neue Applikation kann wie die bestehende Clientapplikation die Serverschnittstelle verwenden.
 			
 
 		\subsection{Erstellung eines Proxies}
@@ -192,13 +191,13 @@
 			Task-Templates, die Eigenschaften von andern Templates erben können, 
 			minimieren die Anzahl notwendiger Templates und erhöhen die Wiederverwendbarkeit.
 			
-			Beispielsweise ist ein Task-Template für Sitzungen denkbar mit
+			Beispielsweise ist ein Task-Template für Sitzungen denkbar, mit
 			davon abgeleiteten Templates für verschiedene Sitzungsarten.
-			Dem Elterntemplate untergeordnete Subtasks wie z.B. "'Zur Sitzung einladen"' oder "'Sitzungs-Protokoll"' versenden, würden automatisch auch auf Subtemplates angewandt, bzw. mit diesen übertragen ans \ppt.
+			Dem Parenttemplate untergeordnete Subtasks wie z.B. "'Zur Sitzung einladen"' oder "'Sitzungs-Protokoll"' versenden, würden automatisch auch auf Subtemplates angewandt, bzw. mit diesen ans \ppt\ übertragen.
 			
 		
 		\subsection{Reporting}
-			Eine weitere Erweiterungsmöglichkeit für \eeppi\ stellt eine Übersicht über in das \ppt\ exportierten Tasks dar.
+			Eine weitere Erweiterungsmöglichkeit für \eeppi\ stellt eine Übersicht über die in das \ppt\ exportierten Tasks dar.
 			Dies würde dem Benutzer den Umweg über das \ppt\ ersparen.
 		
 		
@@ -210,7 +209,7 @@
 		
 		\subsection{Bearbeitungsmöglichkeiten für zu übertragende Tasks}
 			Unter Umständen möchte der Benutzer die Tasks nicht in der erstellten Rohform in das \ppt\ exportieren.
-			Eine Bearbeitungsmglichkeit vor dem Übertragen würde dem Benutzer eine nachträgliche Bearbeitung im \ppt ersparen.
+			Eine Bearbeitungsmglichkeit vor dem Übertragen würde dem Benutzer eine nachträgliche Bearbeitung im \ppt\ ersparen.
 			Aktuell muss er sie zuerst exportieren und dann direkt im \ppt\ anpassen.
 			
 			
@@ -229,14 +228,14 @@
 	
 		\subsection{Verwendung mehrerer DKS}
 			Aktuell unterstützt \eeppi\ nur ein \dks, welches aber konfiguriert werden kann.
-			Eine mögliche Erweiterung wäre die integration mehrere konfigurierbarer \dks e als Datenquelle.
+			Eine mögliche Erweiterung wäre die Integration mehrerer konfigurierbarer \dks e als Datenquelle.
 			Der Benutzer wäre anschliessend in der Lage, jeweils das gewünschte System für das Mapping oder als Quelle für die Erzeugung der Tasks auszuwählen.
 		
 		
 		\subsection{Verwendung mehrerer Projekte}
 			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt.
 			Die Möglichkeit mehrerer Projekte ermöglicht einerseits Mandantenfähigkeit in einer weiteren Dimension und andererseits auch Schutz des geistige Eigentum, 
-			da zusammen mit dem Rechte-Rollen Konzept einzelne Benutzern nur bestimmten Projekte zugeteilt werden könnten.
+			da zusammen mit dem Rechte-Rollen Konzept einzelnen Benutzern nur bestimmten Projekte zugeteilt werden könnten.
 
 
 		\subsection{Unterscheidung von verschiedenen \ppt s}
@@ -257,17 +256,18 @@
 			
 			Eine denkbare Erweiterungsmöglichkeit von \eeppi\ ist eine Rückführungsmöglichkeit von
 			Erkenntnissen aus Projekten in die Task-Templates zurück.
-			Unter Umständen gäbe es gar die Möglichkeit, dies teilautomatisiert zu tun oder zumindest zu erkennen und dem Benutzer vorzuschlagen.
+			Unter Umständen gäbe es gar die Möglichkeit, dies teilautomatisiert zu tun.
+			Beispielsweise könnte man Änderungen der Tasks erkennen und dem Benutzer vorschlagen, diese ins \eeppi\ zu übertragen.
 			
 			
 		\subsection{Rückfluss von Informationen ins Entscheidungswissenssystem}
 		\label{subsec:informationFlowbackFeatureDKS}
 			Einerseits ist der Rückfluss von statistischen Werten über die Verwendung von Entscheidungen denkbar 
 			andererseits ein Rückfluss von Zuständen.
-			Wird beispielsweise im \ppt\ der Task "'Session State Evaluieren"' geschlossen und "'DB Session"' als Option usgewählt, 
+			Wird beispielsweise im \ppt\ der Task "'Session State Evaluieren"' geschlossen und "'DB Session"' als Option ausgewählt, 
 			so könnte diese Information im \dks\ dazu dienen, 
 			die entsprechende Entscheidung als geschlossen zu markieren und mit der gewählten Option zu verknüpfen.
-			Dem Benutzer würde diese Automatisierung Mehrspuringkeiten in verschiedenen Tools ersparen.
+			Dem Benutzer würde diese Automatisierung Mehrspurigkeiten in verschiedenen Tools ersparen.
 
 
 		\subsection{Weitere \ppt-Schnittstellen}
