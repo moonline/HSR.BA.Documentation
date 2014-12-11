@@ -5,6 +5,10 @@ EEPPI Tutorial
 Installation
 ------------
 
+**If you would like to install and run EEPPI using a script, have a look to the setup script of the vagrant box (/home/tobias/Business/studium/modules/BA/HSR.BA.Project/project/vagrant/setup.sh).**
+
+To install EEPPI by hand, do the following steps. You can use the declared comands if you are using an Ubuntu:
+
 * Environment: Ubuntu Server 14.04 32 Bit
 * Lates Build of EEPPI: EEPPI-1.0.zip
 
@@ -38,7 +42,7 @@ Configure Play
 See [Play documentation: Productive configuration](https://www.playframework.com/documentation/2.3.x/ProductionConfiguration) for advanced configuration.
 
 * Change Database to postgresql database 'eeppi' running on localhost:
-    1. create an application.conf
+    1. create an application.conf in your prefered configuration directory containing the following lines:
             db.default.driver=org.postgresql.Driver
             db.default.url="postgres://localhost/eeppi"
             db.default.user="eeppiUser"
@@ -51,22 +55,35 @@ Configure EEPPI
 ---------------
 
 1. Start EEPPI using HOST:80
-    ![EEPPI home screen](img/eeppiHomeScreen.jpg "EEPPI home screen")
 
-2. Create a new user
+    <img src="img/eeppiHomeScreen.jpg" style="max-width: 17cm; width: 100%;" alt="EEPPI home screen" title="EEPPI home screen" />
+
+2. Create a new user account
     1. Navigate to "Account"
-    2. Enter username & password and click "Register"
-        ![Register new user](img/registration.jpg "Regiter new user")
-    3. Login with the new created user
-        ![Login](img/loginMask.jpg "Login")
+    2. Enter username & password and "Register" the new user.
+
+        <img src="img/registrationCropped.jpg" style="max-width: 17cm; width: 100%;" alt="Register new user" title="Register new user" />
+
+    3. Login with the just created user account
+
+        <img src="img/loginMask.jpg" style="max-width: 17cm; width: 100%;" alt="Login" title="Login" />
+
 2. Define your Decision Knowledge System (e.g. your ADRepo)
     1. Navigate to "Administration" > "Decision Knowledge Systems"
     2. Enter the address of your DKS, changes will be applied on clicking outside field
-        ![Configure DKS](img/administrationDKS.jpg "Configure decision knowledge system")
+
+        <img src="img/administrationDKSCropped.jpg" style="width: 17cm; max-width: 100%;" alt="Configure DKS" title="Configure DKS" />
+
+    3. Navigate to "Problems & Task Templates" and check if the items from your DKS will load to verify your configuration.
+
+        <img src="img/eeppiDecisionsAndTaskTemplates.png" style="width: 17cm; max-width: 100%;" alt="Decisions and Task Templates View" title="Decisions and Task Templates View" />
+
 3. Create an account for your Project Planning tool
     1. Navigate to "Account" > "Project Planning Tool Accounts"
     2. Create a new account entering the url, project planning tool, path, user & password
-        ![Create PPT account](img/accountPPTAccount.jpg "Create project planning tool account")
+
+        <img src="img/accountPPTAccountCropped.jpg" style="max-width: 17cm; width: 100%;" alt="Create PPT account" title="Create PPT account" />
+
 4. Create a template to transmit tasks to your project planning tool
     1. Navigate to "Administration" > "Request Templates"
     2. Create a new template entering api path & request body
@@ -82,7 +99,7 @@ Configure EEPPI
                     }
                 }
 
-            ![Simple request templtate user](img/administrationRequestTemplateSimple.jpg "Simple request template")
+            <img src="img/administrationRequestTemplateSimple.jpg" style="max-width: 17cm; width: 100%;" alt="Simple request templtate user" title="Simple request templtate user" />
 
         3. Replace values by variables:
                 {
@@ -128,7 +145,7 @@ Configure EEPPI
                     * '$!{..} variables and $!..:(..) processors': Will be executed on transmitting the request, you can only use 'parentRequestData' to access the return values of the last parent request.
             6. Use processors to generate JSON code:
                     $!ifElse:(parentRequestData.issue.id,""parent_issue_id": "$!{parentRequestData.issue.id}"\,", "")$
-            7. Use redefined processors:
+            7. Use predefined processors like 'mapExistingAssignees':
                         $mapExistingAssignees:(taskTemplate.attributes.Assignee, "Project Planner:1\,Customer:1\,Architect:1",""assigned_to_id": ${taskTemplate.attributes.Assignee}\,")$
                         $replaceTaskTemplateValueByPPTValue:(taskTemplate.attributes.Type, "Bug:1\,Feature:2\,Support:3",""tracker_id": ${taskTemplate.attributes.Type}\,")$
 
@@ -143,4 +160,54 @@ Configure EEPPI
                         }
                     }
 
-                ![Request templtate with variables and processors user](img/administrationRequestTemplatePlaceholder.jpg "Request template with variables and processors")
+                <img src="img/administrationRequestTemplatePlaceholder.jpg" style="max-width: 17cm; width: 100%;" alt="Request templtate with variables and processors user" title="Request templtate with variables and processors user" />
+
+5. Create task template properties
+    1. Navigate to "Administration" > "Manage Task Template Properties"
+
+        <img src="img/administrationTaskProperties.jpg" style="max-width: 17cm; width: 100%;" alt="Task template property management" title="Task template property management" />
+
+    2. Add the new properties you need, e.g. "Stakeholder"
+    3. Modify existing properties. You can't remove properties but you can rename them
+
+6. Create task templates
+    1. Navigate to "Problems & Task Templates" > "Task Templates"
+
+    <img src="img/manageTaskTemplates.png" style="max-width: 12cm; width: 100%;" alt="Manage task templates" title="Manage task templates" />
+
+    2. Add new Task Templates
+        1. Navigate to "Create new Task Template"
+        2. Enter the name of the new template, e.g. "Install debug tools", save it.
+        3. Change the properties and property values below
+    3. Map task templates with problems
+        1. Select the problem or alternative on the left
+        2. "Map" the task template on the right
+
+        <img src="img/taskTemplateMapping.png" style="max-width: 10cm; width: 100%;" alt="Map task templates" title="Map task templates" />
+
+7. Transfer tasks to a project planning tool
+    1. Navigate to "Transmission"
+    2. Choose the target system (your redmine or your jira the tasks should be exported to)
+
+    <img src="img/transmit1.png" style="max-width: 17cm; width: 100%;" alt="Select target system and request template" title="Select target system and request template" />
+
+    3. Choose the request template to transmit the tasks. Please ensure you choose the correct request template matching your target system. If your target system is Redmine, be sure your are using a redmine request template.
+    4. Fill in the identifiyer of the project in your projectplanning tool. This depends how you mapped this value in the request template.
+    5. Choose the tasks you would like to export.
+
+    <img src="img/transmit2.png" style="max-width: 17cm; width: 100%;" alt="Select tasks" title="Select templates" />
+
+    6. Set the parent of subtasks or tasks of an option of a decisions. You can't create hierarchies with more than one sublayer because some project planning system does not support this.
+    7. Transform the tasks and check the generated syntax of the request at minimun before the first export. The syntax should be a correct json containing all your values and there may be some secondary variables and processors (starting with '$!') if you used some. This placeholders will be replaced on transmitting the template.
+
+    <img src="img/transmit3.png" style="max-width: 17cm; width: 100%;" alt="Transmit tasks" title="Transmit tasks" />
+
+    8. If the syntax is correct and your project planning tool running, start the transmission.
+    After the transmit, you can see what data your project planning tool returned and use this data for more advanced secondary processors in your request template, e.g. to map tasks with parent tasks.
+    If the transmit failed, the response can help you to determine the problem.
+    Most problems can occour:
+        * JSON syntax incorrect
+        * JSON is not matching the API of your project planning tool correct (maybe incorrect field names or values)
+        * Project planning tool is not running
+
+8. Login to your project planning tool and check the created tasks.
