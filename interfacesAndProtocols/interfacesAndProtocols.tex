@@ -2,13 +2,79 @@
 	
 \section{RESTfull Schnittstelle}
 
-	\subsection{Server}
-		\eeppi\ besitzt eine RESTfull Schnittstelle, die andere Applikationen benutzen können, um \eeppi\ direkt anzusprechen, andererseits wird die Schnittstelle auch von der eigenen Clientapplikation benutzt.
+	\eeppi\ besitzt eine RESTfull Schnittstelle, die andere Applikationen benutzen können, um \eeppi\ direkt anzusprechen.
+	Diese Schnittstelle, auch API genannt, wird auch von der eigenen Clientapplikation benutzt.
+
+	Das API ist auf dem REST-Level 2\footnote{REST Maturity Model: \url{http://de.wikipedia.org/wiki/Representational\_State\_Transfer\#REST\_Maturity\_Model}}.
+	Das heisst, die einzelnen Elemente haben ihre eigenen Adressen
+	und können über die HTTP-Verben GET, POST und DELETE verwendet werden.
+	
+\section{Dokumentation des API}
+	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert.
+	Ein Ausschnitt der API Dokumentation ist in Abbildung\ \ref{fig:apiScreenshot} abgebildet.
+	Das Konzept und die Methodik der Dokumentation wurde als Teil von \eeppi\ erstellt
+	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
+	Damit das API mit möglichst geringem Aufwand auf dem neusten Stand bleibt, wurde darauf geachtet,
+	die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen oder zumindest von möglichst nah davon.
+	
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{interfacesAndProtocols/media/img/apiDocumentation.png}
+		\centering
+		\caption{Auszug aus der API Dokumentation}
+		\label{fig:apiScreenshot}
+	\end{figure}
+
+	\subsection{Herkunft der Daten}
+		\subsubsection{Liste aller API-Methoden}
+			Die Liste aller Methoden wird direkt aus den Programmcode abgeleitet.
+			Dazu wird mit Hilfe von Reflections\footnote{\url{http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/package-summary.html}} in einem ersten Schritt die Liste aller Controller-Klassen eruiert
+			und in einem zweiten Schritt von diesen die Methoden extrahiert, die einen API-Aufruf repräsentieren.
 		
-		Für die Kommunikation mit Remote-Hosts stellt \eeppi\ Proxies zur Verfügung.
+		\subsubsection{HTTP-Verb und Pfad}
+			Das HTTP-Verb und der Pfad, mit welchem die Methode aufgerufen werden kann,
+			werden aus der "'routes"'-Datei geladen.
+			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei,
+			wenn es Anfragen von Clients an den richtigen Controller delegieren will.
+			
+		\subsubsection{Beschreibungen}
+			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
+			In Abbildung\ \ref{fig:apiAnnotations} ist ein Beispiel eines Controllers mit Annotationen abgebildet.
+			Die Annotationen beschreiben:
+			\begin{itemize}
+				\item{alle Parameter}
+				\item{die Methode im Ganzen}
+				\item{alle möglichen Rückgabe-Stati und deren konkrete Bedeutung}
+				\item{ob eine Authentifizierung nötig ist}
+				\item{die Beispielaufrufe (siehe \ref{subsubsec:exampleQueries})}
+			\end{itemize}
+			\begin{figure}[H]
+				\includegraphics[width=0.9\textwidth]{interfacesAndProtocols/media/img/apiAnnotations.png}
+				\centering
+				\caption{Annotations im DecisionKnowledgeSystemController}
+				\label{fig:apiAnnotations}
+			\end{figure}
+			
+	\subsection{Beispielaufrufe}
+	\label{subsubsec:exampleQueries}
+		Um dem Benutzer garantieren zu können, dass und wie die Methode wirklich funktioniert,
+		werden für jede Methode Beispielaufrufe und deren Antworten live generiert und angezeigt.
+		Dazu werden bei jeder Generierung der API Dokumentation zuerst einige Beispieldaten erstellt
+		und anschliessend auf diesen Daten die Methode wie ein externer, unabhängiger Client aufgerufen.
+		Die erhaltenen Ergebnisse werden dann in der API als "'The previous command \textbf{did} return"' angezeigt.
+		Falls eine solche Simulation, beispielsweise aufgrund von externen Abhängigkeiten, nicht möglich ist,
+		so ist die vom Entwickler erwartete Antwort auch in der Annotation definiert und wird dem Benutzer als
+		"'The previous command \textbf{would probably} return"' angezeigt.
+		
+		Damit die dafür generierten Beispieldaten nicht mit den echten Daten des Systems interferieren,
+		existiert für diesen Teil eine separate Datenbank.
+		Diese muss der Benutzer jedoch nicht konfigurieren.
+		Da die Daten nur während der Generation der API Dokumentation benötigt werden
+		und nicht längerfristig persistiert werden müssen,
+		werden sie lediglich in einer SQLite-Datenbank\footnote{Einfache Datenbank, in welcher die Daten in einer einzigen Datei gespeichert werden} gespeichert.
 	
-	
-	\subsection{Client}
+
+
+\section{Client}
 		Die \eeppi\ Clientapplikation nutzt die RESTfull Schnittstelle zum Datenaustausch mit dem Server sowie zur Kommunikation mit Remote-Hosts über die Proxies (Cross-Original Aufruf).
 		
 		Um auf dem Client einfach und flexibel Prototypen aus übertragenen JSON-Objekten instanziieren zu können, gibt es eine Object Factory.
@@ -16,7 +82,7 @@
 		Diese zusätzliche Konfiguration ist notwendig, da JavaScript nicht genügend Typeninformationen besitzt, aus denen sich die erforderlichen Informationen ermitteln liessen und TypeScript diese nicht automatisch generieren kann.
 		Alternativ liesse sich die Prototypeninstanziierung  durch Factoryfunktionen pro Objekt umsetzen, dies hat sich jedoch während der Entwicklung als wartungsintensiv und Duplicated-Code-lastig erwiesen.
 		
-	\subsection{HTTP Verben}
+\section{HTTP Verben}
 		RESTfull impliziert die Verwendung der richtigen Verwendung der HTTP Verben: 
 		\begin{description}
 			\item[GET] für Abfragen
@@ -30,4 +96,6 @@
 		Wir haben uns entschieden, serverseitig beides zu ermöglichen:
 		Um Objekte zu löschen kann entweder 'DELETE /<entity>' oder 'POST /<entity>/delete' aufgerufen werden.
 		
-		Die Client Applikation verwendet nur POST/GET, dies kann allerdings umkonfiguriert werden.
+		Die Client Applikation verwendet nur POST und GET, dies kann allerdings umkonfiguriert werden.
+		PUT Requests werden von \eeppi\ in der Standardkonfiguration gar nicht verwendet,
+		es kommt stattdessen immer POST zum Einsatz.
