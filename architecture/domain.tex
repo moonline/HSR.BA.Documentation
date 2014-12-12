@@ -1,4 +1,4 @@
-	\section{Domain}
+	\section{Entwurf \& Begründungen}
 		Nachfolgend werden die wichtigsten Bezeichnungen von Domänenobjekten eingeführt:
 		
 		\begin{description}
@@ -33,7 +33,7 @@
 		\end{description}	
 	
 	
-		\subsection{Domainmodel}
+		\subsection{Konzeptionelle Domäne}
 			Die \eeppi\ Domain setzt sich aus drei Typen von Domänen Objekten zusammen: 
 			\begin{itemize}
 				\item Einer Abstraktion der Objekte hinter der Schnittstelle der angebundenen Entscheidungswissensverwaltung
@@ -68,7 +68,24 @@
 				\item[Element] Node
 				\item[ProblemTemplate] Problem
 				\item[ProblemOccurance] Decision			
-			\end{description}						
+			\end{description}
+			
+			
+		\subsection{Implementationsdomäne}
+			Die konzeptionelle Domäne von \eeppi\ berücksichtig auch mögliche Erweiterungsaspekte.
+			Die Implementationsdomäne bricht aus der konzeptionellen die Teilmenge heraus, die effektiv umgesetzt wird und konkretisiert diese.
+			
+			\begin{landscape}
+				\begin{figure}[H]
+					\includegraphics[width=0.9\linewidth]{architecture/media/img/implementationDomain.png}
+					\centering
+					\caption{\eeppi Implementationddomäne}
+					\label{fig:implementationDomain}
+				\end{figure}				
+			\end{landscape}	
+			
+			Ebenfalls enthält die Implementationsdomäne die Abstraktion der DKS Objekte.
+			Sie zeigt auch das gegenüber der konzeptionellen Domäne einfacher gehaltene Benutzer- und Projekt-Konzept.
 			
 			
 		\subsection{Umbenennen und Löschen von Domänenobjekten}
