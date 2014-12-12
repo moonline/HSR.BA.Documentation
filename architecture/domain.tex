@@ -205,10 +205,8 @@
 			Dem Transmissionworkflow liegt das "`Pipes and filters"' Pattern zugrunde
 			 \cite{hope_enterprise_2003}, welches eine Verarbeitungs- und Filterkette definiert.
 			
-			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. Grund dafür sind einerseits die Problematik, 
-			das sich der \eeppi\ Server in einer Zone befinden kann, 
-			die ihm keinen direkten Zugriff auf den \ppt-Server erlaubt,
-			andererseits schränkt die Wahl der Servertechnologie die Möglichkeiten für dynamische Processors ein, während die Client Technologie dies ermöglicht.
+			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. 
+			Die Wahl der Servertechnologie schränkt die Möglichkeiten für dynamische Processors ein, während die Client Technologie dies ermöglicht.
 			
 			Im Laufe der Erarbeitung dieses Workflows wurde auch darüber nachgedacht, 
 			wie Eigenschaften verarbeitet werden sollen, die nicht gemappt wurden. 
@@ -221,6 +219,8 @@
 			Zudem müsste in jedem Fall bekannt sein, 
 			bei welchem Feld es sich um das Beschreibungsfeld handelt, 
 			was nicht gegeben ist, wenn der Administrator vergisst, dies zu konfigurieren.
+			
+			
 		
 		
 		\subsection{Mapping Method}
@@ -260,3 +260,18 @@
 				
 		
 		\subsection{Communication}
+			\subsection{Kommunikation zwischen \eeppi\ und dem \dks}
+				% TODO
+			
+			\subsection{Kommunikation zwischen \eeppi\ und dem \ppt}
+				Die Übertragung der erzeugten Tasks ins \ppt\ basiert auf einer Zwei-Weg-Kommunikation, 
+				sodass \eeppi\ Rückmeldung über die Erfolgreiche Erzeugung der Tasks im \ppt\ erhält. Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
+				wie z.B. die ID. 
+				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
+				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
+				
+				Der Transmission-Workflow als gesammtes ist jedoch ein One-Way-Procedure.
+				Dies bedeutet, das keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
+				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine synchronisierung der Tasks eine grosse Herausforderung dar, 
+				die den Rahmen der Arbeit sprengen würde.
+				Als mögliche zukünftige Erweiterung ist dies jedoch denkbar.

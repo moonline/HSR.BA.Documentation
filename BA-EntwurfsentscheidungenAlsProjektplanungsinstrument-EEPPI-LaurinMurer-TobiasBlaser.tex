@@ -168,12 +168,13 @@ urlcolor=black
 \input{architecture/technology}
 \input{architecture/architecture}
 \input{architecture/domain}
-\input{architecture/thirdPartyCode}
 
 % interfaces & protocols
 \input{interfacesAndProtocols/interfacesAndProtocols}
 \input{interfacesAndProtocols/userInterface}
 % performance analyse
+
+\input{architecture/thirdPartyCode}
 
 % Erkenntnisse, Schlussfolgerungen
 \input{conclusion/knowledge}
@@ -193,10 +194,14 @@ urlcolor=black
 \input{requirements/userStories}
 \input{requirements/nfRequirements}
 
-% project and quality management
+% quality management
 \input{projectPlan/projectManagement}
+\input{projectPlan/codeStatistics}
+\input{projectPlan/infrastructure}
 
 \chapter{EEPPI-Usermanual}
+\includepdf[pages=-, pagecommand={}]{tutorial/media/requestTemplateVariablesExample.pdf}
+
 \chapter{Code-Documentation}
 	\section{API}
 		\includegraphics[page=1, scale=0.6]{media/documents/apiDocumentation.pdf}
@@ -216,7 +221,6 @@ urlcolor=black
 \input{projectPlan/projectPlan}
 \input{projectPlan/timeManagement}
 \input{projectPlan/riskManagement}
-\input{projectPlan/infrastructure}
 
 % self reliance declaration & uage lisence
 \documentPartEntry{Eigenständigkeits-Erklärung}
