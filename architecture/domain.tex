@@ -271,16 +271,20 @@
 			\item Projektplanungstool definieren
 			\item Taskeigenschaften erstellen
 			\item Mapping Taskeigenschaften -> Projektplanungstool erstellen
-		\end{enumerate}
-		
-					
+		\end{enumerate}					
 				
 		
-		\subsection{Communication}
-			\subsection{Kommunikation zwischen \eeppi\ und dem \dks}
-				% TODO
+		\subsection{Kommunikation}
+			\subsubsection{Kommunikation zwischen \eeppi\ und dem \dks}
+				Die Übertragung zwischen dem \dks\ und \eeppi\ basiert auf einer einer Ein-Weg-Kommunikation.
+				\eeppi\ lädt die Daten, gibt jedoch keine Informationen zurück, ob dies erfolgreich war oder nicht.
+				
+				\eeppi\ schreibt auch keine Daten zurück ins \dks\ wie beispielsweise Informationen über die Verwendung der Problems und Alternatives.
+				Grund dafür ist die dazu notwendige Komplexität der Schnittstelle sowie die mangelnde Unterstützung seitens \dks.
+				Auch würde diese Funktionalität den Rahmen der Arbeit sprengen, als mögliche Erweiterung von \eeppi\ ist sie jedoch denkbar.
+				
 			
-			\subsection{Kommunikation zwischen \eeppi\ und dem \ppt}
+			\subsubsection{Kommunikation zwischen \eeppi\ und dem \ppt}
 				Die Übertragung der erzeugten Tasks ins \ppt\ basiert auf einer Zwei-Weg-Kommunikation, 
 				sodass \eeppi\ Rückmeldung über die Erfolgreiche Erzeugung der Tasks im \ppt\ erhält. Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
 				wie z.B. die ID. 

@@ -1,73 +1,119 @@
 \section{Userinterface}
-
-	Für einen Erstentwurf des Userinterface hat das Team ein Wireframe-Brainstorming durchgeführt.
-	Dazu hat jedes Teammitglied Wireframes und Workflows entworfen.
-
-	\begin{figure}[H]
-		\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesTobias1.jpg}
-		\centering
-		\caption{Wireframes Tobias}
-		\label{fig:wireframesTobias1}
-	\end{figure}
+	\subsection{UI-Mocking}
 	
-	\begin{figure}[H]
-		\begin{minipage}[b]{0.5\linewidth}
-			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin1.jpg}
-		\end{minipage}
-		\begin{minipage}[b]{0.5\linewidth}	
-			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin2.jpg}
-		\end{minipage}
-	\end{figure}
+		Für einen Erstentwurf des Userinterface hat das Team ein Wireframe-Brainstorming durchgeführt.
+		Dazu hat jedes Teammitglied Wireframes und Workflows entworfen.
 	
-	\begin{figure}[H]
-		\begin{minipage}[b]{\linewidth}		
-			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin3.jpg}
-		\end{minipage}			
-		\centering
-		\caption{Wireframes Laurin}
-		\label{fig:wireframesLaurin}
-	\end{figure}
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesTobias1.jpg}
+			\centering
+			\caption{Wireframes Tobias}
+			\label{fig:wireframesTobias1}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\begin{minipage}[b]{0.5\linewidth}
+				\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin1.jpg}
+			\end{minipage}
+			\begin{minipage}[b]{0.5\linewidth}	
+				\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin2.jpg}
+			\end{minipage}
+		\end{figure}
+		
+		\begin{figure}[H]
+			\begin{minipage}[b]{\linewidth}		
+				\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/wireframesLaurin3.jpg}
+			\end{minipage}			
+			\centering
+			\caption{Wireframes Laurin}
+			\label{fig:wireframesLaurin}
+		\end{figure}
+		
+		Anschliessend wurden diese Entwürfe gemeinsam gesichtet, 
+		Wireframes aussortiert oder ausgewählt und Ideen zu neuen Wireframes kombiniert.
+		
+		\begin{figure}[H]
+			\begin{minipage}[b]{0.5\linewidth}
+				\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/dashboard.jpg}
+			\end{minipage}
+			\begin{minipage}[b]{0.5\linewidth}	
+				\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/tasks.jpg}
+			\end{minipage}
+			\caption{Dashboard \& Tasks}
+			\label{fig:dashboardAndTasks}
+		\end{figure}
+		
+		Für den Taskexport fiel die Entscheidung auf einen Assistent mit drei Schritten:
+		\begin{enumerate}
+			\item Auswählen von Projekt und DKS sowie des Mapping sets
+			\item Bearbeiten der zu exportierenden Tasks, entfernen von nicht gewünschten
+			\item Auswahl des PPT, exportieren sowie Übersicht über den Status eines laufenden Exports
+		\end{enumerate}
+		
+		Eine Progressbar im unteren Bereich soll dem Benutzer jederzeit anzeigen, bei welchem Schritt er sich befindet.
+		
+		\begin{figure}[H]
+			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/exportWorkflow.jpg}
+			\caption{Export Assistent}
+			\label{fig:exportAssistent}
+		\end{figure}	
+		
+		Der Benutzer kann nur weitergehen, nicht jedoch zurück, da dies durch den Umstand, 
+		dass aus Task-Vorlagen Tasks generiert werden, 
+		zu Datenverlust führen könnte.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.3\linewidth]{interfacesAndProtocols/media/img/administration.jpg}
+			\caption{Export Assistent}
+			\label{fig:administration}
+		\end{figure}	
+		
+		Der Administrationsbereich ist aus einer aufklappbaren Liste aufgebaut (Accordeon). Dadurch wird dem Administration eine gute Übersicht und einen Schnellen Zugriff gewährleistet.
+		
+		Die Navigation soll entweder unterhalb des Headers oder auf der linken Seite angebracht werden. Dazu soll während der Umsetzung überprüft werden, ob auf der Linken Seite genügend Platz vorhanden ist, wenn die Mapping Ansicht geöffnet ist.
+		
+		
+	\subsection{Finales Userinterface}
 	
-	Anschliessend wurden diese Entwürfe gemeinsam gesichtet, 
-	Wireframes aussortiert oder ausgewählt und Ideen zu neuen Wireframes kombiniert.
-	
-	\begin{figure}[H]
-		\begin{minipage}[b]{0.5\linewidth}
-			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/dashboard.jpg}
-		\end{minipage}
-		\begin{minipage}[b]{0.5\linewidth}	
-			\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/tasks.jpg}
-		\end{minipage}
-		\caption{Dashboard \& Tasks}
-		\label{fig:dashboardAndTasks}
-	\end{figure}
-	
-	Für den Taskexport fiel die Entscheidung auf einen Assistent mit drei Schritten:
-	\begin{enumerate}
-		\item Auswählen von Projekt und DKS sowie des Mapping sets
-		\item Bearbeiten der zu exportierenden Tasks, entfernen von nicht gewünschten
-		\item Auswahl des PPT, exportieren sowie Übersicht über den Status eines laufenden Exports
-	\end{enumerate}
-	
-	Eine Progressbar im unteren Bereich soll dem Benutzer jederzeit anzeigen, bei welchem Schritt er sich befindet.
-	
-	\begin{figure}[H]
-		\includegraphics[width=\linewidth]{interfacesAndProtocols/media/img/exportWorkflow.jpg}
-		\caption{Export Assistent}
-		\label{fig:exportAssistent}
-	\end{figure}	
-	
-	Der Benutzer kann nur weitergehen, nicht jedoch zurück, da dies durch den Umstand, 
-	dass aus Task-Vorlagen Tasks generiert werden, 
-	zu Datenverlust führen könnte.
-	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.3\linewidth]{interfacesAndProtocols/media/img/administration.jpg}
-		\caption{Export Assistent}
-		\label{fig:administration}
-	\end{figure}	
-	
-	Der Administrationsbereich ist aus einer aufklappbaren Liste aufgebaut (Accordeon). Dadurch wird dem Administration eine gute Übersicht und einen Schnellen Zugriff gewährleistet.
-	
-	Die Navigation soll entweder unterhalb des Headers oder auf der linken Seite angebracht werden. Dazu soll während der Umsetzung überprüft werden, ob auf der Linken Seite genügend Platz vorhanden ist, wenn die Mapping Ansicht geöffnet ist.
+		Anhand der Mockups und entwickelten Workflows wurde anschliessend das finale Interface umgesetzt.
+		Dabei wurden iterationsweise einige Bereiche angepasst und verbessert.
+		Dies war insbesondere in der Darstellung der Problems \& Task Templates notwendig, 
+		da wesentlich mehr Daten visualisiert werden sollten, als ursprünglich im Mockup vorgesehen.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{tutorial/img/eeppiHomeScreen.jpg}
+			\caption{EEPPI Home Screen}
+			\label{fig:eeppiHomeScreen}
+		\end{figure}	
+		
+		Auf die Umsetzung des Dashboardes wurde verzichtet, da viele der dafür notwendigen Informationen im tief priorisierten und darum nicht umgesetzten Feature "'Inform user about network and system status"' enthalten waren und entsprechend nicht verfügbar sind.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{tutorial/img/transmit2.png}
+			\caption{Übertragen von Tasks an ein \ppt}
+			\label{fig:administration}
+		\end{figure}	
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{tutorial/img/administrationDKS.jpg}
+			\caption{Administrationsbereich}
+			\label{fig:eeppiDecisionsAndTaskTemplates}
+		\end{figure}	
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{tutorial/img/accountPPTAccount.jpg}
+			\caption{Accountverwaltung}
+			\label{fig:eeppiAccountManagement}
+		\end{figure}	
+			
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\linewidth]{tutorial/img/transmit2.png}
+			\caption{Übertragen von Tasks an ein \ppt}
+			\label{fig:eeppiTransmitTasks}
+		\end{figure}	
