@@ -2,10 +2,10 @@
 \chapter{Verwendete Libraries, Frameworks und Tools}
 
 	\section{Verwendete Frameworks und Libraries}		
-	Um mit nicht von Grund auf alle Komponenten programmieren zu müssen, 
+	Um nicht von Grund auf alle Komponenten selbst programmieren zu müssen, 
 	und um auf die Erkenntnisse anderer Entwickler aufbauen zu können,
 	haben wir einige bestehende Frameworks verwendet.
-	Diese sind nachfolgend, und die dazugehörenden Lizenzen in Absatz\ \ref{subsec:licenses}, aufgeführt.
+	Diese sind nachfolgend, und die dazugehörenden Lizenzen in Absatz\ \ref{sec:licenses}, aufgeführt.
 	
 	
 	\vspace{0.5cm}
@@ -55,28 +55,7 @@
 	\label{sec:licenses}
 	
 	\newcommand{\addLicense}[6]{
-		#1 & #2 & \url{#3} &
-		\begin{itemize}%[leftmargin=*,nosep]
-			\setlength{\itemsep}{0pt}
-	    		\setlength{\parskip}{0pt}
-		    	\setlength{\parsep}{0pt}
-			#4
-		\end{itemize}
-		 &
-		 \begin{itemize}%[leftmargin=*,nosep]
-			\setlength{\itemsep}{0pt}
-    			\setlength{\parskip}{0pt}
-	  	  	\setlength{\parsep}{0pt}
-			#5
-		\end{itemize}
-		&
-		\begin{itemize}%[leftmargin=*,nosep]
-			\setlength{\itemsep}{0pt}
-    			\setlength{\parskip}{0pt}
-	   	 	\setlength{\parsep}{0pt}
-			#6
-		\end{itemize}
-		\\
+		#1 & #2 & \url{#3} & #4 & #5 & #6	\\
 		\hline
 	}
 
@@ -85,46 +64,46 @@
 		\textbf{Kurzname} & \textbf{Voller Name} & \textbf{URL} & \textbf{Bedingung\footnote{\label{licensesFootnote}Quelle: gemäss \url{http://choosealicense.com/} \cite{github_choosing_2014}} } & \textbf{Erlaubt\footref{licensesFootnote}} & \textbf{Verboten\footref{licensesFootnote}} \\
 		\hline \hline
 		\addLicense{Apache 2}{Apache 2 License}{http://www.apache.org/licenses/LICENSE-2.0}{
-			\item{Lizenz und Copyright Informationen beilegen}
-			\item{Änderungshistorie angeben}
+			• Lizenz und Copyright Informationen beilegen,\newline
+			• Änderungs"-his"-to"-rie\newline angeben
 		}{
-			\item{Kommerzielle Nutzung}
-			\item{Vertrieb}
-			\item{Veränderung}
-			\item{Patent Erteilung}
-			\item{Privater Gebrauch}
-			\item{Weitere Lizenz}
+			• Kommerzielle Nutzung,\newline
+			• Vertrieb,\newline
+			• Veränderung,\newline
+			• Patent Erteilung,\newline
+			• Privater Gebrauch,\newline
+			• Weitere Lizenz
 		}{
-			\item{Haftbar machen}
-			\item{Mar"-ken"-kenn"-zei"-chen verwenden}
+			• Haftbar machen,\newline
+			• Mar"-ken"-kenn"-zei"-chen verwenden
 		}
 		\addLicense{GPL}{GNU General Public License 2.0}{http://www.gnu.org/licenses/gpl-2.0.html}{
-			\item{Disclose Source
-License and copyright notice
-State Changes}
+			• Source öffentlich,\newline
+			• Lizenz und Copyright Hinweise,\newline
+			• Änderungs"-his"-to"-rie\newline angeben
 		}{
-			\item{Kommerzielle Nutzung}
-			\item{Vertrieb}
-			\item{Veränderung}
-			\item{Patent Erteilung}
-			\item{Privater Gebrauch}
+			• Kommerzielle Nutzung,\newline
+			• Vertrieb,\newline
+			• Veränderung,\newline
+			• Patent Erteilung,\newline
+			• Privater Gebrauch
 		}{
-			\item{Haftbar machen}
-			\item{Weitere Lizenz}
+			• Haftbar machen,\newline
+			• Weitere Lizenz
 		}
 		\addLicense{LGPL}{GNU Lesser General Public License}{https://www.gnu.org/licenses/lgpl.html}{
-			\item{Quellcode öffentlich}
-			\item{Library Verwendung}
-			\item{Lizenz und Copyright Informationen beilegen}
+			• Quellcode öffentlich,\newline
+			• Library Verwendung,\newline
+			• Lizenz und Copyright Informationen beilegen
 		}{
-			\item{Kommerzielle Nutzung}
-			\item{Vertrieb}
-			\item{Veränderung}
-			\item{Patent Erteilung}
-			\item{Privater Gebrauch}
-			\item{Weitere Lizenz}
+			• Kommerzielle Nutzung,\newline
+			• Vertrieb,\newline
+			• Veränderung,\newline
+			• Patent Erteilung,\newline
+			• Privater Gebrauch,\newline
+			• Weitere Lizenz
 		}{
-			\item{Haftbar machen}
+			• Haftbar machen
 		}		
 	\end{tabularx}
 		
@@ -134,22 +113,22 @@ State Changes}
 		\textbf{Kurzname} & \textbf{Voller Name} & \textbf{URL} & \textbf{Bedingung\footnote{\label{licensesFootnote}Quelle: gemäss \url{http://choosealicense.com/} \cite{github_choosing_2014}} } & \textbf{Erlaubt\footref{licensesFootnote}} & \textbf{Verboten\footref{licensesFootnote}} \\
 		\hline \hline
 		\addLicense{MIT}{MIT License}{http://opensource.org/licenses/MIT}{
-			\item{Lizenz und Copyright Informationen beilegen}
+			• Lizenz und Copyright Informationen beilegen
 		}{
-			\item{Kommerzielle Nutzung}
-			\item{Vertrieb}
-			\item{Veränderung}
-			\item{Privater Gebrauch}
-			\item{Weitere Lizenz}
+			• Kommerzielle Nutzung,\newline
+			• Vertrieb,\newline
+			• Veränderung,\newline
+			• Privater Gebrauch,\newline
+			• Weitere Lizenz
 		}{
-			\item{Haftbar machen}
+			• Haftbar machen
 		}
 		\addLicense{PostgreSQL}{PostgreSQL License}{http://opensource.org/licenses/postgresql}{
-			\item{ähnlich wie BSD oder MIT Lizenz}
+			ähnlich wie BSD oder MIT Lizenz
 		}{
-			\item{ähnlich wie BSD oder MIT Lizenz}
+			ähnlich wie BSD oder MIT Lizenz
 		}{
-			\item{ähnlich wie BSD oder MIT Lizenz}
+			ähnlich wie BSD oder MIT Lizenz
 		}
 	\end{tabularx}
 \end{landscape}
