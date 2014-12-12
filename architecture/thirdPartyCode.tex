@@ -1,4 +1,110 @@
-	\section{Verwendete Libraries, Frameworks und Tools}
-		% TODO: Tabelle mit Software + Lizent
-		
-		
+\begin{landscape}
+	\section{Verwendete Libraries, Frameworks}
+	% TODO: Tools aus dem Titel entfernt. Braucht es die?
+	Um mit \eeppi\ schneller vorwärts zu kommen und nicht alles neu selbst programmieren zu müssen,
+	haben wir einige bestehende Frameworks verwendet.
+	Diese sind nachfolgend, und die dazugehörenden Lizenzen in Absatz\ \ref{subsec:licenses}, aufgeführt.
+	
+	
+	\vspace{0.5cm}
+	
+	\newcommand{\addLib}[5]{
+		#1 & #2 & \url{#3} & #4 & #5 \\ \hline
+	}
+	
+	
+	\begin{tabularx}{\linewidth}{| l r | X | c | l |}
+		\hline
+		\textbf{Technologie} & \textbf{Version} & \textbf{URL} & \textbf{Lizenz} & \textbf{Verwendung} \\
+		\hline \hline
+		\addLib{Play Framework}{2.3.6}{https://www.playframework.com/}{Apache 2}{Server Framework}
+		\addLib{Hibernate Entitymanager}{4.3.6.Final}{http://hibernate.org/orm/}{LGPL}{Server Library}
+		\addLib{PostgreSQL Driver}{9.1-901.jdbc4}{http://mvnrepository.com/artifact/org.postgresql/postgresql}{PostgreSQL}{Server Library}
+		\addLib{Jetbrains Annotations}{7.0.2}{http://mvnrepository.com/artifact/com.intellij/annotations}{Apache 2}{Server Code Library}
+		\addLib{Mockito}{1.10.8}{https://code.google.com/p/mockito/}{MIT}{Server Test Library}
+		\addLib{PowerMock}{1.5.6}{https://code.google.com/p/powermock/}{Apache 2}{Server Test Library}
+		\addLib{Selenium}{2.43.1}{http://www.seleniumhq.org/}{Apache 2}{Server Test Library}
+		\addLib{Angular JS}{1.3.0}{https://angularjs.org/}{MIT License}{Client Framework}
+		\addLib{Jasmine}{2.0}{http://jasmine.github.io/}{MIT}{Client Test Framework}
+	\end{tabularx}
+	
+	\subsection{Lizenzen}
+	\label{subsec:licenses}
+	
+	\newcommand{\addLicense}[6]{
+		#1 & #2 & \url{#3} &
+		\begin{itemize}[leftmargin=*,nosep]
+			\setlength{\itemsep}{0pt}
+    		\setlength{\parskip}{0pt}
+	    	\setlength{\parsep}{0pt}
+			#4
+		\end{itemize}
+		 &
+		 \begin{itemize}[leftmargin=*,nosep]
+			\setlength{\itemsep}{0pt}
+    		\setlength{\parskip}{0pt}
+	    	\setlength{\parsep}{0pt}
+			#5
+		\end{itemize}
+		&
+		\begin{itemize}[leftmargin=*,nosep]
+			\setlength{\itemsep}{0pt}
+    		\setlength{\parskip}{0pt}
+	    	\setlength{\parsep}{0pt}
+			#6
+		\end{itemize}
+		\\ \hline
+	}
+
+	\begin{tabularx}{\linewidth}{| l | X | X | p{4.3cm} | p{4.7cm} | p{3.5cm} |}
+		\hline
+		\textbf{Kurzname} & \textbf{Voller Name} & \textbf{URL} & \textbf{Bedingung\footnote{\label{licensesFootnote}Quelle: gemäss \url{http://choosealicense.com/} \cite{github_choosing_2014}} } & \textbf{Erlaubt\footref{licensesFootnote}} & \textbf{Verboten\footref{licensesFootnote}} \\
+		\hline \hline
+		\addLicense{Apache 2}{Apache 2 License}{http://www.apache.org/licenses/LICENSE-2.0}{
+			\item{Lizenz und Copyright Informationen beilegen}
+			\item{Änderungshistorie angeben}
+		}{
+			\item{Kommerzielle Nutzung}
+			\item{Vertrieb}
+			\item{Veränderung}
+			\item{Patent Erteilung}
+			\item{Privater Gebrauch}
+			\item{Weitere Lizenz}
+		}{
+			\item{Haftbar machen}
+			\item{Mar"-ken"-kenn"-zei"-chen verwenden}
+		}
+		\addLicense{LGPL}{GNU Lesser General Public License}{https://www.gnu.org/licenses/lgpl.html}{
+			\item{Quellcode öffentlich}
+			\item{Library Verwendung}
+			\item{Lizenz und Copyright Informationen beilegen}
+		}{
+			\item{Kommerzielle Nutzung}
+			\item{Vertrieb}
+			\item{Veränderung}
+			\item{Patent Erteilung}
+			\item{Privater Gebrauch}
+			\item{Weitere Lizenz}
+		}{
+			\item{Haftbar machen}
+		}
+		\addLicense{MIT}{MIT License}{http://opensource.org/licenses/MIT}{
+			\item{Lizenz und Copyright Informationen beilegen}
+		}{
+			\item{Kommerzielle Nutzung}
+			\item{Vertrieb}
+			\item{Veränderung}
+			\item{Privater Gebrauch}
+			\item{Weitere Lizenz}
+		}{
+			\item{Haftbar machen}
+		}
+		\addLicense{PostgreSQL}{PostgreSQL License}{http://opensource.org/licenses/postgresql}{
+			\item{ähnlich wie BSD oder MIT Lizenz}
+		}{
+			\item{ähnlich wie BSD oder MIT Lizenz}
+		}{
+			\item{ähnlich wie BSD oder MIT Lizenz}
+		}
+	\end{tabularx}
+\end{landscape}
