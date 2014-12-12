@@ -1,12 +1,12 @@
 \section{Metriken}
 	Zur Analyse von \eeppi\ haben wir drei verschiedene Arten von Metriken erstellt.
 	Die erste zeigt den Umfang des Projekts,
-	zweitere wie gut wir getestet haben
-	und die dritte gitb Auskunft über die Code Qualität.
+	die zweite wie gut wir getestet haben
+	und die dritte gibt Auskunft über die Code Qualität.
 	
 	Auf dem Client wurde mit TypeScript entwickelt, dieses wurde zu JavaScript kompiliert.
 	Die Metriken über den Code Umfang wurden für den Clientteil mit den TypeScript-Dateien durchgeführt,
-	die restlichen Metriken aufgrund der mangelnden Verfügbarkeit an Tools für TypeScritpt direkt mit dem JavaScript.
+	die restlichen Metriken aufgrund der mangelnden Verfügbarkeit an Tools für TypeScript direkt mit dem JavaScript.
 	Dies hat soweit einen Einfluss, das die Qualität des von TypeScript erzeugten Codes die Messung beeinflusst.
 	
 	\subsection{Umfang}
@@ -30,9 +30,9 @@
 	
 	Auch die Tests liegen in der gleichen Grössenordnung.
 	Allerdings sind im Client Test Code viele Zeilen an Initialisierungsdaten enthalten zum mocken\footnote{Das verwendete Test-Framework Angular Jasmine erlaubt das simulieren (mocken) der REST Schnittstelle} der Schnittstellenaufrufe. 
-	Die effektive Grösse der Client Tests liegt ca. 25-30\% tiefer.
+	Die effektive Grösse der Client Tests liegt ca. 25\% tiefer.
 	
-	Die detailierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abbildung\ \ref{fig:serverClientSLOC} zu sehen.
+	Die detaillierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abbildung\ \ref{fig:serverClientSLOC} zu sehen.
 	\begin{figure}[H]
 		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/serverClientSLOC.pdf}
 		\centering
@@ -57,11 +57,11 @@
 	
 	\subsection{Qualität}
 	Die Codequalität ohne grosse Verfälschung zu messen ist eine grosse Herausforderung.
-	Hier zeigt sich der erwähnte Einfluss des generierten JavaScipts besonders stark. TypeScipt generiert viele anonyme, direkt ausgeführte Funktionen, die der Kapselung des Codes dienen. 
+	Hier zeigt sich der erwähnte Einfluss des generierten JavaScripts besonders stark. TypeScript generiert viele anonyme, direkt ausgeführte Funktionen, die der Kapselung des Codes dienen. 
 	Der so erzeugte Code drückt die Metriken in die Höhe. Trotzdem lassen sich einige Aussagen treffen anhand der gemessenen Daten.
 	
 	Wir haben die wichtigsten Kennzahlen evaluiert,
-	so die Anzahl der Logical LOC (Anzahl Zeilen pro Methode), die Anzahl der Parameter und die Cyclomatic Complexity\footnote{Komplexitätswert der die Operationen pro Methode repräsentiert \url{http://www.aivosto.com/project/help/pm-complexity.html}}.
+	so die Anzahl der Logical LOC (Anzahl effektiver Code-Zeilen) pro Methode, die Anzahl der Parameter und die Cyclomatic Complexity\footnote{Komplexitätswert der die Operationen pro Methode repräsentiert \url{http://www.aivosto.com/project/help/pm-complexity.html}}.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityOverview.pdf}
@@ -71,11 +71,10 @@
 	\end{figure}
 	
 	In Abb. \ref{fig:methodComplexityLLOC} ist die Anzahl der logischen Zeilen Code pro Methode ausgewiesen.
-	Gut sichtbar, dass auf dem Server 35\% aller Methoden drei logische Codezeilen aufweisen.
-	Spannend ist die grosse Spitze beim Client gegen das Ende der Grafik.
-	Sie steht für die langen, von TypeScript erzeugten Methoden, die beispielsweise ganze Prototypen wrappen und der Kapselung dienen.
+	Gut sichtbar ist, dass auf dem Server wie auf dem Client rund 35\% aller Methoden drei logische Codezeilen aufweisen.
+	Dies sind primär Getter und Setter.
 	
-	Zusammengefasst kann man sagen, das die Mehrheit der Methoden mit drei bis sieben Zeilen Code auskommen und einige Wenige mehr als 20 Zeilen aufweisen.
+	Zusammengefasst kann man sagen, das die Mehrheit der Methoden mit weniger als zehn Zeilen Code auskommen und nur einige wenige Methoden mehr Zeilen aufweisen.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityLLOC.pdf}
@@ -85,8 +84,8 @@
 	\end{figure}
 	
 	In Abb. \ref{fig:methodComplexityParameterCount} wird die Häufigkeit der Anzahl Methoden Parameter aufgezeigt.
-	Gut erkennbar die Tatsache, dass sowohl auf dem Server, wie auch auf dem Client,
-	die meisten Methoden keinen oder nur einen einzigen Parameter besitzen.
+	Gut erkennbar ist die Tatsache, dass sowohl auf dem Server, wie auch auf dem Client,
+	rund 3/4 der Methoden keinen oder nur einen einzigen Parameter besitzen.
 	
 	
 	\begin{figure}[H]
@@ -97,12 +96,7 @@
 	\end{figure}
 	Abschliessend ist die Cyclomatic Complexity in Abb. \ref{fig:methodComplexityCyclomaticComplexity} aufgezeichnet.  
 	Sie beschreibt, wie viele Operationen eine Methode enthält.
-	Beim Server repräsentiert die Spitze bei eins die Getter und Setter,
-	diese sind beim Client so nicht zu sehen.
-	JavaScript erlaubt das anlegen von Methoden für direkten Property-Zugriff, womit für alle nicht-Private Property Setter und Getter entfallen.
-	Die Tatsache, das die Mehrheit der Objekte auf dem Client innerhalb der Templates verwendet wird, erfordert viele Public-Properties.
-	Zusätzlich bedingt sind viele Public-Properties aufgrund der Factory,
-	die Prototypen anhand der Übertragenen Daten zusammenbaut.	
+	Die Spitzen bei der Eins repräsentieren auch hier die Getter und Setter.
 	
 	
 	\begin{figure}[H]
@@ -134,13 +128,17 @@
 			\label{fig:halsteadBugsPerMethod}
 		\end{figure}
 		
-		In Abbildung\ \ref{fig:halsteadBugsPerMethod} ist diese Komplexitätsgrösse verglichen mit zwei der durch \eeppi\ eingesetzten Frameworks.
-		Der Client weist in etwa die gleiche Komplexität auf,
-		wie die beiden Frameworks, der Server eine geringere.
+		In Abbildung\ \ref{fig:halsteadBugsPerMethod} ist diese Komplexitätsgrösse mit zwei der durch \eeppi\ eingesetzten Frameworks verglichen.
+		Sowohl der Client als auch der Server weisen einen deutlich besseren Wert aus als die beiden zum Vergleich aufgeführte Frameworks.
+		Erstaunlich ist, dass die beiden Frameworks beinahe den gleichen Wert aufweisen.
 		
-		Zieht man in Betracht, das ein Grossteil der Komplexität auf dem Client der Erzeugung des TypeScriptes geschuldet ist, so wird sich die effektive Komplexität auf dem Client im Bereich zwischen dem Server und Angular bewegen, also zwischen 0.02 und 0.05. 
-		
+		Beim Anblick der Zahlen liegt die Vermutung nahe, dass es daran liegt,
+		dass \eeppi\ einen geringeren Projektumfang hat als die beiden Frameworks.
+		Es wird jedoch hier nicht die totale Grösse verglichen, sondern lediglich pro Methode.
+		Diese Vermutung trifft deshalb nicht zu.
+				
 	\subsubsection{Typescript}
+	%TODO Tobi: Die Zahlen sehen jetzt doch für den Client besser aus. Wollen wir den Abschnitt neu schreiben oder entfernen?
 	Die Art des von Typescript erzeugten Codes wirft die Frage auf, was TypeScript bringt und ob es sich gelohnt hat.
 	
 	Aus unserer Sicht hat sich der Einsatz von TypeScript sehr gelohnt. 
