@@ -1,8 +1,9 @@
 \begin{landscape}
-	\section{Verwendete Libraries, Frameworks und Tools}
+\chapter{Verwendete Libraries, Frameworks und Tools}
 
-	\subsection{Verwendete Frameworks und Libraries}		
-	Um mit \eeppi\ schneller vorwärts zu kommen und nicht alles neu selbst programmieren zu müssen,
+	\section{Verwendete Frameworks und Libraries}		
+	Um mit nicht von Grund auf alle Komponenten programmieren zu müssen, 
+	und um auf die Erkenntnisse anderer Entwickler aufbauen zu können,
 	haben wir einige bestehende Frameworks verwendet.
 	Diese sind nachfolgend, und die dazugehörenden Lizenzen in Absatz\ \ref{subsec:licenses}, aufgeführt.
 	
@@ -10,7 +11,8 @@
 	\vspace{0.5cm}
 	
 	\newcommand{\addLib}[5]{
-		#1 & #2 & \url{#3} & #4 & #5 \\ \hline
+		#1 & #2 & \url{#3} & #4 & #5 \\
+		\hline
 	}
 	
 	
@@ -29,52 +31,53 @@
 		\addLib{Jasmine}{2.0}{http://jasmine.github.io/}{MIT}{Client Test Framework}
 	\end{tabularx}
 
-		\subsection{Verwendete Tools und Technologien}
+	\section{Verwendete Tools und Technologien}
+	
+		\begin{tabularx}{\linewidth}{| l | l | X |}
+			\hline
+			TypeScript & \url{http://www.typescriptlang.org/} & Apache2 \\
+			\hline
+			Java & \url{http://www.oracle.com/technetwork/java/} & GPL, Java Community Process\\
+			\hline
+			Vagrant & \url{https://www.vagrantup.com/} & MIT \\
+			\hline
+			Virtualbox & \url{https://www.virtualbox.org/} &  GPL \\
+			\hline
+			Typedoc & \url{https://www.npmjs.com/package/typedoc} &  Apache 2 \\
+			\hline
+			Less & \url{http://lesscss.org/} &  Apache 2 \\
+			\hline
+		\end{tabularx}
 		
-			\begin{tabularx}{\linewidth}{| l | l | X |}
-				\hline
-				TypeScript & \url{http://www.typescriptlang.org/} & Apache2 \\
-				\hline
-				Java & \url{http://www.oracle.com/technetwork/java/} & GPL, Java Community Process\\
-				\hline
-				Vagrant & \url{https://www.vagrantup.com/} & MIT \\
-				\hline
-				Virtualbox & \url{https://www.virtualbox.org/} &  GPL \\
-				\hline
-				Typedoc & \url{https://www.npmjs.com/package/typedoc} &  Apache 2 \\
-				\hline
-				Less & \url{http://lesscss.org/} &  Apache 2 \\
-				\hline
-			\end{tabularx}
+		% TODO: Add testing & metric tools
 			
-			% TODO: Add testing & metric tools
-			
-	\subsection{Lizenzen}
-	\label{subsec:licenses}
+	\section{Lizenzen}
+	\label{sec:licenses}
 	
 	\newcommand{\addLicense}[6]{
 		#1 & #2 & \url{#3} &
-		\begin{itemize}[leftmargin=*,nosep]
+		\begin{itemize}%[leftmargin=*,nosep]
 			\setlength{\itemsep}{0pt}
-    		\setlength{\parskip}{0pt}
-	    	\setlength{\parsep}{0pt}
+	    		\setlength{\parskip}{0pt}
+		    	\setlength{\parsep}{0pt}
 			#4
 		\end{itemize}
 		 &
-		 \begin{itemize}[leftmargin=*,nosep]
+		 \begin{itemize}%[leftmargin=*,nosep]
 			\setlength{\itemsep}{0pt}
-    		\setlength{\parskip}{0pt}
-	    	\setlength{\parsep}{0pt}
+    			\setlength{\parskip}{0pt}
+	  	  	\setlength{\parsep}{0pt}
 			#5
 		\end{itemize}
 		&
-		\begin{itemize}[leftmargin=*,nosep]
+		\begin{itemize}%[leftmargin=*,nosep]
 			\setlength{\itemsep}{0pt}
-    		\setlength{\parskip}{0pt}
-	    	\setlength{\parsep}{0pt}
+    			\setlength{\parskip}{0pt}
+	   	 	\setlength{\parsep}{0pt}
 			#6
 		\end{itemize}
-		\\ \hline
+		\\
+		\hline
 	}
 
 	\begin{tabularx}{\linewidth}{| l | X | X | p{4.3cm} | p{4.7cm} | p{3.5cm} |}
@@ -122,7 +125,14 @@ State Changes}
 			\item{Weitere Lizenz}
 		}{
 			\item{Haftbar machen}
-		}
+		}		
+	\end{tabularx}
+		
+		
+	\begin{tabularx}{\linewidth}{| l | X | X | p{4.3cm} | p{4.7cm} | p{3.5cm} |}
+		\hline
+		\textbf{Kurzname} & \textbf{Voller Name} & \textbf{URL} & \textbf{Bedingung\footnote{\label{licensesFootnote}Quelle: gemäss \url{http://choosealicense.com/} \cite{github_choosing_2014}} } & \textbf{Erlaubt\footref{licensesFootnote}} & \textbf{Verboten\footref{licensesFootnote}} \\
+		\hline \hline
 		\addLicense{MIT}{MIT License}{http://opensource.org/licenses/MIT}{
 			\item{Lizenz und Copyright Informationen beilegen}
 		}{
