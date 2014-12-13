@@ -18,12 +18,12 @@
 	Die erfassten Arbeitszeiten haben wir mit einem eigenen Ruby-Skript über die REST API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} exportiert
 	und in einer Excel-Tabelle jeweils laufend während dem Projekt ausgewertet.
 	Grund dafür ist die dafür Fehlende Funktion im Basispaket von Jira\footnote{Es gibt eine kostenpflichtige Erweiterung, die Reporting anbietet}.
-	Entstanden ist folgener Graph über die geleistete Arbeit in Abbildung\ \ref{fig:workGraph}.
+	Entstanden ist folgender Graph über die geleistete Arbeit in Abbildung\ \ref{fig:workGraph}.
 	Darin sieht man den kontinuierlichen Verlauf während dem Projekt
 	und die ausgeglichene Arbeitslast zwischen Tobias Blaser und Laurin Murer.
-	Bereits von Anfang der Projektplanung an war geplant, die Arbeit eine Woche fertig zu stellen, um einen Puffer zum Abgabetermin zu besitzen.
+	Bereits von Anfang der Projektplanung an war geplant, die Arbeit eine Woche vor offiziellem Abgabetermin fertig zu stellen, um einen Puffer zu besitzen.
 	
-	Aus diesem Grund endet die Linie des Soll-Max auch zu dieser Zeit.
+	Aus diesem Grund endet die Linie des Soll-Max in Abbildung\ \ref{fig:workGraph} auch zu dieser Zeit.
 	Die beiden Soll-Linien geben die von der HSR vorgegebene minimal und maximal erwarteten Aufwände an.
 	
 	\begin{figure}[H]
@@ -33,11 +33,23 @@
 		\label{fig:workGraph}
 	\end{figure}
 	
-	Wir haben von Begin des Projektes geplant, viel in das Projekt zu investieren, um ein Top-Ergebnis zu erreichen.
+	Wir haben von Begin des Projektes geplant, viel in das Projekt zu investieren, um ein sehr gutes Ergebnis zu erreichen.
 	
-	Die gleichmässig steigenden Geraden zeigen auch,
-	das sich unsere Projektplanung bewährt hat.
+	Die gleichmässig steigenden Geraden zeigen, dass sich unsere Projektplanung bewährt hat.
+	Die Steigung dieses Graphs ist in Abbildung\ \ref{fig:weekhours} auch nochmals separat abgebildet.
+	In diesem zweiten Graph ist zu sehen, wie viel Zeit wir pro Woche investiert haben.
+	Es ist da nochmals deutlich zu erkennen,
+	dass die geplanten Zeiten pro Woche über den Gesamtverlauf des Projekts mehr oder weniger im Rahmen liegen.
+	Es gibt immer wieder Schwankungen, doch diese werden auch wieder zeitnah ausgeglichen.
+	Die grösseren kurzfristigen Schwankungen sind auf Aktivitäten ausserhalb der Bachelorarbeit zurückzuführen,
+	wie beispielsweise einem beruflichen Messebesuch in Berlin.
 
+	\begin{figure}[H]
+		\includegraphics[width=\textwidth]{projectPlan/media/img/weekhours.pdf}
+		\centering
+		\caption{Graph über die geleistete Arbeit pro Woche}
+		\label{fig:weekhours}
+	\end{figure}
 
 	\subsection{Schätzgenauigkeit der Aufwände}
 	Wenig verwunderlich liegt die Schätzgenauigkeit bei kleinen Paketen nahe bei der effektiv benötigten Zeit.
@@ -46,5 +58,6 @@
 	Nach Hochrechnungen liegt die durchschnittlich geschätzte Dauer zwischen 80\% und 100\% der effektiv benötigten Zeit.
 	
 	In dieser Rechnung nicht miteingeschlossen sind neu erstellte Issues aufgrund der Notwendigkeit der Umsetzung weiterer Teilaspekte eines grösseren Issueblockes.
-	Würde man dies mitberücksichtigen, so liegt die effektiv benötgte Zeit schätzungsweise zwischen 20\% und 40\% über der geschätzten Zeit.
-	Aufgrund dieser Erkenntnis in den ersten Wochen haben wir für die restlichen Milestones jeweils maximal 2/3 der Zeit für Features eingeplant und die Restliche Zeit einerseits für Administrative Tätigkeiten andererseits als Puffer vorgesehen, was sich bewährt hat. 
+	Würde man dies mitberücksichtigen, so liegt die effektiv benötigte Zeit schätzungsweise zwischen 20\% und 40\% über der geschätzten Zeit.
+	Aufgrund dieser Erkenntnis in den ersten Wochen haben wir für die restlichen Milestones jeweils maximal 2/3 der Zeit für Features eingeplant
+	und die Restliche Zeit einerseits für Administrative Tätigkeiten und andererseits als Puffer vorgesehen, was sich bewährt hat. 
