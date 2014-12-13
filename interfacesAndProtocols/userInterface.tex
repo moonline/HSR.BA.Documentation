@@ -69,7 +69,7 @@
 			\label{fig:administration}
 		\end{figure}	
 		
-		Der Administrationsbereich ist aus einer aufklappbaren Liste aufgebaut (Accordeon). Dadurch wird dem Administration eine gute Übersicht und einen Schnellen Zugriff gewährleistet.
+		Der Administrationsbereich setzt sich vorwiegend aus einer aufklappbaren Liste zusammen (Accordeon). Dadurch wird dem Administration eine gute Übersicht und einen Schnellen Zugriff gewährleistet.
 		
 		Die Navigation soll entweder unterhalb des Headers oder auf der linken Seite angebracht werden. Dazu soll während der Umsetzung überprüft werden, ob auf der Linken Seite genügend Platz vorhanden ist, wenn die Mapping Ansicht geöffnet ist.
 		
@@ -77,7 +77,7 @@
 	\subsection{Finales Userinterface}
 	
 		Anhand der Mockups und entwickelten Workflows wurde anschliessend das finale Interface umgesetzt.
-		Dabei wurden iterationsweise einige Bereiche angepasst und verbessert.
+		Dabei wurden iterativ Bereiche angepasst und verbessert.
 		Dies war insbesondere in der Darstellung der Problems \& Task Templates notwendig, 
 		da wesentlich mehr Daten visualisiert werden sollten, als ursprünglich im Mockup vorgesehen.
 		
@@ -88,21 +88,38 @@
 			\label{fig:eeppiHomeScreen}
 		\end{figure}	
 		
-		Auf die Umsetzung des Dashboardes wurde verzichtet, da viele der dafür notwendigen Informationen im tief priorisierten und darum nicht umgesetzten Feature "'Inform user about network and system status"' enthalten waren und entsprechend nicht verfügbar sind.
+		Auf die Umsetzung des Dashboard wurde verzichtet, da viele der dafür notwendigen Informationen im tief priorisierten und darum nicht umgesetzten Feature "'Inform user about network and system status"' enthalten waren und entsprechend nicht verfügbar waren.
+		Anstelle wurde ein Splash-Screen Implementiert.
+		
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=\linewidth]{tutorial/img/transmit2.png}
-			\caption{Übertragen von Tasks an ein \ppt}
-			\label{fig:administration}
+			\includegraphics[width=\linewidth]{tutorial/img/eeppiDecisionsAndTaskTemplates.png}
+			\caption{Problems \& Tasktemplates}
+			\label{fig:eeppiDecisionsAndTaskTemplates}
 		\end{figure}	
+		
+		Die Ansicht der verfügbaren Problems, der Tasktemplates und deren Mapping wurde nach dem Mockup umgesetzt und anschliessend noch um viele zusätzliche Informationen erweitert (Abb. \ref{fig:eeppiDecisionsAndTaskTemplates}).
+		So kam beispielsweise zur Detailansicht der Mappings noch eine Detailansicht des ausgewählten Problems hinzu.
+		Damit kann sich der Benutzer eine besser Übersicht darüber verschaffen,
+		ob er das richtige Problem mapt.
+		Insbesondere bei ähnlichen Namen der Problems ist diesn von Vorteil.
+		In diesen Bereich wurde auch eine HTML-Unterstützung für Notes eingebaut, 
+		sodass diese mit HTML-Tags ausgezeichnet werden könnten.
+		
 		
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{tutorial/img/administrationDKS.jpg}
 			\caption{Administrationsbereich}
-			\label{fig:eeppiDecisionsAndTaskTemplates}
+			\label{fig:eeppiAdministration}
 		\end{figure}	
+		
+		Beim Administrationsbereich (Abb. \ref{fig:eeppiAdministration}) haben wir uns nur sehr beschränkt an die Mockups gehalten, 
+		da wir bald gemerkt haben, das die darzustellenden Informationen nicht mit dem Mockup zusammenpassen.
+		Zum Zeitpunkt als wir die Mockups erstellten, 
+		war noch nicht genau klar welche Informationen in diesem Bereich untergebracht werden sollen.		
+		
 		
 		\begin{figure}[H]
 			\centering
@@ -110,10 +127,17 @@
 			\caption{Accountverwaltung}
 			\label{fig:eeppiAccountManagement}
 		\end{figure}	
+		
+		Für den Accountverwaltungsbereich (Abb. \ref{fig:eeppiAccountManagement}) gab es keine Mockups, da zum damaligen Zeitpunkt noch Unklarheit über das Usermanagement bestand.
+		Entsprechend wurde dieses analog der Administration gestaltet.
+		
 			
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=\linewidth]{tutorial/img/transmit2.png}
 			\caption{Übertragen von Tasks an ein \ppt}
-			\label{fig:eeppiTransmitTasks}
+			\label{fig:eeppiTransmissionScreen}
 		\end{figure}	
+		
+		Im Übertragungsbereich (Abb. \ref{fig:eeppiTransmissionScreen}) ist gegenüber den Mockups die Editierfunktion für zu exportierende Tasks entfallen,
+		dieses Feature vom Betreuer als Ansprechpartner der Kundengruppe mit niedriger Priorität eingestuft wurde.
