@@ -200,6 +200,7 @@ urlcolor=black
 %\chapter{EEPPI-Usermanual}
 \clearpage
 \addcontentsline{toc}{chapter}{EEPPI-Usermanual}
+\label{chapter:userManual}
 \includepdf[pages=-, pagecommand={}]{tutorial/media/EEPPI-Usermanual.pdf}
 \addcontentsline{toc}{section}{Processor Beispieldaten}
 \includepdf[pages=-, pagecommand={}]{tutorial/media/requestTemplateVariablesExample.pdf}
@@ -212,6 +213,9 @@ urlcolor=black
 		\includegraphics[page=1, scale=0.7]{media/documents/clientCodeDocumentation.pdf}
 		\includepdf[pages=2-, scale=0.92, nup=1x2, landscape=true, pagecommand={}]{media/documents/clientCodeDocumentation.pdf}
 
+
+% testinstallation
+\input{tutorial/testInstallation}
 
 % personal feedback stories
 \chapter*{Persönliche Berichte}

@@ -154,14 +154,18 @@
 				
 
 		\subsection{Individuelle Entwicklungsumgebungen}
-			Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung. 
-			
-			Lizenzen für Webstorm werden von der Schule zur Verfügung gestellt.
-
-
-		\subsection{Allgemeine Entwicklungsumgebungen}
-			Auf dem von der Schule zur Verfügung gestellten virtuellen Server werden 
-			für die Entwicklung mit Vagrant\footnote{Virtualisierungsautomatisierungslösung von HashiCorp für verschiedene Virtualisierungsumgebungen: \url{http://www.vagrantup.com/}} virtuelle Wegwerfumgebungen aufgebaut.
+			Jeder Entwickler verwendet seine eigene bevorzugte Entwicklungsumgebung.
+			Um auch Interaktionen mit externen Systemen zu testen,
+			haben wir sogenannte Vagrant\footnote{Virtualisierungsautomatisierungslösung von HashiCorp für verschiedene Virtualisierungsumgebungen: \url{http://www.vagrantup.com/}}-Boxen erstellt.
+			Dies sind Konfigurationen für virtuelle Maschinen, die wenige Bytes gross sind
+			und mit einem einfachen Befehl komplette Systeme simulieren können.
+			Für \eeppi\ haben wir je Vagrant-Umgebungen für folgende Systeme erstellt:
+			\begin{itemize}
+				\item{CDAR}
+				\item{ADRepo}
+				\item{\ppt s (Jenkins und Jira)}
+				\item{komplettes \eeppi\ (inkl. Umsysteme)}
+			\end{itemize}
 
 
 	\section{Backup}
