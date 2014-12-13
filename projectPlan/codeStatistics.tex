@@ -29,16 +29,18 @@
 	Dies war zu erwarten, da sie auch den gleichen Umfang der Daten verarbeiten.
 	
 	Auch die Tests liegen in der gleichen Grössenordnung.
-	Allerdings sind im Client Test Code viele Zeilen an Initialisierungsdaten enthalten zum mocken\footnote{Das verwendete Test-Framework Angular Jasmine erlaubt das simulieren (mocken) der REST Schnittstelle} der Schnittstellenaufrufe. 
+	Allerdings sind im Client Test Code viele Zeilen an Initialisierungsdaten enthalten zum Mocken\footnote{Das verwendete Test-Framework Angular Jasmine erlaubt das simulieren (mocken) der REST Schnittstelle} der Schnittstellenaufrufe. 
 	Die effektive Grösse der Client Tests liegt ca. 25\% tiefer.
 	
-	Die detaillierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abbildung\ \ref{fig:serverClientSLOC} zu sehen.
+	Die detaillierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abb. \ref{fig:serverClientSLOC} zu sehen.
+	
 	\begin{figure}[H]
 		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/serverClientSLOC.pdf}
 		\centering
 		\caption{Vergleich SLOC (Source Lines of Code) auf Server und Client inklusive Tests}
 		\label{fig:serverClientSLOC}
 	\end{figure}
+
 
 	\subsection{Test Coverage}
 	Sowohl auf dem Server als auch auf dem Client sind wir mehrheitlich nach TDD (Test Driven Development) vorgegangen,
@@ -51,9 +53,11 @@
 		\caption{Testabdeckung auf dem Server und dem Client}
 		\label{fig:coverage}
 	\end{figure}
+	
 	Abb. \ref{fig:coverage} zeigt die Testabdeckung auf.
 	Es ist zu sehen, dass auf dem Server die Testabdeckung höher ist als auf dem Client,
 	aber auch auf dem Client sind die zentralen und wichtigen Elemente gut abgedeckt.
+	
 	
 	\subsection{Qualität}
 	Die Codequalität ohne grosse Verfälschung zu messen ist eine grosse Herausforderung.
@@ -66,13 +70,13 @@
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{projectPlan/media/img/methodComplexityOverview.pdf}
 		\centering
-		\caption{Überblick Komplexitätskennwerte pro Methode (Durchschnitt)}
+		\caption{Überblick Durchschnittsmesswerte}
 		\label{fig:methodComplexityOverview}
 	\end{figure}
 	
 	In Abb. \ref{fig:methodComplexityLLOC} ist die Anzahl der logischen Zeilen Code pro Methode ausgewiesen.
 	Gut sichtbar ist, dass auf dem Server wie auf dem Client rund 35\% aller Methoden drei logische Codezeilen aufweisen.
-	Dies sind primär Getter und Setter.
+	Dies sind primär Getter und Setter, bzw. auf dem Client anonyme, von TypeScript erzeugte Methoden.
 	
 	Zusammengefasst kann man sagen, das die Mehrheit der Methoden mit weniger als zehn Zeilen Code auskommen und nur einige wenige Methoden mehr Zeilen aufweisen.
 	
@@ -86,6 +90,7 @@
 	In Abb. \ref{fig:methodComplexityParameterCount} wird die Häufigkeit der Anzahl Methoden Parameter aufgezeigt.
 	Gut erkennbar ist die Tatsache, dass sowohl auf dem Server, wie auch auf dem Client,
 	rund 3/4 der Methoden keinen oder nur einen einzigen Parameter besitzen.
+	Die Anzahl Methoden mit keinem Parameter ist auf dem Client signifikant tiefer, da aufgrund der Properties in JavaScript das implementieren von Getter für Public-Attributes entfällt.
 	
 	
 	\begin{figure}[H]
@@ -96,7 +101,7 @@
 	\end{figure}
 	Abschliessend ist die Cyclomatic Complexity in Abb. \ref{fig:methodComplexityCyclomaticComplexity} aufgezeichnet.  
 	Sie beschreibt, wie viele Operationen eine Methode enthält.
-	Die Spitzen bei der Eins repräsentieren auch hier die Getter und Setter.
+	Die Spitzen bei Eins repräsentieren auch hier die Getter und Setter.
 	
 	
 	\begin{figure}[H]
@@ -128,21 +133,21 @@
 			\label{fig:halsteadBugsPerMethod}
 		\end{figure}
 		
-		In Abbildung\ \ref{fig:halsteadBugsPerMethod} ist diese Komplexitätsgrösse mit zwei der durch \eeppi\ eingesetzten Frameworks verglichen.
+		In Abb. \ref{fig:halsteadBugsPerMethod} wird diese Komplexitätsgrösse mit zwei der durch \eeppi\ eingesetzten Frameworks verglichen.
 		Sowohl der Client als auch der Server weisen einen deutlich besseren Wert aus als die beiden zum Vergleich aufgeführte Frameworks.
 		Erstaunlich ist, dass die beiden Frameworks beinahe den gleichen Wert aufweisen.
 		
 		Beim Anblick der Zahlen liegt die Vermutung nahe, dass es daran liegt,
 		dass \eeppi\ einen geringeren Projektumfang hat als die beiden Frameworks.
-		Es wird jedoch hier nicht die totale Grösse verglichen, sondern lediglich pro Methode.
+		Es wird jedoch hier nicht die totale Grösse verglichen, sondern lediglich die Komplexität pro Methode.
 		Diese Vermutung trifft deshalb nicht zu.
 				
+				
 	\subsubsection{Typescript}
-	%TODO Tobi: Die Zahlen sehen jetzt doch für den Client besser aus. Wollen wir den Abschnitt neu schreiben oder entfernen?
-	Die Art des von Typescript erzeugten Codes wirft die Frage auf, was TypeScript bringt und ob es sich gelohnt hat.
+	Die Ergebnisse werfen auch die Frage auf, was TypeScript bringt und ob es sich dessen Einsatz gelohnt hat.
 	
 	Aus unserer Sicht hat sich der Einsatz von TypeScript sehr gelohnt. 
 	Viele Fehler haben wir dadurch bereits zur Kompilierzeit gefunden und nicht erst zur Laufzeit.
 	Der Source Code ist strukturierter, modularisierter, gekapselter und trotzdem lesbarer als vergleichbarer JavaScript Code dies wäre.
-	Für Wartung und Weiterentwicklung spielt insofern der erzeugte JavaScript Code nur eine untergeordnete Rolle. Daher überwiegen die Vorteile von TypeScript ganz klar.
+	Selbst die Metriken, die anhand des erzeugten JavaScript Codes erstellt wurden, zeigen sehr positive Werte und bestätigten unseren subjektiven Eindruck.	
 	
