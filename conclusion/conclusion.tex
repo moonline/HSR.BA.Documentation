@@ -124,9 +124,33 @@
 	
 	
 	\section{Zusätzliche Features}
-		%TODO: write this! :-)
-		hier z.B. API-Doku
+		\subsection{API-Dokumentation}
+			Zur Dokumentation der API Schnittstelle hat das Projektteam
+			einen Mechanismus implementiert, der die Informationen über die Schnittstelle mittels Reflection aus dem Code und aus der Ressourcenkonfiguration des Play-Frameworks ausliest.
+			Zusätzlichen werden während der Erzeugung der Dokumentation konkrete Entitäten erstellt und reale API aufrufe gefahren.
+			Die entsprechenden Live-Resultate werden als Aufrufresultate in der Dokumentation angezeigt.
+			Dadurch erhält ein Leser realistische Benutzungsbeispiele für die API mit passenden Antwortdaten.
+			
 	
+		\subsection{Strukturierung von Tasktemplates}
+			Eine Strukturierung von Tasktemplates wurde zugunsten höher prioritärer Features als optionales Feature deklariert.
+			Dem Team ist es jedoch in der letzten Woche vor dem Featurefreeze noch gelungen, eine schlanke Umsetzung einer Hierarchisierung von Tasktemplates zu implementieren.
+			Dies ermöglicht das erstellen von Subtasktemplates und das Exportieren von Subtasks.
+			
+		
+		\subsection{Im- und Export der Daten von \eeppi}
+			Über die API von \eeppi\ lassen sich alle Daten des Systems,
+			ausgenommen Benutzerpasswörtern, exportieren und importieren.
+			Dies ermöglicht das Zügel von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
+			
+			Zusätzlich lassen sich alle Daten auch durch ein Backup der Datenbank sichern und transferieren, da \eeppi\ keine Daten auf dem Dateisystem ablegt.
+			
+			
+		\subsection{Beispielrequest für Redmine}
+			Anfang des Projektes wurde von Projektteam und Betreuer beschlossen, 
+			das \eeppi\ grundsätzlich an jedes Projektplanungstool angebunden werden können soll, das die technischen Voraussetzungen erfüllt.
+			Für die Entwicklung aber der Fokus vor Allem auf einem System liegen soll, um sich nicht auf zu viele verschiedene API's konzentrieren zu müssen.
+			Das Projektteam hat zusätzlich zur Beispielkonfiguration für Jira und einer entsprechenden Demoinstallation auch eine Konfiguration für Redmine erstellt, eine Beispielinstallation aufgebaut und dessen Funktion demonstriert.
 	
 	
 	\section{Erweiterungs-Möglichkeiten}
