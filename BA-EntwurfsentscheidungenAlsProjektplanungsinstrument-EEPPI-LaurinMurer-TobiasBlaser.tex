@@ -197,8 +197,11 @@ urlcolor=black
 \input{projectPlan/codeStatistics}
 \input{projectPlan/infrastructure}
 
-\chapter{EEPPI-Usermanual}
+%\chapter{EEPPI-Usermanual}
+\clearpage
+\addcontentsline{toc}{chapter}{EEPPI-Usermanual}
 \includepdf[pages=-, pagecommand={}]{tutorial/media/EEPPI-Usermanual.pdf}
+\addcontentsline{toc}{section}{Processor Beispieldaten}
 \includepdf[pages=-, pagecommand={}]{tutorial/media/requestTemplateVariablesExample.pdf}
 
 \chapter{Code-Documentation}
@@ -222,7 +225,7 @@ urlcolor=black
 \input{projectPlan/timeManagement}
 \input{projectPlan/riskManagement}
 
-% self reliance declaration & uage lisence
+% self reliance declaration & usage license
 \documentPartEntry{Eigenständigkeits-Erklärung}
 \includepdf[pages=-]{media/documents/selfRelianceDeclaration.pdf}
 \documentPartEntry{Nutzungsvereinbarung}

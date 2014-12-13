@@ -1,5 +1,5 @@
-EEPPI Tutorial
-==============
+EEPPI-Usermanual
+================
 
 Suggested Environment
 ---------------------
