@@ -15,11 +15,11 @@
 		
 		Dabei sollen Entscheidungen sowie deren verknüpfte Wahlmöglichkeiten (Optionen) mit Taskvorlagen (Tasktemplates) verknüpft werden.
 		Diese Verknüpfung wird in folgenden Kapiteln als "'Mapping"' bezeichnet. 
-		Anhand diesen Verknüpfungen sollen aus den Aufgabenvorlagen konkrete Aufgaben generiert und in ein Projektplanungstool übertragen werden.
+		Anhand diesen Verknüpfungen sollen aus den Aufgabenvorlagen konkrete Aufgaben generiert und in ein \ppt\ übertragen werden.
 	
 	
 	\section{Anbinden der externen Systeme}
-		Damit \eeppi\ Daten aus Wissensverwaltungssystemen laden und in Projektplanungstools übertragen kann, muss \eeppi\ an diese angebunden werden können.
+		Damit \eeppi\ Daten aus Wissensverwaltungssystemen laden und in \ppt s übertragen kann, muss \eeppi\ an diese angebunden werden können.
 		
 	
 		\subsection{Anbinden von Wissensverwaltungssystemen}
@@ -92,16 +92,16 @@
 			Die Ablösung des \cdar bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
 		
 		
-		\subsection{Anbinden von Projektplanungstools}
-			Entscheidend für die Anbindung eines Projektplanungstool ist deren Schnittstelle zum Erzeugen von Tasks. 
-			Als Refrenz-Projektplanungstools haben wir uns hier für Jira und Redmine entschieden.
+		\subsection{Anbinden von \ppt s}
+			Entscheidend für die Anbindung eines \ppt\ ist deren Schnittstelle zum Erzeugen von Tasks. 
+			Als Referenz-\ppt s haben wir uns für Jira und Redmine entschieden.
 			Beide Systeme besitzen solide Schnittstellen,
 			die das Verwalten von Tasks erlauben 
 			und besitzen einen Verbreitungsgrad über die Softwarebranche hinaus.
 		
 
 	\section{Tier-Architektur}
-		Die Tier-Architektur wurde zusammen mit der Wahl der Technologie durgeführt aufgrund der gegenseitigen Einflüsse und Enschränkungen.
+		Die Tier-Architektur wurde zusammen mit der Wahl der Technologie durchgeführt aufgrund der gegenseitigen Einflüsse und Einschränkungen.
 		Technologische Entscheidungen werden im Abschnitt \ref{architektur.technologie} auf 
 Seite \pageref{architektur.technologie} besprochen.
 		
@@ -128,7 +128,7 @@ Seite \pageref{architektur.technologie} besprochen.
 			\item[2-Tier Structure: Distributed Presentation]
 				Persistenz, Logik und Presentation werden vom Server übernommen.
 				Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
-				Es gibt keine aktiven Komponenten auf dem Client, ausgenommen asyncron nachladende Skripte.				
+				Es gibt keine aktiven Komponenten auf dem Client, ausgenommen asynchron nachladende Skripte.				
 		\end{description}
 	
 		\decision{

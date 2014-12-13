@@ -12,22 +12,22 @@
 			\item[Decision] Beschreibt eine konkrete Problem Instanz.
 				Decisions entstehen, wenn Problems auf konkrete Projekte angewendet werden.
 				Decisions sind sowohl geschlossene wie noch zu treffende Entscheidungen.
-				Im Decision Knowledge System werden Decisions als ``Problem Occurences'' bezeichnet.
+				Im Decision Knowledge System werden Decisions als ``Problem Occurrences'' bezeichnet.
 			\item[Option] Beschreibt eine Wahlmöglichkeit einer Decisions, 
 				und somit eine konkrete Instanz einer Alternative.
-				Im Decision Knowledge System werden Options als ``Option Occurences'' bezeichnet.
+				Im Decision Knowledge System werden Options als ``Option Occurrences'' bezeichnet.
 			\item[Tasktemplate] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
 				Task Templates enthalten generische Werte, wie z.B. ``Project Manager'' als
 				Attributwert für die Eigenschaft ``Assignee''.
 			\item[Task] Beschreibt einen aus einem Tasktemplate erzeugten konkreten Task.
-				Task entstehen während dem Übertragen der Informationen eines Tasktemplates an ein Projektplanungstool.
+				Task entstehen während dem Übertragen der Informationen eines Tasktemplates an ein \ppt.
 			\item[Mapping oder DKS Mapping] Bezeichnet die Verknüpfung von Problems oder 
 				Alternatives mit einem Tasktemplate. 
 				Anhand dieser Verknüpfung werden aus den verknüpften Tasktemplates und den Decisions oder Options des verknüpften Problem oder
 				der verknüpften Alternative die Informationen generiert, 
-				die für die Übertragung eines Tasks an ein Projektplanungstool benötigt werden.
+				die für die Übertragung eines Tasks an ein \ppt\ benötigt werden.
 			\item[Requesttemplate] Bezeichnet eine Vorlage für einen HTTP-Request um 
-				in einem spezifischen Projektplanungstool Tasks anzulegen.
+				in einem spezifischen \ppt\ Tasks anzulegen.
 				Requesttemplates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
 				die mit Daten der Tasktemplates und Decisions oder Options ersetzt werden. 
 		\end{description}	
@@ -37,7 +37,7 @@
 			Die \eeppi\ Domäne setzt sich aus drei Typen von Objekten zusammen: 
 			\begin{itemize}
 				\item Einer Abstraktion der Objekte hinter der Schnittstelle der angebundenen Entscheidungswissensverwaltung
-				\item Einer Abstraktion der Objekte hinter der Schnittstelle eines oder mehreren angebundenen Projektplanungstools
+				\item Einer Abstraktion der Objekte hinter der Schnittstelle eines oder mehreren angebundenen \ppt s
 				\item Den eigenen Objekten und Schnittstellen
 			\end{itemize}
 			
@@ -67,7 +67,7 @@
 			\begin{description}
 				\item[Element] Node
 				\item[ProblemTemplate] Problem
-				\item[ProblemOccurance] Decision			
+				\item[ProblemOccurrence] Decision			
 			\end{description}
 			
 			
@@ -83,10 +83,10 @@
 				\label{fig:metamapping}
 			\end{figure}		
 			
-			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verküpft.
+			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
 			Jedes Mapping steht für eine Verknüpfung eines Tasktemplates mit einem Problem oder einer Alternative.
 			
-			Beim erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurences (siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
+			Beim erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
 			Anschliessend können zusammen mit den Daten des Tasktemplate und dessen Eigenschaften (siehe \eeppi\ Domäne \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
@@ -98,7 +98,7 @@
 				\begin{figure}[H]
 					\includegraphics[width=0.9\linewidth]{architecture/media/img/implementationDomain.png}
 					\centering
-					\caption{\eeppi\ Implementationddomäne}
+					\caption{\eeppi\ Implementationsdomäne}
 					\label{fig:implementationDomain}
 				\end{figure}				
 			\end{landscape}	
@@ -227,9 +227,9 @@
 			
 		
 		\subsection{Tasktransmission Workflow}
-			Aus Task-Vorlagen erzeugte Tasks müssen zur Übertragung in ein Projektmanagementtool
+			Aus Task-Vorlagen erzeugte Tasks müssen zur Übertragung in ein \ppt\
 			Tool spezifisch umgewandelt werden. Dazu werden "`Processors"' eingesetzt.
-			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln, wie z.B. "`Date processors"', die Kalenderdaten umwandeln, "`Issue type processors"', die Issuetypes konvertieren, "`User processors"', die Relationen zu Benutzern so umwandeln, das das Projektplanungstool den User korrekt verknüpfen kann oder "`Conditional processors"' und "`Option processors"', die Bedingungen verarbeiten.
+			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln, wie z.B. "`Date processors"', die Kalenderdaten umwandeln, "`Issue type processors"', die Issuetypen konvertieren, "`User processors"', die Relationen zu Benutzern so umwandeln, das das \ppt\ den User korrekt verknüpfen kann oder "`Conditional processors"' und "`Option processors"', die Bedingungen verarbeiten.
 			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit z.B. nicht gemappte Felder in die Beschreibung überführen kann.
 			
 			\begin{figure}[H]
@@ -261,7 +261,7 @@
 		\decision{
 			\decisionHeader{DOM-TT-MM}{Mapping method}{Architecture}{Domain}
 		}{
-			\decisionContent{Konfiguration/Block in Form von Templates mit Plathaltern}
+			\decisionContent{Konfiguration/Block in Form von Templates mit Platzhaltern}
 			{Wie sollen Mappingkonfigurationen erstellt werden?}
 			{}
 			{Von der Mapping Method hängt die Architektur des Mappings und die Schnittstellen der Processors und Filters ab.}
@@ -276,7 +276,7 @@
 				\end{description}
 			}
 			{Eine Textblock/Template-basierte Konfiguration erhöht zwar die Fehlermöglichkeiten für den Administrator,
-			ermöglicht diesem jedoch grössere Flexibilität und damit ein Abdecken einer grösseren Bandbreite an Projektplanungstools.}
+			ermöglicht diesem jedoch grössere Flexibilität und damit ein Abdecken einer grösseren Bandbreite an \ppt s.}
 			{Der Administrator kann mit Templates und Platzhaltern umgehen oder es Lernen}
 			{Das Mapping benötigt kein eigenes Datenmodell in Form von verknüpften Objekten. 
 			Es kann als einfache Text-Elemente an ein Projekt angeknüpft werden.}
@@ -285,9 +285,9 @@
 		
 		Der Ablauf für einen Administrator sieht entsprechend wie folgt aus:
 		\begin{enumerate}
-			\item Projektplanungstool definieren
+			\item \ppt\ definieren
 			\item Taskeigenschaften erstellen
-			\item Mapping Taskeigenschaften -> Projektplanungstool erstellen
+			\item Mapping Taskeigenschaften -> \ppt\ erstellen
 		\end{enumerate}					
 				
 		
@@ -308,8 +308,8 @@
 				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
 				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
 				
-				Der Transmission-Workflow als gesammtes ist jedoch ein One-Way-Procedure.
+				Der Transmission-Workflow als gesamtes ist jedoch ein One-Way-Procedure.
 				Dies bedeutet, das keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
-				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine synchronisierung der Tasks eine grosse Herausforderung dar, 
+				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine Synchronisierung der Tasks eine grosse Herausforderung dar, 
 				die den Rahmen der Arbeit sprengen würde.
 				Als mögliche zukünftige Erweiterung ist dies jedoch denkbar.

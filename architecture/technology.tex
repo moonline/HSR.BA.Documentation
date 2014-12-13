@@ -3,13 +3,13 @@
 
 		\subsubsection{Evaluation}\label{serverEvaluation}
 			Die Servertechnologie stellt eine entscheidende Komponente dar, 
-			ihre Wahl ist von entschprechender Tragweite für andere Komponenten des Projektes.
+			ihre Wahl ist von entsprechender Tragweite für andere Komponenten des Projektes.
 			Aus diesem Grund haben wir sie ausführlich evaluiert.
 			
 			\begin{enumerate}
 				\item Schritt: Gemeinsame Definition von Kriterien und möglichen Servertechnologien.
-				\item Schritt: Sepparate Festlegung der Gewichtung der Kriterien sowie Definition der Matrix Kriterium/Servertechnologie mit der persönliche Schätzung, wie stark jede Servertechnologie das entsprechende Kriterium erfüllt.
-				\item Schritt: Zusammenführung der persönlichen Ergebnisse zu Gesammtergebnis
+				\item Schritt: Separate Festlegung der Gewichtung der Kriterien sowie Definition der Matrix Kriterium/Servertechnologie mit der persönliche Schätzung, wie stark jede Servertechnologie das entsprechende Kriterium erfüllt.
+				\item Schritt: Zusammenführung der persönlichen Ergebnisse zu Gesamtergebnis
 			\end{enumerate}
 		
 			\begin{figure}[H]
@@ -50,7 +50,7 @@
 			\end{figure}
 			
 			Schlussendlich haben wir uns da nach Recherchen auf eine "`1"' geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat.
-			Als Beispiel für eine Technologie, die immer weniger eingesetzt wird und in den nächsten jahren verschwinden wird, haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
+			Als Beispiel für eine Technologie, die immer weniger eingesetzt wird und in den nächsten Jahren verschwinden wird, haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
 			Im Vergleich dazu ist PHP sehr gut im Markt vertreten und hat auch eine äusserst konstante Verbreitung.
 			Deshalb und unter dem Gesichtspunkt der soliden Konzepte, 
 			die den in den letzten Jahren entstandenen modernen PHP Frameworks wie Doctrine und Flow zugrunde liegen, sehen wir da auch das Fortbestehen für diese Technologien gegeben.
@@ -110,18 +110,18 @@
 			\decisionContent{TypeScript}
 			{Welche Sprache soll clientseitig verwendet werden?}
 			{}
-			{Dise Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig Fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
+			{Diese Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig Fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
 			{
 				\begin{description}
 					\item[JavaScript] \
 						\begin{description}
-							\item[Vorteile] UI der bestehenden Applikation ist auch in JavaSscript geschrieben
+							\item[Vorteile] UI der bestehenden Applikation ist auch in JavaScript geschrieben
 							\item[Nachteile] Fehler tauchen erst zur Runtime auf, Sprachspezifische Besonderheiten, die Fehler begünstigen
 						\end{description}
 					\item[Dart] \
 						\begin{description}
 							\item[Vorteile] Moderne, optional typisierte, kompilierte Programmiersprache (wird zu JS kompiliert)
-							\item[Nachteile] Benötigt Dart VM oder Dart-to-JS Transkompiler, wenig verbreitet
+							\item[Nachteile] Benötigt Dart VM oder Dart-to-JS Transcompiler, wenig verbreitet
 						\end{description}
 				\end{description}
 			}{TypeScript wird zu JavaScript kompiliert, sodass die Vorteile beide Sprachen kombiniert werden. TypeScript versucht, möglichst den Standard zukünftiger ECMA-Script Versionen einzuhalten, sodass die Kompatibilität immer gewährleistet und die Syntax möglichst ähnlich bleiben soll.
@@ -142,7 +142,7 @@
 				\decisionContent{AngularJS}
 				{Welches Applikationsframework soll clientseitig eingesetzt werden?}
 				{}
-				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der Clientseitigen Applikation und soll ein Framework evaluieren, das Templating und Zwo-Way-Binding mit UI Komponenten unterstützen, um dies nicht selbst implementieren zu müssen.}
+				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der clientseitigen Applikation und soll ein Framework evaluieren, das Templating und Two-Way-Binding mit UI Komponenten unterstützen, um dies nicht selbst implementieren zu müssen.}
 				{
 					\begin{description}
 						\item[EmberJS] \
@@ -158,16 +158,16 @@
 					\end{description}
 				}
 				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever: Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "`MV*\hspace{0.05em}"' genannt.}- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung und bindet ViewModel-Eigenschaften und -Funktionen ans Template. Dadurch lassen sich Observerkonstrukte sparen.
-				AgularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
+				AngularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
 				{}
 				{Die Serverkomponente muss eine Schnittstelle bieten, über die die Clientapplikation Daten austauschen kann.}
 				{}
 			}
 		
 			
-			\subsubsection{Javscript Autoloading}
+			\subsubsection{JavScript Autoloading}
 				Ursprünglich wurde angedacht, Require.js als Autoloader zu benutzen.
-				Require.js bietet nebst Vorteilen wie Namespaceing und Autoloading leider den grossen Nachteil,
+				Require.js bietet nebst Vorteilen wie Namespacing und Autoloading leider den grossen Nachteil,
 				das jedes Skript einzeln asynchron vom Client angefordert wird, 
 				was insbesondere bei grösseren Round-Trip-Times die Applikation spürbar verlangsamt.
 				Aus diesem Grund wurde entschieden, 
@@ -191,6 +191,6 @@
 
 			\subsubsection{JsUnit / QUnit}
 				JsUnit wie QUnit arbeiten mit einem realen Browser (keine Browsersimulation), 
-				sind einfach handzuhaben und bieten typische Assert-Syntax.
+				sind einfach zu handhaben und bieten typische Assert-Syntax.
 				
 				

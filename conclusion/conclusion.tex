@@ -5,7 +5,7 @@
 		\begin{quote}
 			Ziel für den Kunden ist es, aus noch offenen und aus bereits getroffenen Architekturentscheidungen  Aufgaben (Tasks) abzuleiten und in eine Taskmanagementsoftware zu überführen, um diese anschliessend in dieser Software verwalten zu können. In dieser Arbeit sollen das Mapping-Konzept und die Tool-Architektur entworfen sowie eine Implementierung in Form eines Tools erstellt werden.
 			
-			Das Mapping-Konzept beinhaltet die Art der Abbildung von Entscheidungen aus dem CDAR-Tool auf Tasks eines Projektmanagementtools. Die zu entwerfende Toolarchitektur zeigt den konkreten Aufbau einer solchen Applikation.
+			Das Mapping-Konzept beinhaltet die Art der Abbildung von Entscheidungen aus dem CDAR-Tool auf Tasks eines \ppt s. Die zu entwerfende Toolarchitektur zeigt den konkreten Aufbau einer solchen Applikation.
 		\end{quote}
 	Aus dieser Zielsetzung leiteten sich drei Fragen ab:
 	\begin{enumerate}
@@ -33,10 +33,10 @@
 			Im Allgemeinen kann gesagt werden,
 			dass auch das Treffen einer Entscheidung eine Aufgabe ist
 			und deshalb durch einen Task in einem \ppt\ repräsentiert werden kann.
-			Ein Benutzer kann den Entscheidungsbedarf in Form einer oder mehrer Taskvorlagen in \eeppi\ modellieren,  
-			anschliessend mit der Entscheidung verknüpfen und ins Projektplanungstool übertragen.
+			Ein Benutzer kann den Entscheidungsbedarf in Form einer oder mehrere Taskvorlagen in \eeppi\ modellieren,  
+			anschliessend mit der Entscheidung verknüpfen und ins \ppt\ übertragen.
 			
-			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie "'Entscheid treffen"') oder auch mehrere grosse Tasks erstellen (wie "'Entscheidungssitzung abhalten"' oder "'Alternativen evaluieren"') und diese gegebenfalls hierarchisieren (Subtasks).			
+			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie "'Entscheid treffen"') oder auch mehrere grosse Tasks erstellen (wie "'Entscheidungssitzung abhalten"' oder "'Alternativen evaluieren"') und diese gegebenenfalls hierarchisieren (Subtasks).			
 			
 			Zusammengefasst stellt der Benutzer Entscheidungsbedarf in Form von agilen Planungsitems dar, indem er diese in \eeppi\ modelliert und in ein \ppt\ übertragen lässt, wo sie verwaltet und weiterverarbeitet werden können.
 
@@ -160,7 +160,7 @@
 			
 		\subsection{Beispielrequest für Redmine}
 			Anfang des Projektes wurde von Projektteam und Betreuer beschlossen, 
-			das \eeppi\ grundsätzlich an jedes Projektplanungstool angebunden werden können soll, das die technischen Voraussetzungen erfüllt.
+			das \eeppi\ grundsätzlich an jedes \ppt\ angebunden werden können soll, das die technischen Voraussetzungen erfüllt.
 			Für die Entwicklung aber der Fokus vor Allem auf einem System liegen soll, um sich nicht auf zu viele verschiedene API's konzentrieren zu müssen.
 			Das Projektteam hat zusätzlich zur Beispielkonfiguration für Jira und einer entsprechenden Demoinstallation auch eine Konfiguration für Redmine erstellt, eine Beispielinstallation aufgebaut und dessen Funktion demonstriert.
 	
@@ -181,12 +181,12 @@
 			kann die Serverapplikation wie ein Modul ausgetauscht werden, ohne den Client anpassen zu müssen.
 			
 			Die neue Serverapplikation muss lediglich den gleichen Funktionsumfang anbieten und die Daten in einem ähnlichen Aufbau liefern.
-			Parameter wie z.B. Resourceadressen lassen sich auf dem Client konfigurieren. 
+			Parameter wie z.B. Resourcenadressen lassen sich auf dem Client konfigurieren. 
 	
 		\subsection{Ersatz der Clientapplikation}
 			Die Clientapplikation besitzt den grössten Teil der Logik, so auch die Processors.
 			Zudem ist sie verantwortlich für die Darstellung der Benutzeroberfläche.
-			Die Benutzeroberläche selbst kann einerseits durch Custom Styles sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
+			Die Benutzeroberfläche selbst kann einerseits durch Custom Styles sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
 			
 			Soll die Clientapplikation jedoch komplett ersetzt werden, beispielsweise durch Ablösung einer neuen Technologie, so ist dies problemlos möglich.
 			Die neue Applikation kann wie die bestehende Clientapplikation die Serverschnittstelle verwenden.
@@ -197,7 +197,7 @@
 			 ist es mit wenig Aufwand möglich,
 			gewisse Funktionen in Form eines Proxies\footnote{Proxy-Pattern: \url{http://c2.com/cgi/wiki?ProxyPattern}} zu implementieren.
 			Dabei würde der bestehende Teil von \eeppi\ nicht verändert werden,
-			sonder lediglich neue Referenzen zu den externen Systemen konfiguriert werden.
+			sondern lediglich neue Referenzen zu den externen Systemen konfiguriert werden.
 			Dieser Ansatz würde sich beispielsweise gut für die Implementierung von weiteren \ppt-Schnittstellen eignen (siehe \ref{subsec:morePPTInterfaces}).
 			
 		\subsection{Verwendung der API}
@@ -246,7 +246,7 @@
 		
 		\subsection{Bearbeitungsmöglichkeiten für zu übertragende Tasks}
 			Unter Umständen möchte der Benutzer die Tasks nicht in der erstellten Rohform in das \ppt\ exportieren.
-			Eine Bearbeitungsmglichkeit vor dem Übertragen würde dem Benutzer eine nachträgliche Bearbeitung im \ppt\ ersparen.
+			Eine Bearbeitungsmöglichkeit vor dem Übertragen würde dem Benutzer eine nachträgliche Bearbeitung im \ppt\ ersparen.
 			Aktuell muss er sie zuerst exportieren und dann direkt im \ppt\ anpassen.
 			
 			
