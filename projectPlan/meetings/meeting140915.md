@@ -55,7 +55,7 @@
 
 ### Skizzierung des Projekts
 #### Bereits vorhanden
-+			| Beschreibung
+Thema			| Beschreibung
 ---			| ---
 **User** 		| Anwendungs- und Integrationsarchitekt bei Bombardier
 **Zielgruppe** 		| Kollegen, die Cloud Projekte machen Inhouse, Projektleiter, die Angebote schreiben und Projekt organisieren
@@ -65,7 +65,7 @@
 
 
 #### Neuer Teil
-+			| Beschreibung
+Thema			| Beschreibung
 ---			| ---
 **Tasks** 		| Von Entscheidungen abgeleitete Tasks erfassen (die dann durch die Zielgruppe in ein Issue-Tracking-Tool exportiert werden können und damit ein Projektplan erstellt werden kann). Die Tasks können beispielsweise Attribute wie Rolle (wer ist Zuständig), Technisches Risiko (z.B: % oder abgestuftes Mapping) oder Folgetasks aufweisen.
 **Einschränkung** 	| One-Way Prozedere -> Dokumentieren warum!

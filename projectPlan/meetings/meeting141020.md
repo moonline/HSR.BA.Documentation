@@ -33,7 +33,7 @@
 * *Anforderung*: Zu den Tasks von Decisions sollen auch noch Artefakte (Input- und Output-Daten) angegeben werden können und dazu noch Hilfen (Guides) zum Bewältigen der Aufgabe angeboten werden können (Links auf Methode Guidance), damit die Aufgabenbeschreibung noch aussagekräftiger sind. Wenn PPT dies nicht unterstützt -> Teil der Description
 
 
-#### 2. API
+### 2. API
 
 * Name: ADRepo
 * OptionTemplate/ProblemTemplate/ProblemOccurrence/OptionOccurrence sind jeweils über einen separaten API-Call abrufbar: WEL erarbeitet Query-Schnittstelle und macht Vorschlag dazu
