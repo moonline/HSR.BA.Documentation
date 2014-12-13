@@ -34,7 +34,7 @@
 	
 	
 		\subsection{Konzeptionelle Domäne}
-			Die \eeppi\ Domain setzt sich aus drei Typen von Domänen Objekten zusammen: 
+			Die \eeppi\ Domäne setzt sich aus drei Typen von Objekten zusammen: 
 			\begin{itemize}
 				\item Einer Abstraktion der Objekte hinter der Schnittstelle der angebundenen Entscheidungswissensverwaltung
 				\item Einer Abstraktion der Objekte hinter der Schnittstelle eines oder mehreren angebundenen Projektplanungstools
@@ -48,7 +48,7 @@
 				\begin{figure}[H]
 					\includegraphics[width=0.9\linewidth]{architecture/media/img/domain.png}
 					\centering
-					\caption{\eeppi Domain}
+					\caption{\eeppi Domäne}
 					\label{fig:domain}
 				\end{figure}				
 			\end{landscape}
@@ -57,9 +57,9 @@
 			\begin{figure}[H]
 				\includegraphics[width=\linewidth]{architecture/media/img/dksDomain.png}
 				\centering
-				\caption[DKS Domain\newline 
+				\caption[DKS Domäne\newline 
 					\license{Eclipse Public License \url{https://www.eclipse.org/legal/epl-v10.html} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
-				]{DKS Domain}
+				]{DKS Domäne}
 				\label{fig:dksDomain}
 			\end{figure}
 			
@@ -69,6 +69,25 @@
 				\item[ProblemTemplate] Problem
 				\item[ProblemOccurance] Decision			
 			\end{description}
+			
+			
+		\subsection{Metamapping}
+			Metamapping bezeichnet das Konzept, 
+			wie die Domäne des \dks\ und die \eeppi -Domäne verknüpft werden sollen.
+			Übergreifend gesehen geht es dabei um nichts geringeres als die Verbindung von Entscheidungsmanagement und Projektmanagement.			
+		
+			\begin{figure}[H]
+				\includegraphics[width=\linewidth]{architecture/media/img/metaMapping.png}
+				\centering
+				\caption{Metamapping}
+				\label{fig:metamapping}
+			\end{figure}		
+			
+			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verküpft.
+			Jedes Mapping steht für eine Verknüpfung eines Tasktemplates mit einem Problem oder einer Alternative.
+			
+			Beim erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurences (Siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
+			Anschliessend können zusammen mit den Daten des Tasktemplate und dessen Eigenschaften (Siehe \eeppi\ Domäne \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
 		\subsection{Implementationsdomäne}
@@ -237,8 +256,6 @@
 			bei welchem Feld es sich um das Beschreibungsfeld handelt, 
 			was nicht gegeben ist, wenn der Administrator vergisst, dies zu konfigurieren.
 			
-			
-		
 		
 		\subsection{Mapping Method}
 		\decision{
