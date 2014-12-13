@@ -18,7 +18,7 @@
 
 
 ### 1. Milestone
-http://jira.eeppi.ch/issues/?jql=resolution%20%3D%20Unresolved%20AND%20type%20not%20in%20%28%22Time%20Tracking%22%2C%20Story%2C%20Epic%29%20AND%20parent%20!%3D%20BA-8%20order%20by%20fixVersion
+[http://jira.eeppi.ch/issues/?jql=resolution = Unresolved AND type not in ("Time Tracking", Story, Epic) AND parent != BA-8 order by fixVersion](http://jira.eeppi.ch/issues/?jql=resolution%20%3D%20Unresolved%20AND%20type%20not%20in%20%28%22Time%20Tracking%22%2C%20Story%2C%20Epic%29%20AND%20parent%20!%3D%20BA-8%20order%20by%20fixVersion)
 
 - Aufwand für TaskTemplates an Options hängen abklären.
 - UI: Es sollte ersichtlich sein, woher die Mappings kommen (UI Icon, klare Trennung oder sonst eine Unterteilung). Der Benutzer sollte klar unterscheiden können, dass es sich bei den Mappings nicht um Properties des Problems handelt, sondern um referenzierte Elemente.
@@ -30,13 +30,13 @@ http://jira.eeppi.ch/issues/?jql=resolution%20%3D%20Unresolved%20AND%20type%20no
 
 JSON Objekt Liste: besser wenn Name 'items' statt name der Objekte:
 
-{
-    "startAt": 0,
-    "maxResults": 2147483647,
-    "length": 9,
-    "elements": [ // besser items
-    ]
-}
+    {
+        "startAt": 0,
+        "maxResults": 2147483647,
+        "length": 9,
+        "elements": [ // besser items
+        ]
+    }
 
 -> property heisst immer “elements”.
 
