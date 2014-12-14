@@ -1,10 +1,9 @@
 \chapter{Lösungskonzept}
 	
-	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "<IBM UMF Template for Decision Log"> \cite{hand_ibm_2008}.
+	Bei den hier verwendeten Entscheidungstemplates handelt es sich um Templates gemäss dem "<IBM UMF Template for Decision Log"> \cite{hand_ibm_2008}.
 	
 	\section{Übersicht}
-		\eeppi\ soll Entscheidungs-Wissens-Systeme (DKS) mit 
-		Projekt-Planungs-Tools (PPT) verbinden.
+		\eeppi\ soll \dks e (DKS) mit \ppt s (PPT) verbinden.
 		
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{architecture/media/img/eeppiSchema.jpg}
@@ -24,7 +23,7 @@
 	
 		\subsection{Anbinden von Wissensverwaltungssystemen}
 			Beim \cdar\ handelt es sich um ein Wissensverwaltungssystem, 
-			das im Rahmen einer Bachelorarbeit an der HSR entwickelt wurde. Mit dem \cdar\ kann ein Benutzer Entscheidungen und und Optionen modellieren und verknüpfen. Das \cdar\ wurde in der Anfangsphase des Projektes als Wissensverwaltungs-Referenzsystem verwendet.
+			das im Rahmen einer Bachelorarbeit \cite{tinner_collaborative_2014} an der HSR entwickelt wurde. Mit dem \cdar\ kann ein Benutzer Entscheidungen und und Optionen modellieren und verknüpfen. Das \cdar\ wurde in der Anfangsphase des Projektes als \dks\ verwendet.
 			
 		
 			Für die Anbindung von \eeppi\ ans \cdar\ gibt es verschiedene Möglichkeiten.
@@ -37,9 +36,9 @@
 				\decisionContent{Eigene Serverkomponente, eigenes UI (keine UI Integration mit \cdar), eigene Persistenz}
 				{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
 				{Die \cdar\ API Stellt alle benötigten Daten zur Verfügung.}
-				{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl, der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
+				{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
 				{
-					Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann unabhängig der andern zwei getroffen werden in diesem Fall. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
+					Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann in diesem Fall unabhängig der andern zwei getroffen werden. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
 					\begin{description}					
 						\item[\cdar\ UI erweitern]
 						Integration der \eeppi-Funktionalität ins UI des \cdar.			
@@ -97,7 +96,7 @@
 			Als Referenz-\ppt s haben wir uns für Jira und Redmine entschieden.
 			Beide Systeme besitzen solide Schnittstellen,
 			die das Verwalten von Tasks erlauben 
-			und besitzen einen Verbreitungsgrad über die Softwarebranche hinaus.
+			und besitzen einen hohen Verbreitungsgrad über die Softwarebranche hinaus.
 		
 
 	\section{Tier-Architektur}
@@ -137,7 +136,7 @@ Seite \pageref{architektur.technologie} besprochen.
 			\decisionContent{Distributed Application (Single Page Application)}
 			{Welche Tier-Architektur soll für \eeppi\ gewählt werden?}
 			{Die einzusetzende Technologie unterstützt "<Centralized Computing">, "<Distributed Presentation"> und "<Distributed Application">}
-			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
+			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ aufbauende, Applikationen erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
 			{"<Centralized Computing">, "<Distributed Presentation">}
 			{"<Distributed Application"> ermöglicht eine Serverseitige (zentralisierte) Persistenz sowie den Aufbau einer schnellen und unabhängigen Applikation durch Nutzung der Rechenleistung auf dem Client, sodass der Server und dessen Kosten schlank gehalten werden können.
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}

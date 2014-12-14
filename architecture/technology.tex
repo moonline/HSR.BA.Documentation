@@ -45,7 +45,7 @@
 			
 			Abbildung~\ref{fig:ServertechnologieVergleichVergleichDerTechnologien.pdf} zeigt den Vergleich der einzeln evaluierten Servertechnologien.
 			Auch hier haben wir zuerst je separat die Schätzung gemacht und dann verglichen.
-			Bei diesem Vergleich haben wir gar noch ähnlichere Werte gewählt, lediglich bei den Zukunftsaussichten von PHP, Flow und Doctrine (blau markiert) hatten wir nennenswert unterschiedliche Ansichten.
+			Bei diesem Vergleich haben wir sehr ähnliche Werte gewählt, lediglich bei den Zukunftsaussichten von PHP, Flow und Doctrine (blau markiert) hatten wir nennenswert unterschiedliche Ansichten.
 			
 			\begin{figure}
 					\includegraphics[width=\textwidth]{media/img/EntwicklungVonWebserverTechnologien.png}
@@ -69,7 +69,10 @@
 				\end{minipage}
 			\end{figure}
 			
-			Schlussendlich haben wir für jede Technologie das Total der Punkte berechnet (Punkte jedes Kriteriums multipliziert mit seiner Priorität). in Abbildung~\ref{fig:ErgebnisServertechnologieVergleich} zeigt man das finale Ergebnis. Aufgrund diesem haben wir uns für das Play Framework entschieden. Eine Alternative wäre noch Node.js mit TypeScript gewesen, doch dies hat bereits 10\%-Punkte weniger erreicht.
+			Schlussendlich haben wir für jede Technologie das Total der Punkte berechnet (Punkte jedes Kriteriums multipliziert mit seiner Priorität).
+			In Abbildung~\ref{fig:ErgebnisServertechnologieVergleich} sieht man das finale Ergebnis.
+			Aufgrund diesem haben wir uns für das Play Framework entschieden.
+			Eine Alternative wäre noch Node.js mit TypeScript gewesen, doch dies hat bereits 10\%-Punkte weniger erreicht.
 			
 			
 		\decision{
@@ -147,7 +150,7 @@
 			
 			
 		\subsubsection{Architektur-Framework}
-		Mit dem Wahl der Sprache, stellt sich noch die Frage des Frameworks.
+		Mit der Wahl der Sprache, stellt sich noch die Frage des Frameworks.
 		Dessen Wahl ist nachfolgend beschrieben.
 
 			\decision{
@@ -171,19 +174,19 @@
 							\end{description}
 					\end{description}
 				}
-				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever:
+				{AngularJS ist ein bekanntes MVW\footnote{Model View Whatever:
 				Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "<MV*\hspace{0.05em}"> genannt.
-				}- und Templating Framework, erlaubt eine saubere Trennung von Logik
+				}- und Templating-Framework, erlaubt eine saubere Trennung von Logik
 				und Darstellung und bindet ViewModel-Eigenschaften und "=Funktionen ans Template.
 				Dadurch lassen sich Observerkonstrukte sparen.
 				AngularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
 				{keine Speziellen}
-				{Die Serverkomponente muss eine Schnittstelle bieten, über die die Clientapplikation Daten austauschen kann.}
+				{Die Serverkomponente muss eine Schnittstelle bieten, über welche die Clientapplikation Daten austauschen kann.}
 				{keine}
 			}
 		
 			
-			\subsubsection{JavScript Autoloading}
+			\subsubsection{JavaScript Autoloading}
 				Ursprünglich war die Idee, Require.js als Autoloader zu benutzen.
 				Require.js bietet nebst Vorteilen wie Namespacing und Autoloading leider den grossen Nachteil,
 				dass jedes Skript einzeln asynchron vom Client angefordert wird, 
