@@ -3,8 +3,7 @@
 	%TODO: Kapitel und Bild unten mit den letzten Erkenntnissen und erfassten Zeiten nochmals überarbeiten!
 	Zur zeitlichen Planung und für die Auswertung der Arbeitszeit haben wir das \ppt\ Jira\footnote{\url{https://de.atlassian.com/software/jira}} verwendet,
 	wie wir es auch für das ganze Projektmanagement verwendet haben.
-	Wann immer wir einen Task erstellten, haben wir auch die dafür benötigte Dauer geschätzt
-	und diese im Jira eingetragen.
+	Zu jedem neu erstellten Task haben wir auch die zur Umsetzung geschätzte Dauer erfasst.
 	Gleichzeitig haben wir auch die effektive benötigte Zeit gebucht.
 	Ein Beispiel für eine Erfassung von Arbeitszeit ist in Abbildung\ \ref{fig:logWork} abgebildet.
 	
@@ -16,12 +15,13 @@
 	\end{figure}
 	
 	Die erfassten Arbeitszeiten haben wir mit einem eigenen Ruby-Skript über die REST-API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} exportiert
-	und in einer Excel-Tabelle jeweils laufend während dem Projekt ausgewertet.
+	und in einer Excel-Tabelle laufend ausgewertet.
 	Grund dafür ist die dafür Fehlende Funktion im Basispaket von Jira\footnote{Es gibt eine kostenpflichtige Erweiterung, die Reporting anbietet}.
+	
 	Entstanden ist folgender Graph über die geleistete Arbeit in Abbildung\ \ref{fig:workGraph}.
-	Darin sieht man den kontinuierlichen Verlauf während dem Projekt
-	und die ausgeglichene Arbeitslast zwischen Tobias Blaser und Laurin Murer.
-	Bereits von Anfang der Projektplanung an war geplant, die Arbeit eine Woche vor offiziellem Abgabetermin fertig zu stellen, um einen Puffer zu besitzen.
+	Darin ist der kontinuierliche Verlauf während dem Projekt
+	und die ausgeglichene Arbeitslast zwischen Tobias Blaser und Laurin Murer zu sehen.
+	Bereits von Anfang der Projektplanung an war geplant, die Arbeit eine Woche vor offiziellem Abgabetermin fertig zu stellen, um einen Puffer zu besitzen und ohne Stress drucken und abgeben zu können.
 	
 	Aus diesem Grund endet die Linie des Soll-Max in Abbildung\ \ref{fig:workGraph} auch zu dieser Zeit.
 	Die beiden Soll-Linien geben die von der HSR vorgegebene minimal und maximal erwarteten Aufwände an.
@@ -35,14 +35,13 @@
 	
 	Wir haben von Begin des Projektes geplant, viel in das Projekt zu investieren, um ein sehr gutes Ergebnis zu erreichen.
 	
-	Die gleichmässig steigenden Geraden zeigen, dass sich unsere Projektplanung bewährt hat.
-	Die Steigung dieses Graphs ist in Abbildung\ \ref{fig:weekhours} auch nochmals separat abgebildet.
-	In diesem zweiten Graph ist zu sehen, wie viel Zeit wir pro Woche investiert haben.
-	Es ist da nochmals deutlich zu erkennen,
-	dass die geplanten Zeiten pro Woche über den Gesamtverlauf des Projekts mehr oder weniger im Rahmen liegen.
-	Es gibt immer wieder Schwankungen, doch diese werden auch wieder zeitnah ausgeglichen.
+	Die gleichmässig steigenden Graphen zeigen, dass sich unsere Projektplanung bewährt hat.
+	
+	In Abbildung\ \ref{fig:weekhours} werden die Arbeitsstunden pro Woche ausgewiesen.
+	Hier zeigt sich nochmals die Kontinuität über das gesammte Projekt.
+	Kurzzeitig gibt es Schwankungen, die jedoch zeitnah wieder ausgeglichen werden.
 	Die grösseren kurzfristigen Schwankungen sind auf Aktivitäten ausserhalb der Bachelorarbeit zurückzuführen,
-	wie beispielsweise einem beruflichen Messebesuch in Berlin.
+	wie beispielsweise einen beruflichen Messebesuch in Berlin oder Überzeitkompensation im Büro.
 
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{projectPlan/media/img/weekhours.pdf}
@@ -52,12 +51,12 @@
 	\end{figure}
 
 	\subsection{Schätzgenauigkeit der Aufwände}
-	Wenig verwunderlich liegt die Schätzgenauigkeit bei kleinen Paketen nahe bei der effektiv benötigten Zeit.
+	Wenig verwunderlich liegt die Schätzgenauigkeit bei kleinen Paketen nahe der effektiv benötigten Zeit.
 	Bei grösseren Paketen ist die Differenz grösser und schwankt zwischen 50\% weniger und 100\% mehr benötigte Zeit als Extremwerte.
 	Wir haben dabei häufiger den Aufwand überschätzt als unterschätzt.
 	Nach Hochrechnungen liegt die durchschnittlich geschätzte Dauer zwischen 80\% und 100\% der effektiv benötigten Zeit.
 	
-	In dieser Rechnung nicht miteingeschlossen sind neu erstellte Issues aufgrund der Notwendigkeit der Umsetzung weiterer Teilaspekte eines grösseren Issueblocks.
+	In dieser Rechnung nicht mit eingeschlossen sind neu erstellte Issues aufgrund der Notwendigkeit der Umsetzung weiterer Teilaspekte eines grösseren Issueblocks.
 	Würde man dies mitberücksichtigen, so liegt die effektiv benötigte Zeit schätzungsweise zwischen 20\% und 40\% über der geschätzten Zeit.
 	Aufgrund dieser Erkenntnis in den ersten Wochen haben wir für die restlichen Meilensteine jeweils maximal 2/3 der Zeit für Features eingeplant
 	und die Restliche Zeit einerseits für Administrative Tätigkeiten und andererseits als Puffer vorgesehen, was sich bewährt hat. 
