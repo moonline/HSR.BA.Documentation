@@ -118,21 +118,29 @@
 			aus denen bei einer Übertragung in ein \ppt\ dann Tasks erstellt werden.
 			
 			
-	\section{Umsetzung der User Stories}
-		% TODO: Improve
-		Mit Ausnahme der User Stories, die auf tief priorisierten und darum nicht umgesetzten Features basieren, wurden alle User Stories umgesetzt.
+	\section{Umsetzung der Userstories}
+		Im Rahmen der Konzeptphasen wurden einige Userstories definiert, unterteilt in Core- und Advanced-Userstories.
+		Die Core-Userstories wurden alle im Rahmen der Arbeit umgesetzt.
+		
+		Mit Ausnahme der User Stories, die auf tief priorisierten und darum nicht umgesetzten Features basieren, wurden auch alle Advaced-Userstories umgesetzt.
 		Bei den nicht umgesetzten handelt es sich um
-		\begin{itemize}
+		
+		\begin{description}
 			\item[BA-40] Zugriffsrechte und Fähigkeiten
 			\item[BA-41] Report Task Übertragung
-		\end{itemize}
+		\end{description}
 		
-		Die User Story "<BA-39 DKS Space mit PPT\footnote{\ppt} Projekt verknüpfen"> wurde aus technischen Gründen anders umgesetzt, 
-		sodass der Benutzer ein anderes Vorgehen anwenden muss, um zum gleichen Ziel zu gelangen: Der Benutzer kann nicht direkt DKS Spaces mit PPT Projekten verknüpfen, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
+		Die User Story "<BA-39 DKS\footnote{\dks} Space mit PPT\footnote{\ppt} Projekt verknüpfen"> wurde aus technischen Gründen anders umgesetzt, 
+		sodass Benutzern ein anderes Vorgehen anwenden müssen, um zum gleichen Ziel zu gelangen: Ein Benutzer kann nicht direkt DKS Spaces mit PPT Projekten verknüpfen über die Benutzeroberfläche, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
 
 	
 	\section{offene Punkte, Bugs/technische Probleme}
-		%TODO: maybe write this! :-)
+		Aufgefundene Bugs wurde während der Stabilization-Phase nach dem Feature-Freeze noch gefixt. Nach dem Code-Freeze aufgefundene Bugs sind folgend aufgelistet.
+	
+		\begin{description}
+			\item[Mehrfachregistrierung] Wird mehrfach ein Benutzer mit gleichem Benutzernamen registriert, so wird vom Server die ID des bereits existierenden Benutzers zurückgegeben, ansteller einer Fehlermeldung über den bereits existierenden Benutzer.
+			Der existierenden Benutzer wird jedoch nicht überschrieben oder verändert.
+		\end{description}
 	
 	
 	\section{Zusätzliche Features}
