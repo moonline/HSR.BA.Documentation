@@ -90,7 +90,7 @@
 			
 			Ein weiterer Aspekt sind Lizenzfragen.
 			Eine die zukünftige Nutzung stark einschränkende Lizenz würde viele potentielle Interessenten abschrecken.
-			Aus diesem Grund steht \eeppi, wie in Abschnitt\ \ref{sec:licensing} beschrieben, unter einer sehr offenen Lizenz.
+			Aus diesem Grund steht \eeppi, wie in Abschnitt\ \ref{sec:eeppiLisences} beschrieben, unter einer sehr offenen Lizenz.
 			
 			Letzter Aspekt ist die Robustheit im Betrieb.
 			\eeppi\ war als Forschungsprojekt nicht längere Zeit im Produktivbetrieb
@@ -100,17 +100,17 @@
 		
 		\subsubsection{"<Modularität und Erweiterbarkeit">}
 			Dieser Punkt beleuchtet die Schnittstellen und deren Dokumentation von \eeppi.
-			Schnittstellen bietet wie in der Architektur beschrieben lediglich der Server
+			Schnittstellen bietet, wie in der Architektur beschrieben, lediglich der Server
 			und auch nur der Server verwendet externe Schnittstellen.
-			Der Client verwendet nur die Schnittstelle des Servers
+			Der Client verwendet einzig die Schnittstelle des Servers
 			und zeigt damit gleich, dass die Schnittstelle des Servers die notwendige Funktionalität anbietet.
-			Wie in Abschnitt \ref{sec:apiDocumentation} erläutert, gibt es auch eine ausführliche Dokumentation zur Schnittstelle.
+			Wie in Abschnitt \ref{sec:apiDocumentation} erläutert, gibt es eine ausführliche Dokumentation zur Schnittstelle.
 			Der grundlegende Aufbau von \eeppi\ ist mit diesem Dokument hier dokumentiert
 			und kann als Basis für Folgearbeiten verwendet werden.
 			
 			
 		\subsubsection{"<Reife der Konzepte">}
-			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping Konzepte von \eeppi.
+			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping-Konzepte von \eeppi.
 			Bei der Entwicklung von \eeppi\ hat das Projektteam äusserst Wert auf genau diese Punkte gelegt.
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
 			das Übertragen von Tasks an ein \ppt, ist direkt durch den Benutzer im Frontend auf hohem Level anpassbar.
@@ -120,11 +120,11 @@
 			
 			
 	\section{Umsetzung der Userstories}
-		Im Rahmen der Konzeptphasen wurden einige Userstories definiert, unterteilt in Core- und Advanced-Userstories.
+		Im Rahmen der Konzeptphasen wurden Userstories definiert, unterteilt in Core- und Advanced-Userstories.
 		Die Core-Userstories wurden alle im Rahmen der Arbeit umgesetzt.
 		
 		Mit Ausnahme der User Stories, die auf tief priorisierten und darum nicht umgesetzten Features basieren, wurden auch alle Advaced-Userstories umgesetzt.
-		Bei den nicht umgesetzten handelt es sich um
+		Bei den nicht umgesetzten handelt es sich um die folgenden:
 		
 		\begin{description}
 			\item[BA-40] Zugriffsrechte und Fähigkeiten
@@ -136,11 +136,11 @@
 
 	
 	\section{offene Punkte, Bugs/technische Probleme}
-		Aufgefundene Bugs wurde während der Stabilization-Phase nach dem Feature-Freeze noch gefixt. Nach dem Code-Freeze aufgefundene Bugs sind folgend aufgelistet.
+		Aufgefundene Bugs wurden während der Stabilisierungsphase zwischen Feature- und Code-Freeze behoben. Nach dem Code-Freeze aufgefundene Bugs sind folgend aufgelistet.
 	
 		\begin{description}
 			\item[Mehrfachregistrierung] Wird mehrfach ein Benutzer mit gleichem Benutzernamen registriert, so wird vom Server die ID des bereits existierenden Benutzers zurückgegeben, ansteller einer Fehlermeldung über den bereits existierenden Benutzer.
-			Der existierenden Benutzer wird jedoch nicht überschrieben oder verändert.
+			Existierende Benutzer werden jedoch nicht überschrieben oder verändert.
 		\end{description}
 	
 	
@@ -156,17 +156,17 @@
 			
 	
 		\subsection{Strukturierung von Tasktemplates}
-			Eine Strukturierung von Tasktemplates wurde zugunsten höher prioritärer Features als optionales Feature deklariert.
+			Eine Strukturierung von Tasktemplates wurde zugunsten höher priorisierten Features als optionales Feature deklariert.
 			Dem Team ist es jedoch in der letzten Woche vor dem Featurefreeze noch gelungen, eine schlanke Umsetzung einer Hierarchisierung von Tasktemplates zu implementieren.
-			Dies ermöglicht das erstellen von Subtasktemplates und das Exportieren von Subtasks.
+			Dies ermöglicht das Erstellen von Subtasktemplates und das Exportieren von Subtasks.
 			
 		
 		\subsection{Im- und Export der Daten von \eeppi}
 			Über die API von \eeppi\ lassen sich alle Daten des Systems,
 			ausgenommen Benutzerpasswörtern, exportieren und importieren.
-			Dies ermöglicht das Zügel von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
+			Dies ermöglicht das Zügeln von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
 			
-			Zusätzlich lassen sich alle Daten auch durch ein Backup der Datenbank sichern und transferieren, da \eeppi\ keine Daten auf dem Dateisystem ablegt.
+			Zusätzlich lassen sich alle Daten auch durch ein Backup der Datenbank sichern und transferieren, da \eeppi\ keine Daten ausserhalb der im Play-Framework konfigurierten Persistenz\footnote{Play legt die Daten je nach Konfiguration in einer Datenbank oder einer Datei ab. Im Falle der Datenbank können Backups mit deren Tools erstellt werden, im Falle der Datei (Infiledatenbank) die Datei selbst gesichert werden.} ablegt.
 			
 			
 		\subsection{Beispielrequest für Redmine}
@@ -183,7 +183,7 @@
 		
 
 		\subsection{Erweiterung der bestehenden Applikation}
-			Die naheliegendste Erweiterungsmöglichkeit ist die direkt Anpassung der Implementierung von \eeppi\.
+			Die naheliegendste Erweiterungsmöglichkeit bietet die direkt Anpassung der Implementierung von \eeppi.
 			Beschränken sich die Anpassungen nur auf de Funktionalität und nicht auf die Menge der persistierten Daten, so muss lediglich die Clientapplikation angepasst werden.
 	
 		\subsection{Ersatz der Serverapplikation}
@@ -197,7 +197,7 @@
 		\subsection{Ersatz der Clientapplikation}
 			Die Clientapplikation besitzt den grössten Teil der Logik, so auch die Processors.
 			Zudem ist sie verantwortlich für die Darstellung der Benutzeroberfläche.
-			Die Benutzeroberfläche selbst kann einerseits durch Custom Styles sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
+			Die Benutzeroberfläche selbst kann einerseits durch Custom Styles\footnote{Dazu steht ein entsprechendes Stylesheet bereit, das nach den Default-Styles von \eeppi\ eingebunden wird und dazu gedacht ist, vom Integrator mit Organisations-spezifischen Styles ergänzt zu werden, um \eeppi\ in die Corporate Identity der Firma zu integrieren.} sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
 			
 			Soll die Clientapplikation jedoch komplett ersetzt werden, beispielsweise durch Ablösung einer neuen Technologie, so ist dies problemlos möglich.
 			Die neue Applikation kann wie die bestehende Clientapplikation die Serverschnittstelle verwenden.
@@ -207,14 +207,14 @@
 			Da \eeppi\ eine geringe Kopplung zu den externen Systemen aufweist,
 			 ist es mit wenig Aufwand möglich,
 			gewisse Funktionen in Form eines Proxies\footnote{Proxy-Pattern: \url{http://c2.com/cgi/wiki?ProxyPattern}} zu implementieren.
-			Dabei würde der bestehende Teil von \eeppi\ nicht verändert werden,
+			Dabei würde \eeppi\ nicht verändert werden,
 			sondern lediglich neue Referenzen zu den externen Systemen konfiguriert werden.
 			Dieser Ansatz würde sich beispielsweise gut für die Implementierung von weiteren \ppt-Schnittstellen eignen (siehe \ref{subsec:morePPTInterfaces}).
 			
 		\subsection{Verwendung der API}
 			Bestimmte mögliche neuen Funktionen basieren auf Kernfunktionen von \eeppi,
 			bieten aber einen weitergehenden Nutzen für den Benutzer
-			(wie beispielsweise der Rückfluss von Informationen des Tasks zurück in das Task-Template, siehe \ref{subsec:informationFlowbackFeature}).
+			(wie beispielsweise der Rückfluss von Informationen eines Tasks zurück in das Task-Template, siehe Abschnitt \ref{subsec:informationFlowbackFeature}).
 			Solche Funktionen könnten durch eine eigenständige Applikation implementiert werden,
 			welche das API von \eeppi\ verwendet.
 
@@ -225,7 +225,7 @@
 		Im Rahmen einer Weiterentwicklung sind viele Möglichkeiten denkbar. 
 		Einige wie ein Rechte-System sind eher praktischer Natur, 
 		andere wie beispielsweise Vererbungsmöglichkeiten für Task-Templates würden die Wiederverwendbarkeit verbessern und dem Benutzer einen echten Mehrwert bieten.
-		Nachfolgend sind einige denkbare Erweiterungen von \eeppi\ erklärt:
+		Nachfolgend sind einige denkbare Erweiterungen von \eeppi\ erklärt.
 		
 		\subsection{Rechte und Rollen}
 			Mit einem Rechte- und Rollen-Konzept könnte der Zugriff auf die Daten in \eeppi\ eingeschränkt werden,
@@ -241,7 +241,7 @@
 			
 			Beispielsweise ist ein Task-Template für Sitzungen denkbar, mit
 			davon abgeleiteten Templates für verschiedene Sitzungsarten.
-			Dem Parenttemplate untergeordnete Subtasks wie z.B. "<Zur Sitzung einladen"> oder "<Sitzungs-Protokoll"> versenden, würden automatisch auch auf Subtemplates angewandt, bzw. mit diesen ans \ppt\ übertragen.
+			Dem Elterntemplate untergeordnete Subtasks wie z.B. "<Zur Sitzung einladen"> oder "<Sitzungs-Protokoll"> versenden, würden automatisch auch auf Subtemplates angewandt, bzw. mit diesen ans \ppt\ übertragen.
 			
 		
 		\subsection{Reporting}
@@ -250,7 +250,7 @@
 		
 		
 		\subsection{Undo von übertragenen Tasks}
-			Unter Umständen möchte ein Benutzer erstellte Tasks wieder zurückziehen,
+			Möglicherweise möchte ein Benutzer erstellte Tasks wieder zurückziehen,
 			beziehungsweise wieder aus dem \ppt\ löschen.
 			Sofern \ppt s dies unterstützen, würde dies dem Benutzer eine Undo-Möglichkeit für fehlerhafte erstellte Tasks anbieten.
 		
@@ -275,13 +275,13 @@
 		
 	
 		\subsection{Verwendung mehrerer \dks e}
-			Aktuell unterstützt \eeppi\ nur ein \dks, welches aber konfiguriert werden kann.
+			Aktuell unterstützt \eeppi\ nur ein \dks\footnote{Die technische Grundlage für mehrere \dks e ist vorhanden, da sie als Entitäten abgelegt werden. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}, welches aber konfiguriert werden kann.
 			Eine mögliche Erweiterung wäre die Integration mehrerer konfigurierbarer \dks e als Datenquelle.
 			Der Benutzer wäre anschliessend in der Lage, jeweils das gewünschte System für das Mapping oder als Quelle für die Erzeugung der Tasks auszuwählen.
 		
 		
 		\subsection{Verwendung mehrerer Projekte}
-			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt.
+			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt\footnote{Die technische Grundlage für mehrere Projekte ist vorhanden, da Projekt eine Entität ist. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}.
 			Die Möglichkeit mehrerer Projekte ermöglicht einerseits Mandantenfähigkeit in einer weiteren Dimension und andererseits auch Schutz des geistige Eigentum, 
 			da zusammen mit dem Rechte-Rollen Konzept einzelnen Benutzern nur bestimmten Projekte zugeteilt werden könnten.
 
@@ -320,7 +320,7 @@
 
 		\subsection{Weitere \ppt-Schnittstellen}
 		\label{subsec:morePPTInterfaces}
-			Aktuell unterstützt \eeppi\ \ppt s, die über eine Json-Schnittstelle verfügen
+			Aktuell unterstützt \eeppi\ \ppt s, die über eine JSON-Schnittstelle verfügen
 			und eine Authentifizierung über HTTP-Basic-Authentication ermöglichen.
 			Für diese Art der Authentifizierung muss Benutzername und Passwort im Klartext vorliegen.
 			
