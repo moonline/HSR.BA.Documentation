@@ -3,10 +3,10 @@
 		
 		\begin{description}
 			\item[Problem] Beschreibt eine Vorlage für ein Designproblem eines Software Projektes, 
-				z.B. "<Session State">. 
+				zum Beispiel "<Session State">. 
 				Im \dks\ ADRepo werden Problems als "<Problem Template"> bezeichnet.
 			\item[Alternative] Beschreibt eine Vorlage für eine Wahlmöglichkeit eines Problems.
-				Für das Problem "<Session State"> wären dies z.B. "<Server Session State"> und
+				Für das Problem "<Session State"> wären dies zum Beispiel "<Server Session State"> und
 				"<Database Session State">. 
 				Im \dks\ ADRepo werden Alternatives als "<Option Template"> bezeichnet.
 			\item[Decision] Beschreibt eine konkrete Problem-Instanz.
@@ -18,7 +18,7 @@
 				Eine Option kann gewählt, nicht gewählt oder noch offen sein.
 				Im \dks\ ADRepo werden Options als "<Option Occurrences"> bezeichnet.
 			\item[Tasktemplate] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
-				Tasktemplates enthalten generische Werte, wie z.B. "<Project Manager"> als
+				Tasktemplates enthalten generische Werte, wie zum Beispiel "<Project Manager"> als
 				Attributwert für die Eigenschaft "<Assignee">.
 			\item[Task] Beschreibt einen aus einem Tasktemplate erzeugten konkreten Task.
 				Task entstehen während dem Übertragen der Informationen eines Tasktemplates an ein \ppt.
@@ -221,7 +221,7 @@
 				Auch Entscheidungen werden zu Tasks übertragen, da \ppt's keine Entscheidungen kennen.
 				Mit Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
 				
-				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
+				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie zum Beispiel den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der Task-Vorlagen in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
 				Gleiches gilt für Entscheidungen. Würde jemand im \dks\ diese verändern oder löschen,
 				so würde dies die History zerstören.
@@ -238,7 +238,7 @@
 				\item "<User processor">, der Relationen zu Benutzern so umwandelt, dass das \ppt\ den User korrekt verknüpfen kann
 				\item "<Conditional processor"> und "<Option processor">, die Bedingungen verarbeiten
 			\end{itemize}
-			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit z.B. nicht gemappte Felder in die Beschreibung überführen kann.
+			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit zum Beispiel nicht gemappte Felder in die Beschreibung überführen kann.
 			
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{architecture/media/img/transmissionWorkflow.png}
@@ -315,9 +315,9 @@
 				Zum einen werden die Tasks ans \ppt\ übertragen
 				und zum anderen die Rückmeldung über die erfolgreiche Erzeugung der Tasks im \ppt\ wieder im \eeppi\ gespeichert.
 				Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
-				wie z.B. die ID. 
+				wie zum Beispiel die ID. 
 				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
-				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
+				Also Processors, die zur Zeit der Übertragung ausgeführt werden und zum Beispiel Informationen über einen Parent Task in das Requesttemplate einweben können.
 				
 				Der "<Transmission">-Workflow als Gesamtes ist jedoch ein One-Way-Procedure.
 				Dies bedeutet, dass keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
