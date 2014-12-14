@@ -199,12 +199,8 @@ urlcolor=black
 \input{projectPlan/infrastructure}
 
 %\chapter{EEPPI-Usermanual}
-\clearpage
-\addcontentsline{toc}{chapter}{EEPPI-Usermanual}
-\label{chapter:userManual}
-\includepdf[pages=-, pagecommand={}]{tutorial/media/EEPPI-Usermanual.pdf}
-\addcontentsline{toc}{section}{Processor Beispieldaten}
-\includepdf[pages=-, pagecommand={}]{tutorial/media/requestTemplateVariablesExample.pdf}
+\includepdf[pages=-, pagecommand={},addtotoc={1,chapter,1,{EEPPI-Usermanual},chapter:userManual}]{tutorial/media/EEPPI-Usermanual.pdf}
+\includepdf[pages=-, pagecommand={},addtotoc={1,section,1,{Processor Beispieldaten},sec:ExampleProcessorData}]{tutorial/media/requestTemplateVariablesExample.pdf}
 
 \chapter{Code-Documentation}
 	\section{API}
