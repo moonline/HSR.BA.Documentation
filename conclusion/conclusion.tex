@@ -3,23 +3,24 @@
 	\section{Zielerreichung}
 		Die Zielsetzung von \eeppi\ lautet in der Aufgabenstellung wie folgt:
 		\begin{quote}
-			Ziel für den Kunden ist es, aus noch offenen und aus bereits getroffenen Architekturentscheidungen  Aufgaben (Tasks) abzuleiten und in eine Taskmanagementsoftware zu überführen, um diese anschliessend in dieser Software verwalten zu können. In dieser Arbeit sollen das Mapping-Konzept und die Tool-Architektur entworfen sowie eine Implementierung in Form eines Tools erstellt werden.
+			"<Ziel für den Kunden ist es, aus noch offenen und aus bereits getroffenen Architekturentscheidungen  Aufgaben (Tasks) abzuleiten und in eine Taskmanagementsoftware zu überführen, um diese anschliessend in dieser Software verwalten zu können. In dieser Arbeit sollen das Mapping-Konzept und die Tool-Architektur entworfen sowie eine Implementierung in Form eines Tools erstellt werden.
 			
-			Das Mapping-Konzept beinhaltet die Art der Abbildung von Entscheidungen aus dem CDAR-Tool auf Tasks eines \ppt s. Die zu entwerfende Toolarchitektur zeigt den konkreten Aufbau einer solchen Applikation.
+			Das Mapping-Konzept beinhaltet die Art der Abbildung von Entscheidungen aus dem CDAR-Tool auf Tasks eines \ppt s. Die zu entwerfende Toolarchitektur zeigt den konkreten Aufbau einer solchen Applikation.">
 		\end{quote}
-	Aus dieser Zielsetzung leiteten sich drei Fragen ab:
+		
+	Aus dieser Zielsetzung leiten sich drei Fragen ab:
 	\begin{enumerate}
-		\item{Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?}
-		\item{Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?}
-		\item{Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?}
+		\item{"<Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?">}
+		\item{"<Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?">}
+		\item{"<Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?">}
 	\end{enumerate}
 	
 	\subsection{Hauptziel}
-		Das Hauptziel der Arbeit war es, für das Ableiten von Tasks basierend auf Architekturentscheidungen:
+		Hauptziel der Arbeit war es, für das Ableiten von Tasks basierend auf Architekturentscheidungen, die folgenden Teilziele zu erfüllen:
 		\begin{enumerate}
-			\item{ein Mapping-Konzept zu erstellen}
-			\item{eine Tool-Architektur zu entwerfen}
-			\item{eine Implementierung in Form eines Tools zu erstellen}
+			\item{Ein Mapping-Konzept zu erstellen}
+			\item{Eine Tool-Architektur zu entwerfen}
+			\item{Eine Implementierung in Form eines Tools zu erstellen}
 		\end{enumerate}
 		
 		Das Mapping Konzept wurde im Rahmen der Konzeptphase zusammen mit der Tool-Architektur erarbeitet. 
@@ -29,35 +30,35 @@
 		
 	
 	\subsection{Rückblick auf die Fragestellungen der Aufgabenstellung}
-		\subsubsection{Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?}
+		\subsubsection{"<Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?">}
 			Im Allgemeinen kann gesagt werden,
 			dass auch das Treffen einer Entscheidung eine Aufgabe ist
 			und deshalb durch einen Task in einem \ppt\ repräsentiert werden kann.
 			Ein Benutzer kann den Entscheidungsbedarf in Form einer oder mehrere Taskvorlagen in \eeppi\ modellieren,  
 			anschliessend mit der Entscheidung verknüpfen und ins \ppt\ übertragen.
 			
-			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie "<Entscheid treffen">) oder auch mehrere grosse Tasks erstellen (wie "<Entscheidungssitzung abhalten"> oder "<Alternativen evaluieren">) und diese gegebenenfalls hierarchisieren (Subtasks).			
+			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie beispielsweise "<Entscheid treffen">) oder auch mehrere grosse Tasks erstellen (wie beispielsweise "<Entscheidungssitzung abhalten"> oder "<Alternativen evaluieren">) und diese gegebenenfalls hierarchisch verknüpfen (Subtasks).			
 			
 			Zusammengefasst stellt der Benutzer Entscheidungsbedarf in Form von agilen Planungsitems dar, indem er diese in \eeppi\ modelliert und in ein \ppt\ übertragen lässt, wo sie verwaltet und weiterverarbeitet werden können.
 
 
-		\subsubsection{Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?}
-			Dies kommt sehr stark auf die entsprechende Entscheidung an.
-			Je nach Projekt kann es durchaus generische Tasks wie "<Entscheid dokumentieren"> oder "<Entscheid kommunizieren"> geben,
-			doch die meisten Umsetzungstasks sind sehr spezifisch für einzelne Entscheidungen.
+		\subsubsection{"<Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?">}
+			Dies hängt sehr stark von der entsprechenden Entscheidung ab.
+			Je nach Projekt können durchaus generische Tasks wie beispielsweise "<Entscheid dokumentieren"> oder "<Entscheid kommunizieren"> vorkommen,
+			doch die meisten Umsetzungstasks sind stark ent\-schei\-dungs\-spezifisch.
 			
-			Für ähnliche Projekte werden sich ähnliche Tasks Muster ergeben, die wiederverwendbarkeit wird hoch sein.
+			Für ähnliche Projekte werden sich ähnliche Tasks-Muster ergeben, die wiederverwendbarkeit wird hoch sein.
 			Für neue und von bisherigen stark unterschiedliche Projekte wird der Benutzer viele neue Taskvorlagen benötigen, 
 			entsprechend präsentieren sich auch die erzeugten Tasks.
 			
 		
-		\subsubsection{Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?}
-			Der kleinste gemeinsame Nenner der drei Domänen - Entscheidungswissensverwaltung, Projektplanung und die \eeppi\-Domäne - stellen die Schnittstellen dar.
+		\subsubsection{"<Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?">}
+			Der kleinste gemeinsame Nenner der drei Domänen - Entscheidungswissensverwaltung, Projektplanung und die \eeppi -\-Domäne - stellen die Schnittstellen dar.
 			Sie bilden auf jeder Seite einen Teil der Domäne ab und ermöglichen das integrieren eines kleinen Teils einer anderen Domäne. 
 			Über diesen Korridor werden Daten ausgetauscht und für die Werkzeuge bereitgestellt.
 		
 			Konkret bindet \eeppi\ sowohl Entscheidungswissenssysteme als auch \ppt s als externe Systeme an
-			und ermöglicht dem Benutzer \eeppi\ sehr flexibel an die beiden Domänen anzupassen.
+			und ermöglicht dem Benutzer, \eeppi\ sehr flexibel an die beiden andern Domänen anzupassen.
 			
 			Modellmässig stellt \eeppi\ sehr wenige Anforderungen an beiden Domänen.
 			Konkret muss ein Architekturentscheidungstool folgende Eigenschaften aufweisen:
@@ -80,15 +81,15 @@
 		Diese werden im folgenden mit Rückblick auf das Projekt beleuchtet.
 		
 		
-		\subsubsection{Niedrige Einstiegshürden für User}
+		\subsubsection{"<Niedrige Einstiegshürden für User">}
 			Dieser Erfolgsfaktor setzt sich aus drei Teilaspekten zusammen.
 			
 			Der erste Aspekt ist ein geringer Installationsaufwand.
 			Die Installation von \eeppi\ ist so einfach wie  die Installation eines Jira und in wenigen Minuten erledigt. 
-			Für Benutzer wird das empfohlene Vorgehen im Abschnitt\ \ref{sec:installation} genau beschrieben.
+			Für Benutzer wird das empfohlene Vorgehen im Abschnitt\ \ref{chapter:userManual} genau beschrieben.
 			
 			Ein weiterer Aspekt sind Lizenzfragen.
-			Eine zu einschränkende Lizenz würde viele potentielle Interessenten abschrecken.
+			Eine die zukünftige Nutzung stark einschränkende Lizenz würde viele potentielle Interessenten abschrecken.
 			Aus diesem Grund steht \eeppi, wie in Abschnitt\ \ref{sec:licensing} beschrieben, unter einer sehr offenen Lizenz.
 			
 			Letzter Aspekt ist die Robustheit im Betrieb.
@@ -97,7 +98,7 @@
 			Zur Verbesserung der Robustheit hat das Projektteam darum als letzte Iteration während der Entwicklung eine Phase zur Stabilisierung und Fehlerkorrektur durchgeführt.
 		
 		
-		\subsubsection{Modularität und Erweiterbarkeit}
+		\subsubsection{"<Modularität und Erweiterbarkeit">}
 			Dieser Punkt beleuchtet die Schnittstellen und deren Dokumentation von \eeppi.
 			Schnittstellen bietet wie in der Architektur beschrieben lediglich der Server
 			und auch nur der Server verwendet externe Schnittstellen.
@@ -108,7 +109,7 @@
 			und kann als Basis für Folgearbeiten verwendet werden.
 			
 			
-		\subsubsection{Reife der Konzepte}
+		\subsubsection{"<Reife der Konzepte">}
 			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping Konzepte von \eeppi.
 			Bei der Entwicklung von \eeppi\ hat das Projektteam äusserst Wert auf genau diese Punkte gelegt.
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
