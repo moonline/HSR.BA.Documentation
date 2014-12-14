@@ -1,31 +1,29 @@
-	\section{Entwurf \& Begründungen}
+	\section{Entwurf und Begründungen}
 		Nachfolgend werden die wichtigsten Bezeichnungen von Domänenobjekten eingeführt:
 		
 		\begin{description}
 			\item[Problem] Beschreibt eine Vorlage für ein Designproblem eines Software Projektes, 
-				z.B. ``Session State''. 
-				Im Decision Knowledge System werden Problems als ``Problem Template'' bezeichnet.
+				z.B. "<Session State">. 
+				Im \dks\ ADRepo werden Problems als "<Problem Template"> bezeichnet.
 			\item[Alternative] Beschreibt eine Vorlage für eine Wahlmöglichkeit eines Problems.
-				Für das Problem ``Session State'' wären dies z.B. ``Server Session State'' und
-				``Database Session State''. 
-				Im Decision Knowledge System werden Alternatives als ``Option Template'' bezeichnet.
+				Für das Problem "<Session State"> wären dies z.B. "<Server Session State"> und
+				"<Database Session State">. 
+				Im \dks\ ADRepo werden Alternatives als "<Option Template"> bezeichnet.
 			\item[Decision] Beschreibt eine konkrete Problem-Instanz.
 				Decisions entstehen, wenn Problems auf konkrete Projekte angewendet werden.
 				Decisions sind sowohl geschlossene wie noch zu treffende Entscheidungen.
-				Im Decision Knowledge System werden Decisions als ``Problem Occurrences'' bezeichnet.
+				Im \dks\ ADRepo werden Decisions als "<Problem Occurrences"> bezeichnet.
 			\item[Option] Beschreibt eine Wahlmöglichkeit einer Decisions 
 				und somit eine konkrete Instanz einer Alternative.
-				Im Decision Knowledge System werden Options als ``Option Occurrences'' bezeichnet.
+				Eine Option kann gewählt, nicht gewählt oder noch offen sein.
+				Im \dks\ ADRepo werden Options als "<Option Occurrences"> bezeichnet.
 			\item[Tasktemplate] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
-				Task Templates enthalten generische Werte, wie z.B. ``Project Manager'' als
-				Attributwert für die Eigenschaft ``Assignee''.
+				Tasktemplates enthalten generische Werte, wie z.B. "<Project Manager"> als
+				Attributwert für die Eigenschaft "<Assignee">.
 			\item[Task] Beschreibt einen aus einem Tasktemplate erzeugten konkreten Task.
 				Task entstehen während dem Übertragen der Informationen eines Tasktemplates an ein \ppt.
-			\item[Mapping oder DKS Mapping] Bezeichnet die Verknüpfung von Problems oder 
-				Alternatives mit einem Tasktemplate. 
-				Anhand dieser Verknüpfung werden aus den verknüpften Tasktemplates und den Decisions oder Options des verknüpften Problem oder
-				der verknüpften Alternative die Informationen generiert, 
-				die für die Übertragung eines Tasks an ein \ppt\ benötigt werden.
+			\item[Mapping] Bezeichnet die Verknüpfung von Problems oder Alternatives mit einem Tasktemplate. 
+				Anhand dieser Verknüpfung werden die, für die Übertragung eines Tasks an ein \ppt, benötigten Daten erstellt.
 			\item[Requesttemplate] Bezeichnet eine Vorlage für einen HTTP-Request um 
 				in einem spezifischen \ppt\ Tasks anzulegen.
 				Requesttemplates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
@@ -53,17 +51,17 @@
 				\end{figure}				
 			\end{landscape}
 			
-			\eeppi\ arbeitet mit den Objekten des DKS. Das DKS ist wie folgt aufgebaut:
+			\eeppi\ arbeitet mit den Objekten des \dks. Das ADRepo als Referenz-\dks\ ist wie folgt aufgebaut:
 			\begin{figure}[H]
 				\includegraphics[width=\linewidth]{architecture/media/img/dksDomain.png}
 				\centering
 				\caption[DKS Domäne\newline 
 					\license{Eclipse Public License \url{https://www.eclipse.org/legal/epl-v10.html} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
-				]{DKS Domäne}
+				]{ADRepo-Domäne} %TODO: gell Tobi, das ist vom ADRepo?
 				\label{fig:dksDomain}
 			\end{figure}
 			
-			Dabei werden die DKS Objekte wie folgt gemappt:
+			Dabei werden die Objekte wie folgt gemappt:
 			\begin{description}
 				\item[Element] Node
 				\item[ProblemTemplate] Problem
@@ -73,7 +71,7 @@
 			
 		\subsection{Metamapping}
 			Metamapping bezeichnet das Konzept, 
-			wie die Domäne des \dks\ und die \eeppi -Domäne verknüpft werden sollen.
+			wie die Domäne des \dks s (DKS) und die \eeppi -Domäne verknüpft werden sollen.
 			Übergreifend gesehen geht es dabei um nichts Geringeres als die Verbindung von Entscheidungsmanagement und Projektmanagement.			
 		
 			\begin{figure}[H]
@@ -86,8 +84,8 @@
 			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
 			Jedes Mapping steht für eine Verknüpfung eines Tasktemplates mit einem Problem oder einer Alternative.
 			
-			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
-			Anschliessend können zusammen mit den Daten des Tasktemplate und dessen Eigenschaften (siehe \eeppi\ Domäne \ref{fig:domain}) Tasks erzeugt werden.
+			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne \ref{fig:dksDomain}) gefunden werden. %TODO: gell, das war ADRepo und nicht generell DKS?
+			Anschliessend können zusammen mit den Daten des Tasktemplate und dessen Eigenschaften (siehe \eeppi-Domäne \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
 		\subsection{Implementationsdomäne}
@@ -113,7 +111,7 @@
 			nicht jedoch zu löschen.
 			Dies ermöglich Benutzern, 
 			falsch angelegte Task-Vorlagen weiterzuverwenden, vermeidet jedoch, 
-			das bereits referenzierte Vorlagen entfernt werden.
+			dass bereits referenzierte Vorlagen entfernt werden.
 			
 			Das Gleiche gilt auch für Task Properties.
 			Dies dürfen auf keinen Fall vom Benutzer entfernt werden 
@@ -183,7 +181,8 @@
 				empfehlen wir nicht-hierarchische Kategorien sowie Smart Filters.
 				Kategorien erlauben eine Strukturierung auf einfache Weise. 
 
-				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften ohne dass diese der Benutzer erfassen muss.
+				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften,
+				ohne dass diese der Benutzer erfassen muss.
 			}
 			{keine Speziellen}
 			{keine}
@@ -224,7 +223,7 @@
 				
 				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der Task-Vorlagen in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
-				Gleiches gilt für Entscheidungen. Würde jemand im \cdar\ diese verändern oder löschen,
+				Gleiches gilt für Entscheidungen. Würde jemand im \dks\ diese verändern oder löschen,
 				so würde dies die History zerstören.
 			
 		
@@ -313,8 +312,10 @@
 				
 			
 			\subsubsection{Kommunikation zwischen \eeppi\ und dem \ppt}
-				Die Übertragung der erzeugten Tasks ins \ppt\ basiert auf einer Zwei-Weg-Kommunikation, 
-				sodass \eeppi\ Rückmeldung über die Erfolgreiche Erzeugung der Tasks im \ppt\ erhält. Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
+				Die Übertragung der erzeugten Tasks ins \ppt\ basiert auf einer Zwei-Weg-Kommunikation.
+				Zum Einen werden die Tasks ans \ppt\ übertragen
+				und zum Anderen die Rückmeldung über die Erfolgreiche Erzeugung der Tasks im \ppt\ wieder im \eeppi\ gespeichert.
+				Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
 				wie z.B. die ID. 
 				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
 				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
