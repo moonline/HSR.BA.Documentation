@@ -11,7 +11,7 @@
 	
 	\subsection{Umfang}
 	Total setzt sich \eeppi\ aus gut 25'000 Zeilen Code zusammen, inklusive Leerzeilen, Kommentaren, Konfigurationsdaten und Code von anderen Entwicklern.
-	Die Zusammensetzung ist in Abbildung\ \ref{fig:TotalSLOC} zu sehen.
+	Die Zusammensetzung ist in Abbildung~\ref{fig:TotalSLOC} zu sehen.
 	\begin{figure}[H]
 		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/totalSLOC.pdf}
 		\centering
@@ -32,7 +32,7 @@
 	Allerdings sind im Client Test Code viele Zeilen an Initialisierungsdaten enthalten zum Mocken\footnote{Das verwendete Test-Framework Angular Jasmine erlaubt das simulieren (mocken) der REST-Schnittstelle} der Schnittstellenaufrufe. 
 	Die effektive Grösse der Client Tests liegt ca. 25\% tiefer.
 	
-	Die detaillierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abbildung\ \ref{fig:serverClientSLOC} zu sehen.
+	Die detaillierte Aufteilung und genaue Anzahl der SLOC (Source Lines of Code) der eigenen Codeteile ist in Abbildung~\ref{fig:serverClientSLOC} zu sehen.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\largeThird\textwidth]{projectPlan/media/img/serverClientSLOC.pdf}
@@ -54,7 +54,7 @@
 		\label{fig:coverage}
 	\end{figure}
 	
-	Abbildung\ \ref{fig:coverage} zeigt die Testabdeckung auf.
+	Abbildung~\ref{fig:coverage} zeigt die Testabdeckung auf.
 	Es ist zu sehen, dass auf dem Server die Testabdeckung höher ist als auf dem Client,
 	aber auch auf dem Client sind die zentralen und wichtigen Elemente gut abgedeckt.
 	
@@ -74,7 +74,7 @@
 		\label{fig:methodComplexityOverview}
 	\end{figure}
 	
-	In Abbildung\ \ref{fig:methodComplexityLLOC} ist die Anzahl der logischen Zeilen Code pro Methode ausgewiesen.
+	In Abbildung~\ref{fig:methodComplexityLLOC} ist die Anzahl der logischen Zeilen Code pro Methode ausgewiesen.
 	Gut sichtbar ist, dass auf dem Server wie auf dem Client rund 35\% aller Methoden drei logische Codezeilen aufweisen.
 	Dies sind primär Getter und Setter, bzw. auf dem Client anonyme, von TypeScript erzeugte Methoden.
 	
@@ -87,7 +87,7 @@
 		\label{fig:methodComplexityLLOC}
 	\end{figure}
 	
-	In Abbildung\ \ref{fig:methodComplexityParameterCount} wird die Häufigkeit der Anzahl Methoden Parameter aufgezeigt.
+	In Abbildung~\ref{fig:methodComplexityParameterCount} wird die Häufigkeit der Anzahl Methoden Parameter aufgezeigt.
 	Gut erkennbar ist die Tatsache, dass sowohl auf dem Server, wie auch auf dem Client,
 	rund 3/4 der Methoden keinen oder nur einen einzigen Parameter besitzen.
 	Die Anzahl Methoden mit keinem Parameter ist auf dem Client signifikant tiefer, da aufgrund der Properties in JavaScript das implementieren von Getter für Public-Attributes entfällt.
@@ -99,7 +99,7 @@
 		\caption{Anzahl Parameter pro Methode}
 		\label{fig:methodComplexityParameterCount}
 	\end{figure}
-	Abschliessend ist die Cyclomatic Complexity in Abbildung\ \ref{fig:methodComplexityCyclomaticComplexity} aufgezeichnet.  
+	Abschliessend ist die Cyclomatic Complexity in Abbildung~\ref{fig:methodComplexityCyclomaticComplexity} aufgezeichnet.  
 	Sie beschreibt, wie viele Operationen eine Methode enthält.
 	Die Spitzen bei Eins repräsentieren auch hier die Getter und Setter.
 	
@@ -133,7 +133,7 @@
 			\label{fig:halsteadBugsPerMethod}
 		\end{figure}
 		
-		In Abbildung\ \ref{fig:halsteadBugsPerMethod} wird diese Komplexitätsgrösse mit zwei der durch \eeppi\ eingesetzten Frameworks verglichen.
+		In Abbildung~\ref{fig:halsteadBugsPerMethod} wird diese Komplexitätsgrösse mit zwei der durch \eeppi\ eingesetzten Frameworks verglichen.
 		Sowohl der Client als auch der Server weisen einen deutlich besseren Wert aus als die beiden zum Vergleich aufgeführte Frameworks.
 		Erstaunlich ist, dass die beiden Frameworks beinahe den gleichen Wert aufweisen.
 		
