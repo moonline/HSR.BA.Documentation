@@ -78,7 +78,7 @@
 				{\cdar\ soll als Referenz-DKS angebunden werden.}
 				{Die Schnittstelle für die Datenquelle (Anbindung \cdar) muss generisch und konfigurierbar gestaltet sein.}
 				{
-					\decisionRef{Tier Architektur}{ARC-TIERS}, 
+					\decisionRef{Tier-Architektur}{ARC-TIERS}, 
 					\decisionRef{Server Technologie}{TEC-SERVER}
 				}
 			}
@@ -88,8 +88,8 @@
 			\cdar\ durch eine schlanke Schnittstellenapplikation namens "`ADRepo"' zu ersetzen, 
 			die ihre Daten über die Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
 			Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
-			Vom Team war angedacht worden die Authentisierungsschnittstelle des \cdar zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
-			Die Ablösung des \cdar bedingte allerdings, das \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
+			Das Team plante, die Authentisierungsschnittstelle des \cdar\ zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
+			Die Ablösung des \cdar\ bedingte allerdings, dass \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
 		
 		
 		\subsection{Anbinden von \ppt s}
@@ -123,25 +123,25 @@ Seite \pageref{architektur.technologie} besprochen.
 				
 			\item[2-Tier Structure: Distributed Application (Single Page App)]
 				Die Serverkomponente übernimmt Persistenz sowie minimale Logik (z.B. Login).
-				Presentation und Logik werden von der Client Komponente übernommen.
+				Präsentation und Logik werden von der Client Komponente übernommen.
 				
 			\item[2-Tier Structure: Distributed Presentation]
-				Persistenz, Logik und Presentation werden vom Server übernommen.
-				Die Presentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
+				Persistenz, Logik und Präsentation werden vom Server übernommen.
+				Die Präsentation wird fertig aufbereitet an den Client gesendet (z.B. HTML Page).
 				Es gibt keine aktiven Komponenten auf dem Client, ausgenommen asynchron nachladende Skripte.				
 		\end{description}
 	
 		\decision{
-			\decisionHeader{ARC-TIERS}{Tier Architektur}{Architektur}{Architektur design}
+			\decisionHeader{ARC-TIERS}{Tier-Architektur}{Architektur}{Architekturdesign}
 		}{
 			\decisionContent{Distributed Application (Single Page Application)}
-			{Welche Tier Architektur soll für \eeppi\ gewählt werden?}
+			{Welche Tier-Architektur soll für \eeppi\ gewählt werden?}
 			{Die einzusetzende Technologie unterstützt "`Centralized Computing"', "`Distributed Presentation"' und "'Distributed Application"'}
 			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
 			{"`Centralized Computing"', "`Distributed Presentation"'}
 			{"`Distributed Application"' ermöglicht eine Serverseitige (zentralisierte) Persistenz sowie den Aufbau einer schnellen und unabhängigen Applikation durch Nutzung der Rechenleistung auf dem Client, sodass der Server und dessen Kosten schlank gehalten werden können.
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
-			{}
+			{keine Speziellen}
 			{Die Serverkomponente muss Persistenz sowie eine Datenschnittstelle für den Client bereitstellen.}
 			{
 				\decisionRef{Server Technologie}{TEC-SERVER}, 

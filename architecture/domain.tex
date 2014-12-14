@@ -9,11 +9,11 @@
 				Für das Problem ``Session State'' wären dies z.B. ``Server Session State'' und
 				``Database Session State''. 
 				Im Decision Knowledge System werden Alternatives als ``Option Template'' bezeichnet.
-			\item[Decision] Beschreibt eine konkrete Problem Instanz.
+			\item[Decision] Beschreibt eine konkrete Problem-Instanz.
 				Decisions entstehen, wenn Problems auf konkrete Projekte angewendet werden.
 				Decisions sind sowohl geschlossene wie noch zu treffende Entscheidungen.
 				Im Decision Knowledge System werden Decisions als ``Problem Occurrences'' bezeichnet.
-			\item[Option] Beschreibt eine Wahlmöglichkeit einer Decisions, 
+			\item[Option] Beschreibt eine Wahlmöglichkeit einer Decisions 
 				und somit eine konkrete Instanz einer Alternative.
 				Im Decision Knowledge System werden Options als ``Option Occurrences'' bezeichnet.
 			\item[Tasktemplate] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
@@ -74,7 +74,7 @@
 		\subsection{Metamapping}
 			Metamapping bezeichnet das Konzept, 
 			wie die Domäne des \dks\ und die \eeppi -Domäne verknüpft werden sollen.
-			Übergreifend gesehen geht es dabei um nichts geringeres als die Verbindung von Entscheidungsmanagement und Projektmanagement.			
+			Übergreifend gesehen geht es dabei um nichts Geringeres als die Verbindung von Entscheidungsmanagement und Projektmanagement.			
 		
 			\begin{figure}[H]
 				\includegraphics[width=\linewidth]{architecture/media/img/metaMapping.png}
@@ -86,7 +86,7 @@
 			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
 			Jedes Mapping steht für eine Verknüpfung eines Tasktemplates mit einem Problem oder einer Alternative.
 			
-			Beim erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
+			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe DKS Domäne \ref{fig:dksDomain}) gefunden werden.
 			Anschliessend können zusammen mit den Daten des Tasktemplate und dessen Eigenschaften (siehe \eeppi\ Domäne \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
@@ -123,7 +123,7 @@
 		\subsection{Task-Vorlagen Strukturierung}
 			Es gibt verschiedene Möglichkeiten, 
 			Benutzer eine Strukturierung von Task-Vorlagen anzubieten.
-			Task-Templates können selbst in eine Struktur gebracht werden, 
+			Task-Templates können selbst in eine Struktur gebracht werden
 			oder durch externe Strukturen geordnet werden.
 		
 			\begin{figure}[H]
@@ -138,21 +138,22 @@
 		}{
 			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Vertreters der Anforderungsgruppe nicht hierarchische Kategorien, Smart Filters}
 			{Welches Konzept soll zur Strukturierung von Task-Vorlagen eingesetzt werden?}
-			{}{Benutzer sollen einfach und schnell erstellte Task-Vorlagen wieder finden.}
+			{keine Speziellen}{Benutzer sollen einfach und schnell erstellte Task-Vorlagen wieder finden.}
 			{
 				\begin{description}
 					\item[Keine Strukturierung] \
 						\begin{description}
 							\item[Vorteile] Einfach zu implementieren, einfach verständlich für den Benutzer
-							\item[Nachteile] Bei vielen Task-Vorlagen unübersichtlich, führt zu doppelten Task-Vorlagen da existierende nicht gefunden werden. 
+							\item[Nachteile] Bei vielen Task-Vorlagen unübersichtlich, führt zu doppelten Task-Vorlagen,
+							da existierende nicht gefunden werden. 
 						\end{description}
 						
 					\item[Labels/Hierarchische Labels] \
 						Versehen der Elemente mit einem oder mehreren Labels. Benutzer können nach Labels suchen oder Filtern, um Vorlagen anzuzeigen.	
 						\begin{description}
 							\item[Vorteile] Einfach verständlich für den Benutzer
-							\item[Nachteile] Benutzer könnten zu Faul sein, 
-								Labels anzulegen und zuzuordnen da es aufwändiger ist als Kategorisieren
+							\item[Nachteile] Benutzer könnten zu faul sein, 
+								Labels anzulegen und zuzuordnen da es aufwändiger ist, als Kategorisieren
 						\end{description}
 					
 					\item[Direkte Hierarchisierung der Task-Vorlagen] \
@@ -184,9 +185,9 @@
 
 				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften ohne dass diese der Benutzer erfassen muss.
 			}
-			{}
-			{}
-			{}
+			{keine Speziellen}
+			{keine}
+			{keine}
 		}
 		
 		
@@ -202,7 +203,7 @@
 					\item Eine Task-Vorlage dient dazu, Entscheidungen zu treffen (Entscheidungstask).
 				\end{enumerate}
 				Auf die Task-Vorlagen selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
-				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt hängt nur davon ab,
+				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt, hängt nur davon ab,
 				ob die Task-Vorlage mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
 
 			\subsection{Übertragung von Task-Vorlagen in \ppt}
@@ -223,13 +224,21 @@
 				
 				Benutzer wollen bei der Übertragung ins \ppt\ die von der Task-Vorlage vorgegebenen Werte möglicherweise anpassen, wie z.B. den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der Task-Vorlagen in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
-				Gleiches gilt für Entscheidungen. Würde jemand im \cdar\ diese verändern oder Löschen, so würde dies die History zerstören.
+				Gleiches gilt für Entscheidungen. Würde jemand im \cdar\ diese verändern oder löschen,
+				so würde dies die History zerstören.
 			
 		
 		\subsection{Tasktransmission Workflow}
 			Aus Task-Vorlagen erzeugte Tasks müssen zur Übertragung in ein \ppt\
-			Tool spezifisch umgewandelt werden. Dazu werden "`Processors"' eingesetzt.
-			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln, wie z.B. "`Date processors"', die Kalenderdaten umwandeln, "`Issue type processors"', die Issuetypen konvertieren, "`User processors"', die Relationen zu Benutzern so umwandeln, das das \ppt\ den User korrekt verknüpfen kann oder "`Conditional processors"' und "`Option processors"', die Bedingungen verarbeiten.
+			toolspezifisch umgewandelt werden. Dazu werden "`Processors"' eingesetzt.
+			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln.
+			Beispiele für Processors sind:
+			\begin{itemize}
+				\item "`Date processor"', der Kalenderdaten umwandelt
+				\item "`Issue type processor"', der Issuetypen konvertiert
+				\item "`User processor"', der Relationen zu Benutzern so umwandelt, dass das \ppt\ den User korrekt verknüpfen kann
+				\item "`Conditional processor"' und "`Option processor"', die Bedingungen verarbeiten
+			\end{itemize}
 			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit z.B. nicht gemappte Felder in die Beschreibung überführen kann.
 			
 			\begin{figure}[H]
@@ -238,7 +247,7 @@
 				\caption{Übertragen von Tasks}
 				\label{fig:transmissionWorkflow}
 			\end{figure}
-			Dem Transmissionworkflow liegt das "`Pipes and filters"' Pattern zugrunde
+			Dem Transmissionworkflow liegt das "`Pipes and filters"'-Pattern zugrunde
 			 \cite{hope_enterprise_2003}, welches eine Verarbeitungs- und Filterkette definiert.
 			
 			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. 
@@ -249,7 +258,7 @@
 			Ursprünglich wurde entschieden, diese in Listenform in die Beschreibung des Tasks
 			überzuführen. 
 			Die Entscheidung für ein sehr flexibles Mapping führte dazu, 
-			das dieser Anwendungsfall überflüssig wurde, 
+			dass dieser Anwendungsfall überflüssig wurde, 
 			weil der Administrator dazu selbst einen Processor definieren kann.
 			Womit die Entscheidung darüber bei ihm bleibt und nicht von uns vorgegeben wird.
 			Zudem müsste in jedem Fall bekannt sein, 
@@ -263,7 +272,7 @@
 		}{
 			\decisionContent{Konfiguration/Block in Form von Templates mit Platzhaltern}
 			{Wie sollen Mappingkonfigurationen erstellt werden?}
-			{}
+			{keine Speziellen}
 			{Von der Mapping Method hängt die Architektur des Mappings und die Schnittstellen der Processors und Filters ab.}
 			{
 				\begin{description}					
@@ -277,10 +286,10 @@
 			}
 			{Eine Textblock/Template-basierte Konfiguration erhöht zwar die Fehlermöglichkeiten für den Administrator,
 			ermöglicht diesem jedoch grössere Flexibilität und damit ein Abdecken einer grösseren Bandbreite an \ppt s.}
-			{Der Administrator kann mit Templates und Platzhaltern umgehen oder es Lernen}
+			{Der Administrator kann mit Templates und Platzhaltern umgehen oder es lernen}
 			{Das Mapping benötigt kein eigenes Datenmodell in Form von verknüpften Objekten. 
 			Es kann als einfache Text-Elemente an ein Projekt angeknüpft werden.}
-			{}
+			{keine}
 		}
 		
 		Der Ablauf für einen Administrator sieht entsprechend wie folgt aus:
@@ -292,6 +301,8 @@
 				
 		
 		\subsection{Kommunikation}
+%TODO: Lead
+%TODO: Laura Review evtl. ab hier
 			\subsubsection{Kommunikation zwischen \eeppi\ und dem \dks}
 				Die Übertragung zwischen dem \dks\ und \eeppi\ basiert auf einer einer Ein-Weg-Kommunikation.
 				\eeppi\ lädt die Daten, gibt jedoch keine Informationen zurück, ob dies erfolgreich war oder nicht.

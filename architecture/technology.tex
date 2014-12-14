@@ -1,5 +1,7 @@
 \section{Technologie}\label{architektur.technologie}
+%TODO: Lead
 	\subsection{Server}
+%TODO: Lead
 
 		\subsubsection{Evaluation}\label{serverEvaluation}
 			Die Servertechnologie stellt eine entscheidende Komponente dar, 
@@ -87,9 +89,9 @@
 					\item Im IFS der HSR ist Know How zum Play Framework vorhanden (M. Stocker).
 				\end{itemize}
 			}
-			{}
-			{}
-			{}
+			{keine Speziellen}
+			{keine}
+			{keine}
 		}
 
 		\subsubsection{Play Framework}
@@ -103,20 +105,22 @@
 			
 
 	\subsection{Client}
+%TODO: Lead
 		\subsubsection{Sprache}
+%TODO: Lead
 		\decision{
 			\decisionHeader{TEC-CLIENT-LANG}{Clientseitige Programmiersprache}{Technologie}{Sprache}
 		}{
 			\decisionContent{TypeScript}
 			{Welche Sprache soll clientseitig verwendet werden?}
 			{}
-			{Diese Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig Fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
+			{Diese Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
 			{
 				\begin{description}
 					\item[JavaScript] \
 						\begin{description}
 							\item[Vorteile] UI der bestehenden Applikation ist auch in JavaScript geschrieben
-							\item[Nachteile] Fehler tauchen erst zur Runtime auf, Sprachspezifische Besonderheiten, die Fehler begünstigen
+							\item[Nachteile] Fehler tauchen erst zur Runtime auf, sprachspezifische Besonderheiten, die Fehler begünstigen
 						\end{description}
 					\item[Dart] \
 						\begin{description}
@@ -126,12 +130,12 @@
 				\end{description}
 			}{TypeScript wird zu JavaScript kompiliert, sodass die Vorteile beide Sprachen kombiniert werden. TypeScript versucht, möglichst den Standard zukünftiger ECMA-Script Versionen einzuhalten, sodass die Kompatibilität immer gewährleistet und die Syntax möglichst ähnlich bleiben soll.
 			\begin{description}
-				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie z.B. das ungewohnte verhalten von "`this"', verbessert die Code Qualität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
+				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie z.B. das ungewohnte verhalten von "`this"', verbessert die Codequalität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
 				\item[Nachteile] Erfordert TSC-Compiler, Code Overhead bei Inheritance
 			\end{description}
-			}{}
-			{Das Entwicklungsenvironment benötigt Node.js für den TypeScript Compiler.}
-			{}
+			}{keine Speziellen}
+			{Die Entwicklungsumgebung benötigt Node.js für den TypeScript Compiler.}
+			{keine}
 		}
 			
 			
@@ -147,7 +151,7 @@
 					\begin{description}
 						\item[EmberJS] \
 							\begin{description}
-								\item[Vorteile] Sehr Modular und anpassbar, weniger Overhead als AngularJS
+								\item[Vorteile] Sehr modular und anpassbar, weniger Overhead als AngularJS
 								\item[Nachteile] Bringt wesentlich weniger mit als Angular JS, mehr Eigenaufwand notwendig, kann nur einfache Datentypen an UI Elemente binden
 							\end{description}
 						\item[Kein Framework] \
@@ -157,18 +161,22 @@
 							\end{description}
 					\end{description}
 				}
-				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever: Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "`MV*\hspace{0.05em}"' genannt.}- und Templating Framework, erlaubt eine saubere Trennung von Logik und Darstellung und bindet ViewModel-Eigenschaften und -Funktionen ans Template. Dadurch lassen sich Observerkonstrukte sparen.
+				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever:
+				Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "`MV*\hspace{0.05em}"' genannt.
+				}- und Templating Framework, erlaubt eine saubere Trennung von Logik
+				und Darstellung und bindet ViewModel-Eigenschaften und "=Funktionen ans Template.
+				Dadurch lassen sich Observerkonstrukte sparen.
 				AngularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
-				{}
+				{keine Speziellen}
 				{Die Serverkomponente muss eine Schnittstelle bieten, über die die Clientapplikation Daten austauschen kann.}
-				{}
+				{keine}
 			}
 		
 			
 			\subsubsection{JavScript Autoloading}
-				Ursprünglich wurde angedacht, Require.js als Autoloader zu benutzen.
+				Ursprünglich war die Idee, Require.js als Autoloader zu benutzen.
 				Require.js bietet nebst Vorteilen wie Namespacing und Autoloading leider den grossen Nachteil,
-				das jedes Skript einzeln asynchron vom Client angefordert wird, 
+				dass jedes Skript einzeln asynchron vom Client angefordert wird, 
 				was insbesondere bei grösseren Round-Trip-Times die Applikation spürbar verlangsamt.
 				Aus diesem Grund wurde entschieden, 
 				auf die Bordmittel von TypeScript zur Strukturierung zu setzen (Modules/Packages) 
@@ -189,7 +197,7 @@
 				\item Möglichkeit zur Anbindung eines Build Tools
 			\end{itemize}
 
-			\subsubsection{JsUnit / QUnit}
+			\subsubsection{JsUnit / QUnit} %TODO: noch aktuell?
 				JsUnit wie QUnit arbeiten mit einem realen Browser (keine Browsersimulation), 
 				sind einfach zu handhaben und bieten typische Assert-Syntax.
 				
