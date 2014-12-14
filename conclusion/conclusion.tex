@@ -37,24 +37,24 @@
 			Ein Benutzer kann den Entscheidungsbedarf in Form einer oder mehrere Taskvorlagen in \eeppi\ modellieren,  
 			anschliessend mit der Entscheidung verknüpfen und ins \ppt\ übertragen.
 			
-			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Tasks (wie beispielsweise "<Entscheid treffen">) oder auch mehrere grosse Tasks erstellen (wie beispielsweise "<Entscheidungssitzung abhalten"> oder "<Alternativen evaluieren">) und diese gegebenenfalls hierarchisch verknüpfen (Subtasks).			
+			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Task (wie beispielsweise "<Entscheid treffen">) oder auch mehrere grosse Tasks erstellen (wie beispielsweise "<Entscheidungssitzung abhalten"> oder "<Alternativen evaluieren">) und diese gegebenenfalls hierarchisch verknüpfen (Subtasks).			
 			
 			Zusammengefasst stellt der Benutzer Entscheidungsbedarf in Form von agilen Planungsitems dar, indem er diese in \eeppi\ modelliert und in ein \ppt\ übertragen lässt, wo sie verwaltet und weiterverarbeitet werden können.
 
 
 		\subsubsection{"<Welche Umsetzungstasks ergeben sich aus getroffenen Entscheidungen?">}
 			Dies hängt sehr stark von der entsprechenden Entscheidung ab.
-			Je nach Projekt können durchaus generische Tasks wie beispielsweise "<Entscheid dokumentieren"> oder "<Entscheid kommunizieren"> vorkommen,
+			Je nach Projekt können durchaus generische Tasks, wie beispielsweise "<Entscheid dokumentieren"> oder "<Entscheid kommunizieren"> vorkommen,
 			doch die meisten Umsetzungstasks sind stark ent\-schei\-dungs\-spezifisch.
 			
-			Für ähnliche Projekte werden sich ähnliche Tasks-Muster ergeben, die wiederverwendbarkeit wird hoch sein.
+			Für ähnliche Projekte werden sich ähnliche Tasks-Muster ergeben, die Wiederverwendbarkeit wird hoch sein.
 			Für neue und von bisherigen stark unterschiedliche Projekte wird der Benutzer viele neue Taskvorlagen benötigen, 
 			entsprechend präsentieren sich auch die erzeugten Tasks.
 			
 		
 		\subsubsection{"<Wie können die Metamodelle und Werkzeugschnittstellen der beiden Domänen Architekturentscheidungen und Projektplanung aufeinander abgebildet und miteinander integriert werden?">}
 			Der kleinste gemeinsame Nenner der drei Domänen - Entscheidungswissensverwaltung, Projektplanung und die \eeppi -\-Domäne - stellen die Schnittstellen dar.
-			Sie bilden auf jeder Seite einen Teil der Domäne ab und ermöglichen das integrieren eines kleinen Teils einer anderen Domäne. 
+			Sie bilden auf jeder Seite einen Teil der Domäne ab und ermöglichen das Integrieren eines kleinen Teils einer anderen Domäne. 
 			Über diesen Korridor werden Daten ausgetauscht und für die Werkzeuge bereitgestellt.
 		
 			Konkret bindet \eeppi\ sowohl Entscheidungswissenssysteme als auch \ppt s als externe Systeme an
@@ -111,7 +111,7 @@
 			
 		\subsubsection{"<Reife der Konzepte">}
 			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping-Konzepte von \eeppi.
-			Bei der Entwicklung von \eeppi\ hat das Projektteam äusserst Wert auf genau diese Punkte gelegt.
+			Bei der Entwicklung von \eeppi\ hat das Projektteam äussersten Wert auf genau diese Punkte gelegt.
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
 			das Übertragen von Tasks an ein \ppt, ist direkt durch den Benutzer im Frontend auf hohem Level anpassbar.
 			Das Mapping wurde so ausgelegt, dass der Benutzer nicht direkt Tasks erstellen muss,
@@ -132,25 +132,25 @@
 		\end{description}
 		
 		Die User Story "<BA-39 DKS\footnote{\dks} Space mit PPT\footnote{\ppt} Projekt verknüpfen"> wurde aus technischen Gründen anders umgesetzt, 
-		sodass Benutzern ein anderes Vorgehen anwenden müssen, um zum gleichen Ziel zu gelangen: Ein Benutzer kann nicht direkt DKS Spaces mit PPT Projekten verknüpfen über die Benutzeroberfläche, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
+		sodass Benutzern ein anderes Vorgehen anwenden müssen, um zum gleichen Ziel zu gelangen: Ein Benutzer kann nicht direkt DKS Spaces mit PPT Projekten über die Benutzeroberfläche verknüpfen, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
 
 	
 	\section{offene Punkte, Bugs/technische Probleme}
 		Aufgefundene Bugs wurden während der Stabilisierungsphase zwischen Feature- und Code-Freeze behoben. Nach dem Code-Freeze aufgefundene Bugs sind folgend aufgelistet.
 	
 		\begin{description}
-			\item[Mehrfachregistrierung] Wird mehrfach ein Benutzer mit gleichem Benutzernamen registriert, so wird vom Server die ID des bereits existierenden Benutzers zurückgegeben, ansteller einer Fehlermeldung über den bereits existierenden Benutzer.
+			\item[Mehrfachregistrierung] Wird mehrfach ein Benutzer mit gleichem Benutzernamen registriert, so wird vom Server die ID des bereits existierenden Benutzers zurückgegeben, anstelle einer Fehlermeldung über den bereits existierenden Benutzer.
 			Existierende Benutzer werden jedoch nicht überschrieben oder verändert.
 		\end{description}
 	
 	
 	\section{Zusätzliche Features}
-		Neben den zu Beginn geplanten Funktionen, konnten während dem Projekt noch einige weitere Funktionen umgesetzt werden.
+		Neben den zu Beginn geplanten Funktionen konnten während dem Projekt noch einige weitere Funktionen umgesetzt werden.
 		Diese sind nachfolgend beschrieben.
 		\subsection{API-Dokumentation}
 			Zur Dokumentation der API Schnittstelle hat das Projektteam
 			einen Mechanismus implementiert, der die Informationen über die Schnittstelle mittels Reflection aus dem Code und aus der Ressourcenkonfiguration des Play-Frameworks ausliest.
-			Zusätzlichen werden während der Erzeugung der Dokumentation konkrete Entitäten erstellt und reale API aufrufe gefahren.
+			Zusätzlichen werden während der Erzeugung der Dokumentation konkrete Entitäten erstellt und reale API-Aufrufe gefahren.
 			Die entsprechenden Live-Resultate werden als Aufrufresultate in der Dokumentation angezeigt.
 			Dadurch erhält ein Leser realistische Benutzungsbeispiele für die API mit passenden Antwortdaten.
 			
@@ -164,15 +164,15 @@
 		\subsection{Im- und Export der Daten von \eeppi}
 			Über die API von \eeppi\ lassen sich alle Daten des Systems,
 			ausgenommen Benutzerpasswörtern, exportieren und importieren.
-			Dies ermöglicht das Zügeln von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
+			Dies ermöglicht das Transferieren von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
 			
 			Zusätzlich lassen sich alle Daten auch durch ein Backup der Datenbank sichern und transferieren, da \eeppi\ keine Daten ausserhalb der im Play-Framework konfigurierten Persistenz\footnote{Play legt die Daten je nach Konfiguration in einer Datenbank oder einer Datei ab. Im Falle der Datenbank können Backups mit deren Tools erstellt werden, im Falle der Datei (Infiledatenbank) die Datei selbst gesichert werden.} ablegt.
 			
 			
 		\subsection{Beispielrequest für Redmine}
-			Anfang des Projektes wurde von Projektteam und Betreuer beschlossen, 
-			das \eeppi\ grundsätzlich an jedes \ppt\ angebunden werden können soll, das die technischen Voraussetzungen erfüllt.
-			Für die Entwicklung aber der Fokus vor Allem auf einem System liegen soll, um sich nicht auf zu viele verschiedene API's konzentrieren zu müssen.
+			Am Anfang des Projektes wurde von Projektteam und Betreuer beschlossen, 
+			dass \eeppi\ grundsätzlich an jedes \ppt\ angebunden werden können soll, das die technischen Voraussetzungen erfüllt.
+			Für die Entwicklung soll aber der Fokus vor allem auf einem einzigen System liegen, um sich nicht auf zu viele verschiedene APIs konzentrieren zu müssen.
 			Das Projektteam hat zusätzlich zur Beispielkonfiguration für Jira und einer entsprechenden Demoinstallation auch eine Konfiguration für Redmine erstellt, eine Beispielinstallation aufgebaut und dessen Funktion demonstriert.
 	
 	
@@ -183,7 +183,7 @@
 		
 
 		\subsection{Erweiterung der bestehenden Applikation}
-			Die naheliegendste Erweiterungsmöglichkeit bietet die direkt Anpassung der Implementierung von \eeppi.
+			Die naheliegendste Erweiterungsmöglichkeit bietet die direkte Anpassung der Implementierung von \eeppi.
 			Beschränken sich die Anpassungen nur auf de Funktionalität und nicht auf die Menge der persistierten Daten, so muss lediglich die Clientapplikation angepasst werden.
 	
 		\subsection{Ersatz der Serverapplikation}
@@ -192,12 +192,12 @@
 			kann die Serverapplikation wie ein Modul ausgetauscht werden, ohne den Client anpassen zu müssen.
 			
 			Die neue Serverapplikation muss lediglich den gleichen Funktionsumfang anbieten und die Daten in einem ähnlichen Aufbau liefern.
-			Parameter wie z.B. Resourcenadressen lassen sich auf dem Client konfigurieren. 
+			Parameter wie z.B. Ressourcenadressen lassen sich auf dem Client konfigurieren. 
 	
 		\subsection{Ersatz der Clientapplikation}
 			Die Clientapplikation besitzt den grössten Teil der Logik, so auch die Processors.
 			Zudem ist sie verantwortlich für die Darstellung der Benutzeroberfläche.
-			Die Benutzeroberfläche selbst kann einerseits durch Custom Styles\footnote{Dazu steht ein entsprechendes Stylesheet bereit, das nach den Default-Styles von \eeppi\ eingebunden wird und dazu gedacht ist, vom Integrator mit Organisations-spezifischen Styles ergänzt zu werden, um \eeppi\ in die Corporate Identity der Firma zu integrieren.} sehr einfach umgestaltet werden, durch anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
+			Die Benutzeroberfläche selbst kann einerseits durch Custom Styles\footnote{Dazu steht ein entsprechendes Stylesheet bereit, das nach den Default-Styles von \eeppi\ eingebunden wird und dazu gedacht ist, vom Integrator mit Organisations-spezifischen Styles ergänzt zu werden, um \eeppi\ in die Corporate Identity der Firma zu integrieren.} sehr einfach umgestaltet werden, durch Anpassen der zu Grunde liegenden Templates sogar in sehr weitem Masse.
 			
 			Soll die Clientapplikation jedoch komplett ersetzt werden, beispielsweise durch Ablösung einer neuen Technologie, so ist dies problemlos möglich.
 			Die neue Applikation kann wie die bestehende Clientapplikation die Serverschnittstelle verwenden.
@@ -212,7 +212,7 @@
 			Dieser Ansatz würde sich beispielsweise gut für die Implementierung von weiteren \ppt-Schnittstellen eignen (siehe \ref{subsec:morePPTInterfaces}).
 			
 		\subsection{Verwendung der API}
-			Bestimmte mögliche neuen Funktionen basieren auf Kernfunktionen von \eeppi,
+			Einige mögliche neue Funktionen basieren auf Kernfunktionen von \eeppi,
 			bieten aber einen weitergehenden Nutzen für den Benutzer
 			(wie beispielsweise der Rückfluss von Informationen eines Tasks zurück in das Task-Template, siehe Abschnitt \ref{subsec:informationFlowbackFeature}).
 			Solche Funktionen könnten durch eine eigenständige Applikation implementiert werden,
@@ -228,7 +228,7 @@
 		Nachfolgend sind einige denkbare Erweiterungen von \eeppi\ erklärt.
 		
 		\subsection{Rechte und Rollen}
-			Mit einem Rechte- und Rollen-Konzept könnte der Zugriff auf die Daten in \eeppi\ eingeschränkt werden,
+			Mit einem Rechte- und Rollen-Konzept könnte der Zugriff auf die Daten in \eeppi\ eingeschränkt werden
 			und unterschiedlichen Zielgruppen unterschiedliche Datenstämme angeboten werden.
 			
 			Zudem würde ein Rechte- und Rollen-Konzept die Möglichkeit der Mandantenfähigkeit bieten.
@@ -263,14 +263,14 @@
 			
 		\subsection{Kaskadierende Processors}
 			Die aktuelle Ausgabe von \eeppi\ unterstützt keine Processors innerhalb von Processors.
-			Dem Benutzer würde das verwenden von Processorwerten innerhalb eines Processors die Möglichkeit bieten, Processors wiederzuverwenden und generischer zu gestalten.
+			Dem Benutzer würde das Verwenden von Processorwerten innerhalb eines Processors die Möglichkeit bieten, Processors wiederzuverwenden und generischer zu gestalten.
 			
 			
 		\subsection{System Status Benachrichtigungen}
 			Ein weiteres kleineres Feature stellt eine Anzeige über den Status der angebundenen Systeme dar.
 			Denkbar in der Form eines einfachen Icons, das anzeigt, 
 			ob die Systeme (korrekt) konfiguriert sind, ob sie erreichbar sind
-			und je nach System unter Umständen auch noch ob sie korrekt arbeiten.		
+			und je nach System unter Umständen auch noch, ob sie korrekt arbeiten.		
 		
 		
 	
@@ -281,9 +281,9 @@
 		
 		
 		\subsection{Verwendung mehrerer Projekte}
-			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt\footnote{Die technische Grundlage für mehrere Projekte ist vorhanden, da Projekt eine Entität ist. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}.
-			Die Möglichkeit mehrerer Projekte ermöglicht einerseits Mandantenfähigkeit in einer weiteren Dimension und andererseits auch Schutz des geistige Eigentum, 
-			da zusammen mit dem Rechte-Rollen Konzept einzelnen Benutzern nur bestimmten Projekte zugeteilt werden könnten.
+			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt\footnote{Die technische Grundlage für mehrere Projekte ist vorhanden, da das Projekt eine Entität ist. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}.
+			Die Möglichkeit mehrerer Projekte ermöglicht einerseits Mandantenfähigkeit in einer weiteren Dimension und andererseits auch Schutz des geistigen Eigentums, 
+			da zusammen mit dem Rechte-Rollen Konzept einzelnen Benutzern nur bestimmten Projekten zugeteilt werden könnten.
 
 
 		\subsection{Unterscheidung von verschiedenen \ppt s}
@@ -310,7 +310,7 @@
 			
 		\subsection{Rückfluss von Informationen ins \dks}
 		\label{subsec:informationFlowbackFeatureDKS}
-			Einerseits ist der Rückfluss von statistischen Werten über die Verwendung von Entscheidungen denkbar 
+			Einerseits ist der Rückfluss von statistischen Werten über die Verwendung von Entscheidungen denkbar, 
 			andererseits ein Rückfluss von Zuständen.
 			Wird beispielsweise im \ppt\ der Task "<Session State Evaluieren"> geschlossen und "<DB Session"> als Option ausgewählt, 
 			so könnte diese Information im \dks\ dazu dienen, 
@@ -340,12 +340,12 @@
 		Wir hoffen, mit \eeppi\ dazu beigetragen zu haben, dass wenn sich auch \dks e durchgesetzt haben werden,
 		sich das Entscheidungs- und Projektmanagement stärker verbindet und sich damit Projekte besser und konsistenter planen,  schätzen und umsetzen lassen.
 		
-		Insbesondere für grosse Opensouceprojekte wie den Linux Kernel würde der Einsatz eines \dks s in Kombination mit \eeppi\ Sinn machen und zur verbesserten Nachvollziehbarkeit von Entscheidungen und daraus abgeleiteten Aufgaben führen.
+		Insbesonders für grosse Opensouceprojekte wie den Linux Kernel würde der Einsatz eines \dks s in Kombination mit \eeppi\ Sinn machen und zur verbesserten Nachvollziehbarkeit von Entscheidungen und daraus abgeleiteten Aufgaben führen.
 		
-		Es würde uns insbesondere freuen,
+		Es würde uns insbesonders freuen,
 		wenn viele Entscheidungen und die daraus resultierenden Tasks
 		(ähnlich Wikipedia\footnote{\url{http://www.wikipedia.org/}} oder Stackoverflow\footnote{\url{http://stackoverflow.com/}})
-		öffentlich zugänglich wären, und damit einen Gewinn für die gesamte Gesellschaft bieten würden.
+		öffentlich zugänglich wären und damit einen Gewinn für die gesamte Gesellschaft bieten würden.
 		
 		Fazit: Wir empfehlen als nächsten Schritt die Verbreitung von \dks en zu fördern
 		und nach Möglichkeit einen Standard und eine öffentliche, offene Entscheidungs-Bibliothek zu starten,

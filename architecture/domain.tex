@@ -301,26 +301,25 @@
 		
 		\subsection{Kommunikation}
 		\eeppi\ verwendet verschiedene Schnittstellen. Deren Verwendungen sind nachfolgend beschrieben.
-%TODO: Laura Review evtl. ab hier
 			\subsubsection{Kommunikation zwischen \eeppi\ und dem \dks}
 				Die Übertragung zwischen dem \dks\ und \eeppi\ basiert auf einer einer Ein-Weg-Kommunikation.
 				\eeppi\ lädt die Daten, gibt jedoch keine Informationen zurück, ob dies erfolgreich war oder nicht.
 				
-				\eeppi\ schreibt auch keine Daten zurück ins \dks\ wie beispielsweise Informationen über die Verwendung der Problems und Alternatives.
+				\eeppi\ schreibt auch keine Daten zurück ins \dks, wie beispielsweise Informationen über die Verwendung der Problems und Alternatives.
 				Grund dafür ist die dazu notwendige Komplexität der Schnittstelle sowie die mangelnde Unterstützung seitens \dks.
 				Auch würde diese Funktionalität den Rahmen der Arbeit sprengen, als mögliche Erweiterung von \eeppi\ ist sie jedoch denkbar.
 				
 			
 			\subsubsection{Kommunikation zwischen \eeppi\ und dem \ppt}
 				Die Übertragung der erzeugten Tasks ins \ppt\ basiert auf einer Zwei-Weg-Kommunikation.
-				Zum Einen werden die Tasks ans \ppt\ übertragen
-				und zum Anderen die Rückmeldung über die Erfolgreiche Erzeugung der Tasks im \ppt\ wieder im \eeppi\ gespeichert.
+				Zum einen werden die Tasks ans \ppt\ übertragen
+				und zum anderen die Rückmeldung über die erfolgreiche Erzeugung der Tasks im \ppt\ wieder im \eeppi\ gespeichert.
 				Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
 				wie z.B. die ID. 
 				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
 				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
 				
-				Der "<Transmission">-Workflow als gesamtes ist jedoch ein One-Way-Procedure.
+				Der "<Transmission">-Workflow als Gesamtes ist jedoch ein One-Way-Procedure.
 				Dies bedeutet, dass keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
 				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine Synchronisierung der Tasks eine grosse Herausforderung dar, 
 				die den Rahmen der Arbeit sprengen würde.

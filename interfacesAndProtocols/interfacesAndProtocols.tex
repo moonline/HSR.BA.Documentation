@@ -11,12 +11,10 @@
 	
 \section{Dokumentation des API}
 	\label{sec:apiDokumentationCreation}
-	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert (Siehe Abschitt \ref{sec:apiDocumentation}).
+	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert (siehe Abschitt \ref{sec:apiDocumentation}).
 	Ein Ausschnitt der API Dokumentation ist in Abbildung\ \ref{fig:apiScreenshot} abgebildet.
 	Das Konzept und die Methodik der Dokumentation wurde als Teil von \eeppi\ erstellt
 	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
-	Damit das API mit möglichst geringem Aufwand auf dem neusten Stand bleibt, wurde darauf geachtet,
-	die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen oder zumindest von möglichst nah davon.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{interfacesAndProtocols/media/img/apiDocumentation.png}
@@ -26,6 +24,8 @@
 	\end{figure}
 
 	\subsection{Herkunft der Daten}
+		Damit das API mit möglichst geringem Aufwand auf dem neusten Stand bleibt, wurde darauf geachtet,
+		die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen oder zumindest von möglichst nah davon.
 		\subsubsection{Liste aller API-Methoden}
 			Die Liste der verfügbaren Methoden wird direkt aus dem Programmcode abgeleitet.
 			Dazu wird mit Hilfe von Reflections\footnote{\url{http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/package-summary.html}} in einem ersten Schritt die Liste aller Controller-Klassen eruiert
@@ -34,6 +34,7 @@
 		\subsubsection{HTTP-Verb und Pfad}
 			HTTP-Verb und Ressourcenpfad werden aus der "<routes">-Datei geladen.
 			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei zur Delegation von Anfragen von Clients an den richtigen Controller.
+			Damit ist sichergestellt, dass diese Daten in der API Dokumentation stets aktuell sind.
 			
 		\subsubsection{Beschreibungen}
 			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
