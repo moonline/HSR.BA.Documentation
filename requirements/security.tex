@@ -1,12 +1,11 @@
 \section{Sicherheit}
-	Am 6. Oktober 2014 wurde beim Meeting mit dem Betreuer als Ansprechpartner der Kundengruppe entschieden,
-	dass auf Sicherheitsanforderungen geringe Priorität gesetzt wird.
-	Dies aus dem Grund, da \eeppi\ ein Forschungsprojekt ist
-	und nicht gleich nach Abschluss der Bachelorarbeit direkt im produktiven Betrieb im Internet stehen wird.
+	Eine Applikation wie \eeppi , die geschäftsrelevante Daten beinhaltet, muss entsprechend gegen Zugriffe Dritter abgesichert werden.
 	
-	Trotzdem sind in \eeppi\ einige grundlegende Sicherheits-Funktionen angerissen,
-	so werden beispielsweise die Passwörter um sich bei \eeppi\ einzuloggen ausschliesslich gesalzen und mit einem Hash verschlüsselt gespeichert.
-	Andere Funktionen sind jedoch zugunsten höher priorisierten Funktionen nicht implementiert worden.
-	Dazu gehört beispielsweise eine OAuth-Anmeldung bei \ppt s oder grundsätzlich die Möglichkeit,
-	Benutzer in verschiedene Gruppen einzuteilen.
-	Eine detaillierte Erklärung zu möglichen Erweiterungen von \eeppi\ ist auch im Abschnitt\ \ref{sec:possibleExtensions} zu finden.
+	Am 6. Oktober 2014 wurde beim Meeting mit dem Betreuer als Ansprechpartner der Kundengruppe entschieden,
+	das Mandantenfähigkeit eine untergeordnete Rolle spielt.
+	Entsprechend wurde entschieden, dass Sicherheitsanforderungen geringerer Priorität sind als funktionelle Anforderungen.
+	\eeppi\ ist ein Forschungsprojekt und dient als Grundlage für weitere Forschung und Entwicklung. Es ist nicht das Ziel, \eeppi\ nach Ende der Bachelorarbeit direkt öffentlich zugänglich über das Internet zur Verfügung zu stellen, sondern als Forschungssystem in einem internen Netz zu betreiben.
+	
+	Trotzdem sollen in \eeppi\ einige grundlegende Sicherheits-Funktionen umgesetzt und deren Erweiterungsmöglichkeiten berücksichtigt werden.
+	Session- und Passwortmangement sollen gemäss heute üblichen Richtlinien umgesetzt werden.
+	Mögliche Erweiterungen, beispielsweise eine OAuth-Anmeldung bei \ppt s oder Rechte- und Rollenkonzepte, sollen beim Design berücksichtigt und als mögliche Erweiterungen (Abschnitt \ref{sec:possibleExtensions}) dokumentiert werden.
