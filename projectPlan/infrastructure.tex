@@ -72,7 +72,7 @@
 				
 			\subsubsection{Für Literatur und temporäre Dokumente: Dropbox}
 			PDF Dokumente sowie Office Dokumente können nur schlecht versioniert werden mit git, 
-			da sie für Git ein Blob darstellen, und das Repository mit jeder Version unnötig aufblähen.
+			da sie für Git ein BLOB\footnote{Binary Large Object: Binärdatenblock, der nicht aus Zeichen sondern binären Daten besteht} darstellen, und das Repository mit jeder Version unnötig aufblähen.
 			Daher werden solche Dokumente über einen Cloudshare ausgetauscht und erst eingecheckt, 
 			wenn sie keinen oder kaum mehr Änderungen unterliegen.
 				
@@ -105,27 +105,16 @@
 				dass es über Git nicht inkrementell versioniert und nicht
 				gemergt werden kann.
 				
-			\subsubsection{Dokumentation des API}
-				Das \eeppi\ API ist zentraler Teil der Bachelorarbeit und aus diesem Grund ist deren Dokumentation sehr wichtig. Insbesondere die Korrektheit und Aktualität der Schnittstellendokumentation sind entscheidend die Benutzung der Schnittstelle.
-				
-				Die Dokumentation wird durch den Server generiert und in Form eines HTML Dokuments zur Verfügung gestellt. %TODO: API-Dokumentation in dieser Dokumentation integrieren und dann hier und im Abschnitt Schnittstellen referenzieren.
-				Der Server sammelt die dazu notwendigen Informationen aus verschiedenen Quellen:
-				\begin{enumerate}
-					\item "<routes">-Konfiguration des Play Framework (Konfiguration des HTTP-Verbs und der URL).
-					\item Annotation der Kontrollermethoden (Informationen über notwendige Authentisierung).
-					\item Dokumentations-Annotationen der Kontrollermethoden (Informationen zu Parameter, Aufruf, Responses sowie Beispielaufrufe).
-					\item Ergebnisse von simulierten Aufrufen.
-						Bei der Auslieferung der Dokumentation ruft der Server wenn möglich selbst die dokumentierten Methoden mit Beispieldaten auf und integriert die Resultate in die Dokumentation.
-				\end{enumerate}
-				
-				Soweit möglich wird hierzu direkt die effektive Konfiguration verwendet. Dies garantiert, dass die Dokumentation stets auf dem neusten Stand ist.
-				
-				Ausserdem haben wir wo immer sinnvoll jeweils mindestens zwei Beispielaufrufe in die API-Dokumentation integriert.
-				
+		\subsection{Dokumentation des API}
+			Das \eeppi\ API ist zentraler Teil der Bachelorarbeit und aus diesem Grund ist deren Dokumentation (Siehe Abschitt \ref{sec:apiDocumentation}) sehr wichtig. Insbesondere die Korrektheit und Aktualität der Schnittstellendokumentation sind entscheidend die Benutzung der Schnittstelle.
+			
+			Die Dokumentation wird durch den Server generiert und in Form eines HTML Dokuments zur Verfügung gestellt.
+			Detailiert beschrieben werden die Mechanismen hinter der API in Abschnitt \ref{sec:apiDokumentationCreation} auf Seite \pageref{sec:apiDokumentationCreation}.
+			
 				\subsection{Code Dokumentation}
 					\subsubsection{Client}
-						Für zentrale und komplexe Klassen wie z.B. das Repository wird Typedoc\url{http://typedoc.io}
-						zur Erzeugung einer Dokumentation aus dem TypeScript Code verwendet.
+						Für zentrale und komplexe Klassen wie z.B. das Repository wird Typedoc\footnote{\url{http://typedoc.io}}
+						zur Erzeugung einer Dokumentation aus dem TypeScript Code und dessen TSDoc Kommentaren verwendet.
 
 
 		\subsection{Modelling}
@@ -135,9 +124,10 @@
 				\item[Begründung] Astah ist ein gutes, den Studenten bekanntes Tool.
 					Es deckt den geforderten Funktionsumfang grosszügig ab und bietet Image- sowie PDF-Export.
 			\end{description}
-			
-		%\subsection{UI Drafting}
 
+			
+		\subsection{UI Mockups}
+			Für den Entwurf von UI Mockup verzichten wir auf ein Tool und benutzen Papier und Stifte.
 
 
 		\subsection{Building \& Testing}
@@ -149,8 +139,7 @@
 				\item[Begründung] Jenkins ist ein etabliertes und weit verbreitetes Produkt, 
 					das sich gut konfigurieren lässt und aus diesem Grund eingesetzt wird.
 					Zudem gibt es für viele Frameworks Plugins, so auch für JSUnit.
-			\end{description}
-							
+			\end{description}	
 				
 
 		\subsection{Individuelle Entwicklungsumgebungen}
@@ -174,16 +163,20 @@
 				Die Daten auf dem Rechner von Laurin Murer werden mehrstufig archiviert.
 				Einerseits mit TimeMachine\footnote{Backuplösung von Apple: \url{https://www.apple.com/chde/support/timemachine/}} auf eine externe Festplatte und zusätzlich noch mit Wuala\footnote{Schweizer Cloud Speicher Dienst: \url{https://www.wuala.com/}} in die Cloud.
 
+
 			\subsubsection{Linux Laptop von Tobias Blaser}
 				Die Daten auf dem Rechner von Tobias Blaser werden mit BackInTime\footnote{Rsync basierte Backuplösung für Linux: \url{http://backintime.le-web.org/}} auf eine externe Festplatte archiviert.
 				
+				
 		\subsection{Arbeitsplätze im Zimmer 1.206}
 			Auf diesen Rechnern werden keine Daten abgelegt, dadurch müssen sie auch nicht in einem Backup eingeschlossen werden.
+
 
 		\subsection{Virtual Server}
 			Vom virtuellen Server werden lediglich einige Daten archiviert, und zwar jene, welche von uns erstellt wurden.
 			Diese Daten werden alle unter /root/to\_backup referenziert.
 			Dieser Ordner wird dann regelmässig auf das MacBook von Laurin Murer kopiert, wo es dann in seinem Backup eingeschlossen wird (siehe \ref{backupLaurin}).
+		
 		
 		\subsection{Repository und Entwicklungsserver}
 			Ein zusätzliches Backup des Projektrepositories ist nicht notwendig, da durch die Versionierung mit Git die komplette Versionshistorie bei jedem Teilnehmer vorhanden ist.

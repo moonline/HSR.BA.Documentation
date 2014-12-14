@@ -10,7 +10,8 @@
 	und können über die HTTP-Verben GET, POST und DELETE verwendet werden.
 	
 \section{Dokumentation des API}
-	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert.
+	\label{sec:apiDokumentationCreation}
+	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert (Siehe Abschitt \ref{sec:apiDocumentation}).
 	Ein Ausschnitt der API Dokumentation ist in Abbildung\ \ref{fig:apiScreenshot} abgebildet.
 	Das Konzept und die Methodik der Dokumentation wurde als Teil von \eeppi\ erstellt
 	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
@@ -26,15 +27,13 @@
 
 	\subsection{Herkunft der Daten}
 		\subsubsection{Liste aller API-Methoden}
-			Die Liste aller Methoden wird direkt aus den Programmcode abgeleitet.
+			Die Liste der verfügbaren Methoden wird direkt aus dem Programmcode abgeleitet.
 			Dazu wird mit Hilfe von Reflections\footnote{\url{http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/package-summary.html}} in einem ersten Schritt die Liste aller Controller-Klassen eruiert
-			und in einem zweiten Schritt von diesen die Methoden extrahiert, die einen API-Aufruf repräsentieren.
+			und in einem zweiten Schritt deren Methoden extrahiert, die einen API-Aufruf repräsentieren.
 		
 		\subsubsection{HTTP-Verb und Pfad}
-			Das HTTP-Verb und der Pfad, mit welchem die Methode aufgerufen werden kann,
-			werden aus der "<routes">-Datei geladen.
-			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei,
-			wenn es Anfragen von Clients an den richtigen Controller delegieren will.
+			HTTP-Verb und Ressourcenpfad werden aus der "<routes">-Datei geladen.
+			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei zur Delegation von Anfragen von Clients an den richtigen Controller.
 			
 		\subsubsection{Beschreibungen}
 			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
