@@ -1,7 +1,10 @@
 \section{Technologie}\label{architektur.technologie}
-%TODO: Lead
+	Für die Umsetzung von \eeppi\ haben wir uns für verschiedene Technologien entschieden.
+	Die Evaluation sowie die Technologien selber sind unten beschrieben.
+
 	\subsection{Server}
-%TODO: Lead
+		Für \eeppi\ ist die Erstellung einer Webanwendung vorgegeben.
+		Die eine Hälfte davon ist der Server, seine Technologie wird nachfolgend beschrieben.
 
 		\subsubsection{Evaluation}\label{serverEvaluation}
 			Die Servertechnologie stellt eine entscheidende Komponente dar, 
@@ -105,9 +108,13 @@
 			
 
 	\subsection{Client}
-%TODO: Lead
+		Nachdem dem Server für die Webapplikation fehlt noch die andere Hälfte, der Client.
+		Seine Technologie wird nachfolgend beschrieben.
+
 		\subsubsection{Sprache}
-%TODO: Lead
+		Der wichtigste Teil des Clients ist die Sprache, in welcher er entwickelt wird.
+		Die Wahl ist nachfolgend beschrieben.
+
 		\decision{
 			\decisionHeader{TEC-CLIENT-LANG}{Clientseitige Programmiersprache}{Technologie}{Sprache}
 		}{
@@ -140,6 +147,9 @@
 			
 			
 		\subsubsection{Architektur-Framework}
+		Mit dem Wahl der Sprache, stellt sich noch die Frage des Frameworks.
+		Dessen Wahl ist nachfolgend beschrieben.
+
 			\decision{
 				\decisionHeader{TEC-CLIENT-FW}{Clientseitiges Applikationsframework}{Technologie}{Framework}
 			}{
@@ -183,9 +193,10 @@
 				und die verschiedenen Skripte bereits beim Kompilieren zusammenzuführen.
 				
 
-		\subsection{UI Frameworks}
-			\subsubsection{Less}
-				Less\footnote{CSS Pre-Prozessor: \url{http://lesscss.org/}} wird als CSS Generator eingesetzt, da es den CSS Code stark verschlankt und Vorteile wie Variablen und Mixins bietet.
+			\subsubsection{Styling}
+				Das Frontend des Clients wird mit CSS gestaltet.
+				Um dieses einfacher schreiben zu können,
+				wird Less\footnote{CSS Pre-Prozessor: \url{http://lesscss.org/}} als CSS Generator eingesetzt, da es den CSS Code stark verschlankt und Vorteile wie Variablen und Mixins bietet.
 				Less wird serverseitig kompiliert um den Client zu entlasten.
 				
 		\subsection{Testing}

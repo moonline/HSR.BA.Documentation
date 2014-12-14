@@ -127,7 +127,7 @@
 			\item[BA-41] Report Task Übertragung
 		\end{itemize}
 		
-		Die User Story "<BA-39 DKS Space mit PPT Projekt verknüpfen"> wurde aus technischen Gründen anders umgesetzt, 
+		Die User Story "<BA-39 DKS Space mit PPT\footnote{\ppt} Projekt verknüpfen"> wurde aus technischen Gründen anders umgesetzt, 
 		sodass der Benutzer ein anderes Vorgehen anwenden muss, um zum gleichen Ziel zu gelangen: Der Benutzer kann nicht direkt DKS Spaces mit PPT Projekten verknüpfen, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
 
 	
@@ -136,6 +136,8 @@
 	
 	
 	\section{Zusätzliche Features}
+		Neben den zu Beginn geplanten Funktionen, konnten während dem Projekt noch einige weitere Funktionen umgesetzt werden.
+		Diese sind nachfolgend beschrieben.
 		\subsection{API-Dokumentation}
 			Zur Dokumentation der API Schnittstelle hat das Projektteam
 			einen Mechanismus implementiert, der die Informationen über die Schnittstelle mittels Reflection aus dem Code und aus der Ressourcenkonfiguration des Play-Frameworks ausliest.
@@ -297,7 +299,7 @@
 			Beispielsweise könnte man Änderungen der Tasks erkennen und dem Benutzer vorschlagen, diese ins \eeppi\ zu übertragen.
 			
 			
-		\subsection{Rückfluss von Informationen ins Entscheidungswissenssystem}
+		\subsection{Rückfluss von Informationen ins \dks}
 		\label{subsec:informationFlowbackFeatureDKS}
 			Einerseits ist der Rückfluss von statistischen Werten über die Verwendung von Entscheidungen denkbar 
 			andererseits ein Rückfluss von Zuständen.
@@ -317,3 +319,23 @@
 			die \ppt s auch über weitere Schnittstellen (beispielsweise XML)
 			und weitere Authentifizierungs-Methoden (beispielsweise OAuth\footnote{Ein offenes Authentifizierungs-Protokoll. OAuth beispielsweise würde Authentifizierung auch ohne das effektive Passwort ermöglichen: \url{http://oauth.net/2/}}) anbindet.
 			
+	\section{Zukunft von \eeppi}
+		Abschliessend stellt sich noch die Frage, wie es mit \eeppi\ weiter geht.
+		\eeppi\ verbindet das Entscheidungs- und Projektmanagements und ist dadurch auch sehr von diesen Disziplinen abhängig.
+		\ppt s sind heute weit verbreitet, hingegen sind \dks e noch nicht so populär.
+		Darum wird es heute auch noch sehr schwierig sein, dass \eeppi\ sich schnell weit verbreitet.
+		
+		Das Team dieser Bachelorarbeit hat denn auch nicht vor, \eeppi\ demnächst weiter zu entwickeln.
+		\eeppi\ ist ein "<Proof of Concept"> und hat damit klar gezeigt, dass es funktioniert.
+		
+		Wir hoffen mit \eeppi\ dazu beigetragen zu haben, dass wenn sich auch \dks e durchgesetzt haben werden,
+		sich das Entscheidungs- und Projektmanagements verbindet und damit Projekte besser und konsistenter planen schätzen und umsetzen lassen.
+		
+		Es würde uns insbesondere freuen,
+		wenn viele Entscheidungen und die daraus resultierenden Tasks
+		(ähnlich Wikipedia\footnote{\url{http://www.wikipedia.org/}} oder Stackoverflow\footnote{\url{http://stackoverflow.com/}})
+		öffentlich zugänglich wären, und damit einen Gewinn für die gesamte Gesellschaft bieten würden.
+		
+		Fazit: Wir empfehlen als nächsten Schritt \dks e populärer zu machen
+		und wenn möglich einen Standard und eine öffentliche OpenSource-Bibliothek zu entwerfen,
+		ähnlich wie Wikipedia oder Stackoverflow.
