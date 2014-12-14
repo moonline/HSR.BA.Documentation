@@ -28,7 +28,7 @@
 			anschliessend je separat Prioritäten für jedes Kriterium festgelegt.
 			Da wir verschiedene Skalen verwendet haben, haben wir unsere Punkte noch zu 100\% normiert.
 			Und aus diesen zwei Werten haben wir in gemeinsamer Diskussion die definitive Priorität erstellt.
-			Dies hat meist problemlos funktioniert, ausser bei den Punkten "`Kenntnisse im Team"' und "`Unterstützung von Hosting Providern"' (blau markiert) hatten wir zu Beginn nennenswerte Unterschiede.
+			Dies hat meist problemlos funktioniert, ausser bei den Punkten "<Kenntnisse im Team"> und "<Unterstützung von Hosting Providern"> (blau markiert) hatten wir zu Beginn nennenswerte Unterschiede.
 			Bei diesen Punkten haben wir dann in der gemeinsamen Diskussion einen Wert festgelegt.
 		
 			\begin{figure}[H]
@@ -51,7 +51,7 @@
 					\label{fig:EntwicklungVonWebserverTechnologien}
 			\end{figure}
 			
-			Schlussendlich haben wir uns da nach Recherchen auf eine "`1"' geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat.
+			Schlussendlich haben wir uns da nach Recherchen auf eine "<1"> geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat.
 			Als Beispiel für eine Technologie, die immer weniger eingesetzt wird und in den nächsten Jahren verschwinden wird, haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
 			Im Vergleich dazu ist PHP sehr gut im Markt vertreten und hat auch eine äusserst konstante Verbreitung.
 			Deshalb und unter dem Gesichtspunkt der soliden Konzepte, 
@@ -74,7 +74,7 @@
 		}{
 			\decisionContent{Play Framework}
 			{Welche Servertechnologie soll eingesetzt werden?}
-			{}
+			{keine Speziellen}
 			{Von der Servertechnologie hängen unter Anderem die Entscheidungen für Server und Persistenz Framework ab.}
 			{\cdar\ erweitern, eigener Tomcat, Node.js+JS, Node.js+TS, Ruby, PHP}
 			{			
@@ -82,7 +82,7 @@
 					\item Das Play Framework basiert auch auf Java, wie das bestehende \cdar.
 					\item Ein Teammitglied hat bereits Erfahrungen mit dem Framework gemacht.
 					\item Das andere Teammitglied kennt die zugrundeliegende Sprache (Java).
-					\item Der betreuende Dozent hat eine Präferenz für Java.
+					\item Der Betreuer hat eine Präferenz für Java.
 					\item Das Play Framework benötigt wenig Boilerplate-Code.
 					\item Es sprechen keine zwingenden Gründe dagegen (wie beispielsweise zu stark einschränkende Lizenzen).
 					\item Das Play Framework ist angenehm zum Entwickeln für die Entwickler: gegebener Spass-Faktor, Vermeidung von Fehlern, Unterstützung im Erreichen von guter Code Qualität.
@@ -99,7 +99,7 @@
 			
 			Wikipedia beschreibt das Play Framework wie folgt:
 			\begin{quote}
-				"`Play is an open source web application framework, written in Scala and Java, which follows the model–view–controller (MVC) architectural pattern. It aims to optimize developer productivity by using convention over configuration, hot code reloading and display of errors in the browser."' \cite{builtwith_pty_ltd_framework_2014}
+				"<Play is an open source web application framework, written in Scala and Java, which follows the model–view–controller (MVC) architectural pattern. It aims to optimize developer productivity by using convention over configuration, hot code reloading and display of errors in the browser."> \cite{builtwith_pty_ltd_framework_2014}
 			\end{quote}
 
 			
@@ -113,7 +113,7 @@
 		}{
 			\decisionContent{TypeScript}
 			{Welche Sprache soll clientseitig verwendet werden?}
-			{}
+			{keine Speziellen}
 			{Diese Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
 			{
 				\begin{description}
@@ -130,7 +130,7 @@
 				\end{description}
 			}{TypeScript wird zu JavaScript kompiliert, sodass die Vorteile beide Sprachen kombiniert werden. TypeScript versucht, möglichst den Standard zukünftiger ECMA-Script Versionen einzuhalten, sodass die Kompatibilität immer gewährleistet und die Syntax möglichst ähnlich bleiben soll.
 			\begin{description}
-				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie z.B. das ungewohnte verhalten von "`this"', verbessert die Codequalität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
+				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie z.B. das ungewohnte verhalten von "<this">, verbessert die Codequalität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
 				\item[Nachteile] Erfordert TSC-Compiler, Code Overhead bei Inheritance
 			\end{description}
 			}{keine Speziellen}
@@ -145,7 +145,7 @@
 			}{
 				\decisionContent{AngularJS}
 				{Welches Applikationsframework soll clientseitig eingesetzt werden?}
-				{}
+				{keine Speziellen}
 				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der clientseitigen Applikation und soll ein Framework evaluieren, das Templating und Two-Way-Binding mit UI Komponenten unterstützen, um dies nicht selbst implementieren zu müssen.}
 				{
 					\begin{description}
@@ -162,7 +162,7 @@
 					\end{description}
 				}
 				{Angular JS ist ein bekanntes MVW\footnote{Model View Whatever:
-				Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "`MV*\hspace{0.05em}"' genannt.
+				Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "<MV*\hspace{0.05em}"> genannt.
 				}- und Templating Framework, erlaubt eine saubere Trennung von Logik
 				und Darstellung und bindet ViewModel-Eigenschaften und "=Funktionen ans Template.
 				Dadurch lassen sich Observerkonstrukte sparen.

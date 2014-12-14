@@ -230,14 +230,14 @@
 		
 		\subsection{Tasktransmission Workflow}
 			Aus Task-Vorlagen erzeugte Tasks müssen zur Übertragung in ein \ppt\
-			toolspezifisch umgewandelt werden. Dazu werden "`Processors"' eingesetzt.
+			toolspezifisch umgewandelt werden. Dazu werden "<Processors"> eingesetzt.
 			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln.
 			Beispiele für Processors sind:
 			\begin{itemize}
-				\item "`Date processor"', der Kalenderdaten umwandelt
-				\item "`Issue type processor"', der Issuetypen konvertiert
-				\item "`User processor"', der Relationen zu Benutzern so umwandelt, dass das \ppt\ den User korrekt verknüpfen kann
-				\item "`Conditional processor"' und "`Option processor"', die Bedingungen verarbeiten
+				\item "<Date processor">, der Kalenderdaten umwandelt
+				\item "<Issue type processor">, der Issuetypen konvertiert
+				\item "<User processor">, der Relationen zu Benutzern so umwandelt, dass das \ppt\ den User korrekt verknüpfen kann
+				\item "<Conditional processor"> und "<Option processor">, die Bedingungen verarbeiten
 			\end{itemize}
 			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit z.B. nicht gemappte Felder in die Beschreibung überführen kann.
 			
@@ -247,7 +247,7 @@
 				\caption{Übertragen von Tasks}
 				\label{fig:transmissionWorkflow}
 			\end{figure}
-			Dem Transmissionworkflow liegt das "`Pipes and filters"'-Pattern zugrunde
+			Dem Transmissionworkflow liegt das "<Pipes and filters">-Pattern zugrunde
 			 \cite{hope_enterprise_2003}, welches eine Verarbeitungs- und Filterkette definiert.
 			
 			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. 
@@ -319,7 +319,7 @@
 				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
 				Also Processors, die zur Zeit der Übertragung ausgeführt werden und z.B. Informationen über einen Parent Task in das Requesttemplate einweben können.
 				
-				Der "'Transmission"'-Workflow als "`gesamtes"' ist jedoch ein One-Way-Procedure.
+				Der "<Transmission">-Workflow als gesamtes ist jedoch ein One-Way-Procedure.
 				Dies bedeutet, dass keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
 				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine Synchronisierung der Tasks eine grosse Herausforderung dar, 
 				die den Rahmen der Arbeit sprengen würde.

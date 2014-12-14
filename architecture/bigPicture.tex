@@ -1,6 +1,6 @@
 \chapter{Lösungskonzept}
 	
-	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "`IBM UMF Template for Decision Log"' \cite{hand_ibm_2008}.
+	Beim hier verwendeten Entscheidungstemplate handelt es sich um das "<IBM UMF Template for Decision Log"> \cite{hand_ibm_2008}.
 	
 	\section{Übersicht}
 		\eeppi\ soll Entscheidungs-Wissens-Systeme (DKS) mit 
@@ -14,7 +14,7 @@
 		\end{figure}	
 		
 		Dabei sollen Entscheidungen sowie deren verknüpfte Wahlmöglichkeiten (Optionen) mit Taskvorlagen (Tasktemplates) verknüpft werden.
-		Diese Verknüpfung wird in folgenden Kapiteln als "'Mapping"' bezeichnet. 
+		Diese Verknüpfung wird in folgenden Kapiteln als "<Mapping"> bezeichnet. 
 		Anhand diesen Verknüpfungen sollen aus den Aufgabenvorlagen konkrete Aufgaben generiert und in ein \ppt\ übertragen werden.
 	
 	
@@ -85,8 +85,8 @@
 			
 			
 			Im Laufe der Prototypenphase wurde seitens der Vertretung der Kundengruppe entschieden, 
-			\cdar\ durch eine schlanke Schnittstellenapplikation namens "`ADRepo"' zu ersetzen, 
-			die ihre Daten über die Enterprise Architect Erweiterung "`ADMentor"' bezieht. 
+			\cdar\ durch eine schlanke Schnittstellenapplikation namens ADRepo zu ersetzen, 
+			die ihre Daten über die Enterprise Architect Erweiterung ADMentor bezieht. 
 			Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
 			Das Team plante, die Authentisierungsschnittstelle des \cdar\ zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
 			Die Ablösung des \cdar\ bedingte allerdings, dass \eeppi\ selbst eine Benutzerverwaltung aufbauen muss.
@@ -106,7 +106,7 @@
 Seite \pageref{architektur.technologie} besprochen.
 		
 		Aufgrund der Technologischen Möglichkeiten und den anzubindenden Schnittstellen stehen drei mögliche Tier-Architekturen zur Auswahl.
-		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "`Application Architecture"'\cite{prof._dr._zimmerman_layers_2014}.		
+		Die hier verwendeten Begriffe stützen sich auf von Prof. Dr. Zimmermann verwendete Begriffe in der HSR Vorlesung "<Application Architecture"> \cite{prof._dr._zimmerman_layers_2014}.		
 		
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{architecture/media/img/tierArchitecture.png}
@@ -136,10 +136,10 @@ Seite \pageref{architektur.technologie} besprochen.
 		}{
 			\decisionContent{Distributed Application (Single Page Application)}
 			{Welche Tier-Architektur soll für \eeppi\ gewählt werden?}
-			{Die einzusetzende Technologie unterstützt "`Centralized Computing"', "`Distributed Presentation"' und "'Distributed Application"'}
+			{Die einzusetzende Technologie unterstützt "<Centralized Computing">, "<Distributed Presentation"> und "<Distributed Application">}
 			{Diese Entscheidung ist wichtig, damit eine möglichst lose Kopplung \& hohe Flexibilität auch für zukünftige, auf \eeppi\ aufbauende Applikationen, erreicht wird und der Grundstein für Technologieentscheidungen gelegt wird.}
-			{"`Centralized Computing"', "`Distributed Presentation"'}
-			{"`Distributed Application"' ermöglicht eine Serverseitige (zentralisierte) Persistenz sowie den Aufbau einer schnellen und unabhängigen Applikation durch Nutzung der Rechenleistung auf dem Client, sodass der Server und dessen Kosten schlank gehalten werden können.
+			{"<Centralized Computing">, "<Distributed Presentation">}
+			{"<Distributed Application"> ermöglicht eine Serverseitige (zentralisierte) Persistenz sowie den Aufbau einer schnellen und unabhängigen Applikation durch Nutzung der Rechenleistung auf dem Client, sodass der Server und dessen Kosten schlank gehalten werden können.
 				Da die App vom Server ausgeliefert wird, kann sie zentral von dort aus verwaltet, gewartet und kontrolliert werden.}
 			{keine Speziellen}
 			{Die Serverkomponente muss Persistenz sowie eine Datenschnittstelle für den Client bereitstellen.}
