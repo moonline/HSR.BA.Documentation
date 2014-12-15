@@ -201,7 +201,7 @@ Configure EEPPI
         1. Select the problem or alternative on the left
         2. "Map" the task template on the right
 
-        <img src="img/taskTemplateMapping.png" style="max-width: 10cm; width: 100%;" alt="Map task templates" title="Map task templates" />
+        <img src="img/taskTemplateMapping.png" style="max-width: 8cm; width: 100%;" alt="Map task templates" title="Map task templates" />
 
 8. Transfer tasks to a project planning tool
     1. Navigate to "Transmission"
