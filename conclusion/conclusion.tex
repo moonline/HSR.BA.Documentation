@@ -34,7 +34,7 @@
 			Im Allgemeinen kann gesagt werden,
 			dass auch das Treffen einer Entscheidung eine Aufgabe ist
 			und deshalb durch einen Task in einem \ppt\ repräsentiert werden kann.
-			Ein Benutzer kann den Entscheidungsbedarf in Form einer oder mehrere Taskvorlagen in \eeppi\ modellieren,  
+			Ein Benutzer kann den Entscheidungsbedarf in Form einem oder mehreren \tt s in \eeppi\ modellieren,  
 			anschliessend mit der Entscheidung verknüpfen und ins \ppt\ übertragen.
 			
 			Je nach Grösse, Komplexität und Wichtigkeit der Entscheidung kann der Benutzer dafür einen kleinen Task (wie beispielsweise "<Entscheid treffen">) oder auch mehrere grosse Tasks erstellen (wie beispielsweise "<Entscheidungssitzung abhalten"> oder "<Alternativen evaluieren">) und diese gegebenenfalls hierarchisch verknüpfen (Subtasks).			
@@ -48,7 +48,7 @@
 			doch die meisten Umsetzungstasks sind stark ent\-schei\-dungs\-spezifisch.
 			
 			Für ähnliche Projekte werden sich ähnliche Tasks-Muster ergeben, die Wiederverwendbarkeit wird hoch sein.
-			Für neue und von bisherigen stark unterschiedliche Projekte wird der Benutzer viele neue Taskvorlagen benötigen, 
+			Für neue und von bisherigen stark unterschiedliche Projekte wird der Benutzer viele neue \tt s benötigen, 
 			entsprechend präsentieren sich auch die erzeugten Tasks.
 			
 		
@@ -115,7 +115,7 @@
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
 			das Übertragen von Tasks an ein \ppt, ist direkt durch den Benutzer im Frontend auf hohem Level anpassbar.
 			Das Mapping wurde so ausgelegt, dass der Benutzer nicht direkt Tasks erstellen muss,
-			sondern dass er in Form eines Metamappings Task-Vorlagen erstellt,
+			sondern dass er in Form eines Metamappings \tt s erstellt,
 			aus denen bei einer Übertragung in ein \ppt\ dann Tasks erstellt werden.
 			
 			
@@ -155,16 +155,16 @@
 			Dadurch erhält ein Leser realistische Benutzungsbeispiele für die API mit passenden Antwortdaten.
 			
 	
-		\subsection{Strukturierung von Tasktemplates}
-			Eine Strukturierung von Tasktemplates wurde zugunsten höher priorisierten Features als optionales Feature deklariert.
-			Dem Team ist es jedoch in der letzten Woche vor dem Featurefreeze noch gelungen, eine schlanke Umsetzung einer Hierarchisierung von Tasktemplates zu implementieren.
+		\subsection{Strukturierung von \tt s}
+			Eine Strukturierung von \tt s wurde zugunsten höher priorisierten Features als optionales Feature deklariert.
+			Dem Team ist es jedoch in der letzten Woche vor dem Featurefreeze noch gelungen, eine schlanke Umsetzung einer Hierarchisierung von \tt s zu implementieren.
 			Dies ermöglicht das Erstellen von Subtasktemplates und das Exportieren von Subtasks.
 			
 		
 		\subsection{Im- und Export der Daten von \eeppi}
 			Über die API von \eeppi\ lassen sich alle Daten des Systems,
 			ausgenommen Benutzerpasswörtern, exportieren und importieren.
-			Dies ermöglicht das Transferieren von Tasktemplates und Mappings zu einer andern \eeppi -Instanz.
+			Dies ermöglicht das Transferieren von \tt s und Mappings zu einer andern \eeppi -Instanz.
 			
 			Zusätzlich lassen sich alle Daten auch durch ein Backup der Datenbank sichern und transferieren, da \eeppi\ keine Daten ausserhalb der im Play-Framework konfigurierten Persistenz\footnote{Play legt die Daten je nach Konfiguration in einer Datenbank oder einer Datei ab. Im Falle der Datenbank können Backups mit deren Tools erstellt werden, im Falle der Datei (Infiledatenbank) die Datei selbst gesichert werden.} ablegt.
 			
@@ -214,7 +214,7 @@
 		\subsection{Verwendung der API}
 			Einige mögliche neue Funktionen basieren auf Kernfunktionen von \eeppi,
 			bieten aber einen weitergehenden Nutzen für den Benutzer
-			(wie beispielsweise der Rückfluss von Informationen eines Tasks zurück in das Task-Template, siehe Abschnitt~\ref{subsec:informationFlowbackFeature}).
+			(wie beispielsweise der Rückfluss von Informationen eines Tasks zurück in das \tt, siehe Abschnitt~\ref{subsec:informationFlowbackFeature}).
 			Solche Funktionen könnten durch eine eigenständige Applikation implementiert werden,
 			welche das API von \eeppi\ verwendet.
 
@@ -224,7 +224,7 @@
 		\eeppi\ deckt die notwendige Kernfunktionalität ab, damit Benutzer angenehm arbeiten können.
 		Im Rahmen einer Weiterentwicklung sind viele Möglichkeiten denkbar. 
 		Einige wie ein Rechte-System sind eher praktischer Natur, 
-		andere wie beispielsweise Vererbungsmöglichkeiten für Task-Templates würden die Wiederverwendbarkeit verbessern und dem Benutzer einen echten Mehrwert bieten.
+		andere wie beispielsweise Vererbungsmöglichkeiten für \tt s würden die Wiederverwendbarkeit verbessern und dem Benutzer einen echten Mehrwert bieten.
 		Nachfolgend sind einige denkbare Erweiterungen von \eeppi\ erklärt.
 		
 		\subsection{Rechte und Rollen}
@@ -235,11 +235,11 @@
 			\eeppi\ könnte als Cloud-Service angeboten werden und eine einzige Instanz könnte für mehrere Kunden verwendet werden.
 			
 		
-		\subsection{Vererbende Tasktemplate}
-			Task-Templates, die Eigenschaften von andern Templates erben können, 
+		\subsection{Vererbende \tt s}
+			\tt s, die Eigenschaften von andern Templates erben können, 
 			minimieren die Anzahl notwendiger Templates und erhöhen die Wiederverwendbarkeit.
 			
-			Beispielsweise ist ein Task-Template für Sitzungen denkbar, mit
+			Beispielsweise ist ein \tt\ für Sitzungen denkbar, mit
 			davon abgeleiteten Templates für verschiedene Sitzungsarten.
 			Dem Elterntemplate untergeordnete Subtasks wie zum Beispiel "<Zur Sitzung einladen"> oder "<Sitzungs-Protokoll"> versenden, würden automatisch auch auf Subtemplates angewandt, bzw. mit diesen ans \ppt\ übertragen.
 			
@@ -295,15 +295,15 @@
 			welchen Account sie jetzt für welches Request-Template verwenden können.
 			
 			
-		\subsection{Rückfluss von Informationen des Tasks zurück in Task-Template}
+		\subsection{Rückfluss von Informationen des Tasks zurück in \tt}
 		\label{subsec:informationFlowbackFeature}
-			Wenn Benutzer einen Task aus einem Task-Template erstellen, wird dieser ins \ppt\ übertragen.
+			Wenn Benutzer einen Task aus einem \tt\ erstellen, wird dieser ins \ppt\ übertragen.
 			Der Benutzer bearbeitet diesen dort und aktualisiert ihn während dem Projektverlauf.
 			Die Erfahrungen, die dabei gemacht werden, bleiben im Task im \ppt\
 			und bringen weiteren Projekten keinen Gewinn.
 			
 			Eine denkbare Erweiterungsmöglichkeit von \eeppi\ ist eine Rückführungsmöglichkeit von
-			Erkenntnissen aus Projekten in die Task-Templates zurück.
+			Erkenntnissen aus Projekten in die \tt s zurück.
 			Unter Umständen gäbe es gar die Möglichkeit, dies teilautomatisiert zu tun.
 			Beispielsweise könnte man Änderungen der Tasks erkennen und dem Benutzer vorschlagen, diese ins \eeppi\ zu übertragen.
 			
