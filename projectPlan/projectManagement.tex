@@ -32,7 +32,7 @@
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{projectPlan/media/img/jiraDashBoard.jpg}
 			\centering
-			\caption{Jira Dashboard}
+			\caption{Jira Dashboard Beispiel}
 			\label{fig:jiraDashBoard}
 		\end{figure}
 		
@@ -99,14 +99,46 @@
 					Service oder Komponente testen. 
 					Andere Klassen sind nur soweit Teil des Tests, 
 					wie dies aufgrund der Abhängigkeiten notwendig ist.
+					\begin{figure}[H]
+						\includegraphics[scale=0.5]{projectPlan/media/img/unitTest.png}
+						\centering
+						\caption{Beispiel eines Unittests}
+						\label{fig:exampleUnittest}
+					\end{figure}
+
 				\item[Integration (Integrationstests)] Tests, die das Zusammenspiel zwischen Klassen, 
 					Komponenten und Services testen. 
 					Diese Tests können über mehrere Layers bis mehrere Tiers laufen.
 					Alle API-Aufrufe werden mit solchen Tests getestet.
+					\begin{figure}[H]
+						\includegraphics[scale=0.5]{projectPlan/media/img/integrationTest.png}
+						\centering
+						\caption{Beispiel eines Integrationstests}
+						\label{fig:exampleIntegrationtest}
+					\end{figure}
+
 				\item[Behaviour (Verhaltenstests)] Gross-Integrationstests, 
 					die über alle Tiers und Layers laufen. 
 					Diese Tests testen Workflows von der Persistenz 
 					bis zur grafischen Ausgabe im Userinterface. 
 					Dazu wird mit Selenium ein Browser gestartet und dessen Ausgabe analysiert.
-					In \eeppi\ sind alle Haupt-Users stories mit einem Selenium-Test abgedeckt.
+					In \eeppi\ sind alle Haupt-Userstories mit einem Selenium-Test abgedeckt.
+					
+					\begin{figure}[H]
+						\includegraphics[scale=0.5]{projectPlan/media/img/behaviourTest.png}
+						\centering
+						\caption{Beispiel eines Behaviourtests (Selenium)}
+						\label{fig:exampleBehaviourtest}
+					\end{figure}
+
+					Um die Schnittstellen zusammen mit den echten Systemen zu testen,
+					werden die externen Systeme mit einer Vagrant-Umgebung (siehe auch Abschnitt~\ref{subsec:vagrant}) gestartet.
+					Konkret läuft ein Test nach folgendem Muster ab:
+					\begin{enumerate}
+						\item Erstellen und starten aller benötigten Vagrant Systeme
+						\item Durchführen der Tests
+						\item Löschen der gestarteten Vagrant Systeme
+					\end{enumerate}
+
+
 			\end{description}

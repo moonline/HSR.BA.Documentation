@@ -24,7 +24,7 @@
 		\end{enumerate}
 		
 		Das Mapping Konzept wurde im Rahmen der Konzeptphase zusammen mit der Tool-Architektur erarbeitet. 
-		Diese beiden erfolgreich abgeschlossenen Ziele waren Voraussetzung für das erfolgreiche Abschliessen des dritten Ziels, 
+		Diese beiden erfolgreich erreichten Ziele waren Voraussetzung für das erfolgreiche Abschliessen des dritten Ziels, 
 		der Implementierung von \eeppi.
 				
 		
@@ -32,8 +32,7 @@
 	\subsection{Rückblick auf die Fragestellungen der Aufgabenstellung}
 		\subsubsection{"<Wie lässt sich Entscheidungsbedarf in Form von agilen Planungsitems darstellen?">}
 			Im Allgemeinen kann gesagt werden,
-			dass auch das Treffen einer Entscheidung eine Aufgabe ist
-			und deshalb durch einen Task in einem \ppt\ repräsentiert werden kann.
+			dass auch das Treffen einer Entscheidung als Task in einem \ppt\ repräsentiert werden kann.
 			Ein Benutzer kann den Entscheidungsbedarf in Form einem oder mehreren \ttpl s in \eeppi\ modellieren,  
 			anschliessend mit der Entscheidung verknüpfen und ins \ppt\ übertragen.
 			
@@ -85,12 +84,12 @@
 			Dieser Erfolgsfaktor setzt sich aus drei Teilaspekten zusammen.
 			
 			Der erste Aspekt ist ein geringer Installationsaufwand.
-			Die Installation von \eeppi\ ist so einfach wie  die Installation eines Jira und in wenigen Minuten erledigt. 
+			Die Installation von \eeppi\ ist so einfach wie  die Installation eines Jira und in weniger als einer Stunde erledigt. 
 			Für Benutzer wird das empfohlene Vorgehen im Abschnitt~\ref{chapter:userManual} genau beschrieben.
 			
 			Ein weiterer Aspekt sind Lizenzfragen.
 			Eine die zukünftige Nutzung stark einschränkende Lizenz würde viele potentielle Interessenten abschrecken.
-			Aus diesem Grund steht \eeppi, wie in Abschnitt~\ref{sec:eeppiLisences} beschrieben, unter einer sehr offenen Lizenz.
+			Aus diesem Grund steht \eeppi, wie in Abschnitt~\ref{sec:eeppiLisences} beschrieben, unter der sehr offenen Apache 2 Lizenz.
 			
 			Letzter Aspekt ist die Robustheit im Betrieb.
 			\eeppi\ war als Forschungsprojekt nicht längere Zeit im Produktivbetrieb
@@ -111,7 +110,7 @@
 			
 		\subsubsection{"<Reife der Konzepte">}
 			Dieser Erfolgsfaktor widmet sich der Konfigurierbarkeit, der Flexibilität und der Eleganz der Mapping-Konzepte von \eeppi.
-			Bei der Entwicklung von \eeppi\ hat das Projektteam äussersten Wert auf genau diese Punkte gelegt.
+			Bei der Entwicklung von \eeppi\ hat das Projektteam grossen Wert auf genau diese Punkte gelegt.
 			Sehr viele Parameter lassen sich konfigurieren und auch die grundlegende Funktion,
 			das Übertragen von Tasks an ein \ppt, ist direkt durch den Benutzer im Frontend auf hohem Level anpassbar.
 			Das Mapping wurde so ausgelegt, dass der Benutzer nicht direkt Tasks erstellen muss,
@@ -135,7 +134,7 @@
 		sodass Benutzern ein anderes Vorgehen anwenden müssen, um zum gleichen Ziel zu gelangen: Ein Benutzer kann nicht direkt DKS Spaces mit PPT Projekten über die Benutzeroberfläche verknüpfen, sondern muss vom Administrator einen Processor erstellen lassen, der den übermittelten DKS Space mit einem PPT-Identifier verknüpft.
 
 	
-	\section{offene Punkte, Bugs/technische Probleme}
+	\section{Offene Punkte, Bugs, technische Probleme}
 		Aufgefundene Bugs wurden während der Stabilisierungsphase zwischen Feature- und Code-Freeze behoben. Nach dem Code-Freeze aufgefundene Bugs sind folgend aufgelistet.
 	
 		\begin{description}
@@ -184,7 +183,7 @@
 
 		\subsection{Erweiterung der bestehenden Applikation}
 			Die naheliegendste Erweiterungsmöglichkeit bietet die direkte Anpassung der Implementierung von \eeppi.
-			Beschränken sich die Anpassungen nur auf de Funktionalität und nicht auf die Menge der persistierten Daten, so muss lediglich die Clientapplikation angepasst werden.
+			Beschränken sich die Anpassungen nur auf die Funktionalität und nicht auf die Menge der persistierten Daten, so muss lediglich die Clientapplikation angepasst werden.
 	
 		\subsection{Ersatz der Serverapplikation}
 			Die Serverapplikation verwaltet primär die Persistenz und stellt diese Funktionalität in Form der API zur Verfügung.
@@ -248,6 +247,12 @@
 			Eine weitere Erweiterungsmöglichkeit für \eeppi\ stellt eine Übersicht über die in das \ppt\ exportierten Tasks dar.
 			Dies würde dem Benutzer den Umweg über das \ppt\ ersparen.
 		
+		\subsection{Import/Export}
+			Damit der Benutzer die Daten auch in anderen Systemen verwenden kann,
+			ohne dass dafür eine Anbindung an die API nötig wäre,
+			könnte eine Möglichkeit zum Im- und Export der Daten implementiert werden.
+			Die Daten könnten beispielsweise als CSV\footnote{Comma Separated Values, einfaches Dateiformat zur Speicherung von strukturierten Daten}- oder ganze Excel-Dateien importiert und exportiert werden.
+		
 		
 		\subsection{Undo von übertragenen Tasks}
 			Möglicherweise möchte ein Benutzer erstellte Tasks wieder zurückziehen,
@@ -275,10 +280,8 @@
 		
 	
 		\subsection{Verwendung mehrerer \dks e}
-			Aktuell unterstützt \eeppi\ nur ein \dks\footnote{Die technische Grundlage für mehrere \dks e ist vorhanden, da sie als Entitäten abgelegt werden. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}, welches aber konfiguriert werden kann.
-			Eine mögliche Erweiterung wäre die Integration mehrerer konfigurierbarer \dks e als Datenquelle.
-			Der Benutzer wäre anschliessend in der Lage, jeweils das gewünschte System für das Mapping oder als Quelle für die Erzeugung der Tasks auszuwählen.
-		
+			Aktuell unterstützt \eeppi\ nur ein \dks\footnote{Die technische Grundlage für mehrere \dks e ist vorhanden, da sie als Entitäten abgelegt werden. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}, welches konfiguriert werden kann.
+			Durch die Integration mehrerer konfigurierbarer \dks e als Datenquelle, wäre der Benutzer in der Lage, das gewünschte System für das Mapping oder als Quelle für die Erzeugung der Tasks auszuwählen.
 		
 		\subsection{Verwendung mehrerer Projekte}
 			Analog zum vorhergehenden Punkt unterstützt \eeppi\ auch nur ein einziges Projekt\footnote{Die technische Grundlage für mehrere Projekte ist vorhanden, da das Projekt eine Entität ist. Server wie Client verwenden jedoch nur eine einzige Defaultinstanz.}.
