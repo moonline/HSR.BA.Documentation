@@ -1,12 +1,14 @@
 \section{Technologie}\label{architektur.technologie}
 	Für die Umsetzung von \eeppi\ haben wir uns für verschiedene Technologien entschieden.
-	Die Evaluation sowie die Technologien selber sind unten beschrieben.
+	Die Evaluation sowie die Technologien selbst werden nachfolgend beschrieben.
 
 	\subsection{Server}
-		Für \eeppi\ ist die Erstellung einer Webanwendung vorgegeben.
-		Die eine Hälfte davon ist der Server, seine Technologie wird nachfolgend beschrieben.
+		Die Erstellung einer Webanwendung ist Teil der Anforderungen von \eeppi.
+		Als Erstes wird im folgenden Abschnitt die Auswahl der Servertechnologie beschrieben.
 
-		\subsubsection{Evaluation}\label{serverEvaluation}
+		\subsubsection{Evaluation}
+			\label{serverEvaluation}
+			
 			Die Servertechnologie stellt eine entscheidende Komponente dar, 
 			ihre Wahl ist von entsprechender Tragweite für andere Komponenten des Projektes.
 			Aus diesem Grund haben wir sie ausführlich evaluiert.
@@ -54,10 +56,10 @@
 					\label{fig:EntwicklungVonWebserverTechnologien}
 			\end{figure}
 			
-			Schlussendlich haben wir uns da nach Recherchen auf eine "<1"> geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat.
+			Schlussendlich haben wir uns nach Recherchen auf eine "<1"> geeinigt, weil entgegen den Erwartungen von Laurin Murer sich die Verbreitung von PHP (auch bei grösseren Seiten) kaum verändert hat in den letzten Jahren.
 			Als Beispiel für eine Technologie, die immer weniger eingesetzt wird und in den nächsten Jahren verschwinden wird, haben wir Shockwave Flash herangezogen, welche, wie in Abbildung~\ref{fig:EntwicklungVonWebserverTechnologien} sichtbar, im letzten Jahr deutlich an Boden verloren hat.
-			Im Vergleich dazu ist PHP sehr gut im Markt vertreten und hat auch eine äusserst konstante Verbreitung.
-			Deshalb und unter dem Gesichtspunkt der soliden Konzepte, 
+			Im Vergleich dazu ist PHP sehr gut im Markt vertreten und besitzt auch eine äusserst konstante Verbreitung.
+			Deshalb, und unter dem Gesichtspunkt der soliden Konzepte, 
 			die den in den letzten Jahren entstandenen modernen PHP Frameworks wie Doctrine und Flow zugrunde liegen, sehen wir da auch das Fortbestehen für diese Technologien gegeben.
 			
 			\begin{figure}[H]
@@ -68,11 +70,15 @@
 					\label{fig:ErgebnisServertechnologieVergleich}
 				\end{minipage}
 			\end{figure}
+		
+		
+		\subsubsection{Ergebnis}
+			\label{serverEvaluationErgebnis}				
 			
 			Schlussendlich haben wir für jede Technologie das Total der Punkte berechnet (Punkte jedes Kriteriums multipliziert mit seiner Priorität).
-			In Abbildung~\ref{fig:ErgebnisServertechnologieVergleich} sieht man das finale Ergebnis.
+			In Abbildung~\ref{fig:ErgebnisServertechnologieVergleich} ist das Ergebnis abgebildet.
 			Aufgrund diesem haben wir uns für das Play Framework entschieden.
-			Eine Alternative wäre noch Node.js mit TypeScript gewesen, doch dies hat bereits 10\%-Punkte weniger erreicht.
+			Eine Alternative wäre noch Node.js mit TypeScript gewesen, diese erreichte jedoch, aufgrund der Präferenz des Betreuers für Java und der schlechteren Unterstützung durch Hostingangebote, 10\% weniger Punkte.
 			
 			
 		\decision{
@@ -80,7 +86,7 @@
 		}{
 			\decisionContent{Play Framework}
 			{Welche Servertechnologie soll eingesetzt werden?}
-			{keine Speziellen}
+			{Die einzusetzende Technologie erlaubt die ausgewählte Tier-Architektur-Variante}
 			{Von der Servertechnologie hängen unter Anderem die Entscheidungen für Server und Persistenz Framework ab.}
 			{\cdar\ erweitern, eigener Tomcat, Node.js+JS, Node.js+TS, Ruby, PHP}
 			{			
@@ -95,9 +101,11 @@
 					\item Im IFS\footnote{Institut für Software, HSR Hochschule für Technik: \url{http://www.ifs.hsr.ch/}} ist Know How zum Play Framework vorhanden (M. Stocker).
 				\end{itemize}
 			}
-			{keine Speziellen}
 			{keine}
-			{keine}
+			{Potentielle Hosting Provider müssen Java unterstützen}
+			{
+				\decisionRef{Tier Architektur}{ARC-TIERS}
+			}
 		}
 
 		\subsubsection{Play Framework}
@@ -107,23 +115,21 @@
 			\begin{quote}
 				"<Play is an open source web application framework, written in Scala and Java, which follows the model–view–controller (MVC) architectural pattern. It aims to optimize developer productivity by using convention over configuration, hot code reloading and display of errors in the browser."> \cite{builtwith_pty_ltd_framework_2014}
 			\end{quote}
-
 			
 
 	\subsection{Client}
-		Nachdem dem Server für die Webapplikation fehlt noch die andere Hälfte, der Client.
-		Seine Technologie wird nachfolgend beschrieben.
+		Nachfolgend wird die Auswahl der Technologien für die Clientseite der Applikation beschrieben.
 
 		\subsubsection{Sprache}
-		Der wichtigste Teil des Clients ist die Sprache, in welcher er entwickelt wird.
-		Die Wahl ist nachfolgend beschrieben.
+		JavaScript ist die einzige clientseitige Sprache, die von allen Browsern ohne Installation eines Plugins unterstützt wird. Entsprechend haben wir in diesem Bereich keine Wahlmöglichkeit. Es gibt jedoch einige Precompiler\footnote{Compiler, der Code einer andern Sprache in JavaScript umwandelt, bevor dieser ausgeführt wird.}, die verschiedene Vor- und Nachteile bieten.
 
 		\decision{
 			\decisionHeader{TEC-CLIENT-LANG}{Clientseitige Programmiersprache}{Technologie}{Sprache}
 		}{
 			\decisionContent{TypeScript}
 			{Welche Sprache soll clientseitig verwendet werden?}
-			{keine Speziellen}
+			{Der eingesetzte Build-Server unterstützt Precompiling für JavaScript 
+			oder bietet das starten eigener Skripte an}
 			{Diese Entscheidung beeinflusst die Optionen der Client Frameworks und sie entscheidet, ob die gewählte Sprache gutes Code-Schreiben unterstützt, wenig fehleranfällig ist und Fehler frühzeitig erkannt werden können, oder ob die Sprache Fehler begünstigt und damit die Qualität des Codes verringert.}
 			{
 				\begin{description}
@@ -141,25 +147,29 @@
 			}{TypeScript wird zu JavaScript kompiliert, sodass die Vorteile beide Sprachen kombiniert werden. TypeScript versucht, möglichst den Standard zukünftiger ECMA-Script Versionen einzuhalten, sodass die Kompatibilität immer gewährleistet und die Syntax möglichst ähnlich bleiben soll.
 			\begin{description}
 				\item[Vorteile] Optisch besser lesbar als JavaScript, verhindert bekannte, häufige Probleme in JavaScript wie zum Beispiel das ungewohnte verhalten von "<this">, verbessert die Codequalität gegenüber JavaScript massiv, da viele Fehler zur Kompilierzeit gefunden werden
-				\item[Nachteile] Erfordert TSC-Compiler, Code Overhead bei Inheritance
+				\item[Nachteile] Erfordert TSC\footnote{TypeScript Compiler, kann über den Node-Packagemanager von Node.js installiert werden}-Compiler, Code Overhead bei Inheritance
 			\end{description}
-			}{keine Speziellen}
+			}{keine}
 			{Die Entwicklungsumgebung benötigt Node.js für den TypeScript Compiler.}
-			{keine}
+			{
+				\decisionRef{Tier Architektur}{TEC-CLIENT-FW}
+			}
 		}
 			
 			
 		\subsubsection{Architektur-Framework}
-		Mit der Wahl der Sprache, stellt sich noch die Frage des Frameworks.
-		Dessen Wahl ist nachfolgend beschrieben.
+		Um clientseitig eine grössere Applikation aufzubauen, gibt es verschiedene Möglichkeiten. Einerseits kann selbst ein Mini-Framework entwickelt werden, andererseits gibt es viele weit entwickelte Frameworks mit grossem Funktionsumfang.
+		
 
 			\decision{
 				\decisionHeader{TEC-CLIENT-FW}{Clientseitiges Applikationsframework}{Technologie}{Framework}
 			}{
 				\decisionContent{AngularJS}
 				{Welches Applikationsframework soll clientseitig eingesetzt werden?}
-				{keine Speziellen}
-				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der clientseitigen Applikation und soll ein Framework evaluieren, das Templating und Two-Way-Binding mit UI Komponenten unterstützen, um dies nicht selbst implementieren zu müssen.}
+				{Es wird eine clientzentrierte oder verteilte Applikation entwickelt}
+				{Diese Entscheidung legt den Grundstein für den technologischen Aufbau der clientseitigen Applikation und soll ein Framework evaluieren, 
+				das Templating und Two-Way-Binding mit UI Komponenten unterstützen, 
+				um dies nicht selbst implementieren zu müssen.}
 				{
 					\begin{description}
 						\item[EmberJS] \
@@ -178,38 +188,42 @@
 				Fasst MVC, MVP und andere ähnliche Strukturierungspatterns zusammen, wird manchmal auch "<MV*\hspace{0.05em}"> genannt.
 				}- und Templating-Framework, erlaubt eine saubere Trennung von Logik
 				und Darstellung und bindet ViewModel-Eigenschaften und "=Funktionen ans Template.
-				Dadurch lassen sich Observerkonstrukte sparen.
-				AngularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für die bestehende Applikation (\cdar) eingesetzt.}
+				Dadurch lassen sich Observer-Konstrukte sparen.
+				AngularJS ist stabil, zuverlässig, gut erweiterbar und bringt von sich aus schon sehr viel mit gegenüber EmberJS. Es wurde auch schon für das bestehende \dks\ \cdar eingesetzt.}
 				{keine Speziellen}
-				{Die Serverkomponente muss eine Schnittstelle bieten, über welche die Clientapplikation Daten austauschen kann.}
-				{keine}
+				{Die Serverkomponente muss eine Schnittstelle bieten, 
+				über welche die Clientapplikation Daten austauschen kann.}
+				{
+					\decisionRef{Client Sprache}{TEC-CLIENT-LANG},
+					\decisionRef{Tier Architektur}{ARC-TIERS}
+				}
 			}
 		
 			
 			\subsubsection{JavaScript Autoloading}
-				Ursprünglich war die Idee, Require.js als Autoloader zu benutzen.
+				Ursprünglich wurde die Idee diskutiert, Require.js als Autoloader zu benutzen.
 				Require.js bietet nebst Vorteilen wie Namespacing und Autoloading leider den grossen Nachteil,
 				dass jedes Skript einzeln asynchron vom Client angefordert wird, 
 				was insbesondere bei grösseren Round-Trip-Times die Applikation spürbar verlangsamt.
 				Aus diesem Grund wurde entschieden, 
-				auf die Bordmittel von TypeScript zur Strukturierung zu setzen (Modules/Packages) 
+				auf die Module von TypeScript zur Strukturierung zu setzen  
 				und die verschiedenen Skripte bereits beim Kompilieren zusammenzuführen.
 				
 
 			\subsubsection{Styling}
-				Das Frontend des Clients wird mit CSS\footnote{Cascading Style Sheets: Auszeichnungssprache für Webdokumente, um diese grafisch zu gestalten} gestaltet.
+				Das Frontend der Clientapplikation wird mit CSS\footnote{Cascading Style Sheets: Auszeichnungssprache für Webdokumente, um diese grafisch zu gestalten} gestaltet.
 				Um dieses einfacher schreiben zu können,
-				wird Less\footnote{CSS Pre-Prozessor: \url{http://lesscss.org/}} als CSS Generator eingesetzt, da es den CSS Code stark verschlankt und Vorteile wie Variablen und Mixins bietet.
+				wird Less\footnote{CSS Pre-Prozessor: \url{http://lesscss.org/}} als CSS Preprocessor\footnote{Vorverarbeitungsschritt, 
+				bei dem Code einer andern Sprache in CSS umgewandelt wird} eingesetzt, 
+				da es schlankeren Sourcecode ermöglicht und Vorteile wie Variablen und Mixins bietet.
 				Less wird serverseitig kompiliert um den Client zu entlasten.
 				
+				
 		\subsection{Testing}
-			Testing Framework Anforderungen:
-			\begin{itemize}
-				\item Einfach einzubinden
-				\item Einfach zu erweitern
-				\item Bekannte Benutzung mit Tests und Asserts
-				\item Möglichkeit zur Anbindung eines Build Tools
-			\end{itemize}
+			Das Testframework für den Clientteil soll einfach einzubinden und zu erweitern sein. 
+			Mit "<erweitern"> ist in diesem Falle gemeint, neue Tests und Testsuits hinzuzufügen.
+			Ebenfalls soll es eine Syntax ähnlich der Assert-Syntax von JUnit bieten und mit einem Build Server gekoppelt werden können.
+			
 
 			\subsubsection{Jasmine}
 				Jasmine arbeitet mit einem realen Browser (keine Browsersimulation), 

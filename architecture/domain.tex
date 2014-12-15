@@ -1,4 +1,4 @@
-	\section{Entwurf und Begründungen}
+	\section{Entwurf, Begründungen und Domain Model}
 		Nachfolgend werden die wichtigsten Bezeichnungen von Domänenobjekten eingeführt:
 		
 		\begin{description}
@@ -6,8 +6,7 @@
 				zum Beispiel "<Session State">. 
 				Im \dks\ ADRepo werden Problems als "<Problem Template"> bezeichnet.
 			\item[Alternative] Beschreibt eine Vorlage für eine Wahlmöglichkeit eines Problems.
-				Für das Problem "<Session State"> wären dies zum Beispiel "<Server Session State"> und
-				"<Database Session State">. 
+				Für das Problem "<Session State"> wären dies zum Beispiel "<Server Session State"> und 	"<Database Session State">. 
 				Im \dks\ ADRepo werden Alternatives als "<Option Template"> bezeichnet.
 			\item[Decision] Beschreibt eine konkrete Problem-Instanz.
 				Decisions entstehen, wenn Problems auf konkrete Projekte angewendet werden.
@@ -17,7 +16,7 @@
 				und somit eine konkrete Instanz einer Alternative.
 				Eine Option kann gewählt, nicht gewählt oder noch offen sein.
 				Im \dks\ ADRepo werden Options als "<Option Occurrences"> bezeichnet.
-			\item[\ttpl] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
+			\item[\ttpl] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks (Aufgabenvorlage).
 				\ttpl s enthalten generische Werte, wie zum Beispiel "<Project Manager"> als
 				Attributwert für die Eigenschaft "<Assignee">.
 			\item[Task] Beschreibt einen aus einem \ttpl\ erzeugten konkreten Task.
@@ -28,6 +27,9 @@
 				in einem spezifischen \ppt\ Tasks anzulegen.
 				Request Templates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
 				die mit Daten der \ttpl s und Decisions oder Options ersetzt werden. 
+			\item[Processor] Vererbeitungsfunktion (zu dt. Prozessor), 
+				die Daten eines Mappings verarbeitet und einen Rückgabewert liefert, 
+				der anstelle der Processorsignatur ins Requesttemplate eingefügt wird.
 		\end{description}	
 	
 	
@@ -35,7 +37,7 @@
 			Die \eeppi\ Domäne setzt sich aus drei Typen von Objekten zusammen: 
 			\begin{itemize}
 				\item Einer Abstraktion der Objekte hinter der Schnittstelle der angebundenen Entscheidungswissensverwaltung
-				\item Einer Abstraktion der Objekte hinter der Schnittstelle eines oder mehreren angebundenen \ppt s
+				\item Einer Abstraktion\footnote{In Form des, durch das Request-Template gebundenen, Schnittstellenaufrufs} der Objekte hinter der Schnittstelle eines oder mehreren angebundenen \ppt s
 				\item Den eigenen Objekten und Schnittstellen
 			\end{itemize}
 			
@@ -46,7 +48,7 @@
 				\begin{figure}[H]
 					\includegraphics[width=0.9\linewidth]{architecture/media/img/domain.png}
 					\centering
-					\caption{\eeppi Domäne}
+					\caption{Konzeptionelle \eeppi -Domäne}
 					\label{fig:domain}
 				\end{figure}				
 			\end{landscape}
@@ -55,9 +57,9 @@
 			\begin{figure}[H]
 				\includegraphics[width=\linewidth]{architecture/media/img/dksDomain.png}
 				\centering
-				\caption[DKS Domäne\newline 
+				\caption[ADRepo-Domäne\newline 
 					\license{Eclipse Public License \url{https://www.eclipse.org/legal/epl-v10.html} Lukas Wegmann, IFS HSR \url{https://www.ifs.hsr.ch}}
-				]{ADRepo-Domäne} %TODO: gell Tobi, das ist vom ADRepo?
+				]{ADRepo-Domäne\footnote{Quelle: IFS HSR, Abbildungsverzeichnis}}
 				\label{fig:dksDomain}
 			\end{figure}
 			
@@ -65,7 +67,9 @@
 			\begin{description}
 				\item[Element] Node
 				\item[ProblemTemplate] Problem
-				\item[ProblemOccurrence] Decision			
+				\item[ProblemOccurrence] Decision
+				\item[OptionTemplate] Alternative
+				\item[OptionOccurrence] Option
 			\end{description}
 			
 			
@@ -84,8 +88,8 @@
 			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
 			Jedes Mapping steht für eine Verknüpfung eines \ttpl s mit einem Problem oder einer Alternative.
 			
-			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne \ref{fig:dksDomain}) gefunden werden. %TODO: gell, das war ADRepo und nicht generell DKS?
-			Anschliessend können zusammen mit den Daten des \ttpl s und dessen Eigenschaften (siehe \eeppi-Domäne \ref{fig:domain}) Tasks erzeugt werden.
+			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne Abbildung \ref{fig:dksDomain}) gefunden werden. %TODO: gell, das war ADRepo und nicht generell DKS?
+			Anschliessend können zusammen mit den Daten des \ttpl s und dessen Eigenschaften (siehe \eeppi -Domäne Abschnitt \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
 		\subsection{Implementationsdomäne}
@@ -96,7 +100,7 @@
 				\begin{figure}[H]
 					\includegraphics[width=0.9\linewidth]{architecture/media/img/implementationDomain.png}
 					\centering
-					\caption{\eeppi\ Implementationsdomäne}
+					\caption{\eeppi -Implementationsdomäne}
 					\label{fig:implementationDomain}
 				\end{figure}				
 			\end{landscape}	
@@ -108,10 +112,20 @@
 		\subsection{Umbenennen und Löschen von Domänenobjekten}
 			Um Probleme mit referenzierten Domänenobjekten zu vermeiden,
 			darf es Benutzern nur möglich sein, \ttpl s umzubenennen,
-			nicht jedoch zu löschen.
-			Dies ermöglich Benutzern, 
+			nicht jedoch zu löschen.			
+
+			Das Löschen von referenzierten \ttpl s würde dazu führen, 
+			das ein Teil der Export-Historie verloren gienge und Mappings kein zugeordnetes \ttpl\ mehr besitzen würden.
+			 Dies wiederum würde zu fehlerhaften Exports, bzw. leeren Exports führen.
+			 Aus diesem Grund ist das Löschen von referenzierten \ttpl s keine Option, höchstend das Löschen von noch nicht referenzierten.			
+			
+			Könnten Benutzer \ttpl s löschen, so müsste geprüft werden, 
+			ob diese referenziert werden. Sobald der Benutzer jedes \ttpl einmal exportiert hätte, könnte er ebenfalls keines mehr löschen.
+			Die Möglichkeit zum Löschen ist entsprechend sowieso nur in einem neu aufgesetzten System gegeben.
+			
+			Das konsequente Umsetzen der "<Umbenennen statt Löschen">-Strategie ermöglich Benutzern, 
 			falsch angelegte \ttpl s weiterzuverwenden, vermeidet jedoch, 
-			dass bereits referenzierte Vorlagen entfernt werden.
+			dass sich die Applikation unterschiedlich verhält für bereits referenziert und noch nicht referenzierte \ttpl s.
 			
 			Das Gleiche gilt auch für Task Properties.
 			Dies dürfen auf keinen Fall vom Benutzer entfernt werden 
@@ -136,7 +150,7 @@
 		}{
 			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Vertreters der Anforderungsgruppe nicht hierarchische Kategorien, Smart Filters}
 			{Welches Konzept soll zur Strukturierung von \ttpl s eingesetzt werden?}
-			{keine Speziellen}{Benutzer sollen einfach und schnell erstellte \ttpl s wieder finden.}
+			{\ppt\ s unterstützen überhaupt hierarchische Tasks, ansonsten sind entsprechende Strukturierungsmöglichkeiten wenig sinnvoll}{Benutzer sollen einfach und schnell erstellte \ttpl s wieder finden.}
 			{
 				\begin{description}
 					\item[Keine Strukturierung] \
@@ -184,8 +198,8 @@
 				Smart Filter sind eine Ergänzung zu den beiden Optionen und ermöglichen das schnelle Finden anhand von Eigenschaften,
 				ohne dass diese der Benutzer erfassen muss.
 			}
-			{keine Speziellen}
 			{keine}
+			{Mögliche zukünftige Erweiterung durch Strukturierungsmöglichkeiten muss bei der Implementation berücksichtigt werden}
 			{keine}
 		}
 		
@@ -204,11 +218,20 @@
 				Auf die \ttpl s selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
 				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt, hängt nur davon ab,
 				ob das \ttpl\ mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
+				
+				Sollte ein Unterscheidung dennoch einmal notwendig sein, 
+				so kann dies mittels Processors umgesetzt werden (Siehe Abschnitt \ref{subsec:transmissionWorkflow}), da die Daten des \dks\ s Typeninformationen enthalten.
+				
 
 			\subsection{Übertragung von \ttpl s in \ppt}
 				Aus \ttpl s werden beim Übertag in ein \ppt\ Tasks generiert.
-				\ttpl s sind generisch, da Änderungen auch alle verknüpften Problem Spaces betreffen sollen.
-				Aus diesem Grund werden \ttpl s bei der Zuordnung verknüpft und nicht kopiert.
+								
+				\ttpl s sind generische Vorlagen, die ständig weiterentwickelt werden sollen.
+				Aus diesem Grund wäre es unpraktisch, wenn ein Benutzer für jedes Mapping dessen \ttpl anpassen müsste, auch wenn es sich um das gleich \ttpl handelt.
+				Die Anzahl \ttpl s, die der Benutzer aktuell halten müsste, würde mit der Anzahl Mappings wachsen und schnell einen unüberblickbare Grösse erreichen.
+				Darum werden \ttpl s mit Mappings verknüpft (referenziert) und nicht kopiert.
+				Der Benutzer kann ein \ttpl anpassen. Exportiert er das nächste Mal Tasks, 
+				so wird für alle gemappten Problems das aktuelle \ttpl verwendet.
 				
 				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{architecture/media/img/decisionTaskRelation.png}
@@ -218,8 +241,7 @@
 				\end{figure}
 				
 				Beim Übertragen werden aus \ttpl s (konkrete) Tasks.
-				Auch Entscheidungen werden zu Tasks übertragen, da \ppt's keine Entscheidungen kennen.
-				Mit Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
+				Mit Optionen von Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
 				
 				Benutzer wollen bei der Übertragung ins \ppt\ die vom \ttpl\ vorgegebenen Werte möglicherweise anpassen, wie zum Beispiel den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der \ttpl s in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
@@ -228,6 +250,8 @@
 			
 		
 		\subsection{Tasktransmission Workflow}
+			\label{subsec:transmissionWorkflow}		
+		
 			Aus \ttpl s erzeugte Tasks müssen zur Übertragung in ein \ppt\
 			toolspezifisch umgewandelt werden. Dazu werden "<Processors"> eingesetzt.
 			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln.

@@ -12,7 +12,7 @@
 		{"<Client Session State"> ermöglicht die Umsetzung eines zustandslosen Servers. 
 			Dadurch wird eine reine Resourcen-basierte Serverschnittstelle möglich.			
 		}
-		{keine Speziellen}
+		{Es wird eine Identifizierung/Wiedererkennung des Benutzers benötigt}
 		{Der Client muss eine Möglichkeit bieten, eine Session zu speichern. Bevorzugt soll dafür ein Session Cookie zum Einsatz kommen.}
 		{
 			\decisionRef{Server Technologie}{TEC-SERVER},				
@@ -35,6 +35,8 @@
 		Wir haben uns entschieden selbst einen kleinen CORS Proxy in unsern Server zu integrieren,
 		damit die Daten nicht über fremde Services fliessen und
 		\eeppi\ auch in einem lokalen Netzwerk mit beschränktem Internetzugriff betrieben werden kann.
+		Da \eeppi\ Daten mit Businessrelevanz verarbeitet, ist die Vertraulichkeit der Daten eine wichtige Komponente, was ebenfalls gegen einen externen Service spricht.
+		
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{architecture/media/img/eeppiDataflow.jpg}
