@@ -101,7 +101,7 @@ Configure EEPPI
         2. Create a request to create an issue in your project planning tool. E.g. for Redmine:
         
                {
-                   "issue"; {
+                   "issue": {
                        "project_id": "test",
                        "tracker_id": 1,
                        "parent_issue_id": "0",
@@ -115,7 +115,7 @@ Configure EEPPI
         3. Replace values by variables:
         
                {
-                   "issue"; {
+                   "issue": {
                        "project_id": "${pptProject}",
                        "tracker_id": ${taskTemplate.type},
                        "parent_issue_id": "${parentRequestData.issue.id}",
@@ -169,7 +169,7 @@ Configure EEPPI
         8. Complete your request template transforming all needed values. E.g.
         
                {
-                   "issue"; {
+                   "issue": {
                        "project_id": "${pptProject}",
                        "tracker_id": $trackerTransformation:(taskTemplate.type)$,
                        $!ifElse:(parentRequestData.issue.id,""parent_issue_id": "$!{parentRequestData.issue.id}"\,", "")$
