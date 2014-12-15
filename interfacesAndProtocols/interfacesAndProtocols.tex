@@ -18,24 +18,29 @@
 	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
 	
 	\begin{figure}[H]
-		\includegraphics[width=\textwidth]{interfacesAndProtocols/media/img/apiDocumentation.png}
+		\includegraphics[width=0.9\textwidth]{interfacesAndProtocols/media/img/apiDocumentation.png}
 		\centering
-		\caption{Auszug aus der API-Dokumentation}
+		\caption{API-Dokumentation im Browser (Vollständige Dokumentation siehe Abschnitt \ref{sec:apiDocumentation}) }
 		\label{fig:apiScreenshot}
 	\end{figure}
+
 
 	\subsection{Herkunft der Daten}
 		Damit das API mit möglichst geringem Aufwand auf dem neusten Stand bleibt, wurde darauf geachtet,
 		die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen oder zumindest von möglichst nah davon.
+		
+		
 		\subsubsection{Liste aller API-Methoden}
 			Die Liste der verfügbaren Methoden wird direkt aus dem Programmcode abgeleitet.
 			Dazu wird mit Hilfe von Reflections\footnote{\url{http://docs.oracle.com/javase/7/docs/api/java/lang/reflect/package-summary.html}} in einem ersten Schritt die Liste aller Controller-Klassen eruiert
 			und in einem zweiten Schritt deren Methoden extrahiert, die einen API-Aufruf repräsentieren.
 		
+		
 		\subsubsection{HTTP-Verb und Pfad}
 			HTTP-Verb und Ressourcenpfad werden aus der "<routes">-Datei geladen.
 			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei zur Delegation von Anfragen von Clients an den richtigen Controller.
 			Damit ist sichergestellt, dass diese Daten in der API-Dokumentation stets aktuell sind.
+			
 			
 		\subsubsection{Beschreibungen}
 			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
@@ -54,6 +59,7 @@
 				\caption{Annotations im DecisionKnowledgeSystemController}
 				\label{fig:apiAnnotations}
 			\end{figure}
+			
 			
 	\subsection{Beispielaufrufe}
 	\label{subsubsec:exampleQueries}
@@ -82,6 +88,7 @@
 		Diese baut anhand einer Factorykonfiguration, die jedes übertragbare Objekt deklarieren muss, Objekte zusammen und füllt sie mit Daten.
 		Diese zusätzliche Konfiguration ist notwendig, da JavaScript nicht genügend Typeninformationen besitzt, aus denen sich die erforderlichen Informationen ermitteln liessen und TypeScript diese nicht automatisch generieren kann.
 		Alternativ liesse sich die Prototypeninstanziierung  durch Factoryfunktionen pro Objekt umsetzen, dies hat sich jedoch während der Entwicklung als wartungsintensiv und Duplicated-Code-lastig erwiesen.
+		
 		
 \section{HTTP Verben}
 		RESTfull impliziert die Verwendung der richtigen Verwendung der HTTP Verben: 

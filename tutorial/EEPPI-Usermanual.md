@@ -27,19 +27,19 @@ To install EEPPI by hand, do the following steps. You can use the declared comma
 
 3. Install EEPPI
     1. Unpack EEPPI-1.0.zip
-    
+
            sudo unzip EEPPI-1.0.zip -d /usr/local/bin/eeppi_zip/
            sudo mv /usr/local/bin/eeppi_zip/`ls -1 /usr/local/bin/eeppi_zip/ | tail -n 1` /usr/local/bin/eeppi/
            sudo rmdir /usr/local/bin/eeppi_zip
 
     2. Start EEPPI
-    
+
            sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.documentation=true -DapplyEvolutions.documentation=true -DapplyDownEvolutions.default=false -DapplyEvolutions.default=true &
 
     3. Create crontab to start EEPPI after reboot
-    
+
            ( crontab -l 2>/dev/null | grep -Fv ntpdate ; printf -- "@reboot sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.documentation=true -DapplyEvolutions.documentation=true -DapplyDownEvolutions.default=false -DapplyEvolutions.default=true &\n" ) | crontab
-            
+
 4. EEPPI ist available at [http://localhost:80](http://localhost:80)
 
 
@@ -50,14 +50,14 @@ See [Play documentation: Productive configuration](https://www.playframework.com
 
 * Change Database to PostgreSQL database 'eeppi' running on localhost:
     1. create an `application.conf` in your preffered configuration directory containing the following lines:
-    
+
           db.default.driver=org.postgresql.Driver
           db.default.url="postgres://localhost/eeppi"
           db.default.user="eeppiUser"
           db.default.password="***************"
 
     2. Run eeppi, specify alternative configuration file:
-    
+
           sudo /usr/local/bin/eeppi/bin/eeppi -Dhttp.port=80 -DapplyDownEvolutions.documentation=true -DapplyEvolutions.documentation=true -DapplyDownEvolutions.default=false -DapplyEvolutions.default=true -Dconfig.resource=/path/to/alternative/application.conf &
 
 
@@ -99,7 +99,7 @@ Configure EEPPI
     2. Create a new template entering api path and request body
         1. Take a look into the documentation of the api of your project planning tool. E.g. [Redmine API: Creating an issue](http://www.redmine.org/projects/redmine/wiki/Rest_Issues#Creating-an-issue).
         2. Create a request to create an issue in your project planning tool. E.g. for Redmine:
-        
+
                {
                    "issue": {
                        "project_id": "test",
@@ -113,12 +113,12 @@ Configure EEPPI
             <img src="img/administrationRequestTemplateSimple.jpg" style="max-width: 17cm; width: 100%;" alt="Simple request templtate user" title="Simple request templatate user" />
 
         3. Replace values by variables:
-        
+
                {
                    "issue": {
                        "project_id": "${pptProject}",
                        "tracker_id": ${taskTemplate.type},
-                       "parent_issue_id": "${parentRequestData.issue.id}",
+                       "parent_issue_id": "$!{parentRequestData.issue.id}",
                        "subject": "${taskTemplate.name}",
                        "assigned_to_id": ${taskTemplate.attributes.Assignee}
                    }
@@ -127,7 +127,7 @@ Configure EEPPI
         4. Write the processors you need. Processors are JavaScript functions transforming values. E.g. tracker-transformation-processor:
             1. Navigate to "Administration" > "Processors"
             2. create the new Processor 'trackerTransformation':
-            
+
                    function(typeValue) {
                        if(typeValue == 'Feature') {
                            return 1;
@@ -148,26 +148,26 @@ Configure EEPPI
              * 'parentRequestData': only set if there was a parent request. Contains data returned from your project planning tool.
            * Text values like "Text value" will be handled as text.
            * You can use variables to create path or text values, e.g.
-                
-                 $someProcessor.(${taskTemplate.attributes.nodeSpecialValuePath}, "This will be assigned to ${taskTemplate.attributes.Assignee}")$
+
+                 $someProcessor:(${taskTemplate.attributes.nodeSpecialValuePath}, "This will be assigned to ${taskTemplate.attributes.Assignee}")$
 
            * Escape commas inside processor arguments. Otherwise they will be interpreted as argument divider:
-                
-                 $otherProcessor.("This will be assigned to ${taskTemplate.attributes.Assignee}\, ${taskTemplate.attributes.Stakeholder}")$
+
+                 $otherProcessor:("This will be assigned to ${taskTemplate.attributes.Assignee}\, ${taskTemplate.attributes.Stakeholder}")$
 
            * There are two types of processors and variables:
              * '${..} variables and $..:(..) processors': Will be executed before transmitting the request, you can not use 'parentRequestData' because it's not yet set
              * '$!{..} variables and $!..:(..) processors': Will be executed on transmitting the request, you can only use 'parentRequestData' to access the return values of the last parent request.
         6. Use processors to generate JSON code:
-            
+
                $!ifElse:(parentRequestData.issue.id,""parent_issue_id": "$!{parentRequestData.issue.id}"\,", "")$
         7. Use predefined processors like 'mapExistingAssignees':
-            
+
                $mapExistingAssignees:(taskTemplate.attributes.Assignee, "Project Planner:1\,Customer:1\,Architect:1",""assigned_to_id": ${taskTemplate.attributes.Assignee}\,")$
                $replaceTaskTemplateValueByPPTValue:(taskTemplate.attributes.Type, "Bug:1\,Feature:2\,Support:3",""tracker_id": ${taskTemplate.attributes.Type}\,")$
 
         8. Complete your request template transforming all needed values. E.g.
-        
+
                {
                    "issue": {
                        "project_id": "${pptProject}",
