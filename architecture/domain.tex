@@ -23,9 +23,9 @@
 				Task entstehen während dem Übertragen der Informationen eines \ttpl s an ein \ppt.
 			\item[Mapping] Bezeichnet die Verknüpfung von Problems oder Alternatives mit einem \ttpl. 
 				Anhand dieser Verknüpfung werden die, für die Übertragung eines Tasks an ein \ppt, benötigten Daten erstellt.
-			\item[Request-Template] Bezeichnet eine Vorlage für einen HTTP-Request um 
+			\item[Requesttemplate] Bezeichnet eine Vorlage für einen HTTP-Request um 
 				in einem spezifischen \ppt\ Tasks anzulegen.
-				Request Templates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
+				Requesttemplates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
 				die mit Daten der \ttpl s und Decisions oder Options ersetzt werden. 
 			\item[Processor] Vererbeitungsfunktion (zu dt. Prozessor), 
 				die Daten eines Mappings verarbeitet und einen Rückgabewert liefert, 
@@ -74,6 +74,8 @@
 			
 			
 		\subsection{Metamapping}
+			\label{subsec:metamapping}		
+		
 			Metamapping bezeichnet das Konzept, 
 			wie die Domäne des \dks s (DKS) und die \eeppi -Domäne verknüpft werden sollen.
 			Übergreifend gesehen geht es dabei um nichts Geringeres als die Verbindung von Entscheidungsmanagement und Projektmanagement.			
@@ -88,7 +90,7 @@
 			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
 			Jedes Mapping steht für eine Verknüpfung eines \ttpl s mit einem Problem oder einer Alternative.
 			
-			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne Abbildung \ref{fig:dksDomain}) gefunden werden. %TODO: gell, das war ADRepo und nicht generell DKS?
+			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne Abbildung \ref{fig:dksDomain}) gefunden werden.
 			Anschliessend können zusammen mit den Daten des \ttpl s und dessen Eigenschaften (siehe \eeppi -Domäne Abschnitt \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
@@ -205,33 +207,38 @@
 		
 		
 		\subsection{Verknüpfungen von \ttpl s und Entscheidungs-Vorlagen}
-			Wissensproduzenten können \ttpl s zu Entscheidungs-Vorlagen zuordnen.
-			Dabei kann und soll auch ein \ttpl\ an verschiedene Entscheidungs-Vorlagen zugeordnet werden können.
-			Ebenso können Entscheidungs-Vorlagen natürlich mehrere \ttpl s zugeordnet erhalten.
+			Wissensproduzenten können \ttpl s mit Problems (Entscheidungs-Vorlagen) verknüpfen.
+			Dabei kann und soll ein \ttpl\ verschiedenen Problems zugeordnet werden können.
+			Ebenso können Problems natürlich mehrere \ttpl s zugeordnet erhalten.
 			
 			\subsubsection{Arten der Zuordnung}
-				\ttpl s können mit Entscheidungs-Vorlagen auf zwei Arten verknüpft werden:
+				\ttpl s können mit Problems auf zwei Arten verknüpft werden:
 				\begin{enumerate}
 					\item Sie können dann fällig werden, wenn eine Entscheidung getroffen wurde (operativer Task).
 					\item Ein \ttpl\ dient dazu, Entscheidungen zu treffen (Entscheidungstask).
 				\end{enumerate}
 				Auf die \ttpl s selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
 				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt, hängt nur davon ab,
-				ob das \ttpl\ mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
+				ob das \ttpl\ mit einem Problem oder einer Alternative einer Entscheidung verknüpft ist.
 				
-				Sollte ein Unterscheidung dennoch einmal notwendig sein, 
-				so kann dies mittels Processors umgesetzt werden (Siehe Abschnitt \ref{subsec:transmissionWorkflow}), da die Daten des \dks\ s Typeninformationen enthalten.
+				Sollte eine Unterscheidung dennoch einmal notwendig sein, 
+				so kann dies mittels Processors umgesetzt werden (Siehe Abschnitt \ref{subsec:transmissionWorkflow}), da die Daten des \dks s Typeninformationen enthalten.
 				
 
-			\subsection{Übertragung von \ttpl s in \ppt}
-				Aus \ttpl s werden beim Übertag in ein \ppt\ Tasks generiert.
+			\subsection{Übertragung von Tasks in ein \ppt}
+				Aus \ttpl s werden beim Übertrag in ein \ppt\ Tasks generiert.
 								
-				\ttpl s sind generische Vorlagen, die ständig weiterentwickelt werden sollen.
-				Aus diesem Grund wäre es unpraktisch, wenn ein Benutzer für jedes Mapping dessen \ttpl anpassen müsste, auch wenn es sich um das gleich \ttpl handelt.
-				Die Anzahl \ttpl s, die der Benutzer aktuell halten müsste, würde mit der Anzahl Mappings wachsen und schnell einen unüberblickbare Grösse erreichen.
-				Darum werden \ttpl s mit Mappings verknüpft (referenziert) und nicht kopiert.
-				Der Benutzer kann ein \ttpl anpassen. Exportiert er das nächste Mal Tasks, 
-				so wird für alle gemappten Problems das aktuelle \ttpl verwendet.
+				\ttpl s sind generische Vorlagen, die ständig weiterentwickelt werden sollen durch den Projektplaner.
+				Aus diesem Grund wäre es unpraktisch, wenn ein Benutzer zur Änderung einer Vorlage für jedes Mapping alle \ttpl s anpassen müsste.
+				Die Anzahl \ttpl s, die der Benutzer aktualisieren müsste, würde mit der Anzahl Mappings wachsen und schnell eine unüberblickbare Menge erreichen.
+				
+				Darum werden \ttpl s mit Mappings verknüpft (referenziert) und nicht kopiert zum Zeitpunkt des Mappings. 
+				Eine Kopie würde für jedes Mapping eine neue Instanz des Tasktemplates erzeugen, 
+				hätte jedoch zum Vorteil, das für bereits exportierte Tasks weiterhin die vor der Änderung verwendete Version des \ttpl\ erhalten bliebe.
+				
+				Passt der Benutzer nun ein \ttpl\ an und exportiert anschliessend Tasks, 
+				so wird für alle gemappten Problems das aktuelle \ttpl\ verwendet,
+				weil deren Verknüpfungen nur auf ein einziges \ttpl\ zeigen.
 				
 				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{architecture/media/img/decisionTaskRelation.png}
@@ -241,28 +248,105 @@
 				\end{figure}
 				
 				Beim Übertragen werden aus \ttpl s (konkrete) Tasks.
-				Mit Optionen von Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
+				Mit Alternatives verknüpfte Tasks werden entsprechend zu Sub-Tasks.
 				
 				Benutzer wollen bei der Übertragung ins \ppt\ die vom \ttpl\ vorgegebenen Werte möglicherweise anpassen, wie zum Beispiel den erwarteten Aufwand für den Task.
 				Daher ist es sinnvoll, die Eigenschaften der \ttpl s in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
-				Gleiches gilt für Entscheidungen. Würde jemand im \dks\ diese verändern oder löschen,
+				Gleiches gilt für Eigenschaften von Entscheidungen. Würde jemand im \dks\ diese verändern oder löschen,
 				so würde dies die History zerstören.
 			
 		
-		\subsection{Tasktransmission Workflow}
+		\subsection{Transmission-Workflow}
 			\label{subsec:transmissionWorkflow}		
 		
 			Aus \ttpl s erzeugte Tasks müssen zur Übertragung in ein \ppt\
-			toolspezifisch umgewandelt werden. Dazu werden "<Processors"> eingesetzt.
+			umgewandelt werden, sodass die angesprochene API die Daten auch versteht. 
+			Dazu werden "<Processors"> eingesetzt.
+			
+			\subsubsection{Processors}
 			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln.
 			Beispiele für Processors sind:
+			
 			\begin{itemize}
 				\item "<Date processor">, der Kalenderdaten umwandelt
 				\item "<Issue type processor">, der Issuetypen konvertiert
 				\item "<User processor">, der Relationen zu Benutzern so umwandelt, dass das \ppt\ den User korrekt verknüpfen kann
 				\item "<Conditional processor"> und "<Option processor">, die Bedingungen verarbeiten
 			\end{itemize}
+			
 			Ebenfalls denkbar ist ein Processor, der Felder aggregieren kann und damit zum Beispiel nicht gemappte Felder in die Beschreibung überführen kann.
+			
+			\begin{figure}[H]
+				\begin{lstlisting}
+function(issueType) {
+	if(issueType == 'Feature') {
+		return 2;
+	} else if(issueType == 'Bug') {
+		return 3;
+	} else {
+		return 1; // 'Task'
+	}
+}
+				\end{lstlisting}
+				\centering
+				\caption{Beispielprocessor für Issuetypes}
+				\label{fig:exampleProcessorCodeForIssueTypes}
+			\end{figure}
+			
+			\begin{figure}[H]
+				\begin{lstlisting}
+{
+	"issue": {
+		//...
+		{
+			//...
+			"issue_type": $issueTypeProcessor:(taskTemplate.attributes.Type)$,
+			//...
+		}
+	//...
+}
+				\end{lstlisting}
+				\centering
+				\caption{Processorverwendung in einem Requesttemplate}
+				\label{fig:processorUsageInRequestTemplate}
+			\end{figure}
+			
+			Das Codebeispiel zeigt einen Processor, der textuelle Issuetypes auf ID's des \ppt\ abbildet.
+			Der im Template verwendete "<issueTypeProcessor">-Aufruf wird mit dem Rückgabewert der Processorfunktion ersetzt, sodass für den Wert "<Feature"> für das \ttpl -Attribut "<Type"> 
+			die folgende Zeile resultiert:
+			
+			\begin{figure}[H]
+				\begin{lstlisting}
+"issue_type": 2,
+				\end{lstlisting}
+				\centering
+				\caption{Requesttemplate nach dem Ausführen des Processors}
+				\label{fig:requestTemplateAfterProcessorCall}
+			\end{figure}
+			
+			Weitere Beispiele für Processors und eine Anleitung um selbst welche in ein Requesttemplate zu integrieren,
+			finden sich im Abschnitt \ref{chapter:userManual}, eine Auflistung über die zur Verfügung stehenden Inputdaten für Processors im Abschnitt \ref{sec:ExampleProcessorData} im Anhang.
+			
+			
+			\subsubsection{Variables}
+			Variables können auf Daten von \ttpl und Decision zugreifen,
+			diese aber nicht verändern.
+			
+			\begin{figure}[H]
+				\begin{lstlisting}
+//...
+"estimated_time": ${taskTemplate.attributes.Duration},
+//...
+
+				\end{lstlisting}
+				\centering
+				\caption{Verwendung von Variables in einem Requesttemplate}
+				\label{fig:usageOfVariablesInRequestTemplates}
+			\end{figure}
+			
+			
+			\subsubsection{Verarbeitung und Übertragung}			
+			Die folgende Grafik zeigt den kompletten Ablauf beim Verarbeiten ung Übertragen von Tasks.
 			
 			\begin{figure}[H]
 				\includegraphics[width=\textwidth]{architecture/media/img/transmissionWorkflow.png}
@@ -270,23 +354,54 @@
 				\caption{Übertragen von Tasks}
 				\label{fig:transmissionWorkflow}
 			\end{figure}
+			
 			Dem Transmissionworkflow liegt das "<Pipes and filters">-Pattern zugrunde
 			 \cite{hope_enterprise_2003}, welches eine Verarbeitungs- und Filterkette definiert.
+			 Die Processors stellen dabei die "<Filters"> dar.
 			
-			Der komplette Tasktransmission Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. 
+			Der komplette Transmittion-Workflow soll auf dem Client durchgeführt werden und nicht auf dem Server. 
 			Die Wahl der Servertechnologie schränkt die Möglichkeiten für dynamische Processors ein, während die Client Technologie dies ermöglicht.
 			
-			Im Laufe der Erarbeitung dieses Workflows wurde auch darüber nachgedacht, 
-			wie Eigenschaften verarbeitet werden sollen, die nicht gemappt wurden. 
-			Ursprünglich wurde entschieden, diese in Listenform in die Beschreibung des Tasks
-			überzuführen. 
+			Im Laufe der Erarbeitung dieses Workflows wurde über die Verarbeitung nicht gemappter Eigenschaften diskutiert. 
+			In einer frühen Projektphase wurde entschieden, diese in Listenform in die Beschreibung des Tasks überzuführen. 
 			Die Entscheidung für ein sehr flexibles Mapping führte dazu, 
-			dass dieser Anwendungsfall überflüssig wurde, 
-			weil der Administrator dazu selbst einen Processor definieren kann.
-			Womit die Entscheidung darüber bei ihm bleibt und nicht von uns vorgegeben wird.
-			Zudem müsste in jedem Fall bekannt sein, 
-			bei welchem Feld es sich um das Beschreibungsfeld handelt, 
-			was nicht gegeben ist, wenn der Administrator vergisst, dies zu konfigurieren.
+			dass dieser Anwendungsfall überflüssig wurde.
+			Der Administrator kann selbst einen Processor definieren, der alle Felder in eine Liste überführt und zur Beschreibung des Task hinzufügt.
+			
+			Die Vorteile dieser Lösung liegen auf der Hand: Die Entscheidung darüber, 
+			wie mit nicht gemappten Feldern umzugehen ist, kann der Administrator treffen
+			und die Entwicklung unsererseits vereinfacht sich.
+			
+			
+			\subsubsection{Secondary Processors und Variables}
+			Processors und Variables werden vor dem Übertragen der Information ausgeführt.
+			Informationen, die erst zur Zeit der Übertragung bekannt sind, können somit nicht durch Processors und Variables abgerufen werden.
+			
+			Dafür sind sogenannte "<Secondary Processors"> notwendig, 
+			die direkt vor dem Übertragen ausgeführt werden.
+			Diese können Informationen über hierarchisch höher stehende Tasks (Elterntasks)
+			abrufen und für das Template aufbereiten. So ist beispielsweise eine Verknüpfung zwischen Eltern- und Sub-Tasks realisierbar.
+			
+			Secondary Processors und Variables benutzen eine ähnliche Syntax\footnote{Anstelle des \$ am Anfang beginnen sie mit \$!} wie gewöhnliche Processors und Variables, 
+			können jedoch nur auf die Daten der letzten Übertragung eines übergeordneten Tasks zugreifen.
+			
+			\begin{figure}[H]
+				\begin{lstlisting}
+{
+	"issue": {
+		//...
+		{
+			//...
+			"parent_issue_id": $!{parentRequestData.issue.id}$,
+			//...
+		}
+	//...
+}
+				\end{lstlisting}	
+				\centering
+				\caption{Beispiel für die Verwendung einer Secondary Variable zum Verknüpfen des Eltern-Tasks}
+				\label{fig:secondaryProcessors}
+			\end{figure}
 			
 		
 		\subsection{Mapping Methode}
@@ -295,7 +410,7 @@
 		}{
 			\decisionContent{Konfiguration/Block in Form von Templates mit Platzhaltern}
 			{Wie sollen Mappingkonfigurationen erstellt werden?}
-			{keine Speziellen}
+			{Definiertes Konzept des Metamappings (Siehe Abschnitt \ref{subsec:metamapping})}
 			{Von der Mapping Method hängt die Architektur des Mappings und die Schnittstellen der Processors und Filters ab.}
 			{
 				\begin{description}					
@@ -312,7 +427,7 @@
 			{Der Administrator kann mit Templates und Platzhaltern umgehen oder es lernen}
 			{Das Mapping benötigt kein eigenes Datenmodell in Form von verknüpften Objekten. 
 			Es kann als einfache Text-Elemente an ein Projekt angeknüpft werden.}
-			{keine}
+			{Art der Speicherung in der Datenbank\footnote{In die Bachelorarbeit wurden nur die wichtigsten und grossen Entscheidungen eingefügt.}}
 		}
 		
 		Der Ablauf für einen Administrator sieht entsprechend wie folgt aus:
@@ -340,11 +455,11 @@
 				und zum anderen die Rückmeldung über die erfolgreiche Erzeugung der Tasks im \ppt\ wieder im \eeppi\ gespeichert.
 				Ebenfalls zurückgeliefert werden minimale Informationen über den erstellten Task, 
 				wie zum Beispiel die ID. 
-				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten.
-				Also Processors, die zur Zeit der Übertragung ausgeführt werden und zum Beispiel Informationen über einen Parent Task in das Request-Template einweben können.
+				\eeppi\ verwendet diese Informationen, um dem Benutzer Secondary-Processors anzubieten, die zum Beispiel Informationen über einen Parent Task in das Requesttemplate einweben.
 				
 				Der "<Transmission">-Workflow als Gesamtes ist jedoch ein One-Way-Procedure.
 				Dies bedeutet, dass keine Daten aus dem \ppt\ zurück in \eeppi\ fliessen.
 				Technisch zwar möglich, stellt eine Rückkopplung der Daten oder sogar eine Synchronisierung der Tasks eine grosse Herausforderung dar, 
 				die den Rahmen der Arbeit sprengen würde.
-				Als mögliche zukünftige Erweiterung ist dies jedoch denkbar.
+				Als mögliche zukünftige Erweiterung ist dies jedoch denkbar und könnte eines
+				der Schlüsselkriterien werden, warum Projektplaner \eeppi\ einsetzen wollen.
