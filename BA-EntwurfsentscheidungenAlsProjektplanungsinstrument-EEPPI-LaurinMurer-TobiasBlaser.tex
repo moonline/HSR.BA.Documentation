@@ -92,6 +92,9 @@
 	\addcontentsline{parts.tmp}{documentPart}
 	{\hspace*{-0.6cm}\protect\numberline{}#1}\par
 }
+\newcommand{\documentSubPartEntry}[1]{
+	\documentPartEntry{\hspace{0.6cm}#1}
+}
 
 %links, verlinktes Inhaltsverzeichnis, PDF Inhaltsverzeichnis
 \usepackage[bookmarks=true,

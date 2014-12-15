@@ -1,4 +1,5 @@
 \chapter{Management Summary}
+	\documentSubPartEntry{Management Summary}
 	\captionsetup[figure]{labelformat=empty} % disable figure numbering
 
 	
@@ -9,8 +10,12 @@
 	ob sich aus Projektentscheidungen Aufgaben ableiten lassen. 
 	Weiterhin wird untersucht, ob sich dieser Prozess automatisieren lässt. 
 
-	Jedes Projekt erfordert das Treffen von Entscheidungen, 
-	wobei aus einer bestimmten Entscheidung häufig ähnliche Aufgaben resultieren. 
+	Jedes Projekt erfordert das Treffen von Entscheidungen.	
+	So führt die Entscheidung "<Welche Art Session State soll verwendet werden?"> zum Beispiel zu den Aufgaben
+	"<Session State evaluieren"> und "<Prototyp umsetzen">.
+	Wird bei dieser Entscheidung die Option "<Database Session State"> ausgewählt,
+	so resultieren aus diesem Entscheid beispielsweise die Aufgaben "<Datenbank installieren"> und "<Session Persistenz implementieren">.	
+	
 	Sowohl auf Seite der Entscheidungsverwaltung wie auf Seiten der Projektplanung existieren bereits verschiedene Werkzeuge. 
 	Ziel von \eeppi\ ist es, eine Brücke zwischen Entscheidungsmanagement und Projektplanung zu bauen.
 	
@@ -49,6 +54,8 @@
 		\label{fig:metamapping}
 	\end{figure}	
 	
+	Die Applikation besteht aus einem Serverteil, der die Speicherung der Daten übernimmt und eine Schnittstelle für den Client anbietet, sowie dem Client, der für die Darstellung der Benutzeroberfläche und die Steuerung der Applikation zuständig ist.
+	
 	Über einen Administrationsbereich konfiguriert der Benutzer die Applikation nach seinen Bedürfnissen. 
 	Beispielsweise kann der Benutzer selbst den Aufbau der zu generierenden Aufgaben steuern. 
 	Ein dazu entwickelter Templatingmechanismus ermöglicht ihm, eigene Verarbeitungsfunktionen, sogenannten Prozessoren, zu verwenden. 
@@ -62,7 +69,7 @@
 	
 	\eeppi\ zeigt, was kommerzielle Produkte in diesem Bereich anbieten könnten, 
 	aber auch die Design-Herausforderungen einer solchen Software: 
-	Hohe Flexibilität und Konfigurierbarkeit. 
+	Sowohl die Verknüpfung von Entscheidungen und Aufgaben wie auch die Anbindung an die umliegenden Systeme müssen sehr flexibel gestaltet sein.
 	Mit EEPPI ist dies bereits gelungen; es gibt jedoch noch viele Erweiterungsmöglichkeiten. 
 	\eeppi\ legt somit einen wichtigen Meilenstein im Forschungsbereich des interdisziplinären Entscheidungs- und Projektmanagements 
 	und zeigt einen möglichen Entwicklungspfad für zukünftige Tools auf.
