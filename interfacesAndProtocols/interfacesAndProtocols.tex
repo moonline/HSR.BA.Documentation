@@ -12,14 +12,14 @@
 \section{Dokumentation des API}
 	\label{sec:apiDokumentationCreation}
 	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert (siehe Abschnitt~\ref{sec:apiDocumentation}).
-	Ein Ausschnitt der API Dokumentation ist in Abbildung~\ref{fig:apiScreenshot} abgebildet.
+	Ein Ausschnitt der API-Dokumentation ist in Abbildung~\ref{fig:apiScreenshot} abgebildet.
 	Das Konzept und die Methodik der Dokumentation wurde als Teil von \eeppi\ erstellt
 	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
 	
 	\begin{figure}[H]
 		\includegraphics[width=\textwidth]{interfacesAndProtocols/media/img/apiDocumentation.png}
 		\centering
-		\caption{Auszug aus der API Dokumentation}
+		\caption{Auszug aus der API-Dokumentation}
 		\label{fig:apiScreenshot}
 	\end{figure}
 
@@ -34,7 +34,7 @@
 		\subsubsection{HTTP-Verb und Pfad}
 			HTTP-Verb und Ressourcenpfad werden aus der "<routes">-Datei geladen.
 			Auch das Serverframework (Play Framework) lädt diese Informationen aus dieser Datei zur Delegation von Anfragen von Clients an den richtigen Controller.
-			Damit ist sichergestellt, dass diese Daten in der API Dokumentation stets aktuell sind.
+			Damit ist sichergestellt, dass diese Daten in der API-Dokumentation stets aktuell sind.
 			
 		\subsubsection{Beschreibungen}
 			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
@@ -58,7 +58,7 @@
 	\label{subsubsec:exampleQueries}
 		Um dem Benutzer garantieren zu können, dass und wie die Methode wirklich funktioniert,
 		werden für jede Methode Beispielaufrufe und deren Antworten live generiert und angezeigt.
-		Dazu werden bei jeder Generierung der API Dokumentation zuerst einige Beispieldaten erstellt
+		Dazu werden bei jeder Generierung der API-Dokumentation zuerst einige Beispieldaten erstellt
 		und anschliessend auf diesen Daten die Methode wie ein externer, unabhängiger Client aufgerufen.
 		Die erhaltenen Ergebnisse werden dann in der API als "<The previous command \textbf{did} return"> angezeigt.
 		Falls eine solche Simulation, beispielsweise aufgrund von externen Abhängigkeiten, nicht möglich ist,
@@ -68,7 +68,7 @@
 		Damit die dafür generierten Beispieldaten nicht mit den echten Daten des Systems interferieren,
 		existiert für diesen Teil eine separate Datenbank.
 		Diese muss der Benutzer jedoch nicht konfigurieren.
-		Da die Daten nur während der Generation der API Dokumentation benötigt werden
+		Da die Daten nur während der Generation der API-Dokumentation benötigt werden
 		und nicht längerfristig persistiert werden müssen,
 		werden sie lediglich in einer SQLite-Datenbank\footnote{Einfache Datenbank, in welcher die Daten in einer einzigen Datei gespeichert werden} gespeichert.
 	
