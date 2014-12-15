@@ -6,13 +6,13 @@
 	\eeppi\ besitzt eine RESTfull Schnittstelle, die andere Applikationen benutzen können, um \eeppi\ direkt anzusprechen.
 	Diese Schnittstelle, auch API\footnote{Cascading Style Sheets} genannt, wird auch von der eigenen Clientapplikation benutzt.
 
-	Das API ist auf dem REST\footnote{Representational State Transfer}-Level 2\footnote{REST Maturity Model: \url{http://de.wikipedia.org/wiki/Representational\_State\_Transfer\#REST\_Maturity\_Model}}.
-	Das heisst, die einzelnen Elemente haben ihre eigenen Adressen
-	und können über die HTTP-Verben GET, POST und DELETE verwendet werden.
+	Das API unterstützt REST\footnote{Representational State Transfer}-Level 2\footnote{REST Maturity Model: \url{http://de.wikipedia.org/wiki/Representational\_State\_Transfer\#REST\_Maturity\_Model}}.
+	Das heisst, einzelne Ressourcen haben eigene Adressen
+	und können unter Verwendung der HTTP-Verben GET, POST und DELETE benutzt werden.
 	
 \section{Dokumentation des API}
 	\label{sec:apiDokumentationCreation}
-	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers dokumentiert (siehe Abschnitt~\ref{sec:apiDocumentation}).
+	Sowohl für die Entwicklung des Clients wie auch für die weitere Entwicklung von \eeppi\ wurde das API des Servers ausführlich dokumentiert (siehe Abschnitt~\ref{sec:apiDocumentation}).
 	Ein Ausschnitt der API-Dokumentation ist in Abbildung~\ref{fig:apiScreenshot} abgebildet.
 	Das Konzept und die Methodik der Dokumentation wurde als Teil von \eeppi\ erstellt
 	und ist strukturell an das API von Jira\footnote{\url{https://docs.atlassian.com/jira/REST/latest/}} angelehnt.
@@ -26,8 +26,8 @@
 
 
 	\subsection{Herkunft der Daten}
-		Damit das API mit möglichst geringem Aufwand auf dem neusten Stand bleibt, wurde darauf geachtet,
-		die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen oder zumindest von möglichst nah davon.
+		Damit das API mit möglichst geringem Aufwand jederzeit den neusten Entwicklungsstand repräsentiert, wurde darauf geachtet,
+		die darin angezeigten Daten möglichst direkt aus den Originalquellen zu beziehen.
 		
 		
 		\subsubsection{Liste aller API-Methoden}
@@ -43,18 +43,19 @@
 			
 			
 		\subsubsection{Beschreibungen}
-			Die verschiedenen Beschreibungen für die Methoden werden aus Annotationen direkt bei der Controller-Methode generiert.
+			Die verschiedenen Beschreibungen der Methoden werden aus Annotationen der Controller-Methode generiert.
 			In Abbildung~\ref{fig:apiAnnotations} ist ein Beispiel eines Controllers mit Annotationen abgebildet.
 			Die Annotationen beschreiben:
 			\begin{itemize}
-				\item{alle Parameter}
-				\item{die Methode im Ganzen}
-				\item{alle möglichen Rückgabestatus und deren konkrete Bedeutung}
-				\item{ob eine Authentifizierung nötig ist}
-				\item{die Beispielaufrufe (siehe \ref{subsubsec:exampleQueries})}
+				\item{Alle Parameter}
+				\item{Die Methode im Ganzen}
+				\item{Dlle möglichen Rückgabestati und deren konkrete Bedeutung}
+				\item{Ob eine Authentifizierung nötig ist}
+				\item{Beispielaufrufe (siehe \ref{subsubsec:exampleQueries})}
 			\end{itemize}
+			
 			\begin{figure}[H]
-				\includegraphics[width=0.9\textwidth]{interfacesAndProtocols/media/img/apiAnnotations.png}
+				\includegraphics[width=\textwidth]{interfacesAndProtocols/media/img/apiAnnotations.png}
 				\centering
 				\caption{Annotations im DecisionKnowledgeSystemController}
 				\label{fig:apiAnnotations}
@@ -63,10 +64,10 @@
 			
 	\subsection{Beispielaufrufe}
 	\label{subsubsec:exampleQueries}
-		Um dem Benutzer garantieren zu können, dass und wie die Methode wirklich funktioniert,
+		Um dem Benutzer anzeigen zu können, dass und wie die Methode wirklich funktioniert,
 		werden für jede Methode Beispielaufrufe und deren Antworten live generiert und angezeigt.
 		Dazu werden bei jeder Generierung der API-Dokumentation zuerst einige Beispieldaten erstellt
-		und anschliessend auf diesen Daten die Methode wie ein externer, unabhängiger Client aufgerufen.
+		und anschliessend auf diese Daten zugegriffen über die Methoden, analog einem externen, unabhängigen Client.
 		Die erhaltenen Ergebnisse werden dann in der API als "<The previous command \textbf{did} return"> angezeigt.
 		Falls eine solche Simulation, beispielsweise aufgrund von externen Abhängigkeiten, nicht möglich ist,
 		so ist die vom Entwickler erwartete Antwort auch in der Annotation definiert und wird dem Benutzer als
@@ -82,7 +83,7 @@
 
 
 \section{Client}
-		Die \eeppi\ Clientapplikation nutzt die RESTfull Schnittstelle zum Datenaustausch mit dem Server sowie zur Kommunikation mit Remote-Hosts über die Proxies (Cross-Original Aufruf).
+		Die \eeppi\ Clientapplikation nutzt die RESTfull Schnittstelle zum Datenaustausch mit dem Server sowie zur Kommunikation mit Remote-Hosts über den Proxie (Cross-Original Aufruf).
 		
 		Um auf dem Client einfach und flexibel Prototypen aus übertragenen JSON-Objekten instanziieren zu können, gibt es eine Object Factory.
 		Diese baut anhand einer Factorykonfiguration, die jedes übertragbare Objekt deklarieren muss, Objekte zusammen und füllt sie mit Daten.
