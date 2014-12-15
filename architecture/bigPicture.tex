@@ -1,10 +1,11 @@
 \chapter{Lösungskonzept}
 	\documentSubPartEntry{Lösungskonzept}
 	
-	Bei den hier verwendeten Entscheidungstemplates handelt es sich um Templates gemäss dem "<IBM UMF Template for Decision Log"> \cite{hand_ibm_2008}.
+	Nachfolgend werden die grundlegenden Konzepte von \eeppi , Architektur, gewählte Technologien und die \eeppi -Domäne erläutert.
+	
 	
 	\section{Übersicht}
-		\eeppi\ soll \dks e (DKS) mit \ppt s (PPT) verbinden.
+		\eeppi\ soll \dks e (DKS\footnote{Decision Knowledge System, beispielsweise \cdar}) mit \ppt s (PPT\footnote{Project Planning Tool, beispielsweise Atlassian Jira}) verbinden.
 		
 		\begin{figure}[H]
 			\includegraphics[width=\textwidth]{architecture/media/img/eeppiSchema.jpg}
@@ -31,12 +32,14 @@
 			Wir haben uns für eine eigene Serverkomponente, ein eigenes Userinterface und eine eigene Persistenz entschieden.
 			Die Alternativen sowie die Grundlagen dieser Entscheidung sind nachfolgend aufgeführt.
 			
+			Bei den folgenden verwendeten Entscheidungstemplates handelt es sich um Templates gemäss dem "<IBM UMF Template for Decision Log"> \cite{hand_ibm_2008}.
+			
 			\decision{
 				\decisionHeader{INT-CDAR}{Erweiterung \cdar\ / Integration}{Integration}{Architektur design}
 			}{
 				\decisionContent{Eigene Serverkomponente, eigenes UI (keine UI Integration mit \cdar), eigene Persistenz}
 				{In welcher Art soll \eeppi\ mit dem \cdar\ integriert werden?}
-				{Die \cdar-API Stellt alle benötigten Daten zur Verfügung.}
+				{Die \cdar\ API Stellt alle benötigten Daten zur Verfügung.}
 				{Diese Entscheidung beeinflusst die Möglichkeiten der Technologiewahl der zu nutzenden Schnittstellen und Komponenten und ist daher Grundlegend für weitere Entscheidungen.}
 				{
 					Jede der Entscheidungen (Serverkomponente, Clientapplikation, Persistenz) kann in diesem Fall unabhängig der andern zwei getroffen werden. Darum sind hier nur die Alternativen der jeweiligen einzelnen Entscheidungen und nicht alle Kombinationen aufgelistet:
@@ -84,8 +87,8 @@
 			}
 			
 			
-			Im Laufe der Prototypenphase wurde seitens der Vertretung der Kundengruppe entschieden, 
-			\cdar\ durch eine schlanke Schnittstellenapplikation namens ADRepo zu ersetzen, 
+			Im Laufe der Prototypenphase wurde seitens des Betreuers als Vertreter der Kundengruppe entschieden, 
+			\cdar\ durch die schlanke Schnittstellenapplikation ADRepo zu ersetzen, 
 			die ihre Daten über die Enterprise Architect Erweiterung ADMentor bezieht. 
 			Diese Veränderung bestätigte die Entscheidung für die gewählte Variante.
 			Das Team plante, die Authentisierungsschnittstelle des \cdar\ zu nutzen um Benutzern einen Single Sign On zu ermöglichen.
@@ -95,9 +98,10 @@
 		\subsection{Anbinden von \ppt s}
 			Entscheidend für die Anbindung eines \ppt\ ist deren Schnittstelle zum Erzeugen von Tasks. 
 			Als Referenz-\ppt s haben wir uns für Jira und Redmine entschieden.
-			Beide Systeme besitzen solide Schnittstellen,
-			die das Verwalten von Tasks erlauben 
-			und besitzen einen hohen Verbreitungsgrad über die Softwarebranche hinaus.
+			
+			Beide Systeme besitzen offene und gut dokumentierte Schnittstellen, die funktional sehr mächtig sind und im Fall von Redmine sogar mehrere Formate (JSON und XML) unterstützen.
+			Dadurch ermöglichen beide Systeme das Verwalten von Tasks über die Schnittstelle.
+			Weiter besitzen sie einen hohen Verbreitungsgrad, auch über die Softwarebranche hinaus.
 		
 
 	\section{Tier-Architektur}
