@@ -17,17 +17,17 @@
 				und somit eine konkrete Instanz einer Alternative.
 				Eine Option kann gewählt, nicht gewählt oder noch offen sein.
 				Im \dks\ ADRepo werden Options als "<Option Occurrences"> bezeichnet.
-			\item[\tt] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
-				\tt s enthalten generische Werte, wie zum Beispiel "<Project Manager"> als
+			\item[\ttpl] Beschreibt eine Vorlage zum Erstellen von konkreten Tasks.
+				\ttpl s enthalten generische Werte, wie zum Beispiel "<Project Manager"> als
 				Attributwert für die Eigenschaft "<Assignee">.
-			\item[Task] Beschreibt einen aus einem \tt\ erzeugten konkreten Task.
-				Task entstehen während dem Übertragen der Informationen eines \tt s an ein \ppt.
-			\item[Mapping] Bezeichnet die Verknüpfung von Problems oder Alternatives mit einem \tt. 
+			\item[Task] Beschreibt einen aus einem \ttpl\ erzeugten konkreten Task.
+				Task entstehen während dem Übertragen der Informationen eines \ttpl s an ein \ppt.
+			\item[Mapping] Bezeichnet die Verknüpfung von Problems oder Alternatives mit einem \ttpl. 
 				Anhand dieser Verknüpfung werden die, für die Übertragung eines Tasks an ein \ppt, benötigten Daten erstellt.
 			\item[Requesttemplate] Bezeichnet eine Vorlage für einen HTTP-Request um 
 				in einem spezifischen \ppt\ Tasks anzulegen.
 				Requesttemplates beinhalten Platzhalter (Variablen und Funktionen, sog. Processors),
-				die mit Daten der \tt s und Decisions oder Options ersetzt werden. 
+				die mit Daten der \ttpl s und Decisions oder Options ersetzt werden. 
 		\end{description}	
 	
 	
@@ -82,10 +82,10 @@
 			\end{figure}		
 			
 			Dazu wird die \dks -Domäne von \eeppi\ abstrahiert und mit Task\-tem\-plates verknüpft.
-			Jedes Mapping steht für eine Verknüpfung eines \tt s mit einem Problem oder einer Alternative.
+			Jedes Mapping steht für eine Verknüpfung eines \ttpl s mit einem Problem oder einer Alternative.
 			
 			Beim Erzeugen von konkreten Tasks müssen zu jedem Mapping alle Occurrences (siehe ADRepo-Domäne \ref{fig:dksDomain}) gefunden werden. %TODO: gell, das war ADRepo und nicht generell DKS?
-			Anschliessend können zusammen mit den Daten des \tt s und dessen Eigenschaften (siehe \eeppi-Domäne \ref{fig:domain}) Tasks erzeugt werden.
+			Anschliessend können zusammen mit den Daten des \ttpl s und dessen Eigenschaften (siehe \eeppi-Domäne \ref{fig:domain}) Tasks erzeugt werden.
 			
 			
 		\subsection{Implementationsdomäne}
@@ -107,10 +107,10 @@
 			
 		\subsection{Umbenennen und Löschen von Domänenobjekten}
 			Um Probleme mit referenzierten Domänenobjekten zu vermeiden,
-			darf es Benutzern nur möglich sein, \tt s umzubenennen,
+			darf es Benutzern nur möglich sein, \ttpl s umzubenennen,
 			nicht jedoch zu löschen.
 			Dies ermöglich Benutzern, 
-			falsch angelegte \tt s weiterzuverwenden, vermeidet jedoch, 
+			falsch angelegte \ttpl s weiterzuverwenden, vermeidet jedoch, 
 			dass bereits referenzierte Vorlagen entfernt werden.
 			
 			Das Gleiche gilt auch für Task Properties.
@@ -118,10 +118,10 @@
 			und dürfen entsprechend nur umbenannt werden.
 			
 		
-		\subsection{\tt s Strukturierung}
+		\subsection{\ttpl s Strukturierung}
 			Es gibt verschiedene Möglichkeiten, 
-			Benutzer eine Strukturierung von \tt s anzubieten.
-			\tt s können selbst in eine Struktur gebracht werden
+			Benutzer eine Strukturierung von \ttpl s anzubieten.
+			\ttpl s können selbst in eine Struktur gebracht werden
 			oder durch externe Strukturen geordnet werden.
 		
 			\begin{figure}[H]
@@ -132,17 +132,17 @@
 			\end{figure}
 			
 		\decision{
-			\decisionHeader{DOM-TT-STRUC}{\tt s Strukturierung}{Architecture}{Domain}
+			\decisionHeader{DOM-TT-STRUC}{\ttpl s Strukturierung}{Architecture}{Domain}
 		}{
 			\decisionContent{Keine Strukturierung, allenfalls auf Wunsch des Vertreters der Anforderungsgruppe nicht hierarchische Kategorien, Smart Filters}
-			{Welches Konzept soll zur Strukturierung von \tt s eingesetzt werden?}
-			{keine Speziellen}{Benutzer sollen einfach und schnell erstellte \tt s wieder finden.}
+			{Welches Konzept soll zur Strukturierung von \ttpl s eingesetzt werden?}
+			{keine Speziellen}{Benutzer sollen einfach und schnell erstellte \ttpl s wieder finden.}
 			{
 				\begin{description}
 					\item[Keine Strukturierung] \
 						\begin{description}
 							\item[Vorteile] Einfach zu implementieren, einfach verständlich für den Benutzer
-							\item[Nachteile] Bei vielen \tt s unübersichtlich, führt zu doppelten \tt s,
+							\item[Nachteile] Bei vielen \ttpl s unübersichtlich, führt zu doppelten \ttpl s,
 							da existierende nicht gefunden werden. 
 						\end{description}
 						
@@ -154,7 +154,7 @@
 								Labels anzulegen und zuzuordnen da es aufwändiger ist, als Kategorisieren
 						\end{description}
 					
-					\item[Direkte Hierarchisierung der \tt s] \
+					\item[Direkte Hierarchisierung der \ttpl s] \
 						Elemente werden direkt mit Elternelementen verknüpft und bilden einen hierarchischen Baum.	
 						\begin{description}
 							\item[Vorteile] Einfach zu implementieren
@@ -165,7 +165,7 @@
 					\item[Prototyping statt Strukturierung] \
 						Elemente erben Funktionalität von einander, statt strukturiert zu werden.
 						\begin{description}
-							\item[Vorteile] Verringert die Anzahl \tt s massiv, 
+							\item[Vorteile] Verringert die Anzahl \ttpl s massiv, 
 								da Eigenschaften vererbt werden können
 							\item[Nachteile] Schwieriger umzusetzen, schwieriger zu verstehen für Benutzer
 						\end{description}					
@@ -174,8 +174,8 @@
 			{
 				Keine Strukturierung hat für die Entwicklung sowie für den Benutzer Vorteile.
 				So gibt es zu diesem Punkt kaum Entwicklungsaufwand 
-				und der Benutzer findet trotzdem dank Suchfunktionen die gesuchten \tt s.
-				Ausserdem muss er keine Zeit aufwenden um die \tt s zu strukturieren.
+				und der Benutzer findet trotzdem dank Suchfunktionen die gesuchten \ttpl s.
+				Ausserdem muss er keine Zeit aufwenden um die \ttpl s zu strukturieren.
 
 				Falls Vertreter der Anforderungsgruppe jedoch eine weitergehende Strukturierung wünschen, 
 				empfehlen wir nicht-hierarchische Kategorien sowie Smart Filters.
@@ -190,45 +190,45 @@
 		}
 		
 		
-		\subsection{Verknüpfungen von \tt s und Entscheidungs-Vorlagen}
-			Wissensproduzenten können \tt s zu Entscheidungs-Vorlagen zuordnen.
-			Dabei kann und soll auch ein \tt\ an verschiedene Entscheidungs-Vorlagen zugeordnet werden können.
-			Ebenso können Entscheidungs-Vorlagen natürlich mehrere \tt s zugeordnet erhalten.
+		\subsection{Verknüpfungen von \ttpl s und Entscheidungs-Vorlagen}
+			Wissensproduzenten können \ttpl s zu Entscheidungs-Vorlagen zuordnen.
+			Dabei kann und soll auch ein \ttpl\ an verschiedene Entscheidungs-Vorlagen zugeordnet werden können.
+			Ebenso können Entscheidungs-Vorlagen natürlich mehrere \ttpl s zugeordnet erhalten.
 			
 			\subsubsection{Arten der Zuordnung}
-				\tt s können mit Entscheidungs-Vorlagen auf zwei Arten verknüpft werden:
+				\ttpl s können mit Entscheidungs-Vorlagen auf zwei Arten verknüpft werden:
 				\begin{enumerate}
 					\item Sie können dann fällig werden, wenn eine Entscheidung getroffen wurde (operativer Task).
-					\item Ein \tt\ dient dazu, Entscheidungen zu treffen (Entscheidungstask).
+					\item Ein \ttpl\ dient dazu, Entscheidungen zu treffen (Entscheidungstask).
 				\end{enumerate}
-				Auf die \tt s selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
+				Auf die \ttpl s selbst hat dies keinen Einfluss, sie sind unabhängig davon. 
 				Ob es sich um einen operativen Task oder einen Entscheidungstask handelt, hängt nur davon ab,
-				ob das \tt\ mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
+				ob das \ttpl\ mit einer Entscheidung (Node) oder einer Option einer Entscheidung (Subnode) des Entscheidungsbaumes verknüpft ist.
 
-			\subsection{Übertragung von \tt s in \ppt}
-				Aus \tt s werden beim Übertag in ein \ppt\ Tasks generiert.
-				\tt s sind generisch, da Änderungen auch alle verknüpften Problem Spaces betreffen sollen.
-				Aus diesem Grund werden \tt s bei der Zuordnung verknüpft und nicht kopiert.
+			\subsection{Übertragung von \ttpl s in \ppt}
+				Aus \ttpl s werden beim Übertag in ein \ppt\ Tasks generiert.
+				\ttpl s sind generisch, da Änderungen auch alle verknüpften Problem Spaces betreffen sollen.
+				Aus diesem Grund werden \ttpl s bei der Zuordnung verknüpft und nicht kopiert.
 				
 				\begin{figure}[H]
 					\includegraphics[width=\textwidth]{architecture/media/img/decisionTaskRelation.png}
 					\centering
-					\caption{Übertragen von Entscheidungen und \tt s}
+					\caption{Übertragen von Entscheidungen und \ttpl s}
 					\label{fig:DecisionTaskRelation}
 				\end{figure}
 				
-				Beim Übertragen werden aus \tt s (konkrete) Tasks.
+				Beim Übertragen werden aus \ttpl s (konkrete) Tasks.
 				Auch Entscheidungen werden zu Tasks übertragen, da \ppt's keine Entscheidungen kennen.
 				Mit Entscheidungen verknüpfte Tasks werden entsprechend zu Sub-Tasks.
 				
-				Benutzer wollen bei der Übertragung ins \ppt\ die vom \tt\ vorgegebenen Werte möglicherweise anpassen, wie zum Beispiel den erwarteten Aufwand für den Task.
-				Daher ist es sinnvoll, die Eigenschaften der \tt s in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
+				Benutzer wollen bei der Übertragung ins \ppt\ die vom \ttpl\ vorgegebenen Werte möglicherweise anpassen, wie zum Beispiel den erwarteten Aufwand für den Task.
+				Daher ist es sinnvoll, die Eigenschaften der \ttpl s in die (konkreten) Tasks zu kopieren, anstatt sie lediglich zu verknüpfen.
 				Gleiches gilt für Entscheidungen. Würde jemand im \dks\ diese verändern oder löschen,
 				so würde dies die History zerstören.
 			
 		
 		\subsection{Tasktransmission Workflow}
-			Aus \tt s erzeugte Tasks müssen zur Übertragung in ein \ppt\
+			Aus \ttpl s erzeugte Tasks müssen zur Übertragung in ein \ppt\
 			toolspezifisch umgewandelt werden. Dazu werden "<Processors"> eingesetzt.
 			Processors stellen kleine Funktionalitäten dar, die Daten umwandeln.
 			Beispiele für Processors sind:
