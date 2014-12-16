@@ -148,3 +148,26 @@
 
 
 			\end{description}
+		
+		\section{Testergebnisse}
+			Die Tests wurden automatisch auf dem Jenkins (siehe Abschnitt~\ref{subsec:buildserver}) ausgeführt,
+			wann immer neuer Code committed wurde.
+
+			\begin{figure}[H]
+				\includegraphics[width=\linewidth]{projectPlan/media/img/jenkinsTrend.png}
+				\centering
+				\caption{Trend der Testergebnisse auf dem Jenkins}
+				\label{fig:jenkinsTrend}
+			\end{figure}
+			
+			Einer der dabei laufenden Tests ist ein Selenium-Test, der die Client-Tests ausführt.
+			Eine erfolgreiche Ausführung dieser ist in Abbildung~\ref{fig:clientTestResult} gezeigt.
+			Total hat \eeppi\ rund 150 Tests, davon testen rund 1/3 den Client, knapp 2/3 den Server
+			und rund 10 Tests übergeordnete Funktionalitäten und das Zusammenspiel zwischen Client und Server.
+			
+			\begin{figure}[H]
+				\includegraphics[width=0.8\linewidth]{projectPlan/media/img/clientTestResult.png}
+				\centering
+				\caption{Ergebnisse Client-Tests}
+				\label{fig:clientTestResult}
+			\end{figure}
