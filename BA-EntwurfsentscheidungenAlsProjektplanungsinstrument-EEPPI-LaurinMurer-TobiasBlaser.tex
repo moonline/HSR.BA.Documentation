@@ -1,7 +1,7 @@
 %Pakete;
 %A4, Report, 12pt
-\documentclass[ngerman,a4paper,12pt]{scrreprt}
-\usepackage[a4paper, right=15mm, left=25mm,top=30mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+\documentclass[ngerman,a4paper,12pt, twoside]{scrreprt}
+\usepackage[a4paper, right=20mm, left=25mm,top=30mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
 
 %Papierausrichtungen
 \usepackage{pdflscape}
@@ -32,6 +32,13 @@
 
 %farben
 %\usepackage[svgnames,table,hyperref]{xcolor}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
 
 %font
 \usepackage{helvet}
@@ -60,25 +67,42 @@
 
 \pagestyle{fancy}
 	\fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
-	\fancyhead[L]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LE]{Bachelorarbeit} %Kopfzeile links
 	\fancyhead[C]{} %Kopfzeile Mitte
-	\fancyhead[R]{\eeppi\ - \project} %Kopfzeile rechts
+	\fancyhead[RE]{\eeppi\ - \project} %Kopfzeile rechts
+	
+	\fancyhead[RO]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LO]{\eeppi\ - \project} %Kopfzeile rechts	
+	
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
-	\fancyfoot[L]{Seite \thepage} %Fusszeile links
+	
+	\fancyfoot[LE]{Seite \thepage} %Fusszeile links
 	\fancyfoot[C]{} %Fusszeile Mitte
-	\fancyfoot[R]{Herbstsemester 2014} %Fusszeile rechts
+	\fancyfoot[RE]{Herbstsemester 2014} %Fusszeile rechts
+
+	\fancyfoot[RO]{Seite \thepage} %Fusszeile links
+	\fancyfoot[LO]{Herbstsemester 2014} %Fusszeile rechts	
+	
 	\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
 
 %Kopf-/ Fusszeile auf chapter page
 \fancypagestyle{plain} {
 	\fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
-	\fancyhead[L]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LE]{Bachelorarbeit} %Kopfzeile links
 	\fancyhead[C]{} %Kopfzeile Mitte
-	\fancyhead[R]{\eeppi\ - \project} %Kopfzeile rechts
+	\fancyhead[RE]{\eeppi\ - \project} %Kopfzeile rechts
+
+	\fancyhead[RO]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LO]{\eeppi\ - \project} %Kopfzeile rechts	
+	
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
-	\fancyfoot[L]{Seite \thepage} %Fusszeile links
+	
+	\fancyfoot[LE]{Seite \thepage} %Fusszeile links
 	\fancyfoot[C]{} %Fusszeile Mitte
-	\fancyfoot[R]{Herbstsemester 2014} %Fusszeile rechts
+	\fancyfoot[RE]{Herbstsemester 2014} %Fusszeile rechts
+
+	\fancyfoot[RO]{Seite \thepage} %Fusszeile links
+	\fancyfoot[LO]{Herbstsemester 2014} %Fusszeile rechts	
 }
 
 \usepackage{changepage}
@@ -142,12 +166,18 @@ urlcolor=black
 \input{hsrTitlePage}
 \clearpage
 
-\listofdocumentPart
 \clearpage
+\afterpage{\blankpage}
+\clearpage
+
+\listofdocumentPart
 
 \documentPartEntry{Aufgabenstellung}
 \includepdf[pages=-]{media/documents/Aufgabenstellung.pdf}
 
+\clearpage
+\afterpage{\blankpage}
+\clearpage
 
 % Title page
 \thispagestyle{empty}
@@ -155,13 +185,15 @@ urlcolor=black
 \input{titlePage}
 \clearpage
 
-% Inhaltsverzeichnis
-\setcounter{tocdepth}{2}
-\tableofcontents
 
 % abstract, management summary, vision
 \input{introduction/abstract}
 \input{introduction/managementSummary}
+
+% Inhaltsverzeichnis
+\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents
 
 % Einleitung & Projektorganisation
 \input{introduction/introduction}
@@ -175,6 +207,10 @@ urlcolor=black
 
 % interfaces & protocols
 \input{interfacesAndProtocols/interfacesAndProtocols}
+
+\clearpage
+\afterpage{\blankpage}
+\clearpage
 \input{interfacesAndProtocols/userInterface}
 % performance analyse
 
@@ -183,6 +219,9 @@ urlcolor=black
 % Erkenntnisse, Schlussfolgerungen
 \input{conclusion/conclusion}
 
+\clearpage
+\afterpage{\blankpage}
+\clearpage
 
 \input{glossary}
 \nocite{*}
@@ -199,6 +238,9 @@ urlcolor=black
 \input{requirements/nfRequirements}
 \input{requirements/security}
 
+\clearpage
+\afterpage{\blankpage}
+\clearpage
 % quality management
 \input{projectPlan/projectManagement}
 \input{projectPlan/codeStatistics}
