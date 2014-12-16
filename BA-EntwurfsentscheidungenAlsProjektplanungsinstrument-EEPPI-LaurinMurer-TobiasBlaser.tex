@@ -2,6 +2,7 @@
 %A4, Report, 12pt
 \documentclass[ngerman,a4paper,12pt, twoside]{scrreprt}
 \usepackage[a4paper, right=20mm, left=25mm,top=30mm, bottom=30mm, marginparsep=5mm, marginparwidth=5mm, headheight=7mm, headsep=15mm,footskip=15mm]{geometry}
+\raggedbottom
 
 %Papierausrichtungen
 \usepackage{pdflscape}
@@ -32,13 +33,7 @@
 
 %farben
 %\usepackage[svgnames,table,hyperref]{xcolor}
-\usepackage{afterpage}
 
-\newcommand\blankpage{%
-    \null
-    \thispagestyle{empty}%
-    \addtocounter{page}{-1}%
-    \newpage}
 
 %font
 \usepackage{helvet}
@@ -67,12 +62,12 @@
 
 \pagestyle{fancy}
 	\fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
-	\fancyhead[LE]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LO]{Bachelorarbeit} %Kopfzeile links
 	\fancyhead[C]{} %Kopfzeile Mitte
-	\fancyhead[RE]{\eeppi\ - \project} %Kopfzeile rechts
+	\fancyhead[RO]{\eeppi\ - \project} %Kopfzeile rechts
 	
-	\fancyhead[RO]{Bachelorarbeit} %Kopfzeile links
-	\fancyhead[LO]{\eeppi\ - \project} %Kopfzeile rechts	
+	\fancyhead[RE]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LE]{\eeppi\ - \project} %Kopfzeile rechts	
 	
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
 	
@@ -88,12 +83,12 @@
 %Kopf-/ Fusszeile auf chapter page
 \fancypagestyle{plain} {
 	\fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
-	\fancyhead[LE]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LO]{Bachelorarbeit} %Kopfzeile links
 	\fancyhead[C]{} %Kopfzeile Mitte
-	\fancyhead[RE]{\eeppi\ - \project} %Kopfzeile rechts
+	\fancyhead[RO]{\eeppi\ - \project} %Kopfzeile rechts
 
-	\fancyhead[RO]{Bachelorarbeit} %Kopfzeile links
-	\fancyhead[LO]{\eeppi\ - \project} %Kopfzeile rechts	
+	\fancyhead[RE]{Bachelorarbeit} %Kopfzeile links
+	\fancyhead[LE]{\eeppi\ - \project} %Kopfzeile rechts	
 	
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
 	
@@ -164,20 +159,14 @@ urlcolor=black
 %Titel und Inhaltsverzeichnis
 \thispagestyle{empty}
 \input{hsrTitlePage}
-\clearpage
-
-\clearpage
-\afterpage{\blankpage}
-\clearpage
+\cleardoublepage
 
 \listofdocumentPart
 
 \documentPartEntry{Aufgabenstellung}
 \includepdf[pages=-]{media/documents/Aufgabenstellung.pdf}
 
-\clearpage
-\afterpage{\blankpage}
-\clearpage
+\cleardoublepage
 
 % Title page
 \thispagestyle{empty}
@@ -208,9 +197,7 @@ urlcolor=black
 % interfaces & protocols
 \input{interfacesAndProtocols/interfacesAndProtocols}
 
-\clearpage
-\afterpage{\blankpage}
-\clearpage
+\cleardoublepage
 \input{interfacesAndProtocols/userInterface}
 % performance analyse
 
@@ -219,9 +206,7 @@ urlcolor=black
 % Erkenntnisse, Schlussfolgerungen
 \input{conclusion/conclusion}
 
-\clearpage
-\afterpage{\blankpage}
-\clearpage
+\cleardoublepage
 
 \input{glossary}
 \nocite{*}
@@ -238,9 +223,7 @@ urlcolor=black
 \input{requirements/nfRequirements}
 \input{requirements/security}
 
-\clearpage
-\afterpage{\blankpage}
-\clearpage
+\cleardoublepage
 % quality management
 \input{projectPlan/projectManagement}
 \input{projectPlan/codeStatistics}
