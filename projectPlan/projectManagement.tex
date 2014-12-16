@@ -150,8 +150,12 @@
 			\end{description}
 		
 		\section{Testergebnisse}
-			Die Tests wurden automatisch auf dem Jenkins (siehe Abschnitt~\ref{subsec:buildserver}) ausgeführt,
-			wann immer neuer Code committed wurde.
+			Der von uns eingerichtete Buildserver Jenkins (siehe Abschnitt~\ref{subsec:buildserver}) bezog automatisch neue Commits aus dem Repository und führte nach jeder Änderung einen Testdurchlauf aus.
+			
+			Die folgende Grafik zeigt die Testdurchläufe zwischen dem 1. und 4. Dezember.
+			Gelbe Testresultate stehen für nicht ausgeführte Tests.
+			In unserem Falle betrifft dies alle Tests, die Vagrant erfordern, da die Leistung auf dem Testserver nicht zur Ausführung dieser reichte.
+			Rote Testresultate bedeuten fehlgeschlagene Tests, grüne erfolgreiche.
 
 			\begin{figure}[H]
 				\includegraphics[width=\linewidth]{projectPlan/media/img/jenkinsTrend.png}
@@ -160,14 +164,14 @@
 				\label{fig:jenkinsTrend}
 			\end{figure}
 			
-			Einer der dabei laufenden Tests ist ein Selenium-Test, der die Client-Tests ausführt.
-			Eine erfolgreiche Ausführung dieser ist in Abbildung~\ref{fig:clientTestResult} gezeigt.
-			Total hat \eeppi\ rund 150 Tests, davon testen rund 1/3 den Client, knapp 2/3 den Server
-			und rund 10 Tests übergeordnete Funktionalitäten und das Zusammenspiel zwischen Client und Server.
+			Einer der dabei laufenden Tests ist ein Selenium-Test, der die Client-Tests über einen Browser ausführt und dessen Ausgabe analysiert.
+			Eine erfolgreicher Durchlauf dieser ist in Abbildung~\ref{fig:clientTestResult} gezeigt.
+			Total besitzt \eeppi\ rund 150 Tests, davon testen rund 1/3 den Clientteil, knapp 2/3 den Serverteil
+			und rund 10 Tests übergeordnete Funktionalitäten sowie das Zusammenspiel zwischen Client und Server.
 			
 			\begin{figure}[H]
 				\includegraphics[width=0.8\linewidth]{projectPlan/media/img/clientTestResult.png}
 				\centering
-				\caption{Ergebnisse Client-Tests}
+				\caption{Ergebnisse Client-Tests (Ansicht im Browser)}
 				\label{fig:clientTestResult}
 			\end{figure}
